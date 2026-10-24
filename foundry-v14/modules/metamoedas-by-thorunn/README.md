@@ -92,10 +92,13 @@ Sempre que um jogador comete metagame, o Mestre ganha Metamoedas. Essas moedas s
 * **Desenvolvimento Foundry VTT:** **Charles Corrêa**
   * 🌐 **Artigo no Blog:** [Transforme o metagame da sua mesa em caos narrativo](https://rpg.charlescorrea.com.br/dicas/transforme-o-metagame-da-sua-mesa-em-caos-narrativo-com-o-guia-das-metamoedas-by-thorunn/)
   * 💻 **Site:** [rpg.charlescorrea.com.br](https://rpg.charlescorrea.com.br)
+  * 🌲 **Linktree:** [linktr.ee/mestrecharlescorrea](https://linktr.ee/mestrecharlescorrea)
+  * 📚 **Postagens do Blog:** [lnk.bio/MestreCharlesCorrea](https://lnk.bio/MestreCharlesCorrea)
   * 🐙 **GitHub:** [@CharlesCorreaDev](https://github.com/CharlesCorreaDev/)
   * 📷 **Instagram:** [@MestreCharlesCorrea](https://instagram.com/MestreCharlesCorrea)
   * 💬 **WhatsApp / Orçamentos & Parcerias:** [**(51) 99585-9269**](https://wa.me/5551995859269)
   * ✉️ **E-mail:** [charlescorreaweb@gmail.com](mailto:charlescorreaweb@gmail.com)
+  * 💖 **Apoie via PIX:** [QR Code no Google Drive](https://drive.google.com/file/d/1SBUcAtX1HHxy36tCvlAIafAMdIZ2nD9h/view?usp=drive_link)
 
 ---
 
@@ -191,10 +194,13 @@ Whenever a player metagames, the Game Master earns Metacoins. These coins can la
 * **Foundry VTT Development:** **Charles Corrêa**
   * 🌐 **Blog Article:** [Turn your table's metagame into narrative chaos](https://rpg.charlescorrea.com.br/dicas/transforme-o-metagame-da-sua-mesa-em-caos-narrativo-com-o-guia-das-metamoedas-by-thorunn/)
   * 💻 **Website:** [rpg.charlescorrea.com.br](https://rpg.charlescorrea.com.br)
+  * 🌲 **Linktree:** [linktr.ee/mestrecharlescorrea](https://linktr.ee/mestrecharlescorrea)
+  * 📚 **Blog Posts Directory:** [lnk.bio/MestreCharlesCorrea](https://lnk.bio/MestreCharlesCorrea)
   * 🐙 **GitHub:** [@CharlesCorreaDev](https://github.com/CharlesCorreaDev/)
   * 📷 **Instagram:** [@MestreCharlesCorrea](https://instagram.com/MestreCharlesCorrea)
   * 💬 **WhatsApp / Inquiries & Quotes:** [**(51) 99585-9269**](https://wa.me/5551995859269)
   * ✉️ **Email:** [charlescorreaweb@gmail.com](mailto:charlescorreaweb@gmail.com)
+  * 💖 **Support via PIX:** [QR Code on Google Drive](https://drive.google.com/file/d/1SBUcAtX1HHxy36tCvlAIafAMdIZ2nD9h/view?usp=drive_link)
 
 ---
 

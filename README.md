@@ -28,6 +28,8 @@ O objetivo deste projeto é entregar ferramentas modernas, intuitivas, performá
 ### 🌐 Conecte-se com o Mestre Charles Corrêa
 Acompanhe os conteúdos, transmissões, tutoriais e projetos nas redes sociais:
 
+- 🌲 **Linktree (Todas as Redes e Links)**: [linktr.ee/mestrecharlescorrea](https://linktr.ee/mestrecharlescorrea)
+- 📚 **Lista de Postagens do Blog**: [lnk.bio/MestreCharlesCorrea](https://lnk.bio/MestreCharlesCorrea)
 - 📝 **Blog Oficial**: [rpg.charlescorrea.com.br](https://rpg.charlescorrea.com.br)
 - 💻 **GitHub**: [github.com/CharlesCorreaDev](https://github.com/CharlesCorreaDev)
 - 📸 **Instagram**: [@mestrecharlescorrea](https://www.instagram.com/mestrecharlescorrea)
@@ -36,6 +38,15 @@ Acompanhe os conteúdos, transmissões, tutoriais e projetos nas redes sociais:
 - 🟣 **Twitch**: [twitch.tv/mestrecharlescorrea](https://www.twitch.tv/mestrecharlescorrea)
 - 📱 **TikTok**: [@mestrecharlescorrea](https://www.tiktok.com/@mestrecharlescorrea)
 - 💬 **Comunidade no WhatsApp**: [Entrar no Grupo de RPG](https://chat.whatsapp.com/FSr7xgejDqoHkfrrA5GxXj)
+
+---
+
+### 💖 Apoie o Projeto / Faça uma Doação (PIX)
+Gosta do nosso trabalho e quer incentivar o desenvolvimento contínuo de módulos gratuitos e abertos para a comunidade Foundry VTT? Você pode apoiar diretamente com qualquer valor via **PIX**:
+
+👉 **[Visualizar QR Code do PIX (Google Drive)](https://drive.google.com/file/d/1SBUcAtX1HHxy36tCvlAIafAMdIZ2nD9h/view?usp=drive_link)**
+
+*Sua contribuição ajuda a manter os servidores ativos, testes de novos módulos e a produção contínua de conteúdo e ferramentas para RPG!*
 
 ---
 
@@ -88,7 +99,8 @@ Our mission is to build modern, reliable, and accessible tools designed to eleva
 
 ---
 
-### 🌐 Connect with Mestre Charles Corrêa
+- 🌲 **Linktree (All Networks & Links)**: [linktr.ee/mestrecharlescorrea](https://linktr.ee/mestrecharlescorrea)
+- 📚 **Blog Posts Directory**: [lnk.bio/MestreCharlesCorrea](https://lnk.bio/MestreCharlesCorrea)
 - 📝 **Blog**: [rpg.charlescorrea.com.br](https://rpg.charlescorrea.com.br)
 - 💻 **GitHub**: [github.com/CharlesCorreaDev](https://github.com/CharlesCorreaDev)
 - 📸 **Instagram**: [@mestrecharlescorrea](https://www.instagram.com/mestrecharlescorrea)
@@ -97,6 +109,13 @@ Our mission is to build modern, reliable, and accessible tools designed to eleva
 - 🟣 **Twitch**: [twitch.tv/mestrecharlescorrea](https://www.twitch.tv/mestrecharlescorrea)
 - 📱 **TikTok**: [@mestrecharlescorrea](https://www.tiktok.com/@mestrecharlescorrea)
 - 💬 **WhatsApp Community**: [Join RPG Group](https://chat.whatsapp.com/FSr7xgejDqoHkfrrA5GxXj)
+
+---
+
+### 💖 Support the Project / Make a Donation
+Want to support the ongoing development of free and open-source tools and modules for the Foundry VTT community? You can donate directly via **PIX**:
+
+👉 **[View PIX QR Code (Google Drive)](https://drive.google.com/file/d/1SBUcAtX1HHxy36tCvlAIafAMdIZ2nD9h/view?usp=drive_link)**
 
 ---
 
