@@ -1,0 +1,458 @@
+{
+  "METAMOEDAS": {
+    "Title": "Guia de Metamoedas by Thorunn",
+    "OpenPanel": "Abrir Guia de Metamoedas",
+    "Balance": "Saldo de Metamoedas",
+    "Coins": "Metamoedas",
+    "Coin": "Metamoeda",
+    "SceneInfractions": "Metagames nesta Cena",
+    "SceneInflationWarning": "⚠️ Inflação do Metagame ativa: O 5º metagame despertou um Siricótico!",
+    "GoldenRule": "\"Use as Metamoedas para adicionar problema, não para roubar a agência dos jogadores.\" — Regra de Ouro",
+    "Controls": {
+      "ButtonTitle": "Guia de Metamoedas by Thorunn"
+    },
+    "App": {
+      "Title": "Guia de Metamoedas by Thorunn",
+      "BalanceLabel": "Saldo de Metamoedas",
+      "InfractionTracker": "Infrações na Cena",
+      "SiricoticoActive": "SIRICÓTICO ATIVO!",
+      "SiricoticoHint": "5 infrações acordam o Siricótico",
+      "ResetSceneTooltip": "Resetar contador de infrações da cena",
+      "ResetCoinsTooltip": "Resetar saldo total de Metamoedas para zero",
+      "AddCoinsTitle": "Adicionar Metamoedas",
+      "AddLight": "Metagame Leve",
+      "AddBlatant": "Metagame Descarado",
+      "AddCustom": "Adicionar",
+      "SpendTitle": "Loja de Punições & Castigos",
+      "SelectTarget": "Vítima",
+      "AllPlayers": "Todos os Jogadores",
+      "FilterAll": "Todas as Categorias",
+      "RandomPunishmentBtn": "Sortear Punição",
+      "RandomPunishmentTooltip": "Sorteia e aplica aleatoriamente uma punição da categoria atual que você possa pagar",
+      "ApplyEffect": "Aplicar Punição",
+      "Coins": "Metamoedas",
+      "Close": "Fechar"
+    },
+    "Dialog": {
+      "ResetCoinsTitle": "Resetar Cofre de Metamoedas",
+      "ResetCoinsContent": "Tem certeza de que deseja zerar todas as Metamoedas acumuladas no cofre do Mestre?"
+    },
+    "Notifications": {
+      "CoinsAdded": "Adicionado(s) {amount} Metamoeda(s)! Total no cofre: {total}.",
+      "CoinsReset": "Saldo de Metamoedas zerado com sucesso.",
+      "SceneReset": "Contador de infrações da cena resetado com sucesso.",
+      "NotEnoughCoins": "Saldo de Metamoedas insuficiente para esta punição!",
+      "NoCoinsAtAll": "Você não tem nenhuma Metamoeda no cofre para sortear um castigo!",
+      "NoAffordableInTier": "Nenhum castigo desta categoria cabe no seu saldo atual de Metamoedas!",
+      "GMOnlyWarning": "Apenas o Mestre pode manipular Metamoedas."
+    },
+    "Add": {
+      "Title": "Adicionar Metamoedas",
+      "Light": "Metagame Leve (+1)",
+      "Blatant": "Metagame Descarado (+2)",
+      "Custom": "Personalizado",
+      "Reason": "Motivo / Fofoca (Opcional)",
+      "Submit": "Adicionar ao Cofre",
+      "ResetScene": "Resetar Contador da Cena",
+      "SceneResetSuccess": "Contador de metagames da cena resetado com sucesso!"
+    },
+    "Spend": {
+      "Title": "Loja da Desgraça",
+      "FilterTier": "Filtrar por Gravidade:",
+      "AllTiers": "Todas as Gravidades",
+      "TargetPlayer": "Jogador Alvo:",
+      "SelectTarget": "Selecione a vítima...",
+      "Execute": "Comprar Punição",
+      "Cost": "Preço: {cost} Metamoedas",
+      "InsufficientFunds": "Saldo insuficiente! Você tem {current} e precisa de {required} Metamoedas.",
+      "SelectTargetWarning": "Selecione um jogador alvo antes de aplicar a punição!"
+    },
+    "Chat": {
+      "ApprovedStamp": "Aprovado pelo Conselho da Desgraça",
+      "PunishmentApplied": "Punição Aplicada!",
+      "Target": "Vítima:",
+      "Victim": "Vítima",
+      "Price": "Custo:",
+      "Effect": "Efeito:",
+      "CoinsAdded": "O Mestre recebeu {amount} Metamoeda(s)! Motivo: {reason}",
+      "WhisperNote": "(Mensagem visível apenas para o Mestre e para a vítima)",
+      "Attribution": "Guia de Metamoedas • Edição Macabra by Mestra Thorunn",
+      "SiricoticoNearTitle": "⚠️ SIRICÓTICO IMINENTE! (4/5)",
+      "SiricoticoNearWarning": "Atenção jogadores: 4 infrações de metagame foram cometidas nesta cena! Falta apenas 1 infração para despertar o Siricótico e inflacionar os custos cósmicos!",
+      "SiricoticoTitle": "⚠️ O SIRICÓTICO DESPERTOU!",
+      "SiricoticoWarning": "A 5ª infração metagame desta cena foi atingida! A inflação cósmica cobrou seu preço. O Siricótico foi convocado para a mesa e os custos foram inflacionados!"
+    },
+    "Banner": {
+      "ImminentTitle": "SIRICÓTICO IMINENTE!",
+      "ImminentSubtitle": "Falta 1 infração para o Siricótico despertar!",
+      "ActiveTitle": "SIRICÓTICO ATIVO!",
+      "ActiveSubtitle": "A inflação do metagame cobrou seu preço cósmico!"
+    },
+    "Credits": {
+      "Title": "Sobre & Créditos",
+      "DialogTitle": "Tributo à Mestra Thorunn",
+      "Author": "Mestra Thorunn",
+      "Role": "Autora, Criadora de Mundos e Patrona do Sistema de Metamoedas",
+      "Bio1": "Mestra Thorunn é autora, criadora de mundos e mestre de RPG profissionalmente comprometida com duas coisas: ser mestre do horror, detalhes absurdamente específicos e a galhofa.",
+      "Bio2": "É genialmente pentelha com lore, coerência, atmosfera e aquele pequeno detalhe que ninguém percebeu, mas que ela percebe (pode ter certeza disso) e agora precisa ser explorado.",
+      "Bio3": "Mestra Thorunn também é a criadora de Vezonia e Strigovia, universos que ela construiu e está transformando em livros de cenário, reunindo geografia, história, culturas, povos, política, religião, criaturas e personagens para dar a eles vida própria no papel, sem perder o espírito de aventura, dramaticidade e uma quantidade cuidadosamente administrada de caos.",
+      "GoldenRuleLabel": "Regra de Ouro",
+      "GoldenRule": "Use as Metamoedas para adicionar problema, não para roubar a agência dos jogadores.",
+      "InstagramLabel": "Instagram Oficial",
+      "DrivePdf": "Baixar Guia Oficial (PDF)",
+      "DownloadPdfDesc": "PDF diagramado gratuito com todas as regras e tabelas",
+      "BlogArticle": "Artigo Completo no Blog"
+    },
+    "Settings": {
+      "Visibility": {
+        "Name": "Visibilidade do Saldo",
+        "Hint": "Escolha se os jogadores podem ver o contador de Metamoedas do Mestre acumulando na tela ou se fica secreto.",
+        "GMOnly": "Apenas o Mestre (Secreto)",
+        "Public": "Público para Todos"
+      },
+      "ChatVisibility": {
+        "Name": "Visibilidade dos Castigos no Chat",
+        "Hint": "Define quem recebe o card com a punição quando o Mestre aplicar um castigo.",
+        "WhisperTarget": "Mestre e Vítima (Sussurro Privado)",
+        "GMOnly": "Apenas o Mestre (Secreto)",
+        "Public": "Público para Todos na Mesa"
+      },
+      "PlaySound": {
+        "Name": "Tocar Efeitos Sonoros",
+        "Hint": "Toca a gargalhada macabra oficial quando uma punição for enviada ao chat."
+      }
+    },
+    "Tiers": {
+      "Basic": "Básica (1-2)",
+      "BasicDesc": "Pequenas desgraças, humilhações baratas e tropeços memoráveis.",
+      "Intermediate": "Intermediária (2-3)",
+      "IntermediateDesc": "Quando o Mestre acumulou rancor o bastante e o caos fica profissional.",
+      "Advanced": "Avançada (4-5)",
+      "AdvancedDesc": "Deixa de ser incômodo e vira projeto de humilhação estruturada.",
+      "Major": "Gastos Maiores (5-6)",
+      "MajorDesc": "Se o Mestre chegou até aqui, os jogadores realmente mereceram.",
+      "GreaterChaos": "Caos Maior (7-10)",
+      "GreaterChaosDesc": "Quando a economia do metagame floresce e o desastre já anda de terno.",
+      "SupremeCatastrophe": "Catástrofes Supremas (12-20)",
+      "SupremeCatastropheDesc": "Se o Mestre está gastando isso tudo, ninguém mais sairá emocionalmente limpo."
+    },
+    "Punishments": {
+      "LinguaTropecou": {
+        "Name": "A Língua Tropeçou",
+        "Effect": "Gagueira leve por 1 cena"
+      },
+      "PalavraProibida": {
+        "Name": "Palavra Proibida",
+        "Effect": "Não pode dizer uma palavra comum"
+      },
+      "VozTaverneiro": {
+        "Name": "Voz de Taverneiro",
+        "Effect": "Fala como bêbado narrador por 1 cena"
+      },
+      "EspirroArcano": {
+        "Name": "Espirro Arcano",
+        "Effect": "Espirra no pior momento"
+      },
+      "CadeMinhaCoisa": {
+        "Name": "Cadê Minha Coisa?",
+        "Effect": "Um item banal está no lugar errado"
+      },
+      "PedrinhaSapato": {
+        "Name": "Pedrinha no Sapato",
+        "Effect": "Pequena penalidade até resolver"
+      },
+      "CoceiraInexplicavel": {
+        "Name": "Coceira Inexplicável",
+        "Effect": "Desconforto social instantâneo"
+      },
+      "PomboDestino": {
+        "Name": "Pombo do Destino",
+        "Effect": "Uma ave decide te odiar"
+      },
+      "NpcOuviuIsso": {
+        "Name": "O NPC Ouviu Isso",
+        "Effect": "Um comentário vira problema plausível"
+      },
+      "MutividadeSeletiva": {
+        "Name": "Mutividade Seletiva Feérica",
+        "Effect": "Não fala com 1 alvo específico"
+      },
+      "MaldicaoEco": {
+        "Name": "Maldição do Eco",
+        "Effect": "A última palavra se repete"
+      },
+      "SotaqueAmaldicoado": {
+        "Name": "Sotaque Amaldiçoado",
+        "Effect": "Ganha sotaque improvável por 1 cena"
+      },
+      "PortaErrada": {
+        "Name": "A Porta Errada",
+        "Effect": "A porta leva ao lugar mais inútil"
+      },
+      "GuardaCagando": {
+        "Name": "O Guarda Estava Cagando",
+        "Effect": "Um NPC volta na hora errada"
+      },
+      "PequenaDivida": {
+        "Name": "Pequena Dívida Esquecida",
+        "Effect": "Comerciante cobra quantia ridícula"
+      },
+      "CachorroNaoGostou": {
+        "Name": "O Cachorro Não Gostou de Você",
+        "Effect": "Um cão rosna só para você"
+      },
+      "ArautoConstrangimento": {
+        "Name": "Arauto do Constrangimento",
+        "Effect": "NPC revela episódio vergonhoso"
+      },
+      "ObjetoPegajoso": {
+        "Name": "Objeto Suspeitamente Pegajoso",
+        "Effect": "O próximo objeto está nojento"
+      },
+      "SiricoticoObservador": {
+        "Name": "Siricotico Observador",
+        "Effect": "Uma criatura observa e julga"
+      },
+      "MauPressagioEspecifico": {
+        "Name": "Mau Presságio Ridiculamente Específico",
+        "Effect": "Profecia estranha e inconveniente"
+      },
+      "MaldicaoNomeErrado": {
+        "Name": "A Maldição do Nome Errado",
+        "Effect": "NPCs insistem em outro nome"
+      },
+      "TrumpinhoSolitario": {
+        "Name": "Trumpinho Solitário",
+        "Effect": "Surge um pequeno inferno de terno"
+      },
+      "SiricoticoCleptomaniaco": {
+        "Name": "Siricotico Cleptomaníaco",
+        "Effect": "Rouba algo pequeno e foge"
+      },
+      "VendedorPersistente": {
+        "Name": "Vendedor Ambulante Persistente",
+        "Effect": "Mercador não aceita não"
+      },
+      "ChaoFazBarulho": {
+        "Name": "O Chão Faz Barulho",
+        "Effect": "A furtividade faz um som obsceno"
+      },
+      "ArmaduraBarulhenta": {
+        "Name": "Armadura Barulhenta",
+        "Effect": "Equipamento desenvolve rangido"
+      },
+      "ExcessoSinceridade": {
+        "Name": "Excesso de Sinceridade",
+        "Effect": "Mentir fica difícil por 1 minuto"
+      },
+      "MusicaInconveniente": {
+        "Name": "Música Ambiente Inconveniente",
+        "Effect": "Toca trilha inadequada"
+      },
+      "PessoaMaisChata": {
+        "Name": "A Pessoa Mais Chata do Mundo",
+        "Effect": "NPC inconveniente adota o grupo"
+      },
+      "GargalhadaMaldita": {
+        "Name": "Gargalhada Maldita",
+        "Effect": "Palavra-gatilho faz rir sempre"
+      },
+      "TrumpinhoDiplomata": {
+        "Name": "Trumpinho Diplomata",
+        "Effect": "Exige falar com o responsável"
+      },
+      "EmboscadaSiricoticos": {
+        "Name": "Emboscada de Siricoticos",
+        "Effect": "1d4+1 entram em cena"
+      },
+      "MendigoProfetico": {
+        "Name": "O Mendigo Profético",
+        "Effect": "Verdade horrível em versão mendigo"
+      },
+      "MaldicaoMonologo": {
+        "Name": "A Maldição do Monólogo",
+        "Effect": "Intimidar vira discurso dramático"
+      },
+      "NaoEraEstatua": {
+        "Name": "Não Era Uma Estátua",
+        "Effect": "O objeto decorativo acorda"
+      },
+      "ExDoNada": {
+        "Name": "Ex do Nada",
+        "Effect": "Um passado romântico volta para assombrar"
+      },
+      "FiscalizacaoArcana": {
+        "Name": "Fiscalização Arcana",
+        "Effect": "Pedem licença absurda"
+      },
+      "FamiliarSindicalizou": {
+        "Name": "O Familiar se Sindicalizou",
+        "Effect": "Mascote exige benefícios"
+      },
+      "MimicaCompulsoria": {
+        "Name": "Mímica Compulsória",
+        "Effect": "Falha verbal vira mímica"
+      },
+      "AqueleNpcAqui": {
+        "Name": "Aquele NPC Está Aqui",
+        "Effect": "O chato retorna"
+      },
+      "SiricoticoAlfa": {
+        "Name": "Siricotico Alfa",
+        "Effect": "Grande, forte e convencido"
+      },
+      "TresTrumpinhosSobretudo": {
+        "Name": "Três Trumpinhos em um Sobretudo",
+        "Effect": "Adulto suspeito exige respeito"
+      },
+      "MaldicaoContrario": {
+        "Name": "Maldição do Contrário",
+        "Effect": "Sim sai não e vice-versa"
+      },
+      "ProblemaTemAdvogado": {
+        "Name": "O Problema Tem Advogado",
+        "Effect": "O alvo tinha cobertura legal"
+      },
+      "RivalInesperado": {
+        "Name": "Rival Inesperado",
+        "Effect": "Surge concorrente por nada"
+      },
+      "ItemFala": {
+        "Name": "O Item Fala",
+        "Effect": "Um objeto ganha voz e opiniões"
+      },
+      "GalinhaDoCaos": {
+        "Name": "Galinha do Caos",
+        "Effect": "Interagir aciona consequência aleatória"
+      },
+      "UniversoCobraFrete": {
+        "Name": "O Universo Cobra Frete",
+        "Effect": "Sucesso cobra pequena taxa"
+      },
+      "ReuniaoDeFamilia": {
+        "Name": "Reunião de Família",
+        "Effect": "Parente surge na pior hora"
+      },
+      "TrumpinhoComFaca": {
+        "Name": "Trumpinho com uma Faca",
+        "Effect": "Sim, ele tem uma faca"
+      },
+      "SiricoticosMontados": {
+        "Name": "Siricoticos Montados",
+        "Effect": "Pequena cavalaria do caos"
+      },
+      "ParabensSidequest": {
+        "Name": "Parabéns, Agora é uma Sidequest",
+        "Effect": "Problema banal vira missão"
+      },
+      "MaldicaoDoDrama": {
+        "Name": "A Maldição do Drama",
+        "Effect": "Tudo sai melodramático"
+      },
+      "BurocraciaInfernal": {
+        "Name": "Burocracia Infernal",
+        "Effect": "Falta selo, licença ou carimbo"
+      },
+      "MercadorSiricotico": {
+        "Name": "Mercador Siricotico",
+        "Effect": "Vende tralhas, algumas do grupo"
+      },
+      "InimigoNaturalPlano": {
+        "Name": "Inimigo Natural do Plano",
+        "Effect": "A pior variável entra em cena"
+      },
+      "MaldicaoMusicaBatalha": {
+        "Name": "Maldição da Música de Batalha",
+        "Effect": "Tudo parece boss fight"
+      },
+      "MaReputacaoTemporaria": {
+        "Name": "Má Reputação Temporária",
+        "Effect": "Boato absurdo corre a região"
+      },
+      "SiricoticoXama": {
+        "Name": "Siricotico Xamã",
+        "Effect": "Magia ruim e péssimas ideias"
+      },
+      "TrumpinhoExecutivo": {
+        "Name": "Trumpinho Executivo",
+        "Effect": "Surge com pasta e autoridade"
+      },
+      "AqueleBauTemDentes": {
+        "Name": "Aquele Baú Tem Dentes",
+        "Effect": "Surpresa monstruosa"
+      },
+      "EncontroAleatorioPremium": {
+        "Name": "Encontro Aleatório Premium",
+        "Effect": "Encontro temático imediato"
+      },
+      "SiricotocalipseLocalizado": {
+        "Name": "Siricotocalipse Localizado",
+        "Effect": "2d6 siricoticos aparecem"
+      },
+      "CacadaTrumpinica": {
+        "Name": "Caçada Trumpínica",
+        "Effect": "Um bando quer algo do grupo"
+      },
+      "MaldicaoVerdadeEspecifica": {
+        "Name": "Maldição da Verdade Muito Específica",
+        "Effect": "Honestidade banal obrigatória"
+      },
+      "DestinoSensoHumor": {
+        "Name": "O Destino Tem Senso de Humor",
+        "Effect": "Consequência antiga retorna pior"
+      },
+      "ComboSiricoticoTrumpinho": {
+        "Name": "Combo Siricotico + Trumpinho",
+        "Effect": "Ambos aparecem e se odeiam"
+      },
+      "NemTodoBalanceado": {
+        "Name": "Nem Todo Encontro Precisa Ser Balanceado",
+        "Effect": "Algo forte demais surge"
+      },
+      "ChefeOpcionalDesnecessario": {
+        "Name": "Chefe Opcional Absolutamente Desnecessário",
+        "Effect": "Boss evitável, recompensa tentadora"
+      },
+      "MaldicaoPessimaImpressao": {
+        "Name": "A Maldição da Péssima Primeira Impressão",
+        "Effect": "NPC importante começa hostil"
+      },
+      "RetornoDoFdp": {
+        "Name": "Retorno do Filho da Puta",
+        "Effect": "Inconveniente recorrente retorna"
+      },
+      "SiricoticoRei": {
+        "Name": "Siricotico Rei",
+        "Effect": "Monarca improvável exige audiência"
+      },
+      "TrumpinhosGuilda": {
+        "Name": "Trumpinhos Fizeram uma Guilda",
+        "Effect": "Agora há hierarquia e regulamento"
+      },
+      "ProfeciaMaisIdiota": {
+        "Name": "A Profecia Mais Idiota do Mundo",
+        "Effect": "Banalidade cumpre profecia real"
+      },
+      "ConselhoSiricoticos": {
+        "Name": "Conselho Extraordinário dos Siricoticos",
+        "Effect": "Julgamento formal do grupo"
+      },
+      "MetagameOlhouVolta": {
+        "Name": "O Metagame Olhou de Volta",
+        "Effect": "Algo percebe o conhecimento indevido"
+      },
+      "CatastrofeAdministrativa": {
+        "Name": "Catástrofe Administrativa",
+        "Effect": "Confisco, multa ou prisão equivocada"
+      },
+      "GrandeMigracaoSiricoticos": {
+        "Name": "A Grande Migração dos Siricoticos",
+        "Effect": "Enxame caótico atravessa a cena"
+      },
+      "MesaPediuPorIsso": {
+        "Name": "A Mesa Pediu por Isso",
+        "Effect": "Complicação cinematográfica maior"
+      }
+    }
+  }
+}

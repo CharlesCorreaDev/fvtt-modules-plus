@@ -1,0 +1,395 @@
+{
+  "METAMOEDAS": {
+    "Title": "Guía de Metamonedas by Thorunn",
+    "OpenPanel": "Abrir Guía de Metamonedas",
+    "Balance": "Saldo de Metamonedas",
+    "Coins": "Metamonedas",
+    "Coin": "Metamoneda",
+    "SceneInfractions": "Metagames en esta Escena",
+    "SceneInflationWarning": "⚠️ Inflación de Metagame activa: ¡El 5º metagame despertó a un Siricótico!",
+    "GoldenRule": "\"Usa las Metamonedas para añadir problemas, nunca para arrebatar la agencia a los jugadores.\" — Regla de Oro",
+    "Add": {
+      "Title": "Añadir Metamonedas",
+      "Light": "Metagame Leve (+1)",
+      "Blatant": "Metagame Descarado (+2)",
+      "Custom": "Cantidad Personalizada",
+      "Reason": "Motivo / Cotilleo (Opcional)",
+      "Submit": "Añadir a la Bóveda",
+      "ResetScene": "Reiniciar Contador de Escena",
+      "SceneResetSuccess": "¡Contador de metagames de la escena reiniciado con éxito!"
+    },
+    "Spend": {
+      "Title": "Tienda de la Desgracia",
+      "FilterTier": "Filtrar por Severidad:",
+      "AllTiers": "Todas las Severidades",
+      "TargetPlayer": "Jugador Objetivo:",
+      "SelectTarget": "Selecciona la víctima...",
+      "Execute": "Comprar Castigo",
+      "Cost": "Precio: {cost} Metamonedas",
+      "InsufficientFunds": "¡Saldo insuficiente! Tienes {current} y necesitas {required} Metamonedas.",
+      "SelectTargetWarning": "¡Selecciona a un jugador objetivo antes de aplicar el castigo!"
+    },
+    "Chat": {
+      "ApprovedStamp": "Aprobado por el Consejo de la Desgracia",
+      "PunishmentApplied": "¡Castigo Aplicado!",
+      "Target": "Víctima:",
+      "Price": "Coste:",
+      "Effect": "Efecto:",
+      "CoinsAdded": "¡El DJ recibió {amount} Metamoneda(s)! Motivo: {reason}",
+      "WhisperNote": "(Mensaje visible únicamente para el DJ y la víctima)"
+    },
+    "Credits": {
+      "Title": "Acerca de & Créditos",
+      "AuthorHeader": "Maestra Thorunn",
+      "AuthorRole": "Autora, Creadora de Mundos y Patrona del Sistema de Metamonedas",
+      "Bio": "Maestra Thorunn es autora, creadora de mundos y directora de rol profesionalmente comprometida con dos cosas: ser maestra del horror con detalles absurdamente específicos y la comedia desenfadada. Es genialmente meticulosa con el lore, la coherencia, la atmósfera y ese pequeño detalle que nadie notó, pero que ella sí vio (puedes estar seguro) y que ahora debe ser explorado.\n\nTambién es la creadora de Vezonia y Strigovia, universos vivos que construyó y está transformando en libros de ambientación repletos de geografía, historia, culturas, pueblos, política, religión, criaturas y personajes que hacen que un mundo se sienta vivo incluso cuando nadie está tirando dados en él.\n\nLa idea de sus libros es precisamente esa: sacar esos mundos de la mesa de rol y darles vida propia sobre el papel, sin perder el espíritu de aventura, dramatismo, extrañeza y, naturalmente, una dosis cuidadosamente administrada de puro caos.",
+      "BookLink": "Descargar Guía Oficial (PDF)",
+      "PostLink": "Leer Artículo en el Blog",
+      "InstagramLink": "Instagram de Thorunn (@thorunnx.gm)"
+    },
+    "Settings": {
+      "Visibility": {
+        "Name": "Visibilidad del Saldo",
+        "Hint": "Elige si los jugadores pueden ver el contador de Metamonedas acumulándose en pantalla o si permanece secreto para el DJ.",
+        "GMOnly": "Solo para el DJ (Secreto)",
+        "Public": "Público para Todos"
+      },
+      "PlaySound": {
+        "Name": "Reproducir Efectos de Sonido",
+        "Hint": "Reproduce la risa macabra oficial cuando se envía un castigo al chat."
+      }
+    },
+    "Tiers": {
+      "Basic": "Básica (1-2)",
+      "BasicDesc": "Pequeñas desgracias, humillaciones baratas y tropiezos memorables.",
+      "Intermediate": "Intermedia (2-3)",
+      "IntermediateDesc": "Cuando el DJ acumula suficiente rencor y el caos se vuelve profesional.",
+      "Advanced": "Avanzada (4-5)",
+      "AdvancedDesc": "Deja de ser molestia y pasa a ser humillación estructurada.",
+      "Major": "Gastos Mayores (5-6)",
+      "MajorDesc": "Si el DJ llegó hasta aquí, los jugadores realmente se lo ganaron.",
+      "GreaterChaos": "Gran Caos (7-10)",
+      "GreaterChaosDesc": "Cuando la economía del metagame florece y el desastre viste de traje.",
+      "SupremeCatastrophe": "Catástrofes Supremas (12-20)",
+      "SupremeCatastropheDesc": "Si el DJ gasta todo esto, nadie saldrá emocionalmente ileso."
+    },
+    "Punishments": {
+      "LinguaTropecou": {
+        "Name": "La Lengua Tropezó",
+        "Effect": "Tartamudeo leve por 1 escena"
+      },
+      "PalavraProibida": {
+        "Name": "Palabra Prohibida",
+        "Effect": "No puede pronunciar una palabra común"
+      },
+      "VozTaverneiro": {
+        "Name": "Voz de Tabernero",
+        "Effect": "Habla como borracho narrador por 1 escena"
+      },
+      "EspirroArcano": {
+        "Name": "Estornudo Arcano",
+        "Effect": "Estornuda en el peor momento posible"
+      },
+      "CadeMinhaCoisa": {
+        "Name": "¿Dónde Está Mi Cosa?",
+        "Effect": "Un objeto mundano está en el lugar equivocado"
+      },
+      "PedrinhaSapato": {
+        "Name": "Piedrecita en el Zapato",
+        "Effect": "Pequeña penalización hasta resolverla"
+      },
+      "CoceiraInexplicavel": {
+        "Name": "Picor Inexplicable",
+        "Effect": "Incomodidad social instantánea"
+      },
+      "PomboDestino": {
+        "Name": "Paloma del Destino",
+        "Effect": "Un ave decide odiarte profundamente"
+      },
+      "NpcOuviuIsso": {
+        "Name": "El PNJ Escuchó Eso",
+        "Effect": "Un comentario se convierte en problema verosímil"
+      },
+      "MutividadeSeletiva": {
+        "Name": "Mutismo Selectivo Feérico",
+        "Effect": "No puede hablar con 1 objetivo específico"
+      },
+      "MaldicaoEco": {
+        "Name": "Maldición del Eco",
+        "Effect": "La última palabra dicha se repite"
+      },
+      "SotaqueAmaldicoado": {
+        "Name": "Acento Maldito",
+        "Effect": "Adquiere un acento improbable por 1 escena"
+      },
+      "PortaErrada": {
+        "Name": "La Puerta Equivocada",
+        "Effect": "La puerta lleva al sitio más inútil"
+      },
+      "GuardaCagando": {
+        "Name": "El Guardia Estaba en el Baño",
+        "Effect": "Un PNJ regresa en el momento equivocado"
+      },
+      "PequenaDivida": {
+        "Name": "Pequeña Deuda Olvidada",
+        "Effect": "Un comerciante cobra una suma ridícula"
+      },
+      "CachorroNaoGostou": {
+        "Name": "Al Perro No le Gustas",
+        "Effect": "Un perro gruñe solo hacia ti"
+      },
+      "ArautoConstrangimento": {
+        "Name": "Heraldo de la Vergüenza",
+        "Effect": "Un PNJ revela un episodio bochornoso"
+      },
+      "ObjetoPegajoso": {
+        "Name": "Objeto Sospechosamente Pegajoso",
+        "Effect": "El siguiente objeto está asqueroso"
+      },
+      "SiricoticoObservador": {
+        "Name": "Siricótico Observador",
+        "Effect": "Una criatura observa y juzga en silencio"
+      },
+      "MauPressagioEspecifico": {
+        "Name": "Mal Presagio Ridículamente Específico",
+        "Effect": "Profecía extraña e inconveniente"
+      },
+      "MaldicaoNomeErrado": {
+        "Name": "Maldición del Nombre Equivocado",
+        "Effect": "Los PNJs insisten en llamarte de otra manera"
+      },
+      "TrumpinhoSolitario": {
+        "Name": "Trumpinho Solitario",
+        "Effect": "Aparece un pequeño infierno de traje"
+      },
+      "SiricoticoCleptomaniaco": {
+        "Name": "Siricótico Cleptómano",
+        "Effect": "Roba algo pequeño y huye"
+      },
+      "VendedorPersistente": {
+        "Name": "Vendedor Callejero Persistente",
+        "Effect": "El mercader no acepta un no por respuesta"
+      },
+      "ChaoFazBarulho": {
+        "Name": "El Suelo Hace Ruido",
+        "Effect": "El sigilo produce un sonido obsceno"
+      },
+      "ArmaduraBarulhenta": {
+        "Name": "Armadura Ruidosa",
+        "Effect": "El equipo desarrolla un chirrido insoportable"
+      },
+      "ExcessoSinceridade": {
+        "Name": "Exceso de Sinceridad",
+        "Effect": "Mentir se vuelve imposible por 1 minuto"
+      },
+      "MusicaInconveniente": {
+        "Name": "Música Ambiental Inapropiada",
+        "Effect": "Suena una banda sonora ridícula"
+      },
+      "PessoaMaisChata": {
+        "Name": "La Persona Más Pesada del Mundo",
+        "Effect": "Un PNJ insufrible se apega al grupo"
+      },
+      "GargalhadaMaldita": {
+        "Name": "Carcajada Maldita",
+        "Effect": "Una palabra clave provoca risa constante"
+      },
+      "TrumpinhoDiplomata": {
+        "Name": "Trumpinho Diplomático",
+        "Effect": "Exige hablar con el responsable"
+      },
+      "EmboscadaSiricoticos": {
+        "Name": "Emboscada de Siricóticos",
+        "Effect": "1d4+1 entran en escena"
+      },
+      "MendigoProfetico": {
+        "Name": "El Mendigo Profético",
+        "Effect": "Verdad espantosa dicha por un mendigo"
+      },
+      "MaldicaoMonologo": {
+        "Name": "Maldición del Monólogo",
+        "Effect": "Intimidar se transforma en discurso dramático"
+      },
+      "NaoEraEstatua": {
+        "Name": "No Era Una Estatua",
+        "Effect": "El objeto decorativo despierta"
+      },
+      "ExDoNada": {
+        "Name": "Ex de la Nada",
+        "Effect": "Un pasado amoroso regresa para atormentar"
+      },
+      "FiscalizacaoArcana": {
+        "Name": "Inspección Arcana",
+        "Effect": "Exigen una licencia mágica absurda"
+      },
+      "FamiliarSindicalizou": {
+        "Name": "El Familiar se Sindicalizó",
+        "Effect": "La mascota exige beneficios laborales"
+      },
+      "MimicaCompulsoria": {
+        "Name": "Mímica Compulsoria",
+        "Effect": "Fallo verbal se convierte en mímica"
+      },
+      "AqueleNpcAqui": {
+        "Name": "Aquel PNJ Está Aquí",
+        "Effect": "El pesado regresa"
+      },
+      "SiricoticoAlfa": {
+        "Name": "Siricótico Alfa",
+        "Effect": "Grande, fuerte y creído"
+      },
+      "TresTrumpinhosSobretudo": {
+        "Name": "Tres Trumpinhos en un Gabán",
+        "Effect": "Adulto sospechoso exige respeto"
+      },
+      "MaldicaoContrario": {
+        "Name": "Maldición del Contrario",
+        "Effect": "Sí sale no y viceversa"
+      },
+      "ProblemaTemAdvogado": {
+        "Name": "El Problema Tiene Abogado",
+        "Effect": "El objetivo tenía cobertura jurídica"
+      },
+      "RivalInesperado": {
+        "Name": "Rival Inesperado",
+        "Effect": "Surge un competidor por la nada misma"
+      },
+      "ItemFala": {
+        "Name": "El Objeto Habla",
+        "Effect": "Un objeto cobra voz y opiniones propias"
+      },
+      "GalinhaDoCaos": {
+        "Name": "Gallina del Caos",
+        "Effect": "Interactuar desata una consecuencia aleatoria"
+      },
+      "UniversoCobraFrete": {
+        "Name": "El Universo Cobra Envío",
+        "Effect": "El éxito cobra una pequeña tasa"
+      },
+      "ReuniaoDeFamilia": {
+        "Name": "Reunión Familiar",
+        "Effect": "Un pariente aparece en el peor momento"
+      },
+      "TrumpinhoComFaca": {
+        "Name": "Trumpinho con un Cuchillo",
+        "Effect": "Sí, tiene un cuchillo"
+      },
+      "SiricoticosMontados": {
+        "Name": "Siricóticos Montados",
+        "Effect": "Pequeña caballería del caos"
+      },
+      "ParabensSidequest": {
+        "Name": "Felicidades, Ahora es una Misión Secundaria",
+        "Effect": "Un problema banal se vuelve misión"
+      },
+      "MaldicaoDoDrama": {
+        "Name": "Maldición del Melodrama",
+        "Effect": "Todo resulta exageradamente dramático"
+      },
+      "BurocraciaInfernal": {
+        "Name": "Burocracia Infernal",
+        "Effect": "Falta un sello, permiso o formulario"
+      },
+      "MercadorSiricotico": {
+        "Name": "Mercader Siricótico",
+        "Effect": "Vende trastos, algunos del grupo"
+      },
+      "InimigoNaturalPlano": {
+        "Name": "Enemigo Natural del Plan",
+        "Effect": "La peor variable entra en escena"
+      },
+      "MaldicaoMusicaBatalha": {
+        "Name": "Maldición de Música de Jefe",
+        "Effect": "Todo parece una batalla final épica"
+      },
+      "MaReputacaoTemporaria": {
+        "Name": "Mala Reputación Temporal",
+        "Effect": "Un rumor absurdo corre por la región"
+      },
+      "SiricoticoXama": {
+        "Name": "Siricótico Chamán",
+        "Effect": "Magia chapucera y pésimas ideas"
+      },
+      "TrumpinhoExecutivo": {
+        "Name": "Trumpinho Ejecutivo",
+        "Effect": "Surge con maletín y autoridad"
+      },
+      "AqueleBauTemDentes": {
+        "Name": "Ese Cofre Tiene Dientes",
+        "Effect": "Sorpresa monstruosa"
+      },
+      "EncontroAleatorioPremium": {
+        "Name": "Encuentro Aleatorio Premium",
+        "Effect": "Encuentro temático inmediato"
+      },
+      "SiricotocalipseLocalizado": {
+        "Name": "Siricotocalipsis Localizado",
+        "Effect": "Aparecen 2d6 siricóticos"
+      },
+      "CacadaTrumpinica": {
+        "Name": "Cacería Trumpínica",
+        "Effect": "Una banda reclama algo del grupo"
+      },
+      "MaldicaoVerdadeEspecifica": {
+        "Name": "Maldición de la Verdad Específica",
+        "Effect": "Honestidad banal obligatoria"
+      },
+      "DestinoSensoHumor": {
+        "Name": "El Destino Tiene Sentido del Humor",
+        "Effect": "Una consecuencia antigua vuelve peor"
+      },
+      "ComboSiricoticoTrumpinho": {
+        "Name": "Combo Siricótico + Trumpinho",
+        "Effect": "Ambos aparecen y se desprecian"
+      },
+      "NemTodoBalanceado": {
+        "Name": "No Todo Encuentro Está Equilibrado",
+        "Effect": "Surge algo descomunalmente fuerte"
+      },
+      "ChefeOpcionalDesnecessario": {
+        "Name": "Jefe Opcional Totalmente Innecesario",
+        "Effect": "Jefe evitable, tentadora recompensa"
+      },
+      "MaldicaoPessimaImpressao": {
+        "Name": "Maldición de la Pésima Primera Impresión",
+        "Effect": "PNJ importante empieza hostil"
+      },
+      "RetornoDoFdp": {
+        "Name": "El Retorno del Desgraciado",
+        "Effect": "Una molestia recurrente regresa"
+      },
+      "SiricoticoRei": {
+        "Name": "Siricótico Rey",
+        "Effect": "Monarca insólito exige audiencia"
+      },
+      "TrumpinhosGuilda": {
+        "Name": "Los Trumpinhos Crearon un Gremio",
+        "Effect": "Ahora hay jerarquía y estatuto"
+      },
+      "ProfeciaMaisIdiota": {
+        "Name": "La Profecía Más Tonta del Mundo",
+        "Effect": "Una trivialidad cumple una profecía real"
+      },
+      "ConselhoSiricoticos": {
+        "Name": "Consejo Extraordinario de los Siricóticos",
+        "Effect": "Juicio formal hacia los aventureros"
+      },
+      "MetagameOlhouVolta": {
+        "Name": "El Metagame Devolvió la Mirada",
+        "Effect": "Algo cósmico percibe el saber indebido"
+      },
+      "CatastrofeAdministrativa": {
+        "Name": "Catástrofe Administrativa",
+        "Effect": "Confiscación, multa o arresto erróneo"
+      },
+      "GrandeMigracaoSiricoticos": {
+        "Name": "La Gran Migración de los Siricóticos",
+        "Effect": "Enjambre caótico atraviesa la escena"
+      },
+      "MesaPediuPorIsso": {
+        "Name": "La Mesa se lo Buscó",
+        "Effect": "Complicación cinematográfica mayor"
+      }
+    }
+  }
+}

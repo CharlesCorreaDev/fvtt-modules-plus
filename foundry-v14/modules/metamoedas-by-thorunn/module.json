@@ -1,0 +1,61 @@
+{
+  "id": "metamoedas-by-thorunn",
+  "title": "Guia de Metamoedas by Thorunn",
+  "description": "Transforme o metagame da sua mesa em economia do caos com as punições, maldições e regras oficiais da Mestra Thorunn. 100% agnóstico a sistemas.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "Mestra Thorunn",
+      "url": "https://www.instagram.com/thorunnx.gm/",
+      "flags": {
+        "role": "Autora e Criadora do Sistema de Metamoedas",
+        "instagram": "https://www.instagram.com/thorunnx.gm/"
+      }
+    },
+    {
+      "name": "Charles Corrêa",
+      "url": "https://rpg.charlescorrea.com.br",
+      "email": "charlescorreaweb@gmail.com",
+      "flags": {
+        "role": "Desenvolvedor do Módulo Foundry VTT",
+        "github": "https://github.com/CharlesCorreaDev",
+        "instagram": "https://www.instagram.com/mestrecharlescorrea",
+        "whatsapp": "https://chat.whatsapp.com/FSr7xgejDqoHkfrrA5GxXj"
+      }
+    }
+  ],
+  "esmodules": [
+    "src/index.js"
+  ],
+  "styles": [
+    "styles/metamoedas.css"
+  ],
+  "languages": [
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
+    }
+  ],
+  "url": "https://rpg.charlescorrea.com.br/dicas/transforme-o-metagame-da-sua-mesa-em-caos-narrativo-com-o-guia-das-metamoedas-by-thorunn/",
+  "manifest": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/metamoedas-by-thorunn/module.json",
+  "download": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/releases/download/metamoedas-by-thorunn-v1.0.0/metamoedas-by-thorunn.zip",
+  "readme": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/metamoedas-by-thorunn/README.md",
+  "changelog": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/metamoedas-by-thorunn/CHANGELOG.md",
+  "bugs": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/issues",
+  "license": "MIT"
+}

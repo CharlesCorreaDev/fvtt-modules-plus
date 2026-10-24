@@ -1,0 +1,452 @@
+{
+  "METAMOEDAS": {
+    "Title": "Metacoins Guide by Thorunn",
+    "OpenPanel": "Open Metacoins Guide",
+    "Balance": "Metacoins Balance",
+    "Coins": "Metacoins",
+    "Coin": "Metacoin",
+    "SceneInfractions": "Metagames in this Scene",
+    "SceneInflationWarning": "⚠️ Metagame Inflation active: The 5th metagame woke up a Siricotico!",
+    "GoldenRule": "\"Use Metacoins to add trouble, never to steal player agency.\" — Golden Rule",
+    "Controls": {
+      "ButtonTitle": "Metacoins Guide by Thorunn"
+    },
+    "App": {
+      "Title": "Metacoins Guide by Thorunn",
+      "BalanceLabel": "Metacoins Balance",
+      "InfractionTracker": "Scene Infractions",
+      "SiricoticoActive": "SIRICÓTICO AWAKENED!",
+      "SiricoticoHint": "5 infractions awake the Siricótico",
+      "ResetSceneTooltip": "Reset scene infractions counter",
+      "AddCoinsTitle": "Add Metacoins",
+      "AddLight": "Mild Metagame",
+      "AddBlatant": "Blatant Metagame",
+      "AddCustom": "Add",
+      "SpendTitle": "Shop of Misfortune & Punishments",
+      "SelectTarget": "Victim",
+      "AllPlayers": "All Players",
+      "FilterAll": "All Categories",
+      "RandomPunishmentBtn": "Roll Random Punishment",
+      "RandomPunishmentTooltip": "Randomly selects and inflicts an affordable punishment from the active category",
+      "ApplyEffect": "Inflict Punishment",
+      "Coins": "Metacoins",
+      "Close": "Close"
+    },
+    "Notifications": {
+      "CoinsAdded": "Added {amount} Metacoin(s)! Total in vault: {total}.",
+      "SceneReset": "Scene infractions counter successfully reset.",
+      "NotEnoughCoins": "Insufficient Metacoins balance for this punishment!",
+      "NoCoinsAtAll": "You have no Metacoins in the vault to roll a punishment!",
+      "NoAffordableInTier": "No punishments in this category fit within your current Metacoins balance!",
+      "GMOnlyWarning": "Only the GM can manipulate Metacoins."
+    },
+    "Add": {
+      "Title": "Add Metacoins",
+      "Light": "Mild Metagame (+1)",
+      "Blatant": "Blatant Metagame (+2)",
+      "Custom": "Custom Amount",
+      "Reason": "Reason / Gossip (Optional)",
+      "Submit": "Add to Vault",
+      "ResetScene": "Reset Scene Counter",
+      "SceneResetSuccess": "Scene metagame counter successfully reset!"
+    },
+    "Spend": {
+      "Title": "Shop of Misfortune",
+      "FilterTier": "Filter by Severity:",
+      "AllTiers": "All Severities",
+      "TargetPlayer": "Target Player:",
+      "SelectTarget": "Select the victim...",
+      "Execute": "Purchase Punishment",
+      "Cost": "Price: {cost} Metacoins",
+      "InsufficientFunds": "Insufficient funds! You have {current} and need {required} Metacoins.",
+      "SelectTargetWarning": "Select a target player before inflicting the punishment!"
+    },
+    "Chat": {
+      "ApprovedStamp": "Approved by the Council of Misfortune",
+      "PunishmentApplied": "Punishment Inflicted!",
+      "Target": "Victim:",
+      "Victim": "Victim",
+      "Price": "Cost:",
+      "Effect": "Effect:",
+      "CoinsAdded": "The GM received {amount} Metacoin(s)! Reason: {reason}",
+      "WhisperNote": "(Message visible only to the GM and the victim)",
+      "Attribution": "Metacoins Guide • Macabre Edition by Mistress Thorunn",
+      "SiricoticoNearTitle": "⚠️ SIRICÓTICO IMMINENT! (4/5)",
+      "SiricoticoNearWarning": "Attention players: 4 metagame infractions were committed in this scene! Only 1 infraction remains before the Siricótico awakens and inflates cosmic costs!",
+      "SiricoticoTitle": "⚠️ THE SIRICÓTICO HAS AWAKENED!",
+      "SiricoticoWarning": "The 5th metagame infraction of this scene has been reached! Cosmic inflation has struck. The Siricótico has been summoned and costs are now inflated!"
+    },
+    "Banner": {
+      "ImminentTitle": "SIRICÓTICO IMMINENT!",
+      "ImminentSubtitle": "1 infraction left before the Siricótico awakens!",
+      "ActiveTitle": "SIRICÓTICO ACTIVE!",
+      "ActiveSubtitle": "Metagame inflation has struck the table!"
+    },
+    "Credits": {
+      "Title": "About & Credits",
+      "DialogTitle": "Tribute to Mistress Thorunn",
+      "Author": "Mistress Thorunn",
+      "Role": "Author, Worldbuilder and Patron of the Metacoin System",
+      "Bio1": "Mistress Thorunn is an author, worldbuilder, and professional TTRPG game master committed to two things: mastering horror with absurdly specific details, and utter tomfoolery.",
+      "Bio2": "She is brilliantly meticulous about lore, consistency, atmosphere, and that tiny detail that nobody noticed—but she definitely did, and now it must be explored.",
+      "Bio3": "She is also the creator of Vezonia and Strigovia, living universes she crafted and is adapting into setting books filled with geography, history, cultures, politics, religion, monsters, and characters that make a world feel alive even when no one is rolling dice in it.",
+      "GoldenRuleLabel": "Golden Rule",
+      "GoldenRule": "Use Metacoins to add trouble, never to steal player agency.",
+      "InstagramLabel": "Official Instagram",
+      "DrivePdf": "Download Official Guide (PDF)",
+      "DownloadPdfDesc": "Free formatted PDF containing all official rules and tables",
+      "BlogArticle": "Full Blog Article"
+    },
+    "Settings": {
+      "Visibility": {
+        "Name": "Balance Visibility",
+        "Hint": "Choose whether players can see the GM's Metacoins accumulation on their screen or if it stays secret.",
+        "GMOnly": "GM Only (Secret)",
+        "Public": "Public to All"
+      },
+      "ChatVisibility": {
+        "Name": "Punishment Chat Card Visibility",
+        "Hint": "Determines who receives the punishment card in the chat when the GM inflicts a consequence.",
+        "WhisperTarget": "GM and Victim (Private Whisper)",
+        "GMOnly": "GM Only (Secret)",
+        "Public": "Public to Everyone at the Table"
+      },
+      "PlaySound": {
+        "Name": "Play Sound Effects",
+        "Hint": "Plays the official sinister laugh sound when a punishment is sent to the chat."
+      }
+    },
+    "Tiers": {
+      "Basic": "Basic (1-2)",
+      "BasicDesc": "Petty misfortunes, cheap embarrassments, and memorable blunders.",
+      "Intermediate": "Intermediate (2-3)",
+      "IntermediateDesc": "When the GM has gathered enough spite and chaos goes pro.",
+      "Advanced": "Advanced (4-5)",
+      "AdvancedDesc": "No longer an inconvenience: structured humiliation.",
+      "Major": "Major Expenses (5-6)",
+      "MajorDesc": "If the GM got this far, the players truly earned it.",
+      "GreaterChaos": "Greater Chaos (7-10)",
+      "GreaterChaosDesc": "When the metagame economy flourishes and disaster wears a suit.",
+      "SupremeCatastrophe": "Supreme Catastrophes (12-20)",
+      "SupremeCatastropheDesc": "If the GM is spending this much, nobody leaves emotionally unscathed."
+    },
+    "Punishments": {
+      "LinguaTropecou": {
+        "Name": "Stumbled Tongue",
+        "Effect": "Mild stutter for 1 scene"
+      },
+      "PalavraProibida": {
+        "Name": "Forbidden Word",
+        "Effect": "Cannot say a common word"
+      },
+      "VozTaverneiro": {
+        "Name": "Tavernkeeper Voice",
+        "Effect": "Speaks like a drunken narrator for 1 scene"
+      },
+      "EspirroArcano": {
+        "Name": "Arcane Sneeze",
+        "Effect": "Sneezes at the worst possible moment"
+      },
+      "CadeMinhaCoisa": {
+        "Name": "Where Is My Stuff?",
+        "Effect": "A mundane item is in the wrong place"
+      },
+      "PedrinhaSapato": {
+        "Name": "Pebble in the Shoe",
+        "Effect": "Minor penalty until resolved"
+      },
+      "CoceiraInexplicavel": {
+        "Name": "Inexplicable Itch",
+        "Effect": "Instant social awkwardness"
+      },
+      "PomboDestino": {
+        "Name": "Pigeon of Destiny",
+        "Effect": "A bird decides to despise you"
+      },
+      "NpcOuviuIsso": {
+        "Name": "The NPC Overheard That",
+        "Effect": "A casual comment becomes a plausible complication"
+      },
+      "MutividadeSeletiva": {
+        "Name": "Faerie Selective Mutism",
+        "Effect": "Cannot speak to 1 specific target"
+      },
+      "MaldicaoEco": {
+        "Name": "Curse of the Echo",
+        "Effect": "The last spoken word repeats"
+      },
+      "SotaqueAmaldicoado": {
+        "Name": "Cursed Accent",
+        "Effect": "Gains an improbable accent for 1 scene"
+      },
+      "PortaErrada": {
+        "Name": "The Wrong Door",
+        "Effect": "The door leads to the most useless place"
+      },
+      "GuardaCagando": {
+        "Name": "The Guard Was Pooping",
+        "Effect": "An NPC returns at the worst possible time"
+      },
+      "PequenaDivida": {
+        "Name": "Forgotten Petty Debt",
+        "Effect": "A merchant demands a ridiculous sum"
+      },
+      "CachorroNaoGostou": {
+        "Name": "The Dog Dislikes You",
+        "Effect": "A hound growls only at you"
+      },
+      "ArautoConstrangimento": {
+        "Name": "Herald of Embarrassment",
+        "Effect": "An NPC reveals a humiliating anecdote"
+      },
+      "ObjetoPegajoso": {
+        "Name": "Suspiciously Sticky Object",
+        "Effect": "The next handled object is disgusting"
+      },
+      "SiricoticoObservador": {
+        "Name": "Observing Siricotico",
+        "Effect": "A creature watches and silently judges"
+      },
+      "MauPressagioEspecifico": {
+        "Name": "Ridiculously Specific Bad Omen",
+        "Effect": "A bizarre and inconvenient prophecy"
+      },
+      "MaldicaoNomeErrado": {
+        "Name": "Curse of the Wrong Name",
+        "Effect": "NPCs stubbornly call you another name"
+      },
+      "TrumpinhoSolitario": {
+        "Name": "Solitary Trumpinho",
+        "Effect": "A miniature hell in a suit appears"
+      },
+      "SiricoticoCleptomaniaco": {
+        "Name": "Kleptomaniac Siricotico",
+        "Effect": "Steals a small trinket and runs"
+      },
+      "VendedorPersistente": {
+        "Name": "Persistent Street Peddler",
+        "Effect": "Merchant refuses to take no for an answer"
+      },
+      "ChaoFazBarulho": {
+        "Name": "The Floor Makes Noise",
+        "Effect": "Stealth produces an obscene sound"
+      },
+      "ArmaduraBarulhenta": {
+        "Name": "Squeaky Armor",
+        "Effect": "Gear develops an obnoxious creak"
+      },
+      "ExcessoSinceridade": {
+        "Name": "Excessive Sincerity",
+        "Effect": "Lying becomes impossible for 1 minute"
+      },
+      "MusicaInconveniente": {
+        "Name": "Inappropriate BGM",
+        "Effect": "Unfitting music soundtrack plays"
+      },
+      "PessoaMaisChata": {
+        "Name": "Most Annoying Person in the World",
+        "Effect": "An obnoxious NPC clings to the party"
+      },
+      "GargalhadaMaldita": {
+        "Name": "Cursed Laughter",
+        "Effect": "A trigger word causes uncontrollable laughter"
+      },
+      "TrumpinhoDiplomata": {
+        "Name": "Diplomat Trumpinho",
+        "Effect": "Demands to speak with the person in charge"
+      },
+      "EmboscadaSiricoticos": {
+        "Name": "Siricotico Ambush",
+        "Effect": "1d4+1 creatures enter the scene"
+      },
+      "MendigoProfetico": {
+        "Name": "The Prophetic Beggar",
+        "Effect": "Horrifying truth delivered by a tramp"
+      },
+      "MaldicaoMonologo": {
+        "Name": "Curse of the Monologue",
+        "Effect": "Intimidation turns into a theatrical monologue"
+      },
+      "NaoEraEstatua": {
+        "Name": "That Wasn't a Statue",
+        "Effect": "A decorative object comes to life"
+      },
+      "ExDoNada": {
+        "Name": "Ex Out of Nowhere",
+        "Effect": "A romantic past returns to haunt"
+      },
+      "FiscalizacaoArcana": {
+        "Name": "Arcane Audit Inspection",
+        "Effect": "Bureaucrats demand an absurd magical license"
+      },
+      "FamiliarSindicalizou": {
+        "Name": "Familiar Went on Strike",
+        "Effect": "Pet unionizes and demands benefits"
+      },
+      "MimicaCompulsoria": {
+        "Name": "Compulsory Mime",
+        "Effect": "Verbal slip transforms into mime gestures"
+      },
+      "AqueleNpcAqui": {
+        "Name": "That Annoying NPC is Here",
+        "Effect": "The nuisance returns"
+      },
+      "SiricoticoAlfa": {
+        "Name": "Alpha Siricotico",
+        "Effect": "Big, muscular and smug"
+      },
+      "TresTrumpinhosSobretudo": {
+        "Name": "Three Trumpinhos in a Trenchcoat",
+        "Effect": "Suspicious adult demands respect"
+      },
+      "MaldicaoContrario": {
+        "Name": "Curse of Opposite Day",
+        "Effect": "Yes comes out as no, and vice-versa"
+      },
+      "ProblemaTemAdvogado": {
+        "Name": "The Problem Has a Lawyer",
+        "Effect": "The target had legal counsel"
+      },
+      "RivalInesperado": {
+        "Name": "Unexpected Rival",
+        "Effect": "A random competitor appears for no reason"
+      },
+      "ItemFala": {
+        "Name": "The Item Speaks",
+        "Effect": "An object gains voice and loud opinions"
+      },
+      "GalinhaDoCaos": {
+        "Name": "Chaos Chicken",
+        "Effect": "Interacting triggers a random consequence"
+      },
+      "UniversoCobraFrete": {
+        "Name": "Universe Charges Shipping",
+        "Effect": "Success comes with a minor fee"
+      },
+      "ReuniaoDeFamilia": {
+        "Name": "Family Reunion",
+        "Effect": "A relative shows up at the worst possible time"
+      },
+      "TrumpinhoComFaca": {
+        "Name": "Trumpinho with a Knife",
+        "Effect": "Yes, he has a knife"
+      },
+      "SiricoticosMontados": {
+        "Name": "Mounted Siricoticos",
+        "Effect": "A miniature cavalry of chaos"
+      },
+      "ParabensSidequest": {
+        "Name": "Congratulations, It's a Sidequest",
+        "Effect": "A mundane obstacle becomes a full quest"
+      },
+      "MaldicaoDoDrama": {
+        "Name": "Curse of Melodrama",
+        "Effect": "Everything turns dramatically theatrical"
+      },
+      "BurocraciaInfernal": {
+        "Name": "Infernal Bureaucracy",
+        "Effect": "Missing official seal, stamp or permit"
+      },
+      "MercadorSiricotico": {
+        "Name": "Siricotico Merchant",
+        "Effect": "Sells junk, including some party belongings"
+      },
+      "InimigoNaturalPlano": {
+        "Name": "Natural Enemy of the Plan",
+        "Effect": "The worst possible variable steps in"
+      },
+      "MaldicaoMusicaBatalha": {
+        "Name": "Boss Fight Music Curse",
+        "Effect": "Everything feels like an apocalyptic boss battle"
+      },
+      "MaReputacaoTemporaria": {
+        "Name": "Temporary Bad Reputation",
+        "Effect": "Absurd rumors spread across the area"
+      },
+      "SiricoticoXama": {
+        "Name": "Shaman Siricotico",
+        "Effect": "Terrible magic and awful ideas"
+      },
+      "TrumpinhoExecutivo": {
+        "Name": "Executive Trumpinho",
+        "Effect": "Enters with briefcase and authority"
+      },
+      "AqueleBauTemDentes": {
+        "Name": "That Chest Has Teeth",
+        "Effect": "Monstrous surprise"
+      },
+      "EncontroAleatorioPremium": {
+        "Name": "Premium Random Encounter",
+        "Effect": "Immediate thematic encounter"
+      },
+      "SiricotocalipseLocalizado": {
+        "Name": "Localized Siricotico-pocalypse",
+        "Effect": "2d6 siricoticos appear at once"
+      },
+      "CacadaTrumpinica": {
+        "Name": "Trumpinic Hunt",
+        "Effect": "A gang wants something from the party"
+      },
+      "MaldicaoVerdadeEspecifica": {
+        "Name": "Curse of Very Specific Truth",
+        "Effect": "Banal honesty is strictly mandatory"
+      },
+      "DestinoSensoHumor": {
+        "Name": "Fate Has a Sense of Humor",
+        "Effect": "An old consequence returns far worse"
+      },
+      "ComboSiricoticoTrumpinho": {
+        "Name": "Siricotico + Trumpinho Combo",
+        "Effect": "Both show up and despise each other"
+      },
+      "NemTodoBalanceado": {
+        "Name": "Not Every Encounter Is Balanced",
+        "Effect": "Something way too strong arrives"
+      },
+      "ChefeOpcionalDesnecessario": {
+        "Name": "Completely Unnecessary Optional Boss",
+        "Effect": "Avoidable boss, tempting reward"
+      },
+      "MaldicaoPessimaImpressao": {
+        "Name": "Curse of Terrible First Impression",
+        "Effect": "Important NPC starts outright hostile"
+      },
+      "RetornoDoFdp": {
+        "Name": "Return of the Bastard",
+        "Effect": "Recurring pest makes a comeback"
+      },
+      "SiricoticoRei": {
+        "Name": "Siricotico King",
+        "Effect": "An improbable monarch demands an audience"
+      },
+      "TrumpinhosGuilda": {
+        "Name": "Trumpinhos Formed a Guild",
+        "Effect": "Now with hierarchy and bylaws"
+      },
+      "ProfeciaMaisIdiota": {
+        "Name": "The World's Dumbest Prophecy",
+        "Effect": "A trivial event fulfills an ancient prophecy"
+      },
+      "ConselhoSiricoticos": {
+        "Name": "Extraordinary Council of Siricoticos",
+        "Effect": "Formal trial of the adventuring party"
+      },
+      "MetagameOlhouVolta": {
+        "Name": "The Metagame Stared Back",
+        "Effect": "Something cosmic senses illicit knowledge"
+      },
+      "CatastrofeAdministrativa": {
+        "Name": "Administrative Catastrophe",
+        "Effect": "Confiscation, fines, or wrongful arrest"
+      },
+      "GrandeMigracaoSiricoticos": {
+        "Name": "Great Migration of Siricoticos",
+        "Effect": "Chaotic swarm stampedes through the scene"
+      },
+      "MesaPediuPorIsso": {
+        "Name": "The Table Asked for This",
+        "Effect": "Major cinematic complication"
+      }
+    }
+  }
+}

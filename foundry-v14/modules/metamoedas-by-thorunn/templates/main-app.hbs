@@ -1,0 +1,120 @@
+<div class="metamoedas-app-container">
+  <!-- Top Bar: Balance & Quick Actions -->
+  <header class="metamoedas-header">
+    <div class="balance-card">
+      <div class="coin-skull-emblem">
+        <i class="fas fa-coins fa-2x"></i>
+        <i class="fas fa-skull emblem-overlay"></i>
+      </div>
+      <div class="balance-details">
+        <span class="balance-label">{{localize "METAMOEDAS.App.BalanceLabel"}}</span>
+        <span class="balance-value" id="current-coins-val">{{coins}}</span>
+      </div>
+      <button type="button" class="btn-reset-coins" data-action="reset-coins" title="{{localize "METAMOEDAS.App.ResetCoinsTooltip"}}">
+        <i class="fas fa-trash-alt"></i>
+      </button>
+    </div>
+
+    <div class="infraction-tracker {{#if siricoticoActive}}warning-siricotico{{/if}}">
+      <div class="tracker-header">
+        <span class="tracker-title"><i class="fas fa-exclamation-triangle"></i> {{localize "METAMOEDAS.App.InfractionTracker"}}</span>
+        <span class="tracker-count">{{infractions}} / 5</span>
+      </div>
+      <div class="tracker-bar">
+        <div class="tracker-fill" style="width: {{infractionPercent}}%;"></div>
+      </div>
+      {{#if siricoticoActive}}
+        <span class="siricotico-badge"><i class="fas fa-fire"></i> {{localize "METAMOEDAS.App.SiricoticoActive"}}</span>
+      {{else}}
+        <span class="tracker-hint">{{localize "METAMOEDAS.App.SiricoticoHint"}}</span>
+      {{/if}}
+      <button type="button" class="btn-reset-scene" data-action="reset-scene" title="{{localize "METAMOEDAS.App.ResetSceneTooltip"}}">
+        <i class="fas fa-undo"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Add Metacoins Bar -->
+  <section class="metamoedas-add-panel">
+    <h4 class="section-title"><i class="fas fa-plus-circle"></i> {{localize "METAMOEDAS.App.AddCoinsTitle"}}</h4>
+    <div class="add-buttons-row">
+      <button type="button" class="btn-add-coin btn-light" data-action="add-coins" data-amount="1">
+        <i class="fas fa-feather-alt"></i>
+        <span class="btn-text">{{localize "METAMOEDAS.App.AddLight"}} (+1)</span>
+      </button>
+      <button type="button" class="btn-add-coin btn-blatant" data-action="add-coins" data-amount="2">
+        <i class="fas fa-bolt"></i>
+        <span class="btn-text">{{localize "METAMOEDAS.App.AddBlatant"}} (+2)</span>
+      </button>
+      <div class="custom-add-group">
+        <input type="number" id="custom-coin-amount" min="1" max="50" value="1" />
+        <button type="button" class="btn-add-custom" data-action="add-custom-coins">
+          <i class="fas fa-plus"></i> {{localize "METAMOEDAS.App.AddCustom"}}
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spend Panel -->
+  <section class="metamoedas-spend-panel">
+    <div class="spend-header">
+      <h4 class="section-title"><i class="fas fa-gavel"></i> {{localize "METAMOEDAS.App.SpendTitle"}}</h4>
+      
+      <!-- Target Player Selector & Random Roll Button -->
+      <div class="spend-controls-bar">
+        <div class="target-picker-group">
+          <label for="target-victim-select"><i class="fas fa-crosshairs"></i> {{localize "METAMOEDAS.App.SelectTarget"}}:</label>
+          <select id="target-victim-select" class="target-select">
+            <option value="">-- {{localize "METAMOEDAS.App.AllPlayers"}} --</option>
+            {{#each users}}
+              <option value="{{this.id}}">{{this.name}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <button type="button" class="btn-random-punishment" data-action="roll-random-punishment" title="{{localize "METAMOEDAS.App.RandomPunishmentTooltip"}}">
+          <i class="fas fa-dice"></i> {{localize "METAMOEDAS.App.RandomPunishmentBtn"}}
+        </button>
+      </div>
+    </div>
+
+    <!-- Tier Filter Tabs -->
+    <nav class="tier-nav-tabs">
+      <button type="button" class="tier-tab-btn active" data-tier="all">
+        {{localize "METAMOEDAS.App.FilterAll"}}
+      </button>
+      {{#each tiers}}
+        <button type="button" class="tier-tab-btn" data-tier="{{this.id}}">
+          {{this.name}}
+        </button>
+      {{/each}}
+    </nav>
+
+    <!-- Punishments List -->
+    <div class="punishments-scroll-list">
+      {{#each punishments}}
+        <div class="punishment-card {{#if this.canAfford}}affordable{{else}}unaffordable{{/if}}" data-tier="{{this.tier}}" data-id="{{this.id}}">
+          <div class="card-main">
+            <div class="p-header">
+              <span class="p-title">{{this.title}}</span>
+              <span class="p-cost"><i class="fas fa-coins"></i> {{this.cost}}</span>
+            </div>
+            <div class="p-effect">{{this.effect}}</div>
+          </div>
+          <div class="card-action">
+            <button type="button" class="btn-execute-punishment" data-action="spend-punishment" data-id="{{this.id}}" {{#unless this.canAfford}}disabled{{/unless}}>
+              <i class="fas fa-skull"></i> {{localize "METAMOEDAS.App.ApplyEffect"}}
+            </button>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </section>
+
+  <!-- Footer with Thorunn Tribute Button -->
+  <footer class="metamoedas-footer">
+    <button type="button" class="btn-credits" data-action="open-credits">
+      <i class="fas fa-crown"></i> {{localize "METAMOEDAS.Credits.DialogTitle"}}
+    </button>
+    <span class="version-tag">Guia de Metamoedas • Edição Macabra v1.0.0</span>
+  </footer>
+</div>

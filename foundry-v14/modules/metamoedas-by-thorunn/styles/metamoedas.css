@@ -1,0 +1,913 @@
+/* =========================================================
+   GUIA DE METAMOEDAS BY THORUNN - ESTILOS GÓTICOS / PARCHMENT
+   ========================================================= */
+
+.metamoedas-window .window-content {
+  background: radial-gradient(circle at 50% 10%, #2a1e1b 0%, #161211 75%, #0f0c0b 100%);
+  background-color: #181514;
+  color: #e6ded3;
+  font-family: "Signika", "Palatino", serif;
+  padding: 12px;
+  overflow: hidden;
+}
+
+.metamoedas-app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 12px;
+}
+
+/* Header & Balance */
+.metamoedas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(30, 20, 18, 0.85);
+  border: 1px solid #732a24;
+  border-radius: 6px;
+  padding: 10px 14px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.balance-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.coin-skull-emblem {
+  position: relative;
+  color: #df9e28;
+  text-shadow: 0 0 8px rgba(223, 158, 40, 0.5);
+}
+
+.emblem-overlay {
+  position: absolute;
+  top: 6px;
+  left: 9px;
+  font-size: 0.9rem;
+  color: #2b110e;
+}
+
+.balance-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.balance-label {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #bfa899;
+}
+
+.balance-value {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #f7ca62;
+  line-height: 1;
+}
+
+.btn-reset-coins {
+  background: none;
+  border: 1px solid rgba(115, 42, 36, 0.4);
+  color: #8c7b74;
+  border-radius: 4px;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  transition: all 0.2s;
+  align-self: center;
+  margin-left: 4px;
+}
+
+.btn-reset-coins:hover {
+  background: rgba(115, 42, 36, 0.4);
+  border-color: #df9e28;
+  color: #f7ca62;
+  transform: scale(1.05);
+}
+
+/* Tracker de Infrações / Siricótico */
+.infraction-tracker {
+  position: relative;
+  background: rgba(15, 10, 9, 0.7);
+  border: 1px solid #4a2824;
+  border-radius: 4px;
+  padding: 8px 12px;
+  width: 240px;
+}
+
+.tracker-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: bold;
+  color: #deb887;
+  margin-bottom: 5px;
+}
+
+.tracker-bar {
+  background: #2b1816;
+  height: 7px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.tracker-fill {
+  background: linear-gradient(90deg, #df9e28, #e54b3c);
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.tracker-hint {
+  font-size: 0.74rem;
+  color: #8c7b74;
+  display: block;
+}
+
+.siricotico-badge {
+  font-size: 0.76rem;
+  color: #ff5252;
+  font-weight: bold;
+  animation: pulse-fire 1.5s infinite;
+}
+
+@keyframes pulse-fire {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.btn-reset-scene {
+  position: absolute;
+  top: 4px;
+  right: -28px;
+  background: none;
+  border: none;
+  color: #8c7b74;
+  cursor: pointer;
+  padding: 4px;
+}
+.btn-reset-scene:hover {
+  color: #df9e28;
+}
+
+/* Add Coins Panel */
+.metamoedas-add-panel {
+  background: rgba(35, 25, 23, 0.6);
+  border: 1px solid #3d2421;
+  border-radius: 4px;
+  padding: 10px 14px;
+}
+
+.section-title {
+  margin: 0 0 8px 0;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #df9e28;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(223, 158, 40, 0.2);
+  padding-bottom: 5px;
+}
+
+.add-buttons-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-add-coin {
+  flex: 1;
+  background: linear-gradient(180deg, #382421, #251614);
+  border: 1px solid #6b322a;
+  color: #ebdcd2;
+  border-radius: 4px;
+  padding: 8px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-add-coin:hover {
+  background: linear-gradient(180deg, #572922, #381a17);
+  border-color: #df9e28;
+  color: #fff;
+}
+
+.custom-add-group {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.custom-add-group input {
+  width: 54px;
+  background: #181110;
+  border: 1px solid #572922;
+  color: #f7ca62;
+  text-align: center;
+  border-radius: 4px;
+  padding: 6px 4px;
+  font-size: 0.88rem;
+  font-weight: bold;
+}
+
+.btn-add-custom {
+  background: #382421;
+  border: 1px solid #6b322a;
+  color: #ebdcd2;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.btn-add-custom:hover {
+  background: #572922;
+  border-color: #df9e28;
+}
+
+/* Spend Panel */
+.metamoedas-spend-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: rgba(30, 20, 18, 0.5);
+  border: 1px solid #3d2421;
+  border-radius: 4px;
+  padding: 10px 14px;
+}
+
+.spend-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.spend-controls-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+.target-picker-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  flex: 1;
+}
+
+.target-picker-group label {
+  font-weight: 600;
+  color: #df9e28;
+  white-space: nowrap;
+}
+
+.target-picker-group select {
+  background: #1c1413;
+  border: 1px solid #572922;
+  color: #ebdcd2;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  outline: none;
+  flex: 1;
+  max-width: 280px;
+}
+
+.target-picker-group select:focus {
+  border-color: #df9e28;
+}
+
+.btn-random-punishment {
+  background: linear-gradient(180deg, #502b11, #2b1408);
+  border: 1px solid #df9e28;
+  color: #f7ca62;
+  border-radius: 4px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 0.86rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  height: 34px;
+  box-sizing: border-box;
+  transition: all 0.2s;
+  box-shadow: 0 0 6px rgba(223, 158, 40, 0.2);
+}
+
+.btn-random-punishment:hover {
+  background: linear-gradient(180deg, #743e18, #3f1e0b);
+  border-color: #ffd992;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(223, 158, 40, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Tier Tabs */
+.tier-nav-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.tier-tab-btn {
+  background: #251614;
+  border: 1px solid #4a2824;
+  color: #bfa899;
+  font-size: 0.84rem;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.tier-tab-btn.active, .tier-tab-btn:hover {
+  background: #5c1e19;
+  color: #f7ca62;
+  border-color: #df9e28;
+}
+
+/* Punishments Scroll List */
+.punishments-scroll-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 4px;
+}
+
+.punishment-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(35, 23, 21, 0.85);
+  border: 1px solid #422622;
+  border-radius: 4px;
+  padding: 8px 10px;
+  gap: 10px;
+  transition: border-color 0.2s;
+}
+
+.punishment-card.affordable {
+  border-left: 3px solid #df9e28;
+}
+
+.punishment-card.unaffordable {
+  opacity: 0.65;
+  border-left: 3px solid #66413c;
+}
+
+.card-main {
+  flex: 1;
+}
+
+.p-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.p-title {
+  font-weight: bold;
+  font-size: 0.98rem;
+  color: #ffd992;
+}
+
+.p-cost {
+  font-size: 0.92rem;
+  color: #df9e28;
+  font-weight: bold;
+}
+
+.p-effect {
+  font-size: 0.86rem;
+  color: #d1c5bb;
+  line-height: 1.35;
+}
+
+.btn-execute-punishment {
+  background: linear-gradient(180deg, #7a2720, #421612);
+  border: 1px solid #993a30;
+  color: #fff;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 0.84rem;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-execute-punishment:disabled {
+  background: #332220;
+  border-color: #4a3330;
+  color: #776562;
+  cursor: not-allowed;
+}
+
+.btn-execute-punishment:hover:not(:disabled) {
+  background: linear-gradient(180deg, #99332a, #5e1c17);
+  border-color: #f7ca62;
+}
+
+/* Footer */
+.metamoedas-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  color: #8c7b74;
+}
+
+.btn-credits {
+  background: none;
+  border: 1px solid #572922;
+  color: #df9e28;
+  border-radius: 4px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 0.72rem;
+}
+.btn-credits:hover {
+  background: #3d1c18;
+  color: #ffd992;
+}
+
+/* =========================================================
+   CHAT CARDS - ESTILO GÓTICO PREMIUM & PARCHMENT
+   ========================================================= */
+.metamoedas-chat-card {
+  background: radial-gradient(circle at 50% 20%, #2b1f1c 0%, #171312 85%, #0f0c0b 100%);
+  border: 1px solid #732a24;
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: #e6ded3;
+  font-family: "Signika", "Palatino", serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), inset 0 0 14px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.metamoedas-chat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #df9e28, transparent);
+}
+
+.metamoedas-chat-card .card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(115, 42, 36, 0.6);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.metamoedas-chat-card .header-icon {
+  color: #df9e28;
+  font-size: 1.4rem;
+  background: rgba(35, 20, 18, 0.8);
+  border: 1px solid #df9e28;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px rgba(223, 158, 40, 0.3);
+  flex-shrink: 0;
+}
+
+.metamoedas-chat-card .header-title {
+  flex: 1;
+}
+
+.metamoedas-chat-card .header-title h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #f7ca62;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.metamoedas-chat-card .card-tier-badge {
+  font-size: 0.76rem;
+  color: #df9e28;
+  display: inline-block;
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+.metamoedas-chat-card .card-target {
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  padding: 5px 8px;
+  background: rgba(0, 0, 0, 0.35);
+  border-left: 3px solid #df9e28;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.metamoedas-chat-card .target-label {
+  color: #bfa899;
+}
+
+.metamoedas-chat-card .target-name {
+  color: #f7ca62;
+  font-weight: bold;
+}
+
+.metamoedas-chat-card .card-effect {
+  background: rgba(20, 15, 14, 0.5);
+  border: 1px solid rgba(115, 42, 36, 0.35);
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+}
+
+.metamoedas-chat-card .card-effect p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: #ebdcd2;
+}
+
+.metamoedas-chat-card .card-footer {
+  font-size: 0.72rem;
+  color: #8c7b74;
+  text-align: right;
+  border-top: 1px solid rgba(87, 41, 34, 0.4);
+  padding-top: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metamoedas-chat-card .card-footer .attribution {
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Chat Card: Alerta Siricótico Iminente (4/5) */
+.metamoedas-chat-card.siricotico-warning-near {
+  border: 1px solid #df9e28;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7), 0 0 12px rgba(223, 158, 40, 0.35);
+  background: radial-gradient(circle at 50% 10%, #362610 0%, #1e1507 80%, #120d04 100%);
+}
+
+.metamoedas-chat-card.siricotico-warning-near::before {
+  background: linear-gradient(90deg, transparent, #ffd992, transparent);
+}
+
+.metamoedas-chat-card.siricotico-warning-near .card-header {
+  border-bottom-color: rgba(223, 158, 40, 0.4);
+}
+
+.metamoedas-chat-card.siricotico-warning-near .card-header h3 {
+  color: #ffd992 !important;
+  font-size: 1.05rem;
+  text-shadow: 0 0 8px rgba(247, 202, 98, 0.4);
+}
+
+.metamoedas-chat-card.siricotico-warning-near .card-body {
+  background: rgba(15, 10, 4, 0.45);
+  border: 1px solid rgba(223, 158, 40, 0.3);
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+}
+
+.metamoedas-chat-card.siricotico-warning-near .siricotico-desc {
+  color: #f7eed8 !important;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.metamoedas-chat-card.siricotico-warning-near .card-footer {
+  border-top-color: rgba(223, 158, 40, 0.3);
+  color: #df9e28;
+  justify-content: center;
+}
+
+/* Chat Card: Alerta Siricótico Despertou (5/5) */
+.metamoedas-chat-card.siricotico-alert {
+  border: 1px solid #ff4d4d;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.8), 0 0 16px rgba(255, 77, 77, 0.5);
+  background: radial-gradient(circle at 50% 10%, #3d1410 0%, #200806 80%, #130403 100%);
+}
+
+.metamoedas-chat-card.siricotico-alert::before {
+  background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
+}
+
+.metamoedas-chat-card.siricotico-alert .card-header {
+  border-bottom-color: rgba(255, 77, 77, 0.5);
+}
+
+.metamoedas-chat-card.siricotico-alert .card-header h3 {
+  color: #ff6b6b !important;
+  font-size: 1.1rem;
+  text-shadow: 0 0 10px rgba(255, 107, 107, 0.6);
+}
+
+.metamoedas-chat-card.siricotico-alert .card-header i {
+  color: #ff4d4d;
+  font-size: 1.3rem;
+  filter: drop-shadow(0 0 6px rgba(255, 77, 77, 0.6));
+}
+
+.metamoedas-chat-card.siricotico-alert .card-body {
+  background: rgba(20, 5, 4, 0.55);
+  border: 1px solid rgba(255, 77, 77, 0.35);
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+}
+
+.metamoedas-chat-card.siricotico-alert .siricotico-desc {
+  color: #ffdedb !important;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.metamoedas-chat-card.siricotico-alert .card-footer {
+  border-top-color: rgba(255, 77, 77, 0.3);
+  color: #ff9e94;
+  justify-content: center;
+}
+
+/* Credits Dialog */
+.thorunn-credits-dialog {
+  padding: 10px;
+  background: #1a1614;
+  color: #e6ded3;
+}
+
+.thorunn-hero {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #6b322a;
+  padding-bottom: 10px;
+}
+
+.thorunn-avatar-wrap {
+  color: #df9e28;
+  background: #2b1614;
+  padding: 12px;
+  border-radius: 50%;
+  border: 1px solid #df9e28;
+}
+
+.thorunn-title-block h2 {
+  margin: 0;
+  color: #f7ca62;
+  font-size: 1.2rem;
+}
+
+.thorunn-subtitle {
+  font-size: 0.8rem;
+  color: #bfa899;
+}
+
+.thorunn-bio-text p {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.golden-rule-quote {
+  background: rgba(66, 22, 18, 0.4);
+  border-left: 3px solid #df9e28;
+  margin: 10px 0;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  color: #ffd992;
+}
+
+.thorunn-links-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.credit-link-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: #251614;
+  border: 1px solid #4a2824;
+  border-radius: 4px;
+  color: #ebdcd2 !important;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.credit-link-card:hover {
+  background: #421c17;
+  border-color: #df9e28;
+  transform: translateY(-1px);
+}
+
+.credit-link-card .link-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.credit-link-card .link-label {
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: #f7ca62;
+}
+
+.credit-link-card .link-handle, .credit-link-card .link-desc {
+  font-size: 0.72rem;
+  color: #a8958c;
+}
+
+/* Chat Card: Siricótico Iminente (4/5) */
+.metamoedas-chat-card.siricotico-warning-near {
+  border-color: #df9e28;
+  box-shadow: 0 0 10px rgba(223, 158, 40, 0.3);
+  background: linear-gradient(180deg, #2b200e, #181208);
+}
+
+.metamoedas-chat-card.siricotico-warning-near .card-header h3 {
+  color: #f7ca62 !important;
+  font-size: 0.98rem;
+  text-shadow: 0 0 6px rgba(247, 202, 98, 0.4);
+}
+
+.metamoedas-chat-card.siricotico-warning-near .siricotico-desc {
+  color: #f5eedb !important;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 6px 0;
+}
+
+/* =========================================================
+   CANVAS FLOATING BANNER - AVISO FLUTUANTE DO SIRICÓTICO
+   ========================================================= */
+.siricotico-floating-banner {
+  position: fixed;
+  bottom: 105px;
+  left: 50%;
+  transform: translateX(-50%) translateY(15px);
+  z-index: 50;
+  pointer-events: none;
+  border-radius: 6px;
+  padding: 7px 16px;
+  font-family: "Signika", "Palatino", serif;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.siricotico-floating-banner.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.siricotico-floating-banner .banner-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.siricotico-floating-banner .banner-icon {
+  font-size: 1.35rem;
+}
+
+.siricotico-floating-banner .banner-texts {
+  display: flex;
+  flex-direction: column;
+}
+
+.siricotico-floating-banner .banner-title {
+  font-size: 0.92rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+}
+
+.siricotico-floating-banner .banner-subtitle {
+  font-size: 0.74rem;
+  opacity: 0.9;
+  line-height: 1.2;
+}
+
+.siricotico-floating-banner .banner-count {
+  font-size: 0.88rem;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.4);
+  margin-left: 4px;
+  white-space: nowrap;
+}
+
+/* Estado 1: 4 Infrações (Aviso Iminente: <i class="fa-solid fa-exclamation"></i>) */
+.siricotico-floating-banner.warning-near {
+  background: linear-gradient(135deg, rgba(50, 35, 10, 0.95), rgba(25, 18, 5, 0.95));
+  border: 1px solid #df9e28;
+  color: #ffd992;
+  box-shadow: 0 0 14px rgba(223, 158, 40, 0.45);
+}
+
+.siricotico-floating-banner.warning-near .banner-icon {
+  color: #f7ca62;
+}
+
+.siricotico-floating-banner.warning-near .banner-count {
+  color: #df9e28;
+  border: 1px solid rgba(223, 158, 40, 0.4);
+}
+
+/* Estado 2: 5+ Infrações (Siricótico Ativo: <i class="fa-solid fa-triangle-exclamation"></i>) */
+.siricotico-floating-banner.danger-active {
+  background: linear-gradient(135deg, rgba(60, 18, 14, 0.96), rgba(30, 8, 6, 0.96));
+  border: 1px solid #ff4d4d;
+  color: #ffdedb;
+  box-shadow: 0 0 18px rgba(255, 77, 77, 0.6);
+  animation: pulse-border 2s infinite alternate;
+}
+
+.siricotico-floating-banner.danger-active .banner-icon {
+  color: #ff4d4d;
+}
+
+.siricotico-floating-banner.danger-active .banner-title {
+  color: #ff6b6b;
+  text-shadow: 0 0 8px rgba(255, 107, 107, 0.5);
+}
+
+.siricotico-floating-banner.danger-active .banner-count {
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 77, 77, 0.5);
+}
+
+/* Animações dos Ícones */
+@keyframes pulse-icon {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.9; }
+}
+
+.siricotico-floating-banner .banner-icon.pulse {
+  animation: pulse-icon 1.2s infinite ease-in-out;
+}
+
+@keyframes shake-icon {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-10deg); }
+  40% { transform: rotate(10deg); }
+  60% { transform: rotate(-6deg); }
+  80% { transform: rotate(6deg); }
+}
+
+.siricotico-floating-banner .banner-icon.shake {
+  animation: shake-icon 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-border {
+  from { box-shadow: 0 0 10px rgba(255, 77, 77, 0.4); }
+  to { box-shadow: 0 0 20px rgba(255, 77, 77, 0.8); }
+}
