@@ -1,0 +1,76 @@
+name: Release & Publish Metamoedas to Foundry VTT
+
+on:
+  push:
+    tags:
+      - 'metamoedas-v*'
+      - 'v*'
+
+jobs:
+  build-and-release:
+    name: Build, Release & Notify Foundry VTT API
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Extract Version from Tag
+        id: get_version
+        run: |
+          RAW_TAG="${{ github.ref_name }}"
+          # Extrai apenas os números e pontos (ex: metamoedas-v1.0.0 -> 1.0.0 ou v1.0.0 -> 1.0.0)
+          CLEAN_VERSION=$(echo "$RAW_TAG" | sed -E 's/.*v//')
+          echo "version=$CLEAN_VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Create Module Zip Archive
+        run: |
+          cd foundry-v14/modules/metamoedas-by-thorunn
+          # Compacta excluindo arquivos de desenvolvimento desnecessários
+          zip -r ../../../metamoedas-by-thorunn.zip . -x "*.git*" "README.html"
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Metamoedas by Thorunn v${{ steps.get_version.outputs.version }}"
+          tag_name: ${{ github.ref_name }}
+          files: metamoedas-by-thorunn.zip
+          body: |
+            ## 💀 Guia de Metamoedas by Thorunn v${{ steps.get_version.outputs.version }}
+            
+            - **Download direto:** `metamoedas-by-thorunn.zip`
+            - **Manifest URL:** `https://raw.githubusercontent.com/${{ github.repository }}/main/foundry-v14/modules/metamoedas-by-thorunn/module.json`
+            - **Notas da Versão:** Veja o arquivo [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/foundry-v14/modules/metamoedas-by-thorunn/CHANGELOG.md)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to Foundry VTT Package Release API
+        if: env.FOUNDRY_RELEASE_TOKEN != ''
+        env:
+          FOUNDRY_RELEASE_TOKEN: ${{ secrets.FOUNDRY_RELEASE_TOKEN }}
+        run: |
+          echo "Notificando Foundry VTT Package Release API..."
+          curl -s -X POST "https://foundryvtt.com/_api/packages/release_version/" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: ${{ secrets.FOUNDRY_RELEASE_TOKEN }}" \
+            -d '{
+              "id": "metamoedas-by-thorunn",
+              "dry-run": false,
+              "release": {
+                "version": "${{ steps.get_version.outputs.version }}",
+                "manifest": "https://raw.githubusercontent.com/${{ github.repository }}/main/foundry-v14/modules/metamoedas-by-thorunn/module.json",
+                "notes": "https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }}",
+                "compatibility": {
+                  "minimum": "12",
+                  "verified": "14"
+                }
+              }
+            }'
