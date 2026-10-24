@@ -21,7 +21,7 @@ Guia prático para publicação e atualização automatizada de módulos no dire
    `https://foundryvtt.com/packages/<package-id>/edit/`
 3. No final da página (logo acima do botão **Save Package**), localize o campo **Package Release Token**.
 4. Copie o token (`fvttp_...`).
-5. **Segurança:** Nunca comite este token no git! Guarde-o em secrets de CI/CD (ex.: GitHub Secrets `FOUNDRY_RELEASE_TOKEN`) ou variáveis de ambiente locais.
+5. **Segurança & Boas Práticas Monorepo:** Como o repositório contém múltiplos módulos, utilize secrets nomeados por módulo (ex.: `FOUNDRY_RELEASE_TOKEN_METAMOEDAS`). Nunca comite este token no git!
 
 ---
 

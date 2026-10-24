@@ -55,7 +55,7 @@ jobs:
       - name: Publish to Foundry VTT Package Release API
         if: env.FOUNDRY_RELEASE_TOKEN != ''
         env:
-          FOUNDRY_RELEASE_TOKEN: ${{ secrets.FOUNDRY_RELEASE_TOKEN }}
+          FOUNDRY_RELEASE_TOKEN: ${{ secrets.FOUNDRY_RELEASE_TOKEN_METAMOEDAS }}
         run: |
           echo "Notificando Foundry VTT Package Release API..."
           curl -s -X POST "https://foundryvtt.com/_api/packages/release_version/" \
