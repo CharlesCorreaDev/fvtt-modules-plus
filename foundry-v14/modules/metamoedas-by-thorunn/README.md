@@ -107,8 +107,18 @@ Sempre que um jogador comete metagame, o Mestre ganha Metamoedas. Essas moedas s
 
 ### 👥 Autoria & Links Oficiais
 * **Autora Original:** **Mestra Thorunn**
-  * 📷 **Instagram:** [@mestrathorunn](https://www.instagram.com/mestrathorunn/)
+  * 📷 **Instagram:** [@thorunnx.gm](https://www.instagram.com/thorunnx.gm/)
   * 📄 **Guia Oficial Diagramado (PDF no Google Drive):** [Baixar Guia Gratuito](https://drive.google.com/file/d/1gIXVmpg3vQv0zKMFqaJItPWTKe-qjBLV/view)
+
+#### 🧙‍♀️ Sobre a Autora
+Mestra Thorunn é autora, criadora de mundos e mestre de RPG profissionalmente comprometida com duas coisas: ser mestre do horror, detalhes absurdamente específicos e a galhofa. É genialmente pentelha com lore, coerência, atmosfera e aquele pequeno detalhe que ninguém percebeu, mas que ela percebe (pode ter certeza disso) e agora precisa ser explorado.
+
+Mestra Thorunn também é a criadora de **Vezonia** e **Strigovia**, universos que ela construiu e está transformando em livros de cenário, reunindo geografia, história, culturas, povos, política, religião, criaturas, personagens e tudo aquilo que faz um mundo parecer existir mesmo quando ninguém está jogando nele.
+
+A ideia dos livros é justamente essa: tirar esses mundos da mesa de RPG e dar a eles vida própria no papel, sem perder o espírito de aventura, dramaticidade, estranheza e, naturalmente, uma quantidade cuidadosamente administrada de caos.
+
+Para saber mais sobre a autora acesse: [https://www.instagram.com/thorunnx.gm/](https://www.instagram.com/thorunnx.gm/)
+
 * **Desenvolvimento Foundry VTT:** **Charles Corrêa**
   * 🌐 **Artigo no Blog:** [Transforme o metagame da sua mesa em caos narrativo](https://rpg.charlescorrea.com.br/dicas/transforme-o-metagame-da-sua-mesa-em-caos-narrativo-com-o-guia-das-metamoedas-by-thorunn/)
   * 💻 **Site:** [rpg.charlescorrea.com.br](https://rpg.charlescorrea.com.br)
@@ -229,8 +239,18 @@ Whenever a player metagames, the Game Master earns Metacoins. These coins can la
 
 ### 👥 Credits & Official Links
 * **Original Author:** **Mistress Thorunn**
-  * 📷 **Instagram:** [@mestrathorunn](https://www.instagram.com/mestrathorunn/)
+  * 📷 **Instagram:** [@thorunnx.gm](https://www.instagram.com/thorunnx.gm/)
   * 📄 **Official PDF Rulebook (Google Drive):** [Download Free PDF Guide](https://drive.google.com/file/d/1gIXVmpg3vQv0zKMFqaJItPWTKe-qjBLV/view)
+
+#### 🧙‍♀️ About the Author
+Mistress Thorunn is an author, worldbuilder, and professional Game Master who is wholeheartedly committed to two things: horror mastery, absurdly specific details, and cheeky banter (*galhofa*). She is brilliantly meticulous about lore, consistency, atmosphere, and that subtle detail no one noticed—except her (rest assured, she did), and which now must be thoroughly explored.
+
+Mistress Thorunn is also the creator of **Vezonia** and **Strigovia**, original universes she crafted and is actively turning into setting books—bringing together geography, history, cultures, peoples, politics, religions, creatures, and characters that make a fictional world feel genuinely alive even when no one is rolling dice in it.
+
+The premise of these books is exactly that: bringing these worlds from the tabletop to life on the page, without losing their sense of adventure, tension, bizarre wonder, and, naturally, a carefully administered dose of pure chaos.
+
+To learn more about the author, visit: [https://www.instagram.com/thorunnx.gm/](https://www.instagram.com/thorunnx.gm/)
+
 * **Foundry VTT Development:** **Charles Corrêa**
   * 🌐 **Blog Article:** [Turn your table's metagame into narrative chaos](https://rpg.charlescorrea.com.br/dicas/transforme-o-metagame-da-sua-mesa-em-caos-narrativo-com-o-guia-das-metamoedas-by-thorunn/)
   * 💻 **Website:** [rpg.charlescorrea.com.br](https://rpg.charlescorrea.com.br)
