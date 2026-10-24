@@ -42,10 +42,10 @@
 - **Blog Oficial**: `https://rpg.charlescorrea.com.br`
 - **GitHub**: `https://github.com/CharlesCorreaDev`
 - **Instagram**: `https://www.instagram.com/mestrecharlescorrea`
-- **Facebook**: `https://www.facebook.com/mestrecharlescorrea`
-- **YouTube**: `https://www.youtube.com/@mestrecharlescorrea`
-- **Twitch**: `https://www.twitch.tv/mestrecharlescorrea`
-- **TikTok**: `https://www.tiktok.com/@mestrecharlescorrea`
+
+
+
+
 - **Comunidade Salinha**: `https://salinha.live/?c=6BMDF9#g=qrhshrw76y7m`
 - **Comunidade WhatsApp**: `https://chat.whatsapp.com/FSr7xgejDqoHkfrrA5GxXj`
 - *Nota para Manifestos Foundry (`module.json` / `system.json`)*:

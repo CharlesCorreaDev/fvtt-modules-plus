@@ -78,6 +78,26 @@ Sempre que um jogador comete metagame, o Mestre ganha Metamoedas. Essas moedas s
 
 ---
 
+### 📸 Screenshots
+
+<div align="center">
+
+#### Botão na Sidebar do Foundry VTT
+<img src="src/images/sidebar-botao-metamoedas.png" alt="Botão Abrir Guia de Metamoedas na sidebar do Foundry VTT" width="300" />
+
+#### Painel Principal — Guia de Metamoedas
+<img src="src/images/painel-principal-metamoedas.png" alt="Painel principal do Guia de Metamoedas com saldo, infrações, botões de adicionar moedas e loja de punições" width="700" />
+
+#### Tributo à Mestra Thorunn
+<img src="src/images/tributo-mestra-thorunn.png" alt="Janela de tributo à Mestra Thorunn com biografia e links oficiais" width="500" />
+
+#### Card de Punição no Chat
+<img src="src/images/chat-card-punicao.png" alt="Card gótico de punição aplicada no chat do Foundry VTT pelo Conselho do Infortúnio" width="400" />
+
+</div>
+
+---
+
 ### 🎨 Arquitetura Moderna (ApplicationV2)
 * Construído com a moderna API **ApplicationV2** e `HandlebarsApplicationMixin` do Foundry VTT.
 * Totalmente compatível com **v12, v13 e v14 Stable**.
@@ -177,6 +197,26 @@ Whenever a player metagames, the Game Master earns Metacoins. These coins can la
     </td>
   </tr>
 </table>
+
+---
+
+### 📸 Screenshots
+
+<div align="center">
+
+#### Sidebar Button in Foundry VTT
+<img src="src/images/sidebar-botao-metamoedas.png" alt="Open Metacoins Guide button in the Foundry VTT sidebar" width="300" />
+
+#### Main Panel — Metacoins Guide
+<img src="src/images/painel-principal-metamoedas.png" alt="Main panel showing coin balance, infractions counter, coin buttons and punishment shop" width="700" />
+
+#### Tribute to Mistress Thorunn
+<img src="src/images/tributo-mestra-thorunn.png" alt="Tribute window with Mistress Thorunn biography and official links" width="500" />
+
+#### Punishment Chat Card
+<img src="src/images/chat-card-punicao.png" alt="Gothic punishment card applied in the Foundry VTT chat by the Council of Misfortune" width="400" />
+
+</div>
 
 ---
 
