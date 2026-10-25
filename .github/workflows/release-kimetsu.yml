@@ -48,3 +48,26 @@ jobs:
             - **Repositório:** [fvtt-modules-plus](https://github.com/${{ github.repository }})
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to Foundry VTT Package Release API
+        if: env.FOUNDRY_RELEASE_TOKEN != ''
+        env:
+          FOUNDRY_RELEASE_TOKEN: ${{ secrets.FOUNDRY_RELEASE_TOKEN_DEMON_SLAYER }}
+        run: |
+          echo "Notificando Foundry VTT Package Release API..."
+          curl -s -X POST "https://foundryvtt.com/_api/packages/release_version/" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: ${{ secrets.FOUNDRY_RELEASE_TOKEN_DEMON_SLAYER }}" \
+            -d '{
+              "id": "kimetsu-no-yaiba-dice-so-nice-foundry",
+              "dry-run": false,
+              "release": {
+                "version": "${{ steps.get_version.outputs.version }}",
+                "manifest": "https://raw.githubusercontent.com/${{ github.repository }}/main/foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/module.json",
+                "notes": "https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }}",
+                "compatibility": {
+                  "minimum": "10",
+                  "verified": "14"
+                }
+              }
+            }'
