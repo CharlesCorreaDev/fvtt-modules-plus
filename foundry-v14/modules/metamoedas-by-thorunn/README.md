@@ -26,9 +26,9 @@
 ## 🇧🇷 Português
 
 ### 📖 Sobre o Módulo
-O **Guia de Metamoedas by Thorunn** é um módulo para **Foundry Virtual Tabletop** 100% agnóstico a sistemas (D&D 5e, Savage Worlds, Tormenta20, Pathfinder 2e, Call of Cthulhu, etc.). Ele implementa digitalmente o sistema de economia do caos criado pela escritora e mestre profissional **Mestra Thorunn**.
+O **Guia de Metamoedas by Thorunn** leva para o **Foundry Virtual Tabletop** a dinâmica de humor e consequências criada pela escritora e narradora profissional **Mestra Thorunn**. Funciona em qualquer sistema de RPG (D&D 5e, Tormenta20, Ordem Paranormal, Pathfinder 2e, Chamado de Cthulhu e outros).
 
-Sempre que um jogador comete metagame, o Mestre ganha Metamoedas. Essas moedas são gastas em uma loja de infortúnios para adicionar complicações hilárias e memoráveis à narrativa.
+A ideia é simples e descontraída: quando alguém na mesa mete os pés pelas mãos com metagame, o Mestre ganha Metamoedas. Essas moedas alimentam um cofre que pode ser gasto em infortúnios cômicos, pequenos contratempos e situações embaraçosas que enriquecem a história em vez de travar o jogo.
 
 > ⚖️ **A Regra de Ouro da Mestra Thorunn:**  
 > *"Use as Metamoedas para adicionar problema, não para roubar a agência dos jogadores."*
@@ -158,9 +158,9 @@ Encontrou alguma falha ou tem uma sugestão?
 ## 🇺🇸 English
 
 ### 📖 About the Module
-The **Metacoins Guide by Thorunn** is a system-agnostic module for **Foundry Virtual Tabletop** (D&D 5e, Savage Worlds, Pathfinder 2e, Call of Cthulhu, Tormenta20, etc.). It faithfully brings to life the ingenious chaotic economy designed by professional GM and author **Mistress Thorunn**.
+The **Metacoins Guide by Thorunn** brings to **Foundry Virtual Tabletop** a fun way to handle table metagame, conceived by professional GM and fiction author **Mistress Thorunn**. It works out of the box with any tabletop system (D&D 5e, Pathfinder 2e, Call of Cthulhu, Savage Worlds, and more).
 
-Whenever a player metagames, the Game Master earns Metacoins. These coins can later be spent in a shop of misfortune to unleash hilarious, narrative-driven complications.
+Instead of pausing the game to lecture players about metagame knowledge, the GM collects Metacoins whenever players let out-of-character info slip. These coins accumulate in the GM's vault and can be spent on lighthearted narrative mishaps, comical curses, and awkward setbacks that spice up the story without punishing player agency.
 
 > ⚖️ **Mistress Thorunn's Golden Rule:**  
 > *"Use Metacoins to add trouble, never to steal player agency."*

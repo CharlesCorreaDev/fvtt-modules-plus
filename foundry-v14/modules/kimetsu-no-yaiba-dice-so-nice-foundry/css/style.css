@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Kimetsu no Yaiba - WebFont';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Kimetsu no Yaiba - WebFont'),
+       url('modules/kimetsu-no-yaiba-dice-so-nice-foundry/fonts/Blood_Crow_Font.woff2') format('woff2') /* Chrome 26+, Opera 23+, Firefox 39+ */
+}

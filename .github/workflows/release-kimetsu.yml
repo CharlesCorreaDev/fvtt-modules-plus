@@ -1,0 +1,50 @@
+name: Release & Publish Kimetsu no Yaiba Dice to Foundry VTT
+
+on:
+  push:
+    tags:
+      - 'kimetsu-v*'
+
+jobs:
+  build-and-release:
+    name: Build & Release Kimetsu no Yaiba Theme
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Extract Version from Tag
+        id: get_version
+        run: |
+          RAW_TAG="${{ github.ref_name }}"
+          CLEAN_VERSION=$(echo "$RAW_TAG" | sed -E 's/.*v//')
+          echo "version=$CLEAN_VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Create Module Zip Archive
+        run: |
+          cd foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry
+          zip -r ../../../kimetsu-no-yaiba-dice-so-nice-foundry.zip . -x "*.git*" "module.zip"
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Kimetsu no Yaiba Dice Theme v${{ steps.get_version.outputs.version }}"
+          tag_name: ${{ github.ref_name }}
+          files: kimetsu-no-yaiba-dice-so-nice-foundry.zip
+          body: |
+            ## 🎲 Kimetsu no Yaiba for Dice So Nice v${{ steps.get_version.outputs.version }}
+            
+            - **Download direto:** `kimetsu-no-yaiba-dice-so-nice-foundry.zip`
+            - **Manifest URL:** `https://raw.githubusercontent.com/${{ github.repository }}/main/foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/module.json`
+            - **Repositório:** [fvtt-modules-plus](https://github.com/${{ github.repository }})
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
