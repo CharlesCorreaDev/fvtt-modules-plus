@@ -60,7 +60,7 @@ jobs:
           echo "Notificando Foundry VTT Package Release API..."
           curl -s -X POST "https://foundryvtt.com/_api/packages/release_version/" \
             -H "Content-Type: application/json" \
-            -H "Authorization: ${{ secrets.FOUNDRY_RELEASE_TOKEN }}" \
+            -H "Authorization: ${{ secrets.FOUNDRY_RELEASE_TOKEN_METAMOEDAS }}" \
             -d '{
               "id": "metamoedas-by-thorunn",
               "dry-run": false,
