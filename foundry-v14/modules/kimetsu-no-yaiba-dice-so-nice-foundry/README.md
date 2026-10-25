@@ -1,4 +1,32 @@
+<div align="center">
+
+<img src="img/cover.png" alt="Kimetsu no Yaiba Dice Theme for Dice So Nice!" width="100%" />
+
 # 🎲 Kimetsu no Yaiba Dice Theme for Dice So Nice!
+
+[![Foundry VTT](https://img.shields.io/badge/Foundry%20VTT-v10%20%7C%20v11%20%7C%20v12%20%7C%20v13%20%7C%20v14-ff6400?style=for-the-badge&logo=foundryvirtualtabletop)](https://foundryvtt.com)
+[![Dice So Nice](https://img.shields.io/badge/Requires-Dice%20So%20Nice-blue?style=for-the-badge)](https://foundryvtt.com/packages/dice-so-nice)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+
+[🇧🇷 Português](#-português-brasil) • [🇺🇸 English](#-english)
+
+</div>
+
+---
+
+### 📸 Visualização dos Temas / Themes Preview
+
+<div align="center">
+
+#### 🎴 Demon Slayer Red (Chamas & Lâminas Nichirin)
+<img src="img/screenshot.png" alt="Demon Slayer Red Dice Set Preview" width="600" />
+
+#### ⚔️ Conjunto Completo de Temas (White, Red & Dark)
+<img src="img/dice_set.png" alt="Todos os temas de dados 3D do Kimetsu no Yaiba" width="700" />
+
+</div>
+
+---
 
 Tema visual de dados 3D feito por fãs e para fãs de **Kimetsu no Yaiba (Demon Slayer)**, integrando-se diretamente ao módulo [Dice So Nice!](https://foundryvtt.com/packages/dice-so-nice) no **Foundry Virtual Tabletop**.
 
