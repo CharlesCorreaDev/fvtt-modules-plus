@@ -2,7 +2,7 @@
   "id": "kimetsu-no-yaiba-dice-so-nice-foundry",
   "title": "Kimetsu no Yaiba for Dice So Nice",
   "description": "Tema visual inspirado no universo de Kimetsu no Yaiba (Demon Slayer) para o módulo Dice So Nice! Adiciona dados customizados com estética da Era Taishō e técnicas de Respiração para animar as rolagens na mesa.",
-  "version": "1.0.0",
+  "version": "1.0.0.1",
   "compatibility": {
     "minimum": "10",
     "verified": "14"
@@ -33,7 +33,7 @@
   ],
   "url": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/tree/main/foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry",
   "manifest": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/module.json",
-  "download": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/releases/download/kimetsu-no-yaiba-v1.0.0/kimetsu-no-yaiba-dice-so-nice-foundry.zip",
+  "download": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/releases/download/kimetsu-v1.0.0.1/kimetsu-no-yaiba-dice-so-nice-foundry.zip",
   "readme": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/README.md",
   "bugs": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/issues",
   "media": [
