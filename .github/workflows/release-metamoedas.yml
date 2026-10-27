@@ -84,7 +84,7 @@ jobs:
           FOUNDRY_RELEASE_TOKEN: ${{ secrets.FOUNDRY_RELEASE_TOKEN_METAMOEDAS }}
         run: |
           echo "Notificando Foundry VTT Package Release API..."
-          curl -s -X POST "https://foundryvtt.com/_api/packages/release_version/" \
+          RESPONSE=$(curl -w "\nHTTP_STATUS:%{http_code}" -s -S -X POST "https://foundryvtt.com/_api/packages/release_version/" \
             -H "Content-Type: application/json" \
             -H "Authorization: ${{ secrets.FOUNDRY_RELEASE_TOKEN_METAMOEDAS }}" \
             -d '{
@@ -99,4 +99,11 @@ jobs:
                   "verified": "14"
                 }
               }
-            }'
+            }')
+          echo "Resposta da API do Foundry VTT:"
+          echo "$RESPONSE"
+          HTTP_STATUS=$(echo "$RESPONSE" | grep "HTTP_STATUS" | cut -d: -f2)
+          if [ "$HTTP_STATUS" -ne 200 ]; then
+            echo "::error::Falha ao publicar versão na API do Foundry VTT (HTTP $HTTP_STATUS)"
+            exit 1
+          fi
