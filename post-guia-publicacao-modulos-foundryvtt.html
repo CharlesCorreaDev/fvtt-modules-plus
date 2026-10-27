@@ -1,0 +1,193 @@
+<!--
+Post para WordPress: Guia Definitivo de Publicação de Módulos e Sistemas no Foundry VTT (Gratuitos e Pagos)
+Autor: Mestre Charles Corrêa
+Blog: https://rpg.charlescorrea.com.br
+Compatibilidade: Foundry VTT v10 até v14+
+-->
+
+<article class="foundry-guide-post">
+
+  <header class="post-header-box">
+    <p class="post-lead-badge"><strong>Guia Completo para Desenvolvedores e Criadores</strong></p>
+    <h1>Como Publicar Módulos e Sistemas no Foundry VTT: Do Gratuito ao Pago no Marketplace Oficial</h1>
+    <p class="post-meta"><em>Por <strong>Mestre Charles Corrêa</strong> | Atualizado para Foundry VTT v14</em></p>
+  </header>
+
+  <section class="post-intro">
+    <p>Se você joga ou mestra no <strong>Foundry Virtual Tabletop (Foundry VTT)</strong>, já deve ter se maravilhado com a infinidade de recursos disponíveis: iluminação dinâmica, animações de dados 3D, automações de combate e fichas interativas. Grande parte dessa magia vem da comunidade de criadores independentes.</p>
+
+    <p>No entanto, quando surge aquela centelha de criar a sua própria regra da casa, um tema de dados, um sistema completo ou uma aventura profissional, uma dúvida cruel paralisa quase todo mundo:</p>
+
+    <blockquote class="destaque-citacao">
+      <em>"Como eu coloco meu módulo no ar para as pessoas instalarem com um clique? E se eu quiser vender meu conteúdo, como funciona o Marketplace oficial do Foundry VTT?"</em>
+    </blockquote>
+
+    <p>Neste artigo minucioso, vamos descomplicar todo o processo passo a passo, cobrindo desde a estruturação técnica básica até a homologação na vitrine oficial e os caminhos de monetização.</p>
+  </section>
+
+  <hr />
+
+  <section class="post-section">
+    <h2>1. O Coração de Tudo: Entendendo o Manifesto (module.json / system.json)</h2>
+    <p>Para o Foundry VTT reconhecer que uma pasta é um módulo ou sistema, ele exige um arquivo de manifesto em formato JSON na raiz do seu projeto:</p>
+    <ul>
+      <li>Para módulos: <code>module.json</code></li>
+      <li>Para sistemas de jogo: <code>system.json</code></li>
+    </ul>
+
+    <p>Esse arquivo contém o "DNA" do seu pacote. Veja os campos obrigatórios e mais importantes:</p>
+
+    <pre><code class="language-json">{
+  "id": "meu-modulo-incrivel",
+  "title": "Meu Módulo Incrível",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "Mestre Charles Corrêa",
+      "url": "https://rpg.charlescorrea.com.br",
+      "discord": "charlescorrea"
+    }
+  ],
+  "manifest": "https://raw.githubusercontent.com/usuario/repositorio/main/module.json",
+  "download": "https://github.com/usuario/repositorio/releases/download/v1.0.0/meu-modulo-incrivel.zip",
+  "readme": "https://github.com/usuario/repositorio/blob/main/README.md",
+  "changelog": "https://github.com/usuario/repositorio/blob/main/CHANGELOG.md",
+  "url": "https://github.com/usuario/repositorio"
+}</code></pre>
+
+    <div class="box-alerta-info">
+      <h3>Atenção aos Detalhes Críticos:</h3>
+      <ul>
+        <li><strong>id:</strong> Deve ser único, em letras minúsculas e separado apenas por hífens. Não use espaços ou caracteres especiais.</li>
+        <li><strong>manifest:</strong> URL direta (em texto puro) que sempre aponta para o <code>module.json</code> mais recente.</li>
+        <li><strong>download:</strong> Link direto do arquivo <code>.zip</code> que o Foundry baixa ao clicar em Instalar.</li>
+        <li><strong>Estrutura do .zip:</strong> Dentro do arquivo compactado, todos os arquivos <strong>devem estar dentro de uma pasta com o mesmo nome do ID</strong> (exemplo: <code>meu-modulo-incrivel/module.json</code>). Se descompactar os arquivos soltos na raiz do zip, o Foundry recusará a instalação!</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr />
+
+  <section class="post-section">
+    <h2>2. Publicação de Pacotes Gratuitos no Diretório Oficial</h2>
+    <p>O diretório oficial do Foundry VTT (<a href="https://foundryvtt.com/packages/" target="_blank" rel="noopener">foundryvtt.com/packages</a>) é a vitrine que aparece diretamente no gerenciador de pacotes dentro do aplicativo de cada usuário no mundo inteiro.</p>
+
+    <h3>Passo a Passo da Submissão Inicial:</h3>
+    <ol>
+      <li><strong>Crie e ative sua conta no site oficial:</strong> Acesse <a href="https://foundryvtt.com" target="_blank" rel="noopener">foundryvtt.com</a> com uma licença vinculada.</li>
+      <li><strong>Acesse o Formulário de Submissão:</strong> Acesse diretamente <a href="https://foundryvtt.com/packages/submit" target="_blank" rel="noopener">foundryvtt.com/packages/submit</a>.</li>
+      <li><strong>Preencha os dados do pacote:</strong>
+        <ul>
+          <li><strong>Package Type:</strong> Módulo, Sistema ou Mundo.</li>
+          <li><strong>Package ID:</strong> Exatamente o mesmo <code>id</code> do manifesto.</li>
+          <li><strong>Package Title:</strong> O título público do pacote.</li>
+          <li><strong>Package URL:</strong> Repositório Git (GitHub ou GitLab).</li>
+          <li><strong>Discord Username:</strong> Insira seu usuário do Discord. Quando seu módulo for aprovado, você receberá automaticamente o cargo oficial de <em>Developer</em> no Discord do Foundry VTT!</li>
+          <li><strong>Description:</strong> Texto formatado explicando o que o pacote faz, prints de tela e comandos.</li>
+          <li><strong>Declaração de Inteligência Artificial:</strong> O Foundry possui uma política rígida (<a href="https://foundryvtt.com/article/ai-policy/" target="_blank" rel="noopener">AI Content Policy</a>). Conteúdos visuais e narrativos gerados por IA pública não são aceitos no diretório oficial sem permissão explícita. Deixe claro se o conteúdo foi criado humanamente.</li>
+        </ul>
+      </li>
+      <li><strong>Aguarde a Moderação:</strong> A equipe do Foundry revisa manualmente o pacote (geralmente entre 24h e 48h úteis). Uma vez aprovado, seu módulo estará pesquisável por qualquer mestre!</li>
+    </ol>
+  </section>
+
+  <hr />
+
+  <section class="post-section">
+    <h2>3. Como Lançar Atualizações Automáticas: A Package Release API</h2>
+    <p>Antigamente, cada atualização de versão exigia entrar no site do Foundry e editar o formulário na mão. Hoje, o Foundry oferece a <strong>Package Release API</strong> (<a href="https://foundryvtt.com/article/package-release-api/" target="_blank" rel="noopener">documentação oficial</a>).</p>
+
+    <h3>Como Funciona:</h3>
+    <ol>
+      <li>Na página do seu pacote aprovado no site do Foundry, você encontrará um campo chamado <strong>Package Release Token</strong> (começa com <code>fvttp_...</code>).</li>
+      <li>Você guarda esse token em um local seguro (por exemplo, nos <em>GitHub Secrets</em> do seu repositório).</li>
+      <li>Ao lançar uma nova tag no Git (ex: <code>v1.0.1</code>), uma esteira de automação (GitHub Actions) envia uma requisição POST direta para a API do Foundry:</li>
+    </ol>
+
+    <pre><code class="language-bash">curl -X POST "https://foundryvtt.com/_api/packages/release_version/" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: fvttp_SEU_TOKEN_AQUI" \
+  -d '{
+    "id": "meu-modulo-incrivel",
+    "dry-run": false,
+    "release": {
+      "version": "1.0.1",
+      "manifest": "https://raw.githubusercontent.com/usuario/repositorio/main/module.json",
+      "notes": "https://github.com/usuario/repositorio/releases/tag/v1.0.1",
+      "compatibility": {
+        "minimum": "11",
+        "verified": "14"
+      }
+    }
+  }'</code></pre>
+
+    <div class="box-dica">
+      <strong>Dica Técnica de Ouro:</strong> Nunca utilize comandos <code>curl -s</code> (silenciosos) nas suas Actions sem capturar o status HTTP! Se a API retornar erro (como 400 por manifesto indisponível ou 429 por limite de chamadas), o runner pode passar sem alertar ninguém. Sempre valide se o retorno foi <code>HTTP 200</code>.
+    </div>
+  </section>
+
+  <hr />
+
+  <section class="post-section">
+    <h2>4. Publicação de Módulos e Conteúdos Pagos: Os Modelos de Monetização</h2>
+    <p>Muitos criadores de RPG produzem cenários autorais, compêndios gigantescos de monstros ou ferramentas complexas e desejam ser remunerados pelo seu trabalho. Existem dois caminhos consolidados no ecossistema:</p>
+
+    <h3>Caminho A: O Marketplace Oficial do Foundry VTT (foundryvtt.store)</h3>
+    <p>O Marketplace Oficial (<a href="https://www.foundryvtt.store" target="_blank" rel="noopener">foundryvtt.store</a>) é a loja oficial gerida em parceria com a <em>MetaMorphic Digital Studio</em>.</p>
+
+    <h4>Vantagens do Marketplace Oficial:</h4>
+    <ul>
+      <li><strong>Proteção de Conteúdo e DRM Nativo:</strong> O cliente compra na loja logado com a conta do Foundry VTT. O pacote é liberado automaticamente na conta dele no aplicativo, sem necessidade de enviar chaves por e-mail ou lidar com pirataria manual.</li>
+      <li><strong>Atualização Automática Transparente:</strong> O cliente atualiza o pacote diretamente pelo painel do Foundry, com toda a infraestrutura oficial da plataforma.</li>
+    </ul>
+
+    <h4>Regras e Exigências Importantes:</h4>
+    <ul>
+      <li><strong>Contrato Comercial:</strong> É necessário formalizar uma parceria comercial de fornecedor (Content Provider) via e-mail formal com a MetaMorphic Digital Studio (<code>foundry-marketplace@metamorphic-digital.com</code>).</li>
+      <li><strong>Piso de Preço:</strong> O valor mínimo absoluto aceito pela plataforma é de <strong>US$ 2,99</strong> (com recomendação oficial a partir de <strong>US$ 4,99</strong> devido a custos de processamento e retenções fiscais internacionais). Não é permitido cadastrar produtos gratuitos na vitrine de vendas da loja.</li>
+      <li><strong>Proibição de PDFs Isolados:</strong> O Marketplace não é uma loja de livros digitais. É terminantemente proibido vender apenas PDFs avulsos. Todo produto deve ser um pacote Foundry completamente convertido (cenários prontos, atores com fichas configuradas, iluminação, paredes e tabelas).</li>
+    </ul>
+
+    <h3>Caminho B: Venda Independente (Patreon, Apoia.se, DriveThruRPG e Itch.io)</h3>
+    <p>Se você prefere não assinar contratos corporativos ou deseja trabalhar no modelo de assinatura mensal com recompensas:</p>
+    <ul>
+      <li><strong>Patreon / Catarse / Apoia.se:</strong> Você pode disponibilizar o link de manifesto e o arquivo <code>.zip</code> em postagens exclusivas para apoiadores. Módulos populares como <em>The Forge Bazaar</em> ou integrações de terceiros permitem autenticar apoiadores.</li>
+      <li><strong>DriveThruRPG:</strong> A maior loja de RPG do mundo possui convênio oficial com o Foundry VTT para venda de pacotes e geração de chaves autorizadas de ativação.</li>
+      <li><strong>Itch.io ou Loja Própria:</strong> O comprador recebe o link do arquivo compactado ou acesso a um manifesto protegido e realiza a instalação manual colando a URL no Foundry VTT.</li>
+    </ul>
+  </section>
+
+  <hr />
+
+  <section class="post-section">
+    <h2>5. Checklist Final Antes de Publicar Qualquer Pacote</h2>
+    <div class="checklist-box">
+      <p>Antes de clicar em enviar no portal do Foundry ou disparar sua primeira tag, confira:</p>
+      <ul>
+        <li>[ ] O arquivo <code>module.json</code> possui versão, título, ID e compatibilidade mínima/verificada válidas?</li>
+        <li>[ ] O arquivo <code>.zip</code> foi compactado contendo uma pasta com o ID do módulo na raiz interna?</li>
+        <li>[ ] Os links de <code>manifest</code> e <code>download</code> são públicos e estão respondendo com HTTP 200 (sem tela de login ou link quebrado)?</li>
+        <li>[ ] O código foi testado no console do Foundry (F12) sem erros de sintaxe ou avisos de métodos obsoletos?</li>
+        <li>[ ] Você incluiu um <code>README.md</code> atraente e um <code>CHANGELOG.md</code> documentando as novidades?</li>
+        <li>[ ] Se utilizou auxílio de ferramentas de IA para scripts, revisou e testou humanamente cada linha de código?</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="post-footer-box">
+    <h3>Participe da Nossa Comunidade e Acompanhe Novos Projetos!</h3>
+    <p>Desenvolver para o Foundry VTT é uma das experiências mais gratificantes do RPG moderno. Ver dezenas de mesas utilizando suas criações semana após semana não tem preço.</p>
+    <p>Dúvidas sobre código, automação de GitHub Actions ou regras do Foundry VTT? Deixe seu comentário abaixo e participe da nossa comunidade:</p>
+    <ul>
+      <li>Portal e Artigos: <a href="https://rpg.charlescorrea.com.br" target="_blank" rel="noopener">rpg.charlescorrea.com.br</a></li>
+      <li>GitHub Oficial: <a href="https://github.com/CharlesCorreaDev" target="_blank" rel="noopener">github.com/CharlesCorreaDev</a></li>
+      <li>Instagram: <a href="https://www.instagram.com/mestrecharlescorrea" target="_blank" rel="noopener">@mestrecharlescorrea</a></li>
+      <li>Comunidade Salinha: <a href="https://salinha.live/?c=6BMDF9#g=qrhshrw76y7m" target="_blank" rel="noopener">salinha.live</a></li>
+    </ul>
+  </footer>
+
+</article>
