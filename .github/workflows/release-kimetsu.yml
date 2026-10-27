@@ -43,12 +43,23 @@ jobs:
             let notes = "";
             if (fs.existsSync(file)) {
               const content = fs.readFileSync(file, "utf8");
-              const regex = new RegExp(`## \\\\[${version}\\\\][\\\\s\\\\S]*?(?=\\\\n## \\\\[|$)`);
-              const match = content.match(regex);
-              if (match) notes = match[0].trim();
+              const lines = content.split("\n");
+              let capturing = false;
+              const collected = [];
+              for (const line of lines) {
+                if (line.startsWith(`## [${version}]`)) {
+                  capturing = true;
+                  collected.push(line);
+                } else if (capturing && line.startsWith("## [")) {
+                  break;
+                } else if (capturing) {
+                  collected.push(line);
+                }
+              }
+              if (collected.length > 0) notes = collected.join("\n").trim();
             }
             if (!notes) {
-              notes = `## 🎲 Kimetsu no Yaiba for Dice So Nice v${version}\\n\\nVeja as alterações no [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/${file}).`;
+              notes = `## 🎲 Kimetsu no Yaiba for Dice So Nice v${version}\n\nVeja as alterações no [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/${file}).`;
             }
             fs.writeFileSync("release_notes.md", notes);
           '
@@ -65,7 +76,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to Foundry VTT Package Release API
-        if: env.FOUNDRY_RELEASE_TOKEN != ''
+        if: ${{ secrets.FOUNDRY_RELEASE_TOKEN_DEMON_SLAYER != '' }}
         env:
           FOUNDRY_RELEASE_TOKEN: ${{ secrets.FOUNDRY_RELEASE_TOKEN_DEMON_SLAYER }}
         run: |
