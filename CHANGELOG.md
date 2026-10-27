@@ -11,6 +11,32 @@ Cada módulo, sistema ou macro possui também seu próprio `CHANGELOG.md` e arqu
 
 ---
 
+## [2026-10-27] - Atualização de Módulos (Metamoedas by Thorunn v1.0.0.2)
+
+### 🇧🇷 Português (Brasil)
+#### 🎲 Para Mestres e Jogadores (Leigo / Acessível)
+- **Metamoedas by Thorunn (v1.0.0.2)**: Anexada autorização formal por escrito da autora original Gabrieli Rizzo (Mestra Thorunn) para a adaptação oficial de sua obra ao Foundry VTT.
+- **Transparência e Conformidade**: Atualizado o `README.md` com seção de propriedade intelectual e conformidade de direitos com a comunidade e política do Foundry VTT.
+
+#### ⚙️ Para Desenvolvedores (Técnico)
+- Atualização do manifesto `module.json` e arquivo `VERSION` para a versão `1.0.0.2`.
+- Inclusão do documento comprobatório em `foundry-v14/modules/metamoedas-by-thorunn/docs/`.
+- Otimização do pipeline de release do GitHub Actions (`release-metamoedas.yml` e `release-kimetsu.yml`) para extração automática de changelog na release do GitHub.
+
+---
+
+### 🇺🇸 English
+#### 🎲 For Game Masters and Players (Accessible View)
+- **Metamoedas by Thorunn (v1.0.0.2)**: Attached written authorization from original author Gabrieli Rizzo (Mistress Thorunn) authorizing the official adaptation of her work for Foundry VTT.
+- **Transparency & IP Compliance**: Updated `README.md` with explicit intellectual property attribution complying with Foundry VTT policies.
+
+#### ⚙️ For Developers (Technical View)
+- Bumped `module.json` and `VERSION` file to `1.0.0.2`.
+- Added compliance document in `foundry-v14/modules/metamoedas-by-thorunn/docs/`.
+- CI/CD workflow updates for automated version-matched GitHub release notes.
+
+---
+
 ## [v1.0.0] - 2026-10-24
 
 ### 🇧🇷 Português (Brasil)

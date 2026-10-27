@@ -2,7 +2,7 @@
   "id": "metamoedas-by-thorunn",
   "title": "Guia de Metamoedas by Thorunn",
   "description": "Transforme o metagame da sua mesa em economia do caos com as punições, maldições e regras oficiais da Mestra Thorunn. 100% agnóstico a sistemas.",
-  "version": "1.0.0.1",
+  "version": "1.0.0.2",
   "compatibility": {
     "minimum": "12",
     "verified": "14"
@@ -53,7 +53,7 @@
   ],
   "url": "https://rpg.charlescorrea.com.br/dicas/transforme-o-metagame-da-sua-mesa-em-caos-narrativo-com-o-guia-das-metamoedas-by-thorunn/",
   "manifest": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/metamoedas-by-thorunn/module.json",
-  "download": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/releases/download/metamoedas-v1.0.0.1/metamoedas-by-thorunn.zip",
+  "download": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/releases/download/metamoedas-v1.0.0.2/metamoedas-by-thorunn.zip",
   "readme": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/metamoedas-by-thorunn/README.md",
   "changelog": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/metamoedas-by-thorunn/CHANGELOG.md",
   "bugs": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/issues",

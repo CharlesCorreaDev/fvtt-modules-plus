@@ -287,9 +287,24 @@ Found any issues, errors or have feedback?
 
 ---
 
+### 📜 Autorização & Propriedade Intelectual / Authorization & IP Policy
+
+#### 🇧🇷 Português
+O desenvolvedor **Mestre Charles Corrêa** (Charles Corrêa) possui autorização formal por escrito concedida pela autora original **Gabrieli Rizzo** (**Mestra Thorunn**) para realizar a adaptação das regras, dinâmicas e conteúdos de sua obra original — o *Guia de Metamoedas by Thorunn* — para módulos do **Foundry Virtual Tabletop (Foundry VTT)**.
+
+Esta adaptação é realizada em conformidade com as diretrizes de desenvolvimento comunitário, termos de uso, licenças e a política de propriedade intelectual do **Foundry VTT**. O documento comprobatório formal está anexado e disponível para consulta em [`docs/Adaptação do Guia de Metamoedas para módulo do Foundry VTT _ Autorização.pdf`](docs/Adapta%C3%A7%C3%A3o%20do%20Guia%20de%20Metamoedas%20para%20m%C3%B3dulo%20do%20Foundry%20VTT%20_%20Autoriza%C3%A7%C3%A3o.pdf).
+
+#### 🇺🇸 English
+Developer **Mestre Charles Corrêa** (Charles Corrêa) holds written authorization granted by original author **Gabrieli Rizzo** (**Mistress Thorunn**) to adapt the rules, mechanics, and content from her original work — *Guia de Metamoedas by Thorunn* — into modules for **Foundry Virtual Tabletop (Foundry VTT)**.
+
+This adaptation strictly adheres to Foundry VTT's community development guidelines, terms of use, licenses, and intellectual property policies. The official authorization document is included and available for verification in [`docs/Adaptação do Guia de Metamoedas para módulo do Foundry VTT _ Autorização.pdf`](docs/Adapta%C3%A7%C3%A3o%20do%20Guia%20de%20Metamoedas%20para%20m%C3%B3dulo%20do%20Foundry%20VTT%20_%20Autoriza%C3%A7%C3%A3o.pdf).
+
+---
+
 <div align="center">
 
 Made with 💀 and chaos by **Charles Corrêa** & **Mestra Thorunn**  
 *Distributed under the MIT License.*
 
 </div>
+

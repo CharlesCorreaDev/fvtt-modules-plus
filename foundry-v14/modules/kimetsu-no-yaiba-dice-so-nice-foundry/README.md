@@ -30,10 +30,12 @@
 
 Tema visual de dados 3D feito por fãs e para fãs de **Kimetsu no Yaiba (Demon Slayer)**, integrando-se diretamente ao módulo [Dice So Nice!](https://foundryvtt.com/packages/dice-so-nice) no **Foundry Virtual Tabletop**.
 
-Três variações visuais inspiradas na estética da Era Taishō, no Esquadrão de Exterminadores e nos Oni:
+Cinco variações visuais inspiradas na estética da Era Taishō, no Esquadrão de Exterminadores e nos Oni:
 * 🎴 **White Theme (Respiração & Pureza):** Textura clara com números em rubro e contorno escuro.
 * ⚔️ **Demon Slayer Red (Chamas & Lâminas Nichirin):** Vermelho vivo com números em alto contraste.
 * 🌙 **Dark Theme (Noite dos Demônios):** Fundo escuro com contornos escarlates pulsantes.
+* 🌊 **Dark Blue Theme (Respiração da Água):** Inspirado no Giyuu Tomioka, tons azuis profundos com numerais ciano brilhantes.
+* 🍃 **Dark Green Theme (Haori do Caçador):** Inspirado no xadrez de Tanjiro Kamado, verde esmeralda com numerais luminosos.
 
 ---
 

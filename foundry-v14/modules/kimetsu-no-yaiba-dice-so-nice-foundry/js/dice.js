@@ -71,6 +71,42 @@ Hooks.on('diceSoNiceReady', (dice3d) => {
         fontScale: fontScalePreset,
         font: "Blood Crow"
       }
+    },
+    {
+      textureId: "kny_dark_blue",
+      textureName: "🌊 Demon Slayer Dark Blue",
+      image: "modules/kimetsu-no-yaiba-dice-so-nice-foundry/img/DARK_BLUE.webp",
+      colorset: {
+        name: "Kimetsu no Yaiba - Dark Blue Theme",
+        description: "🌊 Respiração da Água (Tomioka)",
+        category: "Kimetsu no Yaiba",
+        background: "#0c192c",
+        foreground: "#00e1d9",
+        outline: "#002b49",
+        edge: "#0d3b66",
+        texture: "kny_dark_blue",
+        material: "metal",
+        fontScale: fontScalePreset,
+        font: "Blood Crow"
+      }
+    },
+    {
+      textureId: "kny_dark_green",
+      textureName: "🍃 Demon Slayer Dark Green",
+      image: "modules/kimetsu-no-yaiba-dice-so-nice-foundry/img/DARK_GREEN.webp",
+      colorset: {
+        name: "Kimetsu no Yaiba - Dark Green Theme",
+        description: "🍃 Haori Tanjiro (Xadrez Verde)",
+        category: "Kimetsu no Yaiba",
+        background: "#0e2016",
+        foreground: "#55ff99",
+        outline: "#05140b",
+        edge: "#1b4d2e",
+        texture: "kny_dark_green",
+        material: "metal",
+        fontScale: fontScalePreset,
+        font: "Blood Crow"
+      }
     }
   ];
 

@@ -59,7 +59,8 @@ Cada módulo, sistema e coleção de macros possui seu diretório dedicado, cont
 
 | Pacote | Tipo | Descrição | Status v14 | Changelog |
 | :--- | :--- | :--- | :---: | :---: |
-| [metamoedas-by-thorunn](foundry-v14/modules/metamoedas-by-thorunn/) | Módulo | Sistema de economia do caos, punições e maldições (Thorunn & Charles Corrêa) | ✅ Verificado (v14) | [CHANGELOG.md](foundry-v14/modules/metamoedas-by-thorunn/CHANGELOG.md) |
+| [metamoedas-by-thorunn](foundry-v14/modules/metamoedas-by-thorunn/) | Módulo | Sistema de economia do caos, punições e maldições (Thorunn & Charles Corrêa) - v1.0.0.2 | ✅ Verificado (v14) | [CHANGELOG.md](foundry-v14/modules/metamoedas-by-thorunn/CHANGELOG.md) |
+| [kimetsu-no-yaiba-dice-so-nice-foundry](foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/) | Módulo | Tema de dados 3D temático de Demon Slayer para Dice So Nice | ✅ Verificado (v14) | [CHANGELOG.md](foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/CHANGELOG.md) |
 
 ---
 

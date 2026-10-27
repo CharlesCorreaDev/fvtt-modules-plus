@@ -36,6 +36,26 @@ jobs:
           # Compacta excluindo arquivos de desenvolvimento desnecessários
           zip -r ../../../metamoedas-by-thorunn.zip . -x "*.git*" "README.html"
 
+      - name: Extract Changelog for Current Version
+        id: changelog
+        run: |
+          node -e '
+            const fs = require("fs");
+            const file = "foundry-v14/modules/metamoedas-by-thorunn/CHANGELOG.md";
+            const version = "${{ steps.get_version.outputs.version }}";
+            let notes = "";
+            if (fs.existsSync(file)) {
+              const content = fs.readFileSync(file, "utf8");
+              const regex = new RegExp(`## \\\\[${version}\\\\][\\\\s\\\\S]*?(?=\\\\n## \\\\[|$)`);
+              const match = content.match(regex);
+              if (match) notes = match[0].trim();
+            }
+            if (!notes) {
+              notes = `## 💀 Guia de Metamoedas by Thorunn v${version}\\n\\nVeja as alterações no [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/${file}).`;
+            }
+            fs.writeFileSync("release_notes.md", notes);
+          '
+
       - name: Create GitHub Release
         id: create_release
         uses: softprops/action-gh-release@v2
@@ -43,12 +63,7 @@ jobs:
           name: "Metamoedas by Thorunn v${{ steps.get_version.outputs.version }}"
           tag_name: ${{ github.ref_name }}
           files: metamoedas-by-thorunn.zip
-          body: |
-            ## 💀 Guia de Metamoedas by Thorunn v${{ steps.get_version.outputs.version }}
-            
-            - **Download direto:** `metamoedas-by-thorunn.zip`
-            - **Manifest URL:** `https://raw.githubusercontent.com/${{ github.repository }}/main/foundry-v14/modules/metamoedas-by-thorunn/module.json`
-            - **Notas da Versão:** Veja o arquivo [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/foundry-v14/modules/metamoedas-by-thorunn/CHANGELOG.md)
+          body_path: release_notes.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

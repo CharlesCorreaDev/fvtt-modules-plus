@@ -35,6 +35,7 @@
   "manifest": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/module.json",
   "download": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/releases/download/kimetsu-v1.0.0.1/kimetsu-no-yaiba-dice-so-nice-foundry.zip",
   "readme": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/README.md",
+  "changelog": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/CHANGELOG.md",
   "bugs": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/issues",
   "media": [
     {
