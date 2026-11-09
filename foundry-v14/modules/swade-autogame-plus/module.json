@@ -1,0 +1,59 @@
+{
+  "id": "swade-autogame-plus",
+  "title": "SWADE AutoGame Plus (Beta)",
+  "description": "Automações inteligentes, fluxos ágeis de combate e aprimoramentos de qualidade de vida para Savage Worlds Adventure Edition (SWADE) no Foundry VTT v14.",
+  "version": "0.1.0-beta",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "14"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "swade",
+        "type": "system",
+        "manifest": "https://gitlab.com/peginc/swade/-/releases/permalink/latest/downloads/system.json"
+      }
+    ]
+  },
+  "authors": [
+    {
+      "name": "Mestre Charles Corrêa",
+      "url": "https://rpg.charlescorrea.com.br",
+      "email": "charlescorreaweb@gmail.com",
+      "discord": "charlescorrea",
+      "flags": {
+        "github": "https://github.com/CharlesCorreaDev",
+        "salinha": "https://salinha.live/?c=6BMDF9#g=qrhshrw76y7m",
+        "youtube": "https://www.youtube.com/@mestrecharlescorrea",
+        "instagram": "https://www.instagram.com/mestrecharlescorrea",
+        "whatsapp": "https://chat.whatsapp.com/FSr7xgejDqoHkfrrA5GxXj"
+      }
+    }
+  ],
+  "esmodules": [
+    "src/index.js"
+  ],
+  "styles": [
+    "styles/module.css"
+  ],
+  "languages": [
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "url": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/tree/main/foundry-v14/modules/swade-autogame-plus",
+  "manifest": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/swade-autogame-plus/module.json",
+  "download": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/releases/download/swade-autogame-v0.1.0-beta/swade-autogame-plus.zip",
+  "readme": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/swade-autogame-plus/README.md",
+  "changelog": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/swade-autogame-plus/CHANGELOG.md",
+  "bugs": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/issues",
+  "license": "MIT"
+}
