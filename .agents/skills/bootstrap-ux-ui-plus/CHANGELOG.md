@@ -14,3 +14,4 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.
   - Exemplos e padrões de integração com `ApplicationV2` e `HandlebarsApplicationMixin` do Foundry v13/v14.369 Stable/v15+.
   - Arquivos padrão da arquitetura de skills: `cheatsheet.md`, `patterns.md`, `glossary.md`, `CHANGELOG.md`, `VERSION` e `README.md`.
   - Templates SCSS/CSS de isolamento e script de validação de CSS seguro.
+

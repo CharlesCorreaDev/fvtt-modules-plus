@@ -39,3 +39,4 @@ export class MeuModuloSheet extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 }
 ```
+

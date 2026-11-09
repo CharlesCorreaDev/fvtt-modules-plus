@@ -28,7 +28,17 @@ console.log("📦 1/2. [PT-BR] Sincronizando Skills de IA para .agents/skills/..
 console.log("        [EN]    Synchronizing AI Skills to .agents/skills/...");
 try {
   const syncScript = path.join(__dirname, "sync_skills.py");
-  execSync(`python "${syncScript}"`, { stdio: "inherit" });
+  // [PT-BR] Tenta 'python3' (padrão Linux/macOS) ou fallback para 'python' (padrão Windows)
+  // [EN] Tries 'python3' (Linux/macOS standard) or falls back to 'python' (Windows standard)
+  let pyBinary = "python";
+  try {
+    execSync("python3 --version", { stdio: "ignore" });
+    pyBinary = "python3";
+  } catch {
+    pyBinary = "python";
+  }
+
+  execSync(`${pyBinary} "${syncScript}"`, { stdio: "inherit" });
 } catch (err) {
   console.warn("⚠️ [PT-BR] Aviso na execução / [EN] Warning executing sync_skills.py:", err.message);
 }

@@ -43,18 +43,29 @@ REQUIRED_SKILLS = [
 
 def find_skills_source_dir():
     """
-    [PT-BR] Localiza a pasta fonte das skills (prioriza local ou global do usuário).
-    [EN] Locates the skills source directory (prioritizes local workspace or user global path).
+    [PT-BR] Localiza a pasta fonte das skills (prioriza local ou global do usuário no OS).
+    [EN] Locates the skills source directory (prioritizes local workspace or user OS global path).
     """
-    # 1. Caminho prioritário local (mesmo workspace pai) / Local workspace path
-    candidate_1 = Path("D:/ProjetosPHP/Repositórios-teste/Skills")
+    current_script = Path(__file__).resolve()
+    repo_root = current_script.parent.parent.parent  # fvtt-modules-plus
+
+    # 1. Caminho relativo multiplataforma (pasta paralela 'Skills' ou repositório pai)
+    #    Cross-platform relative path (sibling 'Skills' directory or parent repo)
+    candidate_1 = repo_root.parent / "Skills"
     if candidate_1.exists():
         return candidate_1
     
-    # 2. Caminho global do Gemini / Antigravity / Global agent skills path
+    # 2. Caminho global do Gemini / Antigravity (independente de OS: Windows, macOS, Linux)
+    #    Global Antigravity / Gemini skills path (~/.gemini/config/skills)
     candidate_2 = Path.home() / ".gemini" / "config" / "skills"
     if candidate_2.exists():
         return candidate_2
+
+    # 3. Fallback: subpasta de skills interna caso já exista
+    #    Fallback: internal skills folder if already populated
+    candidate_3 = repo_root / ".agents" / "skills"
+    if candidate_3.exists():
+        return candidate_3
 
     return None
 

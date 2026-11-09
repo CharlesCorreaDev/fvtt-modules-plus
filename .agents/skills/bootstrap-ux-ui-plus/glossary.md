@@ -5,3 +5,4 @@
 - **.fvtt-bs:** O prefixo seletor padronizado da skill para confinar todo o design system do Bootstrap 5.3+ exclusivamente dentro das janelas dos módulos.
 - **HandlebarsApplicationMixin:** Mixin nativo do Foundry v14 para renderização reativa de templates Handlebars com gerenciamento inteligente de partes (`PARTS`).
 - **WCAG AA:** Padrão internacional de acessibilidade visual para contraste de cores, foco por teclado e tipografia legível.
+
