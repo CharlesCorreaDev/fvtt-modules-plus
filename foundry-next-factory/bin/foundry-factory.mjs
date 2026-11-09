@@ -83,9 +83,15 @@ function copyRecursiveSync(src, dest, replacements = {}) {
   if (isDirectory) {
     if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
     fs.readdirSync(src).forEach((childItemName) => {
+      let resolvedChildName = childItemName;
+      for (const [key, value] of Object.entries(replacements)) {
+        const regex = new RegExp(`{{${key}}}`, "g");
+        resolvedChildName = resolvedChildName.replace(regex, value);
+      }
+
       copyRecursiveSync(
         path.join(src, childItemName),
-        path.join(dest, childItemName),
+        path.join(dest, resolvedChildName),
         replacements
       );
     });
