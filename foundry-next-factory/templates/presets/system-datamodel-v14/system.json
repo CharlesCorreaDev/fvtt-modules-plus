@@ -1,0 +1,53 @@
+{
+  "id": "{{PACKAGE_ID}}",
+  "title": "{{PACKAGE_TITLE}}",
+  "description": "Next-Generation Tabletop RPG System built for Foundry VTT v14+ with TypeDataModel & ApplicationV2.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "{{FOUNDRY_MINIMUM}}",
+    "verified": "{{FOUNDRY_VERIFIED}}"
+  },
+  "authors": [
+    {
+      "name": "{{AUTHOR_NAME}}",
+      "url": "https://rpg.charlescorrea.com.br",
+      "discord": "charlescorrea"
+    }
+  ],
+  "esmodules": ["scripts/{{PACKAGE_ID}}.mjs"],
+  "styles": ["styles/{{PACKAGE_ID}}.css"],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "character": {
+        "htmlFields": ["biography"]
+      },
+      "npc": {
+        "htmlFields": ["biography"]
+      }
+    },
+    "Item": {
+      "feature": {
+        "htmlFields": ["description"]
+      },
+      "gear": {
+        "htmlFields": ["description"]
+      }
+    }
+  },
+  "url": "https://github.com/CharlesCorreaDev/fvtt-modules-plus",
+  "manifest": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/releases/latest/download/system.json",
+  "download": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/releases/latest/download/{{PACKAGE_ID}}.zip",
+  "license": "MIT"
+}

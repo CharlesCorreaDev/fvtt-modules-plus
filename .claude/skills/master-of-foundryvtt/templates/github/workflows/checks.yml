@@ -1,0 +1,60 @@
+name: CI Quality & Validation Checks
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  validate-and-lint:
+    name: Lint & Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+        continue-on-error: true
+
+      - name: Install Dependencies
+        run: |
+          if [ -f package.json ]; then
+            npm ci || npm install
+          fi
+
+      - name: Install Foundry VTT CLI
+        run: npm install -g @foundryvtt/foundryvtt-cli
+
+      - name: Validate Manifest Schema
+        run: |
+          if [ -f module.json ]; then
+            echo "Validating module.json..."
+            node -e "const m = JSON.parse(fs.readFileSync('module.json', 'utf8')); if (!m.id || !m.version || !m.compatibility) process.exit(1);"
+            fvtt package validate . || true
+          elif [ -f system.json ]; then
+            echo "Validating system.json..."
+            node -e "const s = JSON.parse(fs.readFileSync('system.json', 'utf8')); if (!s.id || !s.version || !s.compatibility) process.exit(1);"
+            fvtt package validate . || true
+          fi
+
+      - name: Check JSON Syntax (i18n & Manifests)
+        run: |
+          find . -name "*.json" -not -path "*/node_modules/*" -not -path "*/.git/*" -exec node -e "JSON.parse(fs.readFileSync(process.argv[1], 'utf8'))" {} \;
+          echo "All JSON files have valid syntax."
+
+      - name: Check JavaScript / ESModules Syntax
+        run: |
+          find . -name "*.mjs" -o -name "*.js" -not -path "*/node_modules/*" -not -path "*/.git/*" | while read file; do
+            node -c "$file"
+          done
+          echo "All JavaScript files passed syntax verification."

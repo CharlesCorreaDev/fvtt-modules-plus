@@ -1,0 +1,149 @@
+name: Release Package to GitHub & Foundry VTT Directory
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-release:
+    name: Package & Publish Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: |
+          if [ -f package.json ]; then
+            npm ci || npm install
+          else
+            npm install archiver
+          fi
+
+      - name: Determine Package Metadata
+        id: pkg
+        run: |
+          if [ -f module.json ]; then
+            ID=$(node -p "require('./module.json').id")
+            TYPE="module"
+            MANIFEST="module.json"
+          elif [ -f system.json ]; then
+            ID=$(node -p "require('./system.json').id")
+            TYPE="system"
+            MANIFEST="system.json"
+          else
+            echo "Error: No module.json or system.json found."
+            exit 1
+          fi
+          TAG="${GITHUB_REF#refs/tags/}"
+          echo "id=${ID}" >> $GITHUB_OUTPUT
+          echo "type=${TYPE}" >> $GITHUB_OUTPUT
+          echo "manifest=${MANIFEST}" >> $GITHUB_OUTPUT
+          echo "tag=${TAG}" >> $GITHUB_OUTPUT
+          echo "zip_name=${ID}.zip" >> $GITHUB_OUTPUT
+
+      - name: Create Production Distribution Zip
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const archiver = require('archiver');
+
+          const pkgId = '${{ steps.pkg.outputs.id }}';
+          const zipName = '${{ steps.pkg.outputs.zip_name }}';
+          const output = fs.createWriteStream(zipName);
+          const archive = archiver('zip', { zlib: { level: 9 } });
+
+          output.on('close', () => console.log('Archive created successfully: ' + archive.pointer() + ' bytes'));
+          archive.pipe(output);
+
+          const ignoreFiles = new Set(['.git', '.github', 'node_modules', zipName, '.gitignore']);
+          const files = fs.readdirSync('.');
+          for (const file of files) {
+            if (ignoreFiles.has(file)) continue;
+            const fullPath = path.join('.', file);
+            const stat = fs.statSync(fullPath);
+            if (stat.isDirectory()) {
+              archive.directory(fullPath, path.join(pkgId, file));
+            } else {
+              archive.file(fullPath, { name: path.join(pkgId, file) });
+            }
+          }
+          archive.finalize();
+          "
+
+      - name: Publish to Foundry VTT Package Release API
+        env:
+          FOUNDRY_RELEASE_TOKEN: ${{ secrets.FOUNDRY_RELEASE_TOKEN || secrets.FOUNDRY_API_TOKEN }}
+        run: |
+          if [ -z "$FOUNDRY_RELEASE_TOKEN" ]; then
+            echo "::warning::Nenhum token FOUNDRY_RELEASE_TOKEN ou FOUNDRY_API_TOKEN configurado nos Secrets. Pulando publicação automática no diretório oficial do Foundry VTT."
+            exit 0
+          fi
+          node -e "
+          const fs = require('fs');
+          const https = require('https');
+          const manifest = JSON.parse(fs.readFileSync('${{ steps.pkg.outputs.manifest }}', 'utf8'));
+
+          const payload = JSON.stringify({
+            'id': manifest.id,
+            'dry-run': false,
+            'release': {
+              'version': manifest.version,
+              'manifest': manifest.manifest,
+              'notes': manifest.changelog || manifest.readme || '',
+              'compatibility': {
+                'minimum': manifest.compatibility.minimum,
+                'verified': manifest.compatibility.verified,
+                'maximum': manifest.compatibility.maximum
+              }
+            }
+          });
+
+          const req = https.request('https://foundryvtt.com/_api/packages/release_version/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': process.env.FOUNDRY_RELEASE_TOKEN,
+              'Content-Length': Buffer.byteLength(payload)
+            }
+          }, (res) => {
+            let data = '';
+            res.on('data', chunk => { data += chunk; });
+            res.on('end', () => {
+              if (res.statusCode >= 200 && res.statusCode < 300) {
+                console.log('Successfully published release to Foundry VTT Directory! Response:', data);
+              } else {
+                console.error('::error::Foundry VTT API Error (HTTP ' + res.statusCode + '):', data);
+                process.exit(1);
+              }
+            });
+          });
+
+          req.on('error', err => {
+            console.error('::error::Network request to Foundry VTT API failed:', err.message);
+            process.exit(1);
+          });
+
+          req.write(payload);
+          req.end();
+          "
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            ${{ steps.pkg.outputs.manifest }}
+            ${{ steps.pkg.outputs.zip_name }}
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

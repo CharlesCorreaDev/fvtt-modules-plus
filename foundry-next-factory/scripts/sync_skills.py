@@ -1,25 +1,23 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Skills Syncer & Daily Auto-Updater
-=================================
-[PT-BR] Sincroniza e monitora diariamente o ecossistema de skills para o repositório fvtt-modules-plus:
-        - master-of-foundryvtt
-        - book-formatter
-        - humanizer-plus
-        - bootstrap-ux-ui-plus
-        - mcp-builder
+Universal Skills Syncer & Multi-Agent Bridge
+============================================
+[PT-BR] Sincroniza e instala as skills do Foundry Next Factory para TODO e QUALQUER
+        agente de IA e assistente CLI do mercado:
+        1. Repositório local (.agents/skills/ e .claude/skills/)
+        2. Google Antigravity / Gemini CLI (~/.gemini/config/skills/)
+        3. Claude Code CLI (~/.claude/skills/)
+        4. Universal Agents Directory (~/.agents/skills/)
+        5. Cursor / Roo / Windsurf / Codex (~/.cursor/skills/, ~/.codex/skills/)
 
-        Copia ou atualiza em .agents/skills/ e verifica datas e versões automaticamente.
-
-[EN]    Synchronizes and daily monitors the AI skills ecosystem for the fvtt-modules-plus repository:
-        - master-of-foundryvtt
-        - book-formatter
-        - humanizer-plus
-        - bootstrap-ux-ui-plus
-        - mcp-builder
-
-        Copies or updates into .agents/skills/ and tracks timestamps and semantic versions.
+[EN]    Synchronizes and installs Foundry Next Factory skills for ALL AI agents
+        and CLI coding assistants across the ecosystem:
+        1. Local workspace (.agents/skills/ and .claude/skills/)
+        2. Google Antigravity / Gemini CLI (~/.gemini/config/skills/)
+        3. Claude Code CLI (~/.claude/skills/)
+        4. Universal Agents Directory (~/.agents/skills/)
+        5. Cursor / Roo / Windsurf / Codex (~/.cursor/skills/, ~/.codex/skills/)
 
 @author Mestre Charles Corrêa <contato@charlescorrea.com.br>
 @license MIT
@@ -28,11 +26,10 @@ Skills Syncer & Daily Auto-Updater
 import os
 import sys
 import shutil
-import time
+import json
 from pathlib import Path
 from datetime import datetime
 
-# Lista de skills obrigatórias para o ecossistema / List of required skills
 REQUIRED_SKILLS = [
     "master-of-foundryvtt",
     "book-formatter",
@@ -43,94 +40,133 @@ REQUIRED_SKILLS = [
 
 def find_skills_source_dir():
     """
-    [PT-BR] Localiza a pasta fonte das skills (prioriza local ou global do usuário no OS).
-    [EN] Locates the skills source directory (prioritizes local workspace or user OS global path).
+    [PT-BR] Localiza o diretório fonte mais atualizado das skills.
+    [EN] Locates the most updated source directory for the skills.
     """
     current_script = Path(__file__).resolve()
     repo_root = current_script.parent.parent.parent  # fvtt-modules-plus
 
-    # 1. Caminho relativo multiplataforma (pasta paralela 'Skills' ou repositório pai)
-    #    Cross-platform relative path (sibling 'Skills' directory or parent repo)
+    # 1. Pasta irmã 'Skills' (Workspace local do desenvolvedor)
     candidate_1 = repo_root.parent / "Skills"
     if candidate_1.exists():
         return candidate_1
-    
-    # 2. Caminho global do Gemini / Antigravity (independente de OS: Windows, macOS, Linux)
-    #    Global Antigravity / Gemini skills path (~/.gemini/config/skills)
-    candidate_2 = Path.home() / ".gemini" / "config" / "skills"
-    if candidate_2.exists():
+
+    # 2. Pasta local do repositório .agents/skills/
+    candidate_2 = repo_root / ".agents" / "skills"
+    if candidate_2.exists() and any((candidate_2 / s).exists() for s in REQUIRED_SKILLS):
         return candidate_2
 
-    # 3. Fallback: subpasta de skills interna caso já exista
-    #    Fallback: internal skills folder if already populated
-    candidate_3 = repo_root / ".agents" / "skills"
+    # 3. Pasta global do Gemini / Antigravity
+    candidate_3 = Path.home() / ".gemini" / "config" / "skills"
     if candidate_3.exists():
         return candidate_3
 
     return None
 
+def get_target_ai_agent_directories(repo_root):
+    """
+    [PT-BR] Retorna a lista de destinos onde agentes de IA procuram por skills no sistema.
+    [EN] Returns the list of destinations where AI agents discover skills on the system.
+    """
+    home = Path.home()
+
+    destinations = [
+        # 1. Repositório local (Universal Agents Standard)
+        {"name": "Local Repo (.agents/skills)", "path": repo_root / ".agents" / "skills"},
+        # 2. Repositório local (Claude Code Workspace Standard)
+        {"name": "Local Repo (.claude/skills)", "path": repo_root / ".claude" / "skills"},
+        # 3. Google Antigravity / Gemini Global
+        {"name": "Global Gemini / Antigravity (~/.gemini/config/skills)", "path": home / ".gemini" / "config" / "skills"},
+        # 4. Claude Code Global
+        {"name": "Global Claude Code (~/.claude/skills)", "path": home / ".claude" / "skills"},
+        # 5. Universal Agents Global
+        {"name": "Global Universal Agents (~/.agents/skills)", "path": home / ".agents" / "skills"},
+        # 6. Cursor Global
+        {"name": "Global Cursor (~/.cursor/skills)", "path": home / ".cursor" / "skills"}
+    ]
+
+    return destinations
+
+def copy_skill(src_dir, target_dir, skill_name):
+    """
+    [PT-BR] Copia ou atualiza a skill com substituição segura e limpa.
+    [EN] Safely copies or updates the skill directory.
+    """
+    src_path = src_dir / skill_name
+    dest_path = target_dir / skill_name
+
+    if not src_path.exists():
+        return False, "source_not_found"
+
+    try:
+        if dest_path.is_symlink() or dest_path.is_file():
+            dest_path.unlink()
+        elif dest_path.exists():
+            shutil.rmtree(dest_path)
+
+        shutil.copytree(src_path, dest_path, dirs_exist_ok=True)
+        return True, "success"
+    except Exception as e:
+        return False, str(e)
+
 def sync_skills():
-    """
-    [PT-BR] Executa a sincronização e registra o log diário em .sync_log.json.
-    [EN] Runs synchronization and saves daily execution log into .sync_log.json.
-    """
     src_dir = find_skills_source_dir()
     if not src_dir:
         print("❌ [PT-BR] Diretório fonte de skills não encontrado! / [EN] Skills source directory not found!")
         sys.exit(1)
 
-    # Destino em .agents/skills/ na raiz do repositório / Destination at repo root
     current_script = Path(__file__).resolve()
     repo_root = current_script.parent.parent.parent  # fvtt-modules-plus
-    target_agents_skills = repo_root / ".agents" / "skills"
-    target_agents_skills.mkdir(parents=True, exist_ok=True)
 
-    print(f"🎯 [PT-BR] Sincronizando de / [EN] Syncing from: {src_dir}")
-    print(f"📂 [PT-BR] Destino / [EN] Destination: {target_agents_skills}\n")
+    print(f"🎯 [PT-BR] Fonte de Skills identificada / [EN] Source: {src_dir}\n")
 
-    report = []
+    targets = get_target_ai_agent_directories(repo_root)
+    full_report = {}
 
-    for skill_name in REQUIRED_SKILLS:
-        skill_src = src_dir / skill_name
-        skill_dest = target_agents_skills / skill_name
+    for target in targets:
+        t_name = target["name"]
+        t_path = target["path"]
+        print(f"📡 [PT-BR] Sincronizando para / [EN] Syncing to: {t_name}")
+        t_path.mkdir(parents=True, exist_ok=True)
 
-        if not skill_src.exists():
-            print(f"⚠️ [PT-BR] Skill não encontrada na fonte / [EN] Skill not found at source: {skill_name}")
-            continue
+        target_report = []
 
-        # Ler versão se existir / Read version if available
-        version = "unknown"
-        v_file = skill_src / "VERSION"
-        if v_file.exists():
-            try:
-                version = v_file.read_text(encoding="utf-8").strip()
-            except Exception:
-                pass
+        for skill_name in REQUIRED_SKILLS:
+            skill_src = src_dir / skill_name
+            if not skill_src.exists():
+                continue
 
-        # Realizar cópia / sincronização / Perform file sync
-        try:
-            if skill_dest.exists():
-                shutil.rmtree(skill_dest)
-            shutil.copytree(skill_src, skill_dest)
-            print(f"✅ [OK] {skill_name:<25} (v{version}) [PT-BR] sincronizada / [EN] synced.")
-            report.append({"name": skill_name, "version": version, "status": "synced"})
-        except Exception as e:
-            print(f"❌ [PT-BR] Erro ao sincronizar / [EN] Error syncing {skill_name}: {e}")
-            report.append({"name": skill_name, "version": version, "status": f"error: {e}"})
+            version = "unknown"
+            v_file = skill_src / "VERSION"
+            if v_file.exists():
+                try:
+                    version = v_file.read_text(encoding="utf-8").strip()
+                except Exception:
+                    pass
 
-    # Gravar log de sincronização diária / Save daily audit log
-    log_file = target_agents_skills / ".sync_log.json"
-    import json
-    log_data = {
-        "last_sync": datetime.now().isoformat(),
-        "source": str(src_dir),
-        "skills": report
-    }
+            ok, status = copy_skill(src_dir, t_path, skill_name)
+            if ok:
+                print(f"   ✅ [OK] {skill_name:<24} (v{version}) instalado.")
+                target_report.append({"name": skill_name, "version": version, "status": "installed"})
+            else:
+                print(f"   ⚠️ [Erro] {skill_name}: {status}")
+                target_report.append({"name": skill_name, "version": version, "status": f"error: {status}"})
+
+        full_report[t_name] = {
+            "path": str(t_path),
+            "updated_at": datetime.now().isoformat(),
+            "skills": target_report
+        }
+        print()
+
+    # Salva log centralizado de auditoria
+    log_file = repo_root / ".agents" / "skills" / ".sync_log.json"
+    log_file.parent.mkdir(parents=True, exist_ok=True)
     with open(log_file, "w", encoding="utf-8") as f:
-        json.dump(log_data, f, indent=2, ensure_ascii=False)
+        json.dump(full_report, f, indent=2, ensure_ascii=False)
 
-    print(f"\n🎉 [PT-BR] Sincronização concluída! Log salvo em: {log_file}")
-    print(f"   [EN]    Sync completed! Log saved to: {log_file}")
+    print(f"🎉 [PT-BR] Concluído! Skills disponíveis para TODOS os agentes (Gemini, Claude, Cursor, Antigravity)!")
+    print(f"   [EN]    Done! Skills successfully installed for ALL AI agents in the system!\n")
 
 if __name__ == "__main__":
     sync_skills()

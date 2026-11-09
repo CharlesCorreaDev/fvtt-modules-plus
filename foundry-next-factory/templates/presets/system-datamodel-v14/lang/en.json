@@ -1,0 +1,6 @@
+{
+  "{{PACKAGE_ID}}.Title": "{{PACKAGE_TITLE}}",
+  "{{PACKAGE_ID}}.Level": "Level",
+  "{{PACKAGE_ID}}.HP": "Hit Points",
+  "{{PACKAGE_ID}}.RollCheck": "Roll Check"
+}

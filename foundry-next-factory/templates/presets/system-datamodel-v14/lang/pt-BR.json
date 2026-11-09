@@ -1,0 +1,6 @@
+{
+  "{{PACKAGE_ID}}.Title": "{{PACKAGE_TITLE}}",
+  "{{PACKAGE_ID}}.Level": "Nível",
+  "{{PACKAGE_ID}}.HP": "Pontos de Vida",
+  "{{PACKAGE_ID}}.RollCheck": "Rolar Teste"
+}

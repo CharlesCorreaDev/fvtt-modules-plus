@@ -1,0 +1,25 @@
+<section class="sheet-body">
+  <div class="fvtt-bs card p-3 mb-3">
+    <h4 class="card-title">Pontos de Vida (HP)</h4>
+    <div class="row g-2 align-items-center">
+      <div class="col-auto">
+        <label>Atual:</label>
+        <input class="form-control" type="number" name="system.attributes.hp.value" value="{{system.attributes.hp.value}}" />
+      </div>
+      <div class="col-auto">
+        <label>Máximo:</label>
+        <input class="form-control" type="number" name="system.attributes.hp.max" value="{{system.attributes.hp.max}}" />
+      </div>
+      <div class="col-auto">
+        <button type="button" class="btn btn-primary" data-action="rollCheck">
+          <i class="fas fa-dice-d20"></i> Rolar Teste (1d20)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="biography-section">
+    <h4>Biografia</h4>
+    {{editor system.biography target="system.biography" button=true owner=owner editable=editable}}
+  </div>
+</section>

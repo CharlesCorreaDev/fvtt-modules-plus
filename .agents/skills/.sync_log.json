@@ -1,31 +1,188 @@
 {
-  "last_sync": "2026-11-09T16:51:41.403828",
-  "source": "D:\\ProjetosPHP\\Repositórios-teste\\Skills",
-  "skills": [
-    {
-      "name": "master-of-foundryvtt",
-      "version": "0.16.0-beta",
-      "status": "synced"
-    },
-    {
-      "name": "book-formatter",
-      "version": "0.13.0-beta",
-      "status": "synced"
-    },
-    {
-      "name": "humanizer-plus",
-      "version": "1.2.0",
-      "status": "synced"
-    },
-    {
-      "name": "bootstrap-ux-ui-plus",
-      "version": "1.0.0",
-      "status": "synced"
-    },
-    {
-      "name": "mcp-builder",
-      "version": "0.1.0-beta",
-      "status": "synced"
-    }
-  ]
+  "Local Repo (.agents/skills)": {
+    "path": "D:\\ProjetosPHP\\Repositórios-teste\\fvtt-modules-plus\\.agents\\skills",
+    "updated_at": "2026-11-09T17:00:10.804027",
+    "skills": [
+      {
+        "name": "master-of-foundryvtt",
+        "version": "0.16.0-beta",
+        "status": "installed"
+      },
+      {
+        "name": "book-formatter",
+        "version": "0.13.0-beta",
+        "status": "installed"
+      },
+      {
+        "name": "humanizer-plus",
+        "version": "1.2.0",
+        "status": "installed"
+      },
+      {
+        "name": "bootstrap-ux-ui-plus",
+        "version": "1.0.0",
+        "status": "installed"
+      },
+      {
+        "name": "mcp-builder",
+        "version": "0.1.0-beta",
+        "status": "installed"
+      }
+    ]
+  },
+  "Local Repo (.claude/skills)": {
+    "path": "D:\\ProjetosPHP\\Repositórios-teste\\fvtt-modules-plus\\.claude\\skills",
+    "updated_at": "2026-11-09T17:00:10.905927",
+    "skills": [
+      {
+        "name": "master-of-foundryvtt",
+        "version": "0.16.0-beta",
+        "status": "installed"
+      },
+      {
+        "name": "book-formatter",
+        "version": "0.13.0-beta",
+        "status": "installed"
+      },
+      {
+        "name": "humanizer-plus",
+        "version": "1.2.0",
+        "status": "installed"
+      },
+      {
+        "name": "bootstrap-ux-ui-plus",
+        "version": "1.0.0",
+        "status": "installed"
+      },
+      {
+        "name": "mcp-builder",
+        "version": "0.1.0-beta",
+        "status": "installed"
+      }
+    ]
+  },
+  "Global Gemini / Antigravity (~/.gemini/config/skills)": {
+    "path": "C:\\Users\\SkyTeamPOA-CharlesCo\\.gemini\\config\\skills",
+    "updated_at": "2026-11-09T17:00:11.072916",
+    "skills": [
+      {
+        "name": "master-of-foundryvtt",
+        "version": "0.16.0-beta",
+        "status": "installed"
+      },
+      {
+        "name": "book-formatter",
+        "version": "0.13.0-beta",
+        "status": "installed"
+      },
+      {
+        "name": "humanizer-plus",
+        "version": "1.2.0",
+        "status": "installed"
+      },
+      {
+        "name": "bootstrap-ux-ui-plus",
+        "version": "1.0.0",
+        "status": "installed"
+      },
+      {
+        "name": "mcp-builder",
+        "version": "0.1.0-beta",
+        "status": "installed"
+      }
+    ]
+  },
+  "Global Claude Code (~/.claude/skills)": {
+    "path": "C:\\Users\\SkyTeamPOA-CharlesCo\\.claude\\skills",
+    "updated_at": "2026-11-09T17:00:11.287839",
+    "skills": [
+      {
+        "name": "master-of-foundryvtt",
+        "version": "0.16.0-beta",
+        "status": "installed"
+      },
+      {
+        "name": "book-formatter",
+        "version": "0.13.0-beta",
+        "status": "installed"
+      },
+      {
+        "name": "humanizer-plus",
+        "version": "1.2.0",
+        "status": "installed"
+      },
+      {
+        "name": "bootstrap-ux-ui-plus",
+        "version": "1.0.0",
+        "status": "installed"
+      },
+      {
+        "name": "mcp-builder",
+        "version": "0.1.0-beta",
+        "status": "installed"
+      }
+    ]
+  },
+  "Global Universal Agents (~/.agents/skills)": {
+    "path": "C:\\Users\\SkyTeamPOA-CharlesCo\\.agents\\skills",
+    "updated_at": "2026-11-09T17:00:11.454210",
+    "skills": [
+      {
+        "name": "master-of-foundryvtt",
+        "version": "0.16.0-beta",
+        "status": "installed"
+      },
+      {
+        "name": "book-formatter",
+        "version": "0.13.0-beta",
+        "status": "installed"
+      },
+      {
+        "name": "humanizer-plus",
+        "version": "1.2.0",
+        "status": "installed"
+      },
+      {
+        "name": "bootstrap-ux-ui-plus",
+        "version": "1.0.0",
+        "status": "installed"
+      },
+      {
+        "name": "mcp-builder",
+        "version": "0.1.0-beta",
+        "status": "installed"
+      }
+    ]
+  },
+  "Global Cursor (~/.cursor/skills)": {
+    "path": "C:\\Users\\SkyTeamPOA-CharlesCo\\.cursor\\skills",
+    "updated_at": "2026-11-09T17:00:11.618465",
+    "skills": [
+      {
+        "name": "master-of-foundryvtt",
+        "version": "0.16.0-beta",
+        "status": "installed"
+      },
+      {
+        "name": "book-formatter",
+        "version": "0.13.0-beta",
+        "status": "installed"
+      },
+      {
+        "name": "humanizer-plus",
+        "version": "1.2.0",
+        "status": "installed"
+      },
+      {
+        "name": "bootstrap-ux-ui-plus",
+        "version": "1.0.0",
+        "status": "installed"
+      },
+      {
+        "name": "mcp-builder",
+        "version": "0.1.0-beta",
+        "status": "installed"
+      }
+    ]
+  }
 }
