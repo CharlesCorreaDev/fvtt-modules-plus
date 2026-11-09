@@ -49,3 +49,4 @@ Todas as modificações notáveis neste pacote serão documentadas neste arquivo
   - Scoped CSS classes (`.fvtt-bs`) ensuring HUD and UI isolation.
 - **CI/CD Automation**: Embedded `.github/workflows/release.yml` conforming to *League of Foundry Developers* guidelines.
 - **Multi-Agent Bridge**: Utility scripts `installer.mjs` and `sync_skills.py` with dynamic `python3`/`python` binary detection and synchronization targeting `.agents/skills`, `.claude/skills`, `~/.gemini/config/skills`, and `~/.cursor/skills`.
+

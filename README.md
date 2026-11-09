@@ -76,7 +76,7 @@ Gosta do nosso trabalho e quer incentivar o desenvolvimento contínuo de módulo
 | [metamoedas-by-thorunn](foundry-v14/modules/metamoedas-by-thorunn/) | Módulo | Sistema de economia do caos, punições e maldições (Thorunn & Charles Corrêa) | ✅ v1.0.0.1 | [CHANGELOG.md](foundry-v14/modules/metamoedas-by-thorunn/CHANGELOG.md) |
 | [kimetsu-no-yaiba-dice-so-nice-foundry](foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/) | Módulo | Tema de dados 3D temático de Demon Slayer para Dice So Nice | ✅ v1.0.0.1 | [CHANGELOG.md](foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/CHANGELOG.md) |
 | [swade-autogame-plus](foundry-v14/modules/swade-autogame-plus/) | Módulo | Automação avançada de combate, turnos, benas e ações para Savage Worlds (SWADE) | 🚀 v1.0.0-beta.1 | [CHANGELOG.md](foundry-v14/modules/swade-autogame-plus/CHANGELOG.md) |
-| [foundry-next-factory](foundry-next-factory/) | CLI / Tooling | Scaffolder e boilerplate moderno para módulos e sistemas Foundry v14+ | ⚡ v1.0.0-beta | [README.md](foundry-next-factory/README.md) |
+| [foundry-next-factory](foundry-next-factory/) | CLI / Tooling | Scaffolder e boilerplate moderno para módulos e sistemas Foundry v14+ | ⚡ v1.0.0-beta.1 | [CHANGELOG.md](foundry-next-factory/CHANGELOG.md) |
 
 ---
 
@@ -163,7 +163,7 @@ Want to support the ongoing development of free and open-source tools and module
 | [metamoedas-by-thorunn](foundry-v14/modules/metamoedas-by-thorunn/) | Module | Economy of chaos, curses, and penalties (Thorunn & Charles Corrêa) | ✅ v1.0.0.1 | [CHANGELOG.md](foundry-v14/modules/metamoedas-by-thorunn/CHANGELOG.md) |
 | [kimetsu-no-yaiba-dice-so-nice-foundry](foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/) | Module | Demon Slayer themed 3D dice for Dice So Nice | ✅ v1.0.0.1 | [CHANGELOG.md](foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/CHANGELOG.md) |
 | [swade-autogame-plus](foundry-v14/modules/swade-autogame-plus/) | Module | Automated combat, turns, bennies, and status manager for Savage Worlds (SWADE) | 🚀 v1.0.0-beta.1 | [CHANGELOG.md](foundry-v14/modules/swade-autogame-plus/CHANGELOG.md) |
-| [foundry-next-factory](foundry-next-factory/) | CLI / Tooling | Next-generation scaffolder & boilerplate for Foundry v14+ packages | ⚡ v1.0.0-beta | [README.md](foundry-next-factory/README.md) |
+| [foundry-next-factory](foundry-next-factory/) | CLI / Tooling | Next-generation scaffolder & boilerplate for Foundry v14+ packages | ⚡ v1.0.0-beta.1 | [CHANGELOG.md](foundry-next-factory/CHANGELOG.md) |
 
 ---
 
