@@ -12,9 +12,28 @@
 ## 🇧🇷 Português (Brasil)
 
 ### 📖 Sobre o Projeto
-Bem-vindo ao **FVTT Modules Plus**, o Quartel General (QG) oficial de desenvolvimento, manutenção e publicação de **Módulos**, **Sistemas (Game Systems)** e **Macros** para o **Foundry Virtual Tabletop (v14)**, idealizado e liderado pelo **Mestre Charles Corrêa**.
+Bem-vindo ao **FVTT Modules Plus**, o Quartel General (QG) oficial de desenvolvimento, manutenção e publicação de **Módulos**, **Sistemas (Game Systems)**, **Macros** e **Ferramentas de Desenvolvimento** para o **Foundry Virtual Tabletop (v14+)**, idealizado e liderado pelo **Mestre Charles Corrêa**.
 
-O objetivo deste projeto é entregar ferramentas modernas, intuitivas, performáticas e acessíveis para mestres e jogadores levarem suas mesas virtuais ao próximo nível, seguindo rigorosos padrões de compatibilidade com o Foundry VTT v14 e versionamento semântico.
+O objetivo deste projeto é entregar ferramentas modernas, intuitivas, performáticas e acessíveis para mestres e jogadores levarem suas mesas virtuais ao próximo nível, seguindo rigorosos padrões de compatibilidade com o Foundry VTT v14, isolamento de CSS (`.fvtt-bs`), `ApplicationV2`, `TypeDataModel` e suporte nativo a agentes de Inteligência Artificial.
+
+---
+
+### 🏭 Foundry Next Factory (FNF) - Scaffolder & Ferramental
+O repositório inclui a suíte **[Foundry Next Factory](foundry-next-factory/README.md)**, um gerador CLI multiplataforma (Windows, Linux, macOS) para criar novos pacotes rapidamente:
+- **`vite-ts-appv2`**: Módulos modernos com Vite 6+, TypeScript estrito e hot-reloading.
+- **`vanilla-esm`**: Módulos sem build (*zero-build*), direto em ESModules.
+- **`system-datamodel-v14`**: Sistemas de RPG completos com `TypeDataModel` e fichas reativas com `ActorSheetV2`.
+- **Automação GitHub Releases**: Cada pacote gerado já inclui CI/CD para compilar o `.zip` e publicar no GitHub automaticamente.
+
+---
+
+### 🤖 Skills de IA Universais Integradas
+Disponíveis tanto no repositório (`.agents/skills/` e `.claude/skills/`) quanto nos ambientes globais para qualquer assistente de IA (Gemini CLI, Antigravity, Claude Code, Cursor, Windsurf):
+1. **`master-of-foundryvtt`**: Mestre em arquiteturas Foundry (v8 a v14.369 Stable), MCP Server unificado e automações.
+2. **`bootstrap-ux-ui-plus`**: Design system com Bootstrap 5.3+ isolado (`.fvtt-bs`) para interfaces `ApplicationV2`.
+3. **`mcp-builder`**: Blindagem de segurança e geração de servidores Model Context Protocol (MCP).
+4. **`humanizer-plus`**: Limpeza de marca d'água e desmistificação de código e documentação gerados por IA.
+5. **`book-formatter`**: Diagramação, tradução e estruturação de livros e compêndios de RPG.
 
 ---
 
@@ -50,17 +69,14 @@ Gosta do nosso trabalho e quer incentivar o desenvolvimento contínuo de módulo
 
 ---
 
-### 📂 Estrutura do Ecossistema
-Cada módulo, sistema e coleção de macros possui seu diretório dedicado, contendo:
-- `module.json` / `system.json`: Manifesto com compatibilidade para Foundry v14.
-- `VERSION`: Arquivo com a versão semântica atual aprovada para publicação.
-- `CHANGELOG.md`: Histórico de versões bilíngue (Técnico e Leigo) próprio do pacote.
-- `README.md`: Documentação individual do pacote.
+### 📂 Catálogo de Módulos & Pacotes
 
 | Pacote | Tipo | Descrição | Status v14 | Changelog |
 | :--- | :--- | :--- | :---: | :---: |
-| [metamoedas-by-thorunn](foundry-v14/modules/metamoedas-by-thorunn/) | Módulo | Sistema de economia do caos, punições e maldições (Thorunn & Charles Corrêa) - v1.0.0.2 | ✅ Verificado (v14) | [CHANGELOG.md](foundry-v14/modules/metamoedas-by-thorunn/CHANGELOG.md) |
-| [kimetsu-no-yaiba-dice-so-nice-foundry](foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/) | Módulo | Tema de dados 3D temático de Demon Slayer para Dice So Nice | ✅ Verificado (v14) | [CHANGELOG.md](foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/CHANGELOG.md) |
+| [metamoedas-by-thorunn](foundry-v14/modules/metamoedas-by-thorunn/) | Módulo | Sistema de economia do caos, punições e maldições (Thorunn & Charles Corrêa) | ✅ v1.0.0.1 | [CHANGELOG.md](foundry-v14/modules/metamoedas-by-thorunn/CHANGELOG.md) |
+| [kimetsu-no-yaiba-dice-so-nice-foundry](foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/) | Módulo | Tema de dados 3D temático de Demon Slayer para Dice So Nice | ✅ v1.0.0.1 | [CHANGELOG.md](foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/CHANGELOG.md) |
+| [swade-autogame-plus](foundry-v14/modules/swade-autogame-plus/) | Módulo | Automação avançada de combate, turnos, benas e ações para Savage Worlds (SWADE) | 🚀 v1.0.0-beta.1 | [CHANGELOG.md](foundry-v14/modules/swade-autogame-plus/CHANGELOG.md) |
+| [foundry-next-factory](foundry-next-factory/) | CLI / Tooling | Scaffolder e boilerplate moderno para módulos e sistemas Foundry v14+ | ⚡ v1.0.0-beta | [README.md](foundry-next-factory/README.md) |
 
 ---
 
@@ -87,9 +103,28 @@ Encontrou alguma inconsistência, falha visual, erro de script ou quebra em sess
 ## 🇺🇸 English
 
 ### 📖 About the Project
-Welcome to **FVTT Modules Plus**, the central hub for the development, maintenance, and release of **Modules**, **Game Systems**, and **Macros** for **Foundry Virtual Tabletop (v14)**, created and maintained by **Mestre Charles Corrêa**.
+Welcome to **FVTT Modules Plus**, the official Headquarters (HQ) for the development, maintenance, and release of **Modules**, **Game Systems**, **Macros**, and **Tooling** for **Foundry Virtual Tabletop (v14+)**, created and maintained by **Mestre Charles Corrêa**.
 
-Our mission is to build modern, reliable, and accessible tools designed to elevate virtual tabletop experiences for both Game Masters and players, adhering to strict Foundry v14 standards and semantic versioning.
+Our mission is to build modern, reliable, and accessible tools designed to elevate virtual tabletop experiences for both Game Masters and players, adhering to strict Foundry v14 standards, CSS scoping (`.fvtt-bs`), `ApplicationV2`, `TypeDataModel`, and integrated AI coding skills.
+
+---
+
+### 🏭 Foundry Next Factory (FNF) - Scaffolder & Tooling
+The repository includes **[Foundry Next Factory](foundry-next-factory/README.md)**, a cross-platform CLI tool (Windows, Linux, macOS) for bootstrapping packages:
+- **`vite-ts-appv2`**: Modern modules powered by Vite 6+, strict TypeScript, and hot-reloading.
+- **`vanilla-esm`**: Zero-build ESModule packages.
+- **`system-datamodel-v14`**: Modern RPG game systems with `TypeDataModel` and reactive `ActorSheetV2` sheets.
+- **Automated GitHub Releases**: Packaged with CI/CD to build zip archives and publish GitHub releases out-of-the-box.
+
+---
+
+### 🤖 Universal AI Skills Ecosystem
+Available within the repository (`.agents/skills/` & `.claude/skills/`) and across global agent directories (Gemini CLI, Antigravity, Claude Code, Cursor, Windsurf):
+1. **`master-of-foundryvtt`**: Master of Foundry VTT architectures (v8 to v14.369 Stable), unified MCP Server, and full-stack development.
+2. **`bootstrap-ux-ui-plus`**: Scoped modern UI/UX design system with Bootstrap 5.3+ for `ApplicationV2`.
+3. **`mcp-builder`**: Universal Model Context Protocol (MCP) server generator and security shield.
+4. **`humanizer-plus`**: AI code de-watermarking, syntax naturalization, and telemetry stripping.
+5. **`book-formatter`**: Rulebook diagramming, translation engine, and compendium parser for tabletop RPGs.
 
 ---
 
@@ -100,6 +135,7 @@ Our mission is to build modern, reliable, and accessible tools designed to eleva
 
 ---
 
+### 🌐 Connect with Mestre Charles Corrêa
 - 🌲 **Linktree (All Networks & Links)**: [linktr.ee/mestrecharlescorrea](https://linktr.ee/mestrecharlescorrea)
 - 📚 **Blog Posts Directory**: [lnk.bio/MestreCharlesCorrea](https://lnk.bio/MestreCharlesCorrea)
 - 📝 **Blog**: [rpg.charlescorrea.com.br](https://rpg.charlescorrea.com.br)
@@ -120,12 +156,14 @@ Want to support the ongoing development of free and open-source tools and module
 
 ---
 
-### 📂 Ecosystem Architecture
-Each module, system, and macro set has its isolated directory containing:
-- `module.json` / `system.json`: Manifest compliant with Foundry v14 standards.
-- `VERSION`: File pinning the current developer-authorized release version.
-- `CHANGELOG.md`: Dedicated bilingual changelog (Technical + Non-technical).
-- `README.md`: Specific package documentation.
+### 📂 Packages & Modules Directory
+
+| Package | Type | Description | Status v14 | Changelog |
+| :--- | :--- | :--- | :---: | :---: |
+| [metamoedas-by-thorunn](foundry-v14/modules/metamoedas-by-thorunn/) | Module | Economy of chaos, curses, and penalties (Thorunn & Charles Corrêa) | ✅ v1.0.0.1 | [CHANGELOG.md](foundry-v14/modules/metamoedas-by-thorunn/CHANGELOG.md) |
+| [kimetsu-no-yaiba-dice-so-nice-foundry](foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/) | Module | Demon Slayer themed 3D dice for Dice So Nice | ✅ v1.0.0.1 | [CHANGELOG.md](foundry-v14/modules/kimetsu-no-yaiba-dice-so-nice-foundry/CHANGELOG.md) |
+| [swade-autogame-plus](foundry-v14/modules/swade-autogame-plus/) | Module | Automated combat, turns, bennies, and status manager for Savage Worlds (SWADE) | 🚀 v1.0.0-beta.1 | [CHANGELOG.md](foundry-v14/modules/swade-autogame-plus/CHANGELOG.md) |
+| [foundry-next-factory](foundry-next-factory/) | CLI / Tooling | Next-generation scaffolder & boilerplate for Foundry v14+ packages | ⚡ v1.0.0-beta | [README.md](foundry-next-factory/README.md) |
 
 ---
 
@@ -134,13 +172,9 @@ Looking to build a custom module, create bespoke game automation, port a game sy
 - 💬 **Direct WhatsApp**: [**(51) 99585-9269**](https://wa.me/5551995859269)
 - ✉️ **Email**: [**charlescorreaweb@gmail.com**](mailto:charlescorreaweb@gmail.com)
 
-We actively support collaboration! Partner developers, creators, and contributors will have their credits, networks, and profiles featured across individual package docs and this repository.
-
 ---
 
 ### 🐛 Bug Reports & Issue Tracking
 Found a bug, glitch, script error, or incompatibility during your session?  
 **Opening an official GitHub Issue is MANDATORY for all bug reports and fixes:**  
 👉 **[Open a New GitHub Issue](https://github.com/CharlesCorreaDev/fvtt-modules-plus/issues/new)**
-
-*Please attach screenshots, F12 developer console logs, and your Foundry/system version so we can swiftly diagnose and resolve it.*
