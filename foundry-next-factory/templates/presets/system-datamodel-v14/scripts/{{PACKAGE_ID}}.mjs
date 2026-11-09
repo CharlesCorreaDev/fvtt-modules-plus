@@ -30,3 +30,4 @@ Hooks.once("init", async () => {
 Hooks.once("ready", async () => {
   console.log(`[${SYSTEM_ID}] System ready for gaming session.`);
 });
+

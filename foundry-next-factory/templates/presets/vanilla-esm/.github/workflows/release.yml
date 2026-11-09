@@ -1,0 +1,82 @@
+name: Release Package to GitHub & Foundry VTT Directory
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-release:
+    name: Package & Publish Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies & Build
+        run: |
+          if [ -f package.json ]; then
+            npm ci || npm install
+            if npm run | grep -q "build"; then
+              npm run build
+            fi
+          fi
+
+      - name: Prepare Package Metadata
+        id: pkg
+        run: |
+          if [ -f module.json ]; then
+            ID=$(node -p "require('./module.json').id")
+            MANIFEST="module.json"
+          elif [ -f system.json ]; then
+            ID=$(node -p "require('./system.json').id")
+            MANIFEST="system.json"
+          else
+            echo "Error: No module.json or system.json found."
+            exit 1
+          fi
+          TAG="${GITHUB_REF#refs/tags/}"
+          echo "id=${ID}" >> $GITHUB_OUTPUT
+          echo "manifest=${MANIFEST}" >> $GITHUB_OUTPUT
+          echo "tag=${TAG}" >> $GITHUB_OUTPUT
+          echo "zip_name=${ID}.zip" >> $GITHUB_OUTPUT
+
+      - name: Package Distribution Zip
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const cp = require('child_process');
+          
+          const pkgId = '${{ steps.pkg.outputs.id }}';
+          const zipName = '${{ steps.pkg.outputs.zip_name }}';
+          const manifest = '${{ steps.pkg.outputs.manifest }}';
+
+          // Atualiza a URL de download no manifesto da release
+          const data = JSON.parse(fs.readFileSync(manifest, 'utf8'));
+          data.version = '${{ steps.pkg.outputs.tag }}'.replace(/^v/, '');
+          data.manifest = 'https://github.com/\${{ github.repository }}/releases/latest/download/' + manifest;
+          data.download = 'https://github.com/\${{ github.repository }}/releases/download/${{ steps.pkg.outputs.tag }}/' + zipName;
+          fs.writeFileSync(manifest, JSON.stringify(data, null, 2));
+
+          // Executa zip nativo
+          cp.execSync('zip -r ' + zipName + ' . -x \".git/*\" \".github/*\" \"node_modules/*\" \"src/*\" \".gitignore\" \"*.zip\"');
+          "
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            ${{ steps.pkg.outputs.zip_name }}
+            ${{ steps.pkg.outputs.manifest }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true

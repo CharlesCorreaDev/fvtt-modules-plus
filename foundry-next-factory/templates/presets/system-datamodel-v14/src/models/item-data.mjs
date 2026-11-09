@@ -14,3 +14,4 @@ export class ItemDataModel extends foundry.abstract.TypeDataModel {
     };
   }
 }
+

@@ -29,3 +29,4 @@ export class CharacterDataModel extends foundry.abstract.TypeDataModel {
     }
   }
 }
+

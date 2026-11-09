@@ -45,3 +45,4 @@ export class ModernActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor: this.actor }) });
   }
 }
+
