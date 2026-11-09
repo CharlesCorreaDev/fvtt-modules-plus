@@ -63,7 +63,7 @@ Acompanhe os conteúdos, transmissões, tutoriais e projetos nas redes sociais:
 ### 💖 Apoie o Projeto / Faça uma Doação (PIX)
 Gosta do nosso trabalho e quer incentivar o desenvolvimento contínuo de módulos gratuitos e abertos para a comunidade Foundry VTT? Você pode apoiar diretamente com qualquer valor via **PIX**:
 
-👉 **[Visualizar QR Code do PIX (Google Drive)](https://drive.google.com/file/d/1SBUcAtX1HHxy36tCvlAIafAMdIZ2nD9h/view?usp=drive_link)**
+👉 **[Visualizar QR Code do PIX](https://drive.google.com/file/d/1SBUcAtX1HHxy36tCvlAIafAMdIZ2nD9h/view?usp=drive_link)**
 
 *Sua contribuição ajuda a manter os servidores ativos, testes de novos módulos e a produção contínua de conteúdo e ferramentas para RPG!*
 
@@ -152,7 +152,7 @@ Available within the repository (`.agents/skills/` & `.claude/skills/`) and acro
 ### 💖 Support the Project / Make a Donation
 Want to support the ongoing development of free and open-source tools and modules for the Foundry VTT community? You can donate directly via **PIX**:
 
-👉 **[View PIX QR Code (Google Drive)](https://drive.google.com/file/d/1SBUcAtX1HHxy36tCvlAIafAMdIZ2nD9h/view?usp=drive_link)**
+👉 **[View PIX QR Code](https://drive.google.com/file/d/1SBUcAtX1HHxy36tCvlAIafAMdIZ2nD9h/view?usp=drive_link)**
 
 ---
 
