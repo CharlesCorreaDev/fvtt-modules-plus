@@ -1,0 +1,34 @@
+{
+  "id": "{{PACKAGE_ID}}",
+  "title": "{{PACKAGE_TITLE}}",
+  "description": "Zero-build modern Vanilla ESModules package for Foundry Virtual Tabletop v13, v14.369 Stable & v15+.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "{{FOUNDRY_MINIMUM}}",
+    "verified": "{{FOUNDRY_VERIFIED}}"
+  },
+  "authors": [
+    {
+      "name": "{{AUTHOR_NAME}}"
+    }
+  ],
+  "esmodules": [
+    "scripts/{{PACKAGE_ID}}.mjs"
+  ],
+  "styles": [
+    "styles/{{PACKAGE_ID}}.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    }
+  ]
+}
+

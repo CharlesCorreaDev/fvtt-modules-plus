@@ -1,0 +1,31 @@
+{
+  "last_sync": "2026-11-09T16:46:53.250281",
+  "source": "D:\\ProjetosPHP\\Repositórios-teste\\Skills",
+  "skills": [
+    {
+      "name": "master-of-foundryvtt",
+      "version": "0.16.0-beta",
+      "status": "synced"
+    },
+    {
+      "name": "book-formatter",
+      "version": "0.13.0-beta",
+      "status": "synced"
+    },
+    {
+      "name": "humanizer-plus",
+      "version": "1.2.0",
+      "status": "synced"
+    },
+    {
+      "name": "bootstrap-ux-ui-plus",
+      "version": "1.0.0",
+      "status": "synced"
+    },
+    {
+      "name": "mcp-builder",
+      "version": "0.1.0-beta",
+      "status": "synced"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+# Ambientes & Caches de Linguagens
+__pycache__/
+*.py[cod]
+*$py.class
+node_modules/
+dist/
+vendor/
+
+# IDEs e Editores
+.vscode/*
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs e Temporários
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Builds e Empacotamentos locais
+*.zip
+*.tar.gz
+

@@ -1,0 +1,7 @@
+{
+  "{{PACKAGE_ID}}": {
+    "title": "{{PACKAGE_TITLE}}",
+    "description": "Módulo de última geração para Foundry VTT."
+  }
+}
+

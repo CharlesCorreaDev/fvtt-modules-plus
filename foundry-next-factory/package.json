@@ -1,0 +1,30 @@
+{
+  "name": "foundry-next-factory",
+  "version": "1.0.0-beta",
+  "description": "Modern Next-Gen CLI & Scaffolder for Foundry Virtual Tabletop (v13, v14.369 Stable & v15+) with ApplicationV2 and TypeDataModel",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "foundry-next-factory": "./bin/foundry-factory.mjs",
+    "fnf": "./bin/foundry-factory.mjs"
+  },
+  "scripts": {
+    "start": "node ./bin/foundry-factory.mjs",
+    "sync-skills": "python ./scripts/sync_skills.py",
+    "install-all": "node ./scripts/installer.mjs"
+  },
+  "keywords": [
+    "foundryvtt",
+    "foundry-vtt",
+    "scaffolder",
+    "cli",
+    "applicationv2",
+    "typedatamodel",
+    "v14",
+    "v13",
+    "v15"
+  ],
+  "author": "Charles Corrêa",
+  "license": "MIT"
+}
+

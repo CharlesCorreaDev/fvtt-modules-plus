@@ -1,0 +1,13 @@
+/* Estilos encapsulados com isolamento estrito (.fvtt-bs) */
+.{{PACKAGE_ID}}-window, .fvtt-bs {
+  box-sizing: border-box;
+  font-family: var(--font-primary, "Signika", sans-serif);
+}
+
+.{{PACKAGE_ID}}-window .card {
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+

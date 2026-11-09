@@ -1,0 +1,56 @@
+name: "Foundry Next Factory - Daily Skills Sync & Health Check"
+
+on:
+  schedule:
+    # Roda diariamente à meia-noite UTC (21:00 horário de Brasília)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Permite disparo manual via interface do GitHub
+
+jobs:
+  sync-skills:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout fvtt-modules-plus
+        uses: actions/checkout@v4
+
+      - name: Checkout Skills Repository
+        uses: actions/checkout@v4
+        with:
+          repository: 'CharlesCorreaDev/skills-ai'
+          path: '.temp-skills-source'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Execute Skills Sync
+        run: |
+          mkdir -p .agents/skills
+          SKILLS=("master-of-foundryvtt" "book-formatter" "humanizer-plus" "bootstrap-ux-ui-plus" "mcp-builder")
+          for skill in "${SKILLS[@]}"; do
+            if [ -d ".temp-skills-source/$skill" ]; then
+              echo "Sincronizando $skill..."
+              rm -rf ".agents/skills/$skill"
+              cp -r ".temp-skills-source/$skill" ".agents/skills/"
+            else
+              echo "Aviso: $skill não encontrada em .temp-skills-source"
+            fi
+          done
+          rm -rf .temp-skills-source
+
+      - name: Commit and Push if updated
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .agents/skills/
+          if git diff --staged --quiet; then
+            echo "Nenhuma atualização pendente nas skills."
+          else
+            git commit -m "chore(skills): daily sync of core agent skills from CharlesCorreaDev/skills-ai"
+            git push
+          fi
+

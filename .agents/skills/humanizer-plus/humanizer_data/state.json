@@ -1,0 +1,11 @@
+{
+  "tracked_repository": "blader/humanizer",
+  "tracked_url": "https://github.com/blader/humanizer",
+  "last_synced_tag": "v3.1.0",
+  "last_synced_commit": "8c307f367c91bd974002f10f2be2965d642c13df",
+  "last_check_timestamp": "2026-10-25T04:20:45.606Z",
+  "status": "synchronized",
+  "do_not_delete": true,
+  "humanizer_plus_version": "1.0.0",
+  "master_of_foundryvtt_target": "0.11.0-beta"
+}
