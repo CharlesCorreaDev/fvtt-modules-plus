@@ -1,0 +1,214 @@
+{
+  "SWAG": {
+    "Title": "SWADE AutoGame Plus (SWAG+)",
+    "Settings": {
+      "CategoryAutomation": "Automatizaciones de Combate",
+      "CategoryInterface": "Interfaz y HUD",
+      "CategoryVisuals": "Efectos y Celebraciones",
+      "EnableRaiseCalculatorName": "Habilitar Calculadora de Aumentos",
+      "EnableRaiseCalculatorHint": "Calcula automáticamente el margen de éxito y número de aumentos contra Parada o Número Objetivo (NO).",
+      "EnableTargetedDamageName": "Habilitar Daño Automático a Objetivos",
+      "EnableTargetedDamageHint": "Aplica el daño directamente a los objetivos seleccionados considerando Armadura, PA y Dureza.",
+      "FastCombatRollsName": "Modo de Disparo Rápido (One-Click)",
+      "EnableQuickHUDName": "Habilitar HUD de Acciones Rápidas",
+      "EnableTurnTimerName": "Habilitar Temporizador de Turno",
+      "EnableCelebrateAcesName": "Celebrar Explosiones de Dados y Comodines",
+      "TurnTimerDurationName": "Duración del Turno (Segundos)",
+      "OpenConfig": "Abrir Panel de Control SWAG+",
+      "WizardLabel": "Asistente de Configuración (Wizard)",
+      "WizardName": "Configurador Rápido SWAG+",
+      "WizardHint": "Abre el asistente paso a paso para configurar reglas de combate, automatizaciones y los 5 Compendios de SWADE."
+    },
+    "Combat": {
+      "Target": "Objetivo",
+      "Toughness": "Dureza",
+      "Armor": "Armadura",
+      "AP": "PA",
+      "Shaken": "Aturdido",
+      "Wounds": "Herida(s)",
+      "Incapacitated": "Incapacitado",
+      "SoakPrompt": "¿Deseas gastar 1 Beni para intentar Absorber?",
+      "SoakSuccess": "¡Heridas absorbidas con éxito!",
+      "NoTargetsSelected": "Ningún objetivo seleccionado para aplicar daño.",
+      "NoDamageEffect": "Sin Efecto",
+      "ConditionApplied": "Condición Aplicada: {name}",
+      "ConditionDescriptionHeader": "Reglas de la Condición (SWADE)",
+      "Conditions": {
+        "shaken": {
+          "name": "Aturdido (Shaken)",
+          "desc": "Los personajes aturdidos solo pueden realizar acciones gratuitas (como moverse hasta su Paso). Al inicio de cada turno deben hacer una tirada de Espíritu para recuperarse. Con éxito actúan normalmente en el turno; con fallo permanecen aturdidos. Gastar 1 Beni elimina el estado aturdido inmediatamente."
+        },
+        "distracted": {
+          "name": "Distraído (Distracted)",
+          "desc": "El personaje sufre un penalizador de -2 a todas sus tiradas de Rasgo (atributos y habilidades) hasta el final de su próximo turno."
+        },
+        "vulnerable": {
+          "name": "Vulnerable (Vulnerable)",
+          "desc": "Las acciones y ataques dirigidos contra el personaje reciben un bonificador de +2 hasta el final del próximo turno del objetivo. No reduce la Dureza."
+        },
+        "entangled": {
+          "name": "Enredado (Entangled)",
+          "desc": "El personaje no puede moverse y queda Distraído mientras esté enredado. Puede intentar liberarse con una tirada de Fuerza o Atletismo como acción."
+        },
+        "bound": {
+          "name": "Apresado (Bound)",
+          "desc": "El personaje no puede moverse, queda Distraído y Vulnerable, y solo puede intentar liberarse con una tirada enfrentada de Fuerza o Atletismo a -2."
+        },
+        "stunned": {
+          "name": "Atontado (Stunned)",
+          "desc": "El personaje cae derribado, queda Distraído y Vulnerable, no puede moverse ni realizar acciones, y los atacantes obtienen la ventaja de Pillado desprevenido si no puede defenderse. Debe hacer una tirada de Vigor al inicio de su turno para recuperarse."
+        },
+        "incapacitated": {
+          "name": "Incapacitado (Incapacitated)",
+          "desc": "El personaje ha sufrido Heridas por encima de su límite máximo y queda fuera de combate, inconsciente o muriendo. Debe realizar inmediatamente una tirada de Vigor para evitar Desangrarse."
+        },
+        "blind": {
+          "name": "Ciego (Blind)",
+          "desc": "Sufre un penalizador de -6 en tareas que dependan de la visión y no puede realizar acciones visuales directas."
+        },
+        "prone": {
+          "name": "Tendido / Derribado (Prone)",
+          "desc": "Los ataques a distancia contra el personaje sufren un penalizador de -2. Los ataques cuerpo a cuerpo reciben un bonificador de +2. Levantarse cuesta 2 casillas/pulgadas de Paso."
+        }
+      }
+    },
+    "Roll": {
+      "Success": "Éxito",
+      "SimpleSuccess": "Éxito Simple",
+      "Raise": "Aumento",
+      "Raises": "Aumentos",
+      "SuccessWithRaise": "Éxito c/ {raises} Aumento(s)",
+      "Failure": "Fallo",
+      "CriticalFailure": "¡Pifia!",
+      "RollDamage": "Tirar Daño",
+      "ApplyDamage": "Aplicar Daño a Objetivos",
+      "SpendBenny": "Gastar Beni"
+    },
+    "Card": {
+      "TargetNumberAbbr": "NO",
+      "TargetNumberFull": "Número Objetivo (NO {tn})",
+      "AttributeRoll": "Tirada de Atributo",
+      "SkillRoll": "Tirada de Habilidad",
+      "AttackRoll": "Ataque",
+      "ArcaneRoll": "Conjuración Arcana",
+      "DamagePrefix": "Daño",
+      "ByActor": "Por",
+      "Formula": "Fórmula",
+      "BestDie": "Mejor Dado: {total}",
+      "BaseTotal": "Total Base: {total}",
+      "WildDie": "Salvaje d{faces}",
+      "WildDieFull": "Dado Salvaje d{faces}",
+      "RuleModifiersLabel": "Modificadores de Regla:",
+      "TacticalOptionsLabel": "Opciones Tácticas de SWADE:",
+      "PowerModifiersLabel": "Modificadores de Poder:",
+      "DamageModifiersLabel": "Bonos Adicionales de Daño:",
+      "AddModifiersBtn": "Modificadores",
+      "AddModifiersTooltip": "Abrir catálogo completo de modificadores de reglas de SWADE",
+      "RollOutcomeHeader": "RESULTADO DE LA TIRADA:",
+      "DamageEffectHeader": "EFECTO DEL DAÑO:",
+      "AceBreakdownHeader": "EXPLOSIÓN DE DADOS (¡AS!):",
+      "AceCountFormat": "{count}x As ({rolls} tiradas)",
+      "FinalResultHeader": "RESULTADO FINAL",
+      "VictoryMarginHeader": "MARGEN DE VICTORIA",
+      "DamageCalcHeader": "CÁLCULO DE DAÑO",
+      "SuccessDesc": "¡Superó el Número Objetivo (NO {tn}). Acción exitosa!",
+      "RaiseDesc": "¡Superó el Objetivo NO {tn} con <span class=\"text-success fw-bold\">{raises} Aumento(s)</span>!",
+      "FailureDesc": "No alcanzó el Número Objetivo (NO {tn}).",
+      "CritFailureDesc": "¡Pifia! La acción falló automáticamente.",
+      "DamageDesc": "¡Daño total <strong>{total}</strong> infligido al objetivo!",
+      "ShakenPlusWounds": "Aturdido + {wounds} Herida(s)",
+      "BennyBtn": "Beni",
+      "GrantBennyBtn": "+1 Beni",
+      "RerollBtn": "Repetir",
+      "MacroBtn": "Macro",
+      "ApplyWoundsBtn": "Aplicar {wounds} Herida(s)",
+      "EdgePrefix": "Ventaja",
+      "HindrancePrefix": "Desventaja",
+      "AbilityPrefix": "Capacidad",
+      "Requirements": "Requisitos",
+      "BelongsTo": "Pertenece a",
+      "Carrier": "Portador",
+      "Weight": "Peso",
+      "Value": "Valor",
+      "Range": "Alcance",
+      "Duration": "Duración",
+      "Cost": "Costo",
+      "RoF": "CDT",
+      "WeaponBadge": "ARMA",
+      "ArmorBadge": "ARMADURA",
+      "ShieldBadge": "ESCUDO",
+      "GearBadge": "EQUIPO",
+      "PowerBadge": "ARCANO",
+      "TooltipDamage": "Daño del Arma / Poder",
+      "TooltipAP": "PA (Penetración de Armadura)",
+      "TooltipRange": "Alcance (Corto / Medio / Largo)",
+      "TooltipRoF": "CdT (Cadencia de Tiro)",
+      "TooltipParry": "Bono de Parada",
+      "TooltipMinStr": "Fuerza Mínima Requerida",
+      "TooltipShots": "Munición / Disparos",
+      "TooltipNotes": "Propiedades y Notas del Objeto",
+      "TooltipCostPP": "Costo en Puntos de Poder (PP)",
+      "TooltipDuration": "Duración del Efecto",
+      "TooltipRequirements": "Requisitos de Rango / Atributo",
+      "Equipped": "Equipado",
+      "Active": "Activa",
+      "Innate": "Innata",
+      "Roleplay": "Interpretación",
+      "Major": "MAYOR",
+      "Minor": "MENOR",
+      "BennyTriggerTitle": "Gatillo de Beni:",
+      "BennyTriggerDesc": "Cuando esta Desventaja cree dificultades reales para el grupo en escena, el DJ otorga +1 Beni."
+    },
+    "Modal": {
+      "WindowTitle": "SWAG+ | Modificadores de Reglas de SWADE",
+      "BannerTitle": "Catálogo de Modificadores de Reglas (SWADE)",
+      "BannerSubtitle": "Marca o desmarca las opciones abajo para aplicarlas de inmediato al resultado en el chat.",
+      "CustomTitle": "Añadir Modificador Personalizado",
+      "CustomNamePlaceholder": "Ej: Terreno Elevado, Bendición, Lluvia Fuerte...",
+      "CustomValuePlaceholder": "+2 o -2",
+      "CancelBtn": "Cancelar",
+      "ApplyBtn": "Aplicar a la Tarjeta",
+      "CatGeneral": "Generales, Apoyo y Acciones",
+      "CatConditions": "Condiciones, Heridas e Iluminación",
+      "CatCombat": "Combate, Apuntar, Cobertura y Alcance",
+      "CatArcane": "Poderes Arcanos y Compendios"
+    },
+    "HUD": {
+      "QuickActionsTitle": "SWAG+ | Acciones Rápidas",
+      "VisualEffectsTitle": "SWAG+ | Efectos y Condiciones Activas",
+      "DossierTitle": "SWAG+ | Dosier Completo del Actor"
+    },
+    "Timer": {
+      "YourTurn": "¡TU TURNO!",
+      "TimeRemaining": "Tiempo Restante",
+      "Timeout": "¡Tiempo Agotado!"
+    }
+  },
+  "SPC": {
+    "SuperPower": {
+      "Level.label": "Nivel",
+      "plural": "Superpoderes"
+    },
+    "Builder": {
+      "SuperHero": "Superhéroe",
+      "PowerLevel": "Nivel de Poder",
+      "PowerLimit": "Límite de Poder",
+      "ConfigureModifiers": "Configurar Modificadores",
+      "CostHint": "Costo {cost}",
+      "Levels": "Niveles"
+    },
+    "PowerStunt": {
+      "Label": "Proeza de Poder",
+      "NoBenny": "Las Proezas de Poder requieren gastar un Beni"
+    },
+    "TotalCost": {
+      "Label": "Puntos Totales (PSP)"
+    }
+  },
+  "TYPES": {
+    "Item": {
+      "swade-autogame-plus.superPower": "Superpoder (SWAG+)",
+      "swade-supers-companion.superPower": "Superpoder (SPC)"
+    }
+  }
+}

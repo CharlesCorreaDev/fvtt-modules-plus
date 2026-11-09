@@ -1,0 +1,27 @@
+{{#if effects.length}}
+<div
+  class="SWAG-PLUS-panel"
+  style="
+    display: flex;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 20px;
+  "
+>
+  {{#each effects}}
+  <div
+    class="SWAG-PLUS-badge {{#if this.isStatus}}critfail{{else}}raise{{/if}}"
+    style="display: flex; align-items: center; gap: 4px; cursor: pointer"
+    title="{{this.name}} (Clique com botão direito para remover)"
+    data-action="deleteEffect"
+    data-effect-id="{{this.id}}"
+  >
+    <img src="{{this.icon}}" width="18" height="18" style="border: 0; border-radius: 50%" />
+    <span>{{this.name}}</span>
+    {{#if this.duration}}
+    <span style="font-size: 0.75rem; opacity: 0.8">({{this.duration}})</span>
+    {{/if}}
+  </div>
+  {{/each}}
+</div>
+{{/if}}

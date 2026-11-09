@@ -1,57 +1,90 @@
-# ⚔️ SWADE AutoGame Plus (Beta)
+# SWADE AutoGame Plus (SWAG+)
 
-> **Módulo em Desenvolvimento Ativo (Versão Beta)**  
-> Automações inteligentes, fluxos ágeis de combate e aprimoramentos de qualidade de vida para **Savage Worlds Adventure Edition (SWADE)** no **Foundry VTT v14**.
+[![Foundry v14](https://img.shields.io/badge/Foundry%20VTT-v14%20Stable-blue?style=flat-square)](https://foundryvtt.com)
+[![SWADE System](https://img.shields.io/badge/System-SWADE-orange?style=flat-square)](https://gitlab.com/peginc/swade)
+[![Version: 1.0.0-beta.1](https://img.shields.io/badge/Version-1.0.0--beta.1-yellow?style=flat-square)](VERSION)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
----
-
-## 📌 Visão Geral / Overview
-
-**SWADE AutoGame Plus** é um módulo focado em otimizar e acelerar a experiência de jogo em mesas de Savage Worlds Adventure Edition (SWADE), reduzindo microgerenciamento do Mestre e Jogadores com automações confiáveis, elegantes e integradas ao core do sistema.
-
-> ⚠️ **Aviso de Versão Beta**: Este módulo está em fase inicial de desenvolvimento. Funcionalidades podem ser ajustadas e novos recursos estão sendo adicionados continuamente. Feedback e sugestões são bem-vindos!
+[Português](#português-pt-br) | [English](#english-en)
 
 ---
 
-## 🎲 Principais Recursos (Roadmap & Beta)
+## Português (PT-BR)
 
-- **Fluxo Ágil de Ação e Combate**: Agilização de resolução de rolagens de ataque, dano, testes resistidos e absorção de dano (Soak).
-- **Gestão de Estados e Fadiga**: Automação e lembretes visuais de Abalado (*Shaken*), Ferimentos (*Wounds*) e Condições.
-- **Integração Nativa com SWADE v14**: Compatível com as mais recentes APIs de combate e fichas do sistema oficial SWADE.
-- **Suporte Bilíngue**: Interface e mensagens totalmente localizadas em Português (Brasil) e Inglês.
+SWADE AutoGame Plus (SWAG+) reúne recursos de automação de combate, cálculo de regras e interfaces para Savage Worlds Adventure Edition (SWADE) no Foundry VTT v14 (compatível com a v13).
 
----
+O módulo consolida regras de combate, temporizador, HUDs flutuantes e novos modelos de ficha em uma arquitetura única com seletores independentes no menu de configurações.
 
-## 🚀 Instalação / Installation
+### Recursos
 
-### Instalação via Manifesto (Recomendado)
-1. No menu principal do Foundry VTT, acesse a aba **Add-on Modules** e clique em **Install Module**.
-2. Cole a seguinte URL no campo **Manifest URL**:
-   ```text
-   https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/swade-autogame-plus/module.json
-   ```
-3. Clique em **Install** e ative o módulo nas configurações do seu Mundo com o sistema SWADE ativo.
+- **Cálculo de elevações (`RaiseCalculator`)**: avalia rolagens contra o Número-Alvo (TN) ou Aparar, indicando falhas, sucessos e margem de elevações.
+- **Dano automatizado (`DamageCalculator`)**: calcula dano contra alvos selecionados considerando Resistência, Armadura, Penetração de Armadura (AP), acúmulo de Abalado e Armas Pesadas.
+- **Card de ação no chat**: card compacto com separação do Dado Selvagem, contagem de explosões (Áses) e botão de aplicação direta de dano aos alvos.
+- **Temporizador de combate (`TurnTimer`)**: barra regressiva no topo da tela com avisos sonoros opcionais por turno.
+- **HUDs em ApplicationV2**:
+  - `QuickActionsHUD`: atalhos para rolagens de atributos, perícias e ações frequentes.
+  - `VisualActiveEffectsHUD`: barra superior com condições ativas do token selecionado.
+  - `SavageDiceTray`: bandeja inferior de dados com botão direto para o Dado Selvagem.
+- **Fichas de personagem**:
+  - Modelos registrados em `Actors.registerSheet`: `Modern` (Bento Grid) e `Minimal` (Tático).
+  - 9 paletas prontas (`royal`, `cyber-dark`, `weird-west`, `sci-fi`, `fantasy`, `horror`, `dark-fantasy`, `super-hero`, `wars`) e modo personalizado com seletores hexadecimais para fundo, cards, bordas e destaque.
+  - Suporte a upload de logotipo da mesa (280x70 px) posicionado no cabeçalho sem cobrir os logos oficiais.
+- **Automação de tokens**: anéis coloridos atribuídos automaticamente a duplicatas de figurantes na cena.
+- **API pública**: métodos expostos em `globalThis.SWAG.api` e `game.modules.get('swade-autogame-plus').api`.
 
----
+### Exemplo de uso da API
 
-## 🌐 Informações de Compatibilidade
+```javascript
+// Avaliar rolagem contra TN 4
+const resultado = SWAG.api.calculateRaises(12, 4);
+console.log(resultado);
+// { isSuccess: true, raises: 2, margin: 8, isCriticalFailure: false }
 
-- **Sistema Requerido**: `swade` (Savage Worlds Adventure Edition)
-- **Foundry VTT**: v12, v13 e v14 (Verificado na v14)
-
----
-
-## 👤 Autor & Comunidade
-
-Desenvolvido por **Mestre Charles Corrêa** (`CharlesCorreaDev`):
-
-- **Blog Oficial**: [rpg.charlescorrea.com.br](https://rpg.charlescorrea.com.br)
-- **GitHub**: [github.com/CharlesCorreaDev](https://github.com/CharlesCorreaDev)
-- **Instagram**: [@mestrecharlescorrea](https://www.instagram.com/mestrecharlescorrea)
-- **Comunidade Salinha**: [salinha.live](https://salinha.live/?c=6BMDF9#g=qrhshrw76y7m)
-- **Comunidade WhatsApp**: [Chat Oficial](https://chat.whatsapp.com/FSr7xgejDqoHkfrrA5GxXj)
+// Obter dossiê completo de um personagem pelo ID ou UUID
+const ficha = SWAG.api.inspectActor("Actor.abc123456");
+console.log(ficha.attributes, ficha.skills, ficha.stats);
+```
 
 ---
 
-## 📜 Licença / License
-Distribuído sob a licença **MIT**. Veja o arquivo de licença para mais detalhes.
+## English (EN)
+
+SWADE AutoGame Plus (SWAG+) is an automation and interface suite for Savage Worlds Adventure Edition (SWADE) running on Foundry VTT v14 (with v13 fallback).
+
+It integrates targeted damage, raise calculation, turn timers, floating HUDs, and custom character sheets with independent feature toggles in module settings.
+
+### Features
+
+- **Raise calculation (`RaiseCalculator`)**: evaluates rolls against Target Numbers (TN) or Parry, flagging failures, successes, and raise counts.
+- **Targeted damage engine (`DamageCalculator`)**: resolves damage against targeted tokens taking Toughness, Armor, Armor Piercing (AP), Shaken stacking, and Heavy Armor into account.
+- **Compact chat cards**: concise action cards showing Wild Die isolation, Ace explosion counters, and target damage application buttons.
+- **Combat turn timer (`TurnTimer`)**: visual countdown bar at the top of the screen with optional audio alerts.
+- **ApplicationV2 HUDs**:
+  - `QuickActionsHUD`: quick action shortcuts and attribute rolls for controlled tokens.
+  - `VisualActiveEffectsHUD`: top floating bar displaying active statuses and conditions.
+  - `SavageDiceTray`: dice roller docked below chat with dedicated Wild Die support.
+- **Character sheets**:
+  - Registered sheets in `Actors.registerSheet`: `Modern` (Bento Grid) and `Minimal` (Tactical).
+  - 9 presets (`royal`, `cyber-dark`, `weird-west`, `sci-fi`, `fantasy`, `horror`, `dark-fantasy`, `super-hero`, `wars`) plus a custom palette mode for backgrounds, card surfaces, borders, and accents.
+  - Campaign logo upload (280x70 px) displayed in the header without obscuring official system logos.
+- **Token management**: chromatic ring markers applied automatically to duplicate extras added to the scene.
+- **Public API**: accessible through `globalThis.SWAG.api` and `game.modules.get('swade-autogame-plus').api`.
+
+### API example
+
+```javascript
+// Evaluate roll against TN 4
+const outcome = SWAG.api.calculateRaises(12, 4);
+console.log(outcome);
+// { isSuccess: true, raises: 2, margin: 8, isCriticalFailure: false }
+
+// Retrieve complete actor dossier by ID or UUID
+const actorData = SWAG.api.inspectActor("Actor.abc123456");
+console.log(actorData.attributes, actorData.skills, actorData.stats);
+```
+
+---
+
+## Licença / License
+
+MIT - Charles Corrêa.

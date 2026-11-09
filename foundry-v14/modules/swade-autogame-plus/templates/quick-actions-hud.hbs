@@ -1,0 +1,128 @@
+<div class="SWAG-PLUS-panel" style="display: flex; flex-direction: column; gap: 10px">
+  {{#if hasActor}}
+  <div
+    class="SWAG-PLUS-title"
+    style="display: flex; justify-content: space-between; align-items: center"
+  >
+    <span><i class="fas fa-user"></i> {{actorName}}</span>
+    <span class="SWAG-PLUS-badge">{{localize "SWAG.Settings.CategoryInterface"}}</span>
+  </div>
+
+  <!-- Armas & Ataques -->
+  {{#if weapons.length}}
+  <div>
+    <h4 style="color: var(--swag-color-light); margin: 4px 0; font-size: 0.95rem">
+      <i class="fas fa-sword"></i> Armas &amp; Ataques
+    </h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 4px">
+      {{#each weapons}}
+      <button type="button" class="SWAG-PLUS-btn" data-action="rollItem" data-item-id="{{this.id}}">
+        {{#if this.img}}<img src="{{this.img}}" width="16" height="16" style="border: 0" />{{/if}}
+        {{this.name}}
+      </button>
+      {{/each}}
+    </div>
+  </div>
+  {{/if}}
+
+  <!-- Super Poderes (Super Powers Companion) -->
+  {{#if superPowers.length}}
+  <div>
+    <h4 style="color: #fbbf24; margin: 4px 0; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+      <span><i class="fas fa-mask"></i> Super Poderes (SPC)</span>
+      {{#if superPowerSummary}}
+      <span class="badge bg-warning text-dark" style="font-size: 0.72rem;">Nível {{superPowerSummary.powerLevel}} • {{superPowerSummary.costTotal}} PSP</span>
+      {{/if}}
+    </h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 4px">
+      {{#each superPowers}}
+      <button type="button" class="SWAG-PLUS-btn" data-action="rollItem" data-item-id="{{this.id}}" style="border-color: rgba(251, 191, 36, 0.45);">
+        {{#if this.img}}<img src="{{this.img}}" width="16" height="16" style="border: 0" />{{/if}}
+        {{this.name}} {{#if this.system.build.cost}}<small style="opacity: 0.8;">[{{this.system.build.cost}}]</small>{{/if}}
+      </button>
+      {{/each}}
+    </div>
+  </div>
+  {{/if}}
+
+  <!-- Poderes Arcanos -->
+  {{#if powers.length}}
+  <div>
+    <h4 style="color: var(--swag-color-light); margin: 4px 0; font-size: 0.95rem">
+      <i class="fas fa-hand-sparkles"></i> Poderes Arcanos
+    </h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 4px">
+      {{#each powers}}
+      <button type="button" class="SWAG-PLUS-btn" data-action="rollItem" data-item-id="{{this.id}}">
+        {{#if this.img}}<img src="{{this.img}}" width="16" height="16" style="border: 0" />{{/if}}
+        {{this.name}}
+      </button>
+      {{/each}}
+    </div>
+  </div>
+  {{/if}}
+
+  <!-- Perícias de Ação -->
+  {{#if skills.length}}
+  <div>
+    <h4 style="color: var(--swag-color-light); margin: 4px 0; font-size: 0.95rem">
+      <i class="fas fa-dice-d20"></i> Perícias
+    </h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 4px">
+      {{#each skills}}
+      <button
+        type="button"
+        class="SWAG-PLUS-btn"
+        data-action="rollSkill"
+        data-skill-id="{{this.id}}"
+        style="padding: 4px 8px; font-size: 0.85rem"
+      >
+        {{this.name}}
+      </button>
+      {{/each}}
+    </div>
+  </div>
+  {{/if}}
+
+  <!-- Automações dos Compêndios Oficiais -->
+  <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 6px;">
+    <h4 style="color: var(--swag-color-light); margin: 4px 0; font-size: 0.9rem">
+      <i class="fas fa-book-sparkles"></i> Ações de Compêndios (Fantasia / Sci-Fi / Horror / Supers)
+    </h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 4px">
+      <button type="button" class="SWAG-PLUS-btn" data-action="companionAction" data-companion-action="powerStunt" title="Gastar 1 Bene para realizar uma Proeza de Poder (Super Powers)">
+        <i class="fas fa-bolt text-warning"></i> Proeza de Poder
+      </button>
+      <button type="button" class="SWAG-PLUS-btn" data-action="companionAction" data-companion-action="blazeOfGlory" title="Rolar Morte e Derrota / Chamas da Glória (Super Powers)">
+        <i class="fas fa-fire-flame-curved text-danger"></i> Chamas da Glória
+      </button>
+      <button type="button" class="SWAG-PLUS-btn" data-action="companionAction" data-companion-action="downtime" title="Atividades de Pausa: Festejar, Lucrar, Descansar, Relaxar, Treinar, Pesquisar (Fantasia)">
+        <i class="fas fa-campground text-success"></i> Pausa (Downtime)
+      </button>
+      <button type="button" class="SWAG-PLUS-btn" data-action="companionAction" data-companion-action="loot" title="Gerar Tesouro Mágico e Moedas (Fantasia)">
+        <i class="fas fa-gem text-warning"></i> Tesouro
+      </button>
+      <button type="button" class="SWAG-PLUS-btn" data-action="companionAction" data-companion-action="clash" title="Gastar Marcadores de Embate / Clash Tokens (Sci-Fi)">
+        <i class="fas fa-jet-fighter text-info"></i> Clash Token
+      </button>
+      <button type="button" class="SWAG-PLUS-btn" data-action="companionAction" data-companion-action="resonance" title="Sacar Carta de Ressonância Harmônica (Sci-Fi)">
+        <i class="fas fa-atom text-info"></i> Ressonância
+      </button>
+      <button type="button" class="SWAG-PLUS-btn" data-action="companionAction" data-companion-action="fear" title="Rolar na Tabela de Medo 1d20 + Penalidade e Psicose (Horror)">
+        <i class="fas fa-ghost text-danger"></i> Tabela de Medo
+      </button>
+      <button type="button" class="SWAG-PLUS-btn" data-action="companionAction" data-companion-action="vice" title="Ceder ao Vício: Ganha +1 Bene e +1 Marca de Vício (Horror)">
+        <i class="fas fa-wine-bottle text-warning"></i> Vício (+1 Bene)
+      </button>
+      <button type="button" class="SWAG-PLUS-btn" data-action="companionAction" data-companion-action="theSight" title="A Visão (Cartomante): Gastar 1 Bene para redistribuir Cartas de Ação">
+        <i class="fas fa-eye text-primary"></i> A Visão
+      </button>
+    </div>
+  </div>
+  {{else}}
+  <div style="text-align: center; padding: 20px; color: var(--swag-color-light)">
+    <i class="fas fa-mouse-pointer fa-2x" style="margin-bottom: 8px"></i>
+    <p>Selecione um token ou personagem para visualizar suas ações de combate.</p>
+  </div>
+  {{/if}}
+</div>

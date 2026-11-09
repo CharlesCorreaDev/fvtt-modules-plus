@@ -1,0 +1,77 @@
+<section class="gridcell sheet-body tab scrollable superPowers {{cssClass}}" data-group="primary" data-tab="superPowers">
+  <section class="flexrow">
+    <div class="form-group power-level">
+      <label>{{localize "SPC.Builder.PowerLevel"}}</label>
+      <span class="form-fields">
+        <select class="power-level">
+          {{selectOptions powerLevelOptions selected=powerLevel}}
+        </select>
+      </span>
+      {{#if costTotal}}
+      —
+      <span class='label'>{{localize "SPC.TotalCost.Label"}}</span>
+      <span class='value'>{{costTotal}}</span>
+      {{/if}}
+    </div>
+    <div class="powerstunt-button">
+      <button type='button' data-action="powerStunt">
+        <i class='fa fa-bolt'></i> {{localize "SPC.PowerStunt.Label"}}
+      </button>
+    </div>
+  </section>
+  <section class="inventory">
+    <header class='header misc'>
+      <span class='header-name'>{{localize 'SPC.SuperPower.plural'}}</span>
+      <button type='button' class='item-create' data-action="createDocument" data-document-class='Item' data-type='{{#if createItemType}}{{createItemType}}{{else}}swade-autogame-plus.superPower{{/if}}'>
+        <i class='fa fa-plus'></i> {{localize 'SWADE.Add'}}
+      </button>
+    </header>
+    <ul>
+      {{#each superPowers}}
+      <li class='item action' data-item-id='{{id}}' data-document-class='Item'>
+        <details data-collapsible-id='{{concat type "-" id}}'>
+          <summary class="item-wrapper action">
+            <button type='button' class='item-img item-show' data-action="showItem" style="background-image: url('{{img}}');"
+              title='{{localize "SWADE.ShowInChat"}}'></button>
+            <div class='item-text'>
+              <a class='name item-name' title='{{localize "SWADE.ExpandDescription"}}'>
+                {{name}} {{#if system.build.cost}} [{{system.build.cost}}]{{/if}} {{#if system.trapping}} ({{system.trapping}}){{/if}}
+              </a>
+              {{#if enabledEffects.length}}
+              <div class='item-effects'>
+                <span class='label'><strong>{{localize "SWADE.PPMods"}}:</strong></span>
+                {{#each enabledEffects}}
+                <span class='effect' data-tooltip-html='{{tooltip}}'>{{name}}</span>
+                {{/each}}
+              </div>
+              {{/if}}
+            </div>
+            <span class='item-controls'>
+              {{#if isOwner}}
+              <button type='button' class='item-toggle' data-action="toggleProperty" data-toggle='system.favorite'
+                title='{{localize "SWADE.Favorite"}}'>
+                {{#if system.favorite}}
+                <i class='fas fa-star'></i>
+                {{else}}
+                <i class='fas fa-star item-unequipped'></i>
+                {{/if}}
+              </button>
+              <button type='button' class='item-edit' data-action="openItem" title='{{localize "SWADE.Ed"}}'>
+                <i class='fas fa-edit'></i>
+              </button>
+              <button type='button' class='item-delete' data-action="deleteItem" title='{{localize "SWADE.Del"}}'>
+                <i class='fas fa-trash'></i>
+              </button>
+              {{/if}}
+            </span>
+          </summary>
+          <div class='content description'>
+            {{{system.description}}}
+          </div>
+        </details>
+      </li>
+      {{/each}}
+    </ul>
+  </section>
+</section>
+

@@ -1,4 +1,214 @@
 {
-  "SWADE_AUTOGAME.Title": "SWADE AutoGame Plus (Beta)",
-  "SWADE_AUTOGAME.Description": "Automações inteligentes e qualidade de vida para Savage Worlds Adventure Edition."
+  "SWAG": {
+    "Title": "SWADE AutoGame Plus (SWAG+)",
+    "Settings": {
+      "CategoryAutomation": "Automações de Combate",
+      "CategoryInterface": "Interface & HUD",
+      "CategoryVisuals": "Efeitos & Celebrações",
+      "EnableRaiseCalculatorName": "Habilitar Calculadora de Ampliações",
+      "EnableRaiseCalculatorHint": "Calcula automaticamente a margem de sucesso e o número de ampliações contra o Aparar ou Número-Alvo (NA).",
+      "EnableTargetedDamageName": "Habilitar Dano Automático Alvejado",
+      "EnableTargetedDamageHint": "Aplica o dano diretamente aos alvos selecionados considerando Armadura, PA e Resistência, aplicando Abalado e Ferimentos.",
+      "FastCombatRollsName": "Modo de Disparo Rápido (One-Click)",
+      "EnableQuickHUDName": "Habilitar HUD de Ações Rápidas",
+      "EnableTurnTimerName": "Habilitar Temporizador de Turno de Combate",
+      "EnableCelebrateAcesName": "Chuva de Confetes em Áses e Coringas",
+      "TurnTimerDurationName": "Duração do Turno (Segundos)",
+      "OpenConfig": "Abrir Painel de Controle SWAG+",
+      "WizardLabel": "Assistente de Configuração (Wizard)",
+      "WizardName": "Configurador Rápido SWAG+",
+      "WizardHint": "Abre o assistente passo-a-passo para configurar regras de combate, automações e os 5 Compêndios de SWADE."
+    },
+    "Combat": {
+      "Target": "Alvo",
+      "Toughness": "Resistência",
+      "Armor": "Armadura",
+      "AP": "PA",
+      "Shaken": "Abalado",
+      "Wounds": "Ferimento(s)",
+      "Incapacitated": "Incapacitado",
+      "SoakPrompt": "Deseja gastar 1 Bene para tentar Absorver?",
+      "SoakSuccess": "Ferimentos absorvidos com sucesso!",
+      "NoTargetsSelected": "Nenhum alvo selecionado para aplicar o dano.",
+      "NoDamageEffect": "Sem Efeito",
+      "ConditionApplied": "Condição Aplicada: {name}",
+      "ConditionDescriptionHeader": "Regras da Condição (SWADE)",
+      "Conditions": {
+        "shaken": {
+          "name": "Abalado (Shaken)",
+          "desc": "Personagens Abalados só podem realizar Ações Livres (como mover-se até seu Passo). No início de cada turno, devem fazer um teste de Espírito para se recuperar. Com sucesso, deixam de estar Abalados e podem agir normalmente no mesmo turno; com falha, permanecem Abalados. Gastar 1 Bene remove o Abalado instantaneamente a qualquer momento."
+        },
+        "distracted": {
+          "name": "Distraído (Distracted)",
+          "desc": "O personagem sofre -2 em todas as suas rolagens de Características (atributos e perícias) até o final do seu próximo turno."
+        },
+        "vulnerable": {
+          "name": "Vulnerável (Vulnerable)",
+          "desc": "Ações e ataques realizados contra o personagem recebem +2 em suas rolagens até o final do próximo turno do alvo. Não afeta a Resistência do personagem diretamente."
+        },
+        "entangled": {
+          "name": "Enredado (Entangled)",
+          "desc": "O personagem não pode se mover e fica Distraído enquanto estiver Enredado. Pode se libertar com um teste de Força ou Atletismo como uma ação."
+        },
+        "bound": {
+          "name": "Preso (Bound)",
+          "desc": "O personagem não pode se mover, fica Distraído e Vulnerável, e só pode tentar se libertar com um teste resistido de Força ou Atletismo com penalidade de -2."
+        },
+        "stunned": {
+          "name": "Atordoado (Stunned)",
+          "desc": "O personagem cai prostrado, fica Distraído e Vulnerável, não pode se mover nem realizar ações, e atacantes recebem a vantagem de Finalização (The Drop) contra ele se ele não puder se defender. Deve fazer um teste de Vigor no início do seu turno para se recuperar."
+        },
+        "incapacitated": {
+          "name": "Incapacitado (Incapacitated)",
+          "desc": "O personagem sofreu Ferimentos além do seu limite máximo e está fora de combate, inconsciente, morrendo ou gravemente incapacitado. Deve realizar imediatamente uma rolagem de Vigor para evitar Sangramento / Morte."
+        },
+        "blind": {
+          "name": "Cego (Blind)",
+          "desc": "Sofre -6 em todas as tarefas que dependem da visão e não pode realizar ações visuais diretas."
+        },
+        "prone": {
+          "name": "Caído / Prostrado (Prone)",
+          "desc": "Ataques à distância contra o personagem sofrem -2 de penalidade. Ataques corpo a corpo recebem +2 de bônus contra ele. Levantar-se consome 2 quadros de Passo."
+        }
+      }
+    },
+    "Roll": {
+      "Success": "Sucesso",
+      "SimpleSuccess": "Sucesso Simples",
+      "Raise": "Ampliação",
+      "Raises": "Ampliações",
+      "SuccessWithRaise": "Sucesso c/ {raises} Ampliação",
+      "Failure": "Falha",
+      "CriticalFailure": "Falha Crítica!",
+      "RollDamage": "Rolar Dano",
+      "ApplyDamage": "Aplicar Dano aos Alvos",
+      "SpendBenny": "Gastar Bene"
+    },
+    "Card": {
+      "TargetNumberAbbr": "NA",
+      "TargetNumberFull": "Número-Alvo (NA {tn})",
+      "AttributeRoll": "Teste de Atributo",
+      "SkillRoll": "Teste de Perícia",
+      "AttackRoll": "Ataque",
+      "ArcaneRoll": "Conjuração Arcana",
+      "DamagePrefix": "Dano",
+      "ByActor": "Por",
+      "Formula": "Fórmula",
+      "BestDie": "Melhor Dado: {total}",
+      "BaseTotal": "Total Base: {total}",
+      "WildDie": "Selvagem d{faces}",
+      "WildDieFull": "Dado Selvagem d{faces}",
+      "RuleModifiersLabel": "Modificadores de Regra:",
+      "TacticalOptionsLabel": "Opções Táticas de SWADE:",
+      "PowerModifiersLabel": "Modificadores de Poder:",
+      "DamageModifiersLabel": "Bônus Adicionais de Dano:",
+      "AddModifiersBtn": "Modificadores",
+      "AddModifiersTooltip": "Abrir catálogo completo de modificadores de regras de SWADE",
+      "RollOutcomeHeader": "RESULTADO DA ROLAGEM:",
+      "DamageEffectHeader": "EFEITO DO DANO:",
+      "AceBreakdownHeader": "EXPLOSÃO DE DADOS (ÁS!):",
+      "AceCountFormat": "{count}x Ás ({rolls} rolagens)",
+      "FinalResultHeader": "RESULTADO FINAL",
+      "VictoryMarginHeader": "MARGEM DE VITÓRIA",
+      "DamageCalcHeader": "CÁLCULO DE DANO",
+      "SuccessDesc": "Superou o Número-Alvo (NA {tn}). Ação bem-sucedida!",
+      "RaiseDesc": "Superou o Alvo NA {tn} com <span class=\"text-success fw-bold\">{raises} Ampliação(ões)</span>!",
+      "FailureDesc": "Não atingiu o Número-Alvo (NA {tn}).",
+      "CritFailureDesc": "Falha Crítica! A ação falhou automaticamente.",
+      "DamageDesc": "Dano total <strong>{total}</strong> desferido contra o alvo!",
+      "ShakenPlusWounds": "Abalado + {wounds} Ferimento(s)",
+      "BennyBtn": "Bene",
+      "GrantBennyBtn": "+1 Bene",
+      "RerollBtn": "Re-rolar",
+      "MacroBtn": "Macro",
+      "ApplyWoundsBtn": "Aplicar {wounds} Ferimento(s)",
+      "EdgePrefix": "Vantagem",
+      "HindrancePrefix": "Complicação",
+      "AbilityPrefix": "Habilidade",
+      "Requirements": "Requisitos",
+      "BelongsTo": "Pertence a",
+      "Carrier": "Portador",
+      "Weight": "Peso",
+      "Value": "Valor",
+      "Range": "Alcance",
+      "Duration": "Duração",
+      "Cost": "Custo",
+      "RoF": "CDT",
+      "WeaponBadge": "ARMA",
+      "ArmorBadge": "ARMADURA",
+      "ShieldBadge": "ESCUDO",
+      "GearBadge": "EQUIPAMENTO",
+      "PowerBadge": "ARCANO",
+      "TooltipDamage": "Dano da Arma / Poder",
+      "TooltipAP": "PA (Penetração de Armadura)",
+      "TooltipRange": "Alcance (Curto / Médio / Longo)",
+      "TooltipRoF": "CdT (Cadência de Tiro — Tiros por Ação)",
+      "TooltipParry": "Bônus de Aparar",
+      "TooltipMinStr": "Força Mínima Exigida",
+      "TooltipShots": "Munição / Tiros no Carregador",
+      "TooltipNotes": "Propriedades e Observações do Item",
+      "TooltipCostPP": "Custo em Pontos de Poder (PP)",
+      "TooltipDuration": "Duração do Efeito",
+      "TooltipRequirements": "Requisitos de Estágio / Atributo",
+      "Equipped": "Equipado",
+      "Active": "Ativa",
+      "Innate": "Inata",
+      "Roleplay": "Interpretação",
+      "Major": "MAIOR",
+      "Minor": "MENOR",
+      "BennyTriggerTitle": "Gatilho de Bene:",
+      "BennyTriggerDesc": "Quando esta Complicação criar dificuldades reais para o grupo em cena, o Mestre concede +1 Bene."
+    },
+    "Modal": {
+      "WindowTitle": "SWAG+ | Modificadores de Regras de SWADE",
+      "BannerTitle": "Catálogo de Modificadores de Regras (SWADE)",
+      "BannerSubtitle": "Marque ou desmarque as opções abaixo para aplicar imediatamente ao resultado do card no chat.",
+      "CustomTitle": "Adicionar Modificador Personalizado",
+      "CustomNamePlaceholder": "Ex: Terreno Elevado, Bênção, Chuva Forte...",
+      "CustomValuePlaceholder": "+2 ou -2",
+      "CancelBtn": "Cancelar",
+      "ApplyBtn": "Aplicar ao Card",
+      "CatGeneral": "Gerais, Apoio & Ações",
+      "CatConditions": "Condições, Ferimentos & Iluminação",
+      "CatCombat": "Combate, Mira, Cobertura & Alcance",
+      "CatArcane": "Poderes Arcanos & Compêndios"
+    },
+    "HUD": {
+      "QuickActionsTitle": "SWAG+ | Ações Rápidas",
+      "VisualEffectsTitle": "SWAG+ | Efeitos e Condições Ativas",
+      "DossierTitle": "SWAG+ | Dossiê Completo do Ator"
+    },
+    "Timer": {
+      "YourTurn": "SEU TURNO!",
+      "TimeRemaining": "Tempo Restante",
+      "Timeout": "Tempo Esgotado!"
+    }
+  },
+  "SPC": {
+    "SuperPower": {
+      "Level.label": "Nível",
+      "plural": "Super Poderes"
+    },
+    "Builder": {
+      "SuperHero": "Super-Herói",
+      "PowerLevel": "Nível de Poder",
+      "PowerLimit": "Limite de Poder",
+      "ConfigureModifiers": "Configurar Modificadores",
+      "CostHint": "Custo {cost}",
+      "Levels": "Níveis"
+    },
+    "PowerStunt": {
+      "Label": "Proeza de Poder",
+      "NoBenny": "Proezas de Poder exigem o gasto de 1 Bene"
+    },
+    "TotalCost": {
+      "Label": "Total de Pontos (PSP)"
+    }
+  },
+  "TYPES": {
+    "Item": {
+      "swade-autogame-plus.superPower": "Super Poder (SWAG+)",
+      "swade-supers-companion.superPower": "Super Poder (SPC)"
+    }
+  }
 }

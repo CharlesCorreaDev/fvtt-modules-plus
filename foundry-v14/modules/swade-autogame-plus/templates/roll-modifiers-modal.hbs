@@ -1,0 +1,89 @@
+<div class="swag-modifiers-modal-root">
+  <!-- Cabeçalho explicativo + Botão rápido de Aplicar no topo -->
+  <div class="swag-modal-banner">
+    <div class="d-flex align-items-center justify-content-between gap-2">
+      <div class="d-flex align-items-center gap-2">
+        <div class="swag-modal-banner-icon">
+          <i class="fa-solid fa-sliders"></i>
+        </div>
+        <div>
+          <h6 class="mb-0 fw-bold text-light">{{localize "SWAG.Modal.BannerTitle"}}</h6>
+          <small class="text-secondary">
+            {{localize "SWAG.Modal.BannerSubtitle"}}
+          </small>
+        </div>
+      </div>
+      <button type="button" class="btn btn-sm btn-warning text-dark fw-bold flex-shrink-0" data-action="apply-modifiers">
+        <i class="fa-solid fa-check me-1"></i> {{localize "SWAG.Modal.ApplyBtn"}}
+      </button>
+    </div>
+  </div>
+
+  <!-- Lista de Categorias (Área com Scroll) -->
+  <div class="swag-modal-scroll-area">
+    <!-- Modificador Personalizado no Topo -->
+    <div class="swag-modal-category mb-2">
+      <div class="swag-modal-category-title">
+        <i class="fa-solid fa-pen-to-square me-1 text-warning"></i> {{localize "SWAG.Modal.CustomTitle"}}
+      </div>
+      <div class="swag-custom-mod-row">
+        <input
+          type="text"
+          id="swag-custom-mod-name"
+          class="swag-modal-input"
+          placeholder="{{localize 'SWAG.Modal.CustomNamePlaceholder'}}"
+        />
+        <input
+          type="number"
+          id="swag-custom-mod-val"
+          class="swag-modal-input swag-modal-input-num"
+          placeholder="{{localize 'SWAG.Modal.CustomValuePlaceholder'}}"
+          step="1"
+        />
+        <button type="button" class="btn btn-sm btn-outline-info fw-bold flex-shrink-0" data-action="add-custom-modifier">
+          <i class="fa-solid fa-plus me-1"></i> {{localize "SWAG.Modal.ApplyBtn"}}
+        </button>
+      </div>
+    </div>
+
+    {{#each categories}}
+    <div class="swag-modal-category">
+      <div class="swag-modal-category-title">
+        <i class="{{this.categoryIcon}} me-1 text-info"></i> {{this.categoryTitle}}
+      </div>
+      <div class="swag-modal-grid">
+        {{#each this.items}}
+        <label class="swag-modal-mod-item {{#if this.checked}}selected{{/if}} {{#if this.isPositive}}mod-pos{{else}}mod-neg{{/if}}" title="{{this.title}}">
+          <input
+            type="checkbox"
+            class="swag-mod-checkbox"
+            data-mod-id="{{this.id}}"
+            data-mod-label="{{this.label}}"
+            data-mod-value="{{this.value}}"
+            data-mod-title="{{this.title}}"
+            {{#if this.checked}}checked{{/if}}
+          />
+          <span class="swag-modal-mod-badge {{#if this.isPositive}}pos{{else}}neg{{/if}}">
+            {{#if this.isPositive}}+{{this.value}}{{else}}{{this.value}}{{/if}}
+          </span>
+          <div class="swag-modal-mod-text">
+            <span class="mod-name">{{this.label}}</span>
+            <small class="mod-desc">{{this.title}}</small>
+          </div>
+        </label>
+        {{/each}}
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+  <!-- Rodapé Fixo da Modal -->
+  <div class="swag-modal-footer">
+    <button type="button" class="btn btn-sm btn-outline-secondary" data-action="close-modal">
+      <i class="fa-solid fa-xmark me-1"></i> {{localize "SWAG.Modal.CancelBtn"}}
+    </button>
+    <button type="button" class="btn btn-sm btn-warning text-dark fw-bold" data-action="apply-modifiers">
+      <i class="fa-solid fa-check me-1"></i> {{localize "SWAG.Modal.ApplyBtn"}}
+    </button>
+  </div>
+</div>

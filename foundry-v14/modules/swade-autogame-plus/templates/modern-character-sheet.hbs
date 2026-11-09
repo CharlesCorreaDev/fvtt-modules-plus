@@ -1,0 +1,293 @@
+<!-- [PT-BR] Template Moderno de Ficha de Personagem SWADE AutoGame Plus (SWAG+)
+     [EN] SWADE AutoGame Plus Modern Character Sheet Template
+     Layout: Bento-Grid Modular com Bootstrap Prefixado (.SWAG-PLUS-) e Paleta #90271
+-->
+<form class="SWAG-PLUS-panel SWAG-PLUS-modern-full-sheet {{cssClass}}" autocomplete="off">
+  <!-- CABEÇALHO DO PERSONAGEM (Header) -->
+  <header class="SWAG-PLUS-sheet-header">
+    <div class="SWAG-PLUS-row" style="align-items: center; justify-content: space-between">
+      <!-- Bloco de Logos (Campanha + SWADE Oficial) -->
+      <div
+        class="SWAG-PLUS-col-auto"
+        style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px"
+      >
+        {{#if campaignLogo}}
+        <img
+          src="{{campaignLogo}}"
+          class="SWAG-PLUS-campaign-logo"
+          alt="Logo da Campanha"
+          style="max-height: 55px; max-width: 220px; object-fit: contain"
+        />
+        {{/if}}
+        <img
+          src="systems/swade/ui/swade-logo.webp"
+          class="SWAG-PLUS-swade-logo"
+          alt="Savage Worlds"
+          style="max-height: 48px; object-fit: contain"
+        />
+      </div>
+
+      <!-- Dados Biográficos Básicos -->
+      <div
+        class="SWAG-PLUS-col"
+        style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 16px"
+      >
+        <div class="SWAG-PLUS-input-group">
+          <label><i class="fas fa-id-card"></i> Nome do Personagem</label>
+          <input
+            name="name"
+            type="text"
+            value="{{actor.name}}"
+            placeholder="Nome do Personagem"
+            class="SWAG-PLUS-input"
+          />
+        </div>
+        <div class="SWAG-PLUS-input-group">
+          <label><i class="fas fa-user"></i> Jogador</label>
+          <input
+            type="text"
+            value="{{actor.ownership.default}}"
+            placeholder="Nome do Jogador"
+            class="SWAG-PLUS-input"
+            disabled
+          />
+        </div>
+        <div class="SWAG-PLUS-input-group">
+          <label><i class="fas fa-dna"></i> Raça / Espécie</label>
+          <input
+            name="system.details.species.name"
+            type="text"
+            value="{{actor.system.details.species.name}}"
+            placeholder="Humano"
+            class="SWAG-PLUS-input"
+          />
+        </div>
+        <div class="SWAG-PLUS-input-group">
+          <label><i class="fas fa-user-tag"></i> Conceito / Arquétipo</label>
+          <input
+            name="system.details.archetype"
+            type="text"
+            value="{{actor.system.details.archetype}}"
+            placeholder="Ex: Caçador de Recompensas"
+            class="SWAG-PLUS-input"
+          />
+        </div>
+      </div>
+
+      <!-- Retrato / Avatar do Personagem com Moldura -->
+      <div class="SWAG-PLUS-col-auto">
+        <div class="SWAG-PLUS-avatar-frame">
+          <img
+            src="{{actor.img}}"
+            data-edit="img"
+            title="{{actor.name}}"
+            class="SWAG-PLUS-avatar-img"
+          />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVEGAÇÃO DE ABAS (Tabs) -->
+  <nav class="SWAG-PLUS-tabs tabs" data-group="primary">
+    <a class="item active" data-tab="summary"><i class="fas fa-id-badge"></i> Ficha Geral</a>
+    <a class="item" data-tab="attributes"
+      ><i class="fas fa-fist-raised"></i> Atributos & Perícias</a
+    >
+    <a class="item" data-tab="combat"><i class="fas fa-swords"></i> Combate</a>
+    <a class="item" data-tab="edges"><i class="fas fa-star"></i> Vantagens & Complicações</a>
+    <a class="item" data-tab="inventory"><i class="fas fa-briefcase"></i> Equipamentos</a>
+    <a class="item" data-tab="powers"><i class="fas fa-bolt"></i> Poderes</a>
+    <a class="item" data-tab="bio"><i class="fas fa-book-open"></i> Histórico</a>
+  </nav>
+
+  <!-- CORPO PRINCIPAL BENTO-GRID -->
+  <section class="SWAG-PLUS-sheet-body">
+    <!-- ABA: FICHA GERAL (BENTO GRID MULTI-COLUNAS) -->
+    <div class="tab summary active" data-group="primary" data-tab="summary">
+      <div class="SWAG-PLUS-bento-grid">
+        <!-- COLUNA 1: ATRIBUTOS CENTRAIS & PERÍCIAS -->
+        <div class="SWAG-PLUS-bento-col">
+          <!-- Box: Atributos Centrais -->
+          <div class="SWAG-PLUS-card SWAG-PLUS-bento-card">
+            <div class="SWAG-PLUS-title"><i class="fas fa-star"></i> Atributos Centrais</div>
+            <div class="SWAG-PLUS-attributes-list">
+              {{#each actor.system.attributes as |attr id|}}
+              <div class="SWAG-PLUS-attr-row">
+                <span class="SWAG-PLUS-attr-label">
+                  <i class="fas fa-shield-alt"></i> {{localize (concat "SWADE.Attr" (capitalize
+                  id))}} ({{id}})
+                </span>
+                <span
+                  class="SWAG-PLUS-die-value rollable"
+                  data-action="rollAttribute"
+                  data-attribute="{{id}}"
+                >
+                  d{{attr.die.sides}}{{#if attr.die.modifier}}+{{attr.die.modifier}}{{/if}}
+                </span>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+
+          <!-- Box: Perícias Mais Usadas -->
+          <div class="SWAG-PLUS-card SWAG-PLUS-bento-card" style="margin-top: 10px">
+            <div
+              class="SWAG-PLUS-title"
+              style="display: flex; justify-content: space-between; align-items: center"
+            >
+              <span><i class="fas fa-cog"></i> Perícias</span>
+              <button type="button" class="SWAG-PLUS-btn-sm" data-action="addSkill">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+            <div class="SWAG-PLUS-skills-scroll">
+              {{#each skills}}
+              <div
+                class="SWAG-PLUS-skill-row rollable"
+                data-action="rollItem"
+                data-item-id="{{this.id}}"
+              >
+                <span>{{this.name}}</span>
+                <span class="SWAG-PLUS-badge">d{{this.system.die.sides}}</span>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUNA 2: STATUS VITAIS, COMBATE E RECURSOS -->
+        <div class="SWAG-PLUS-bento-col">
+          <!-- Box: Status Vitais (Ferimentos, Fadiga, Armadura) -->
+          <div class="SWAG-PLUS-card SWAG-PLUS-bento-card">
+            <div class="SWAG-PLUS-title"><i class="fas fa-heartbeat"></i> Status Vitais</div>
+            <div class="SWAG-PLUS-status-grid">
+              <div class="SWAG-PLUS-status-box">
+                <span class="label">Resistência</span>
+                <span class="value">{{actor.system.stats.toughness.value}}</span>
+                <span class="subtext">(Armadura: {{actor.system.stats.toughness.armor}})</span>
+              </div>
+              <div class="SWAG-PLUS-status-box">
+                <span class="label">Aparência (Parry)</span>
+                <span class="value">{{actor.system.stats.parry.value}}</span>
+                <span class="subtext">Mod: +{{actor.system.stats.parry.modifier}}</span>
+              </div>
+              <div class="SWAG-PLUS-status-box {{#if actor.system.wounds.value}}has-wounds{{/if}}">
+                <span class="label">Ferimentos</span>
+                <span class="value"
+                  >{{actor.system.wounds.value}} / {{actor.system.wounds.max}}</span
+                >
+                <span class="subtext"
+                  >{{#if (gte actor.system.wounds.value 4)}}Incapacitado{{else}}Normal{{/if}}</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Box: Estatísticas de Combate -->
+          <div class="SWAG-PLUS-card SWAG-PLUS-bento-card" style="margin-top: 10px">
+            <div class="SWAG-PLUS-title"><i class="fas fa-swords"></i> Combate & Movimento</div>
+            <div class="SWAG-PLUS-combat-stats-grid">
+              <div class="stat-item">
+                <span class="stat-name"><i class="fas fa-bolt"></i> Iniciativa:</span>
+                <span class="stat-val">Carta de Baralho</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-name"><i class="fas fa-running"></i> Movimentação:</span>
+                <span class="stat-val">{{actor.system.stats.speed.value}}"</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-name"><i class="fas fa-dice"></i> Corrida:</span>
+                <span class="stat-val">+d{{actor.system.stats.speed.runningDie}}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Box: Recursos e Benes -->
+          <div class="SWAG-PLUS-card SWAG-PLUS-bento-card" style="margin-top: 10px">
+            <div class="SWAG-PLUS-title"><i class="fas fa-coins"></i> Recursos & Benes</div>
+            <div class="SWAG-PLUS-resources-row">
+              <div class="resource-pill">
+                <span><i class="fas fa-gem" style="color: #60a5fa"></i> Benes:</span>
+                <strong>{{actor.system.bennies.value}}</strong>
+              </div>
+              <div class="resource-pill">
+                <span><i class="fas fa-magic" style="color: #c084fc"></i> Pontos de Poder:</span>
+                <strong
+                  >{{actor.system.powerPoints.value}} / {{actor.system.powerPoints.max}}</strong
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUNA 3: VANTAGENS, COMPLICAÇÕES & NOTAS -->
+        <div class="SWAG-PLUS-bento-col">
+          <!-- Box: Vantagens (Edges) -->
+          <div class="SWAG-PLUS-card SWAG-PLUS-bento-card">
+            <div
+              class="SWAG-PLUS-title"
+              style="display: flex; justify-content: space-between; align-items: center"
+            >
+              <span><i class="fas fa-medal" style="color: #10b981"></i> Vantagens</span>
+              <button type="button" class="SWAG-PLUS-btn-sm" data-action="addEdge">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+            <div class="SWAG-PLUS-item-list">
+              {{#each edges}}
+              <div class="SWAG-PLUS-item-entry">
+                <span><strong>{{this.name}}</strong></span>
+                <div class="controls">
+                  <a data-action="editItem" data-item-id="{{this.id}}"
+                    ><i class="fas fa-edit"></i
+                  ></a>
+                  <a data-action="deleteItem" data-item-id="{{this.id}}"
+                    ><i class="fas fa-trash"></i
+                  ></a>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+
+          <!-- Box: Complicações (Hindrances) -->
+          <div class="SWAG-PLUS-card SWAG-PLUS-bento-card" style="margin-top: 10px">
+            <div
+              class="SWAG-PLUS-title"
+              style="display: flex; justify-content: space-between; align-items: center"
+            >
+              <span
+                ><i class="fas fa-exclamation-triangle" style="color: #ef4444"></i>
+                Complicações</span
+              >
+              <button type="button" class="SWAG-PLUS-btn-sm" data-action="addHindrance">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+            <div class="SWAG-PLUS-item-list">
+              {{#each hindrances}}
+              <div class="SWAG-PLUS-item-entry">
+                <span><strong>{{this.name}}</strong> ({{this.system.severity}})</span>
+                <div class="controls">
+                  <a data-action="editItem" data-item-id="{{this.id}}"
+                    ><i class="fas fa-edit"></i
+                  ></a>
+                  <a data-action="deleteItem" data-item-id="{{this.id}}"
+                    ><i class="fas fa-trash"></i
+                  ></a>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ ESTILIZADO (Footer) -->
+  <footer class="SWAG-PLUS-sheet-footer">
+    <span>SAVAGE WORLDS — RÁPIDO. CINEMATOGRÁFICO. ÉPICO.</span>
+  </footer>
+</form>

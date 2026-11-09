@@ -1,0 +1,23 @@
+<div>
+  <h2>{{parentName}} ({{build.cost}})</h2>
+  <section>
+    <ul>
+      <li><strong>{{localize 'SWADE.Trapping'}}:</strong>&nbsp;{{trapping}}</li>
+    </ul>
+  </section>
+  <section>
+    {{{enrichedDescription}}}
+  </section>
+  <section>
+    <h3 class='no-toc'>Modifiers</h3>
+    <ul>
+      {{#each modifiers as |modifier|}}
+        <li>
+          <strong>{{modifier.name}} ({{modifier.cost}})</strong>
+          {{{modifier.description}}}
+        </li>
+      {{/each}}
+    </ul>
+  </section>
+</div>
+

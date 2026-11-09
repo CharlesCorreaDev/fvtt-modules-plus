@@ -1,0 +1,474 @@
+<div class="SWAG-PLUS-wizard-container">
+  {{!-- Cabeçalho do Wizard com Stepper / Wizard Stepper Header --}}
+  <div class="SWAG-PLUS-wizard-header">
+    <div class="wizard-title-area">
+      <img src="modules/swade-autogame-plus/assets/logo/swag-plus-logo.webp" alt="SWAG+ Logo" class="wizard-logo-img" style="width: 58px; height: 58px; max-width: 58px; max-height: 58px; object-fit: contain; flex-shrink: 0; display: inline-block;">
+      <div>
+        <h2>SWADE AutoGame Plus (SWAG+)</h2>
+        <p class="wizard-subtitle">Painel de Controle e Automação de Savage Worlds</p>
+      </div>
+    </div>
+
+    {{!-- Navegação por Etapas (Stepper) --}}
+    <div class="SWAG-PLUS-wizard-nav">
+      <div class="wizard-progress-bar">
+        <div class="wizard-progress-fill" style="width: {{progressPercent}}%;"></div>
+      </div>
+      <ul class="wizard-steps-list">
+        <li class="wizard-step-item {{#if (eq activeStep 1)}}active{{/if}} {{#if (gt activeStep 1)}}completed{{/if}}" data-step="1">
+          <div class="step-circle"><i class="fas fa-bolt"></i></div>
+          <span class="step-label">Mecânicas &amp; Rolagens</span>
+        </li>
+        <li class="wizard-step-item {{#if (eq activeStep 2)}}active{{/if}} {{#if (gt activeStep 2)}}completed{{/if}}" data-step="2">
+          <div class="step-circle"><i class="fas fa-shield-alt"></i></div>
+          <span class="step-label">Combate &amp; Regras</span>
+        </li>
+        <li class="wizard-step-item {{#if (eq activeStep 3)}}active{{/if}} {{#if (gt activeStep 3)}}completed{{/if}}" data-step="3">
+          <div class="step-circle"><i class="fas fa-book-sparkles"></i></div>
+          <span class="step-label">Compêndios Oficiais</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  {{!-- Formulário com Etapas Tabuladas --}}
+  <form class="SWAG-PLUS-wizard-form" autocomplete="off">
+    
+    {{!-- ETAPA 1: MECÂNICAS & ROLAGENS --}}
+    <div class="wizard-tab-pane {{#if (eq activeStep 1)}}active{{/if}}" data-tab-step="1">
+      <h3 class="pane-title"><i class="fas fa-dice"></i> Mecânicas Centrais &amp; Interface de Chat</h3>
+      
+      <div class="wizard-card-grid">
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-id-card"></i></div>
+          <div class="card-content">
+            <h4>Cards de Rolagem Bootstrap Dark</h4>
+            <p>Substitui automaticamente todos os cards de rolagem e itens do SWADE pelo design moderno escuro com detalhamento de dados e ases.</p>
+          </div>
+          <input type="checkbox" name="enableCompactCard" value="true" {{checked settings.enableCompactCard}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-bolt"></i></div>
+          <div class="card-content">
+            <h4>Calculadora de Ampliações</h4>
+            <p>Calcula automaticamente Sucesso, Ampliações (Raises) e Falhas Críticas em todas as rolagens.</p>
+          </div>
+          <input type="checkbox" name="enableRaiseCalculator" value="true" {{checked settings.enableRaiseCalculator}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-crosshairs"></i></div>
+          <div class="card-content">
+            <h4>Dano Direcionado nos Alvos</h4>
+            <p>Compara Dano e PA contra a Resistência e Armadura do alvo selecionado e aplica Ferimentos/Abalado com 1 clique.</p>
+          </div>
+          <input type="checkbox" name="enableTargetedDamage" value="true" {{checked settings.enableTargetedDamage}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-users"></i></div>
+          <div class="card-content">
+            <h4>Rolagens em Grupo (Extras)</h4>
+            <p>Facilita rolagens unificadas para grupos de figurantes idênticos compartilhando a mesma ação.</p>
+          </div>
+          <input type="checkbox" name="autoGroupRolls" value="true" {{checked settings.autoGroupRolls}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-clover"></i></div>
+          <div class="card-content">
+            <h4>Sorte de Principiante (Dumb Luck)</h4>
+            <p>Permite gastar um Bene para rerolar uma Falha Crítica em testes de perícias ou atributos.</p>
+          </div>
+          <input type="checkbox" name="ruleDumbLuck" value="true" {{checked settings.ruleDumbLuck}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-star"></i></div>
+          <div class="card-content">
+            <h4>Celebrar Explosões de Dados (Ás!)</h4>
+            <p>Dispara efeitos visuais e sonoros quando um dado de Característica ou Selvagem explode.</p>
+          </div>
+          <input type="checkbox" name="enableCelebrateAces" value="true" {{checked settings.enableCelebrateAces}}>
+        </label>
+      </div>
+    </div>
+
+    {{!-- ETAPA 2: COMBATE & REGRAS DE AMBIENTAÇÃO --}}
+    <div class="wizard-tab-pane {{#if (eq activeStep 2)}}active{{/if}}" data-tab-step="2">
+      <h3 class="pane-title"><i class="fas fa-swords"></i> Automações de Combate &amp; Regras de Ambientação</h3>
+      
+      <div class="wizard-card-grid">
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-shield-virus"></i></div>
+          <div class="card-content">
+            <h4>Limite de Ferimentos (Wound Cap)</h4>
+            <p>Regra de ambientação: limita o dano de um único golpe a no máximo 4 Ferimentos simultâneos.</p>
+          </div>
+          <input type="checkbox" name="ruleWoundCap" value="true" {{checked settings.ruleWoundCap}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-user-ninja"></i></div>
+          <div class="card-content">
+            <h4>Herói Sem Armadura (Unarmored Hero)</h4>
+            <p>Concede bônus passivo de +2 no Aparar para personagens sem armadura corporal.</p>
+          </div>
+          <input type="checkbox" name="ruleUnarmoredHero" value="true" {{checked settings.ruleUnarmoredHero}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-skull-crossbones"></i></div>
+          <div class="card-content">
+            <h4>Dano Severo (Gritty Damage)</h4>
+            <p>Rola imediatamente na tabela de Lesões Críticas sempre que o alvo sofrer Ferimentos.</p>
+          </div>
+          <input type="checkbox" name="ruleGrittyDamage" value="true" {{checked settings.ruleGrittyDamage}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-crosshairs"></i></div>
+          <div class="card-content">
+            <h4>Perguntar Tiros Localizados</h4>
+            <p>Exibe diálogo tático para alvejar membros específicos (Cabeça, Braços, Pernas) antes do tiro.</p>
+          </div>
+          <input type="checkbox" name="autoAskCalledShots" value="true" {{checked settings.autoAskCalledShots}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-fire"></i></div>
+          <div class="card-content">
+            <h4>Automação de Ataque Selvagem</h4>
+            <p>Adiciona +2 no ataque e dano e marca a condição Vulnerável automaticamente.</p>
+          </div>
+          <input type="checkbox" name="autoWildAttack" value="true" {{checked settings.autoWildAttack}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-ring"></i></div>
+          <div class="card-content">
+            <h4>Marcação Cromática de Tokens</h4>
+            <p>Aplica automaticamente anéis de cores distintas em cópias de figurantes na mesma cena.</p>
+          </div>
+          <input type="checkbox" name="enableTokenColorMarker" value="true" {{checked settings.enableTokenColorMarker}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-stopwatch"></i></div>
+          <div class="card-content">
+            <h4>Temporizador de Turno</h4>
+            <p>Exibe barra visual decrescente e avisos sonoros de turno no combate.</p>
+          </div>
+          <input type="checkbox" name="enableTurnTimer" value="true" {{checked settings.enableTurnTimer}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-heartbeat"></i></div>
+          <div class="card-content">
+            <h4>Visual Active Effects HUD</h4>
+            <p>Barra flutuante superior com monitoramento ao vivo de condições de SWADE.</p>
+          </div>
+          <input type="checkbox" name="enableVisualEffectsHUD" value="true" {{checked settings.enableVisualEffectsHUD}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-users-cog"></i></div>
+          <div class="card-content">
+            <h4>Ataque em Bando (Gang Up)</h4>
+            <p>Calcula automaticamente até +4 no ataque corpo a corpo baseado em aliados adjacentes.</p>
+          </div>
+          <input type="checkbox" name="autoGangUp" value="true" {{checked settings.autoGangUp}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-expand-arrows-alt"></i></div>
+          <div class="card-content">
+            <h4>Modificador de Escala (Scale)</h4>
+            <p>Aplica bônus e penalidades automáticas de tamanho ao alvejar criaturas maiores ou menores.</p>
+          </div>
+          <input type="checkbox" name="autoScale" value="true" {{checked settings.autoScale}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="card-content">
+            <h4>Cobertura de Escudos (Auto Cover)</h4>
+            <p>Aplica penalidade de cobertura contra ataques à distância para alvos empunhando escudos.</p>
+          </div>
+          <input type="checkbox" name="autoCover" value="true" {{checked settings.autoCover}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-dove"></i></div>
+          <div class="card-content">
+            <h4>Heróis Jamais Morrem</h4>
+            <p>Personagens derrotados ficam fora de combate sem risco de morte irreversível involuntária.</p>
+          </div>
+          <input type="checkbox" name="ruleHeroesNeverDie" value="true" {{checked settings.ruleHeroesNeverDie}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-coins"></i></div>
+          <div class="card-content">
+            <h4>Mais Benes (More Bennies)</h4>
+            <p>Concede +1 Bene extra para todos os personagens no início de cada sessão.</p>
+          </div>
+          <input type="checkbox" name="ruleMoreBennies" value="true" {{checked settings.ruleMoreBennies}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-hat-cowboy-side"></i></div>
+          <div class="card-content">
+            <h4>Coringa Selvagem (Joker's Wild)</h4>
+            <p>Distribui 1 Bene automaticamente a todos os aliados ao sacar uma Carta Coringa na iniciativa.</p>
+          </div>
+          <input type="checkbox" name="ruleJokersWild" value="true" {{checked settings.ruleJokersWild}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-balance-scale"></i></div>
+          <div class="card-content">
+            <h4>Escolhas Difíceis (Hard Choices)</h4>
+            <p>Apenas jogadores ganham Benes com cartas Coringas (o Mestre não ganha Benes extras).</p>
+          </div>
+          <input type="checkbox" name="ruleHardChoices" value="true" {{checked settings.ruleHardChoices}}>
+        </label>
+      </div>
+
+      {{!-- Seção Avançada: Medição, Iluminação, Munição/PP e Visibilidade --}}
+      <h3 class="pane-title pane-title-spacing"><i class="fas fa-ruler-combined"></i> Medição, Iluminação &amp; Automação de Recursos</h3>
+
+      <div class="wizard-card-grid">
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-th"></i></div>
+          <div class="card-content">
+            <h4>Calcular a Distância com o Grid</h4>
+            <p>Usa a medição da grade em vez da distância euclidiana real para penalidades de alcance.</p>
+          </div>
+          <input type="checkbox" name="measureWithGrid" value="true" {{checked settings.measureWithGrid}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-border-all"></i></div>
+          <div class="card-content">
+            <h4>Medir a Partir da Borda (Measure from Edge)</h4>
+            <p>Calcula distâncias e alcances a partir da borda da área ocupada pelo token em vez do centro.</p>
+          </div>
+          <input type="checkbox" name="measureFromEdge" value="true" {{checked settings.measureFromEdge}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+          <div class="card-content">
+            <h4>Sugerir Penalidades de Iluminação</h4>
+            <p>Detecta escuridão global e fontes de luz próximas sugerindo penalidades automáticas de luz.</p>
+          </div>
+          <input type="checkbox" name="suggestIlluminationPenalties" value="true" {{checked settings.suggestIlluminationPenalties}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-boxes"></i></div>
+          <div class="card-content">
+            <h4>Subtrair Munição por Padrão</h4>
+            <p>Subtrai automaticamente tiros e munições do inventário ao executar ataques à distância.</p>
+          </div>
+          <input type="checkbox" name="autoSubtractAmmo" value="true" {{checked settings.autoSubtractAmmo}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-hat-wizard"></i></div>
+          <div class="card-content">
+            <h4>Controle de Pontos de Poder</h4>
+            <p>Deduz os Pontos de Poder gastos do personagem automaticamente ao conjurar magias e poderes.</p>
+          </div>
+          <input type="checkbox" name="autoSubtractPowerPoints" value="true" {{checked settings.autoSubtractPowerPoints}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-user-secret"></i></div>
+          <div class="card-content">
+            <h4>Ocultar Valores de Defesa do Alvo</h4>
+            <p>Exclui Resistência e Armadura do alvo no card de resultado do chat para evitar meta-jogo.</p>
+          </div>
+          <input type="checkbox" name="hideTargetDefenseValues" value="true" {{checked settings.hideTargetDefenseValues}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-heart-broken"></i></div>
+          <div class="card-content">
+            <h4>Mostrar Cartões de Remoção de Status</h4>
+            <p>Exibe cartões rápidos de remoção de Abalado no início do combate para agilizar turnos.</p>
+          </div>
+          <input type="checkbox" name="showStatusRemovalCards" value="true" {{checked settings.showStatusRemovalCards}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-skull"></i></div>
+          <div class="card-content">
+            <h4>Verificar Falhas Críticas Extras</h4>
+            <p>Rola automaticamente um d6 extra quando um Figurante tira 1 no Traço para confirmar Falha Crítica.</p>
+          </div>
+          <input type="checkbox" name="checkExtraCriticalFailures" value="true" {{checked settings.checkExtraCriticalFailures}}>
+        </label>
+      </div>
+
+      <div class="wizard-setting-row-group">
+        <div class="wizard-setting-field">
+          <label>Visibilidade do Cartão de Resultado</label>
+          <select name="resultCardVisibility" class="SWAG-PLUS-input">
+            <option value="all" {{#if (eq settings.resultCardVisibility 'all')}}selected{{/if}}>Todo mundo (Público)</option>
+            <option value="gm" {{#if (eq settings.resultCardVisibility 'gm')}}selected{{/if}}>Apenas Mestre (GM Only)</option>
+            <option value="gm-player" {{#if (eq settings.resultCardVisibility 'gm-player')}}selected{{/if}}>Mestre e Jogador</option>
+          </select>
+        </div>
+
+        <div class="wizard-setting-field">
+          <label>Cadência de Tiros Padrão (RoF)</label>
+          <select name="defaultRoF" class="SWAG-PLUS-input">
+            <option value="1" {{#if (eq settings.defaultRoF '1')}}selected{{/if}}>Tiro único (RoF 1)</option>
+            <option value="2" {{#if (eq settings.defaultRoF '2')}}selected{{/if}}>Rajada Curta (RoF 2)</option>
+            <option value="3" {{#if (eq settings.defaultRoF '3')}}selected{{/if}}>Rajada Longa (RoF 3)</option>
+          </select>
+        </div>
+
+        <div class="wizard-setting-field">
+          <label>Linhas da Calculadora de Elevação</label>
+          <input type="number" name="raiseCalculatorButtonRows" value="{{settings.raiseCalculatorButtonRows}}" min="2" max="10" class="SWAG-PLUS-input">
+        </div>
+
+        <div class="wizard-setting-field turn-timer-duration-container">
+          <label>Duração do Turno (Segundos)</label>
+          <input type="number" name="turnTimerDuration" value="{{settings.turnTimerDuration}}" min="10" max="180" class="SWAG-PLUS-input">
+        </div>
+      </div>
+    </div>
+
+    {{!-- ETAPA 3: AUTOMAÇÕES DOS 5 COMPÊNDIOS OFICIAIS (FANTASIA, SCI-FI, HORROR, SUPERS, SWPF) --}}
+    <div class="wizard-tab-pane {{#if (eq activeStep 3)}}active{{/if}}" data-tab-step="3">
+      <h3 class="pane-title"><i class="fas fa-book-sparkles"></i> Automações Autônomas dos Compêndios Oficiais de SWADE</h3>
+
+      <div class="wizard-card-grid">
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-mask"></i></div>
+          <div class="card-content">
+            <h4>Compêndio de Superpoderes (SPC + Item superPower)</h4>
+            <p>Ativa subtipo de item <code>superPower</code>, aba Super Poderes na ficha, Super Força (Libras e Kg), Proezas de Poder e Chamas da Glória.</p>
+          </div>
+          <input type="checkbox" name="enableSuperPowersSupport" value="true" {{checked settings.enableSuperPowersSupport}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-person-falling-burst"></i></div>
+          <div class="card-content">
+            <h4>Projeção Automática (Knockback - SPC)</h4>
+            <p>Verifica limiares de Projeção por Escala (10/20/30/40/50), rola distância em d6 e adiciona +2d6+distância em colisões.</p>
+          </div>
+          <input type="checkbox" name="ruleKnockback" value="true" {{checked settings.ruleKnockback}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-dragon"></i></div>
+          <div class="card-content">
+            <h4>Compêndio de Fantasia (Mochila 50%, Pausa &amp; Tesouros)</h4>
+            <p>Reduz 50% do peso de itens na mochila, habilita as 6 atividades de Pausa (Downtime) e o gerador de Tesouros Mágicos.</p>
+          </div>
+          <input type="checkbox" name="enableFantasySupport" value="true" {{checked settings.enableFantasySupport}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-user-slash"></i></div>
+          <div class="card-content">
+            <h4>Regra de Traição (Betrayal - Fantasia)</h4>
+            <p>Impede rolagens de Absorção (Soak) contra ferimentos causados com Finalização (The Drop).</p>
+          </div>
+          <input type="checkbox" name="ruleBetrayal" value="true" {{checked settings.ruleBetrayal}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-rocket"></i></div>
+          <div class="card-content">
+            <h4>Compêndio de Ficção Científica (Strain, Clash &amp; Ressonância)</h4>
+            <p>Injeta Tensão (Strain) e Clash Tokens nas fichas, habilita as 6 manobras de Embate e Ressonância Harmônica.</p>
+          </div>
+          <input type="checkbox" name="enableSciFiSupport" value="true" {{checked settings.enableSciFiSupport}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-robot"></i></div>
+          <div class="card-content">
+            <h4>Heavy Metal Classes I a VII (Sci-Fi)</h4>
+            <p>Compara automaticamente a Classe Heavy Metal (I a VII) da arma contra veículos/armaduras e exibe selos nas fichas.</p>
+          </div>
+          <input type="checkbox" name="ruleHeavyMetal" value="true" {{checked settings.ruleHeavyMetal}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-ghost"></i></div>
+          <div class="card-content">
+            <h4>Compêndio de Horror (Tabela de Medo, Sanidade, Psicose &amp; Vícios)</h4>
+            <p>Ativa Tabela de Medo 1d20, Psicoses Menores/Maiores, perda de Sanidade, Marcas de Vício (+2 dano) e A Visão.</p>
+          </div>
+          <input type="checkbox" name="enableHorrorSupport" value="true" {{checked settings.enableHorrorSupport}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-skull"></i></div>
+          <div class="card-content">
+            <h4>Regra de Massacre (Slaughter Rules - Horror)</h4>
+            <p>Novos personagens de jogadores são criados com limite máximo de apenas 1 Ferimento.</p>
+          </div>
+          <input type="checkbox" name="ruleSlaughter" value="true" {{checked settings.ruleSlaughter}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-fist-raised"></i></div>
+          <div class="card-content">
+            <h4>Ataque Desesperado (Pathfinder / Sci-Fi)</h4>
+            <p>Permite optar por atacar desesperadamente (+2/+4 em Lutar trocando por -2/-4 no dano).</p>
+          </div>
+          <input type="checkbox" name="autoDesperateAttack" value="true" {{checked settings.autoDesperateAttack}}>
+        </label>
+
+        <label class="wizard-setting-card">
+          <div class="card-icon"><i class="fas fa-hat-wizard"></i></div>
+          <div class="card-content">
+            <h4>Interferência de Armadura Arcana (Pathfinder SWPF)</h4>
+            <p>Aplica penalidade automática de -4 em Conjuração quando Magos/Feiticeiros vestem armaduras restritas.</p>
+          </div>
+          <input type="checkbox" name="ruleArmorInterference" value="true" {{checked settings.ruleArmorInterference}}>
+        </label>
+      </div>
+    </div>
+
+  </form>
+
+  {{!-- Rodapé com Botões de Navegação, Exportar/Importar e Salvar --}}
+  <div class="SWAG-PLUS-wizard-footer">
+    <div class="footer-left-buttons" style="display: flex; gap: 8px; align-items: center;">
+      <button type="button" class="SWAG-PLUS-btn btn-wizard-prev {{#if (eq activeStep 1)}}disabled{{/if}}">
+        <i class="fas fa-arrow-left"></i> Anterior
+      </button>
+      <button type="button" class="SWAG-PLUS-btn btn-wizard-export" title="Exportar todas as configurações em formato JSON" style="background: rgba(36, 33, 40, 0.9); border-color: var(--swag-color-medium);">
+        <i class="fas fa-file-export"></i> Exportar
+      </button>
+      <button type="button" class="SWAG-PLUS-btn btn-wizard-import" title="Importar configurações a partir de um arquivo JSON" style="background: rgba(36, 33, 40, 0.9); border-color: var(--swag-color-medium);">
+        <i class="fas fa-file-import"></i> Importar
+      </button>
+      <input type="file" class="swag-import-file-input" accept=".json" style="display: none;">
+    </div>
+
+    <div class="footer-spacer"></div>
+
+    <div class="footer-right-buttons" style="display: flex; gap: 8px; align-items: center;">
+      {{#if canGoNext}}
+        <button type="button" class="SWAG-PLUS-btn btn-wizard-next">
+          Próximo <i class="fas fa-arrow-right"></i>
+        </button>
+      {{/if}}
+      <button type="button" class="SWAG-PLUS-btn btn-wizard-save" style="background: linear-gradient(135deg, #8A16D8, #4B087D); border-color: var(--swag-color-gold); font-weight: 700;">
+        <i class="fas fa-check"></i> Salvar Alterações
+      </button>
+    </div>
+  </div>
+</div>

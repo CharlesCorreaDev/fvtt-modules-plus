@@ -1,41 +1,48 @@
 {
   "id": "swade-autogame-plus",
-  "title": "SWADE AutoGame Plus (Beta)",
-  "description": "Automações inteligentes, fluxos ágeis de combate e aprimoramentos de qualidade de vida para Savage Worlds Adventure Edition (SWADE) no Foundry VTT v14.",
-  "version": "0.1.0-beta",
+  "title": "SWADE AutoGame Plus (SWAG+)",
+  "description": "Suíte modular de automação total para Savage Worlds Adventure Edition (SWADE) no Foundry VTT v14 (Versão Beta). Unifica cálculo de elevações, dano alvejado, HUD de ações, temporizador e efeitos.",
+  "version": "1.0.0-beta.1",
   "compatibility": {
-    "minimum": "12",
+    "minimum": "13",
     "verified": "14"
+  },
+  "documentTypes": {
+    "Item": {
+      "superPower": {
+        "htmlFields": [
+          "description"
+        ]
+      }
+    }
   },
   "relationships": {
     "systems": [
       {
         "id": "swade",
         "type": "system",
-        "manifest": "https://gitlab.com/peginc/swade/-/releases/permalink/latest/downloads/system.json"
+        "compatibility": {
+          "minimum": "3.0.0"
+        }
       }
     ]
   },
   "authors": [
     {
-      "name": "Mestre Charles Corrêa",
+      "name": "Charles Corrêa",
       "url": "https://rpg.charlescorrea.com.br",
       "email": "charlescorreaweb@gmail.com",
-      "discord": "charlescorrea",
       "flags": {
-        "github": "https://github.com/CharlesCorreaDev",
-        "salinha": "https://salinha.live/?c=6BMDF9#g=qrhshrw76y7m",
-        "youtube": "https://www.youtube.com/@mestrecharlescorrea",
-        "instagram": "https://www.instagram.com/mestrecharlescorrea",
-        "whatsapp": "https://chat.whatsapp.com/FSr7xgejDqoHkfrrA5GxXj"
+        "role": "Author",
+        "github": "https://github.com/CharlesCorreaDev"
       }
     }
   ],
-  "esmodules": [
-    "src/index.js"
-  ],
+  "esmodules": ["scripts/swade-autogame-plus.mjs"],
   "styles": [
-    "styles/module.css"
+    "styles/swade-bootstrap.css",
+    "styles/swade-autogame-plus.css",
+    "styles/swade-wizard.css"
   ],
   "languages": [
     {
@@ -47,11 +54,16 @@
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"
+    },
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
     }
   ],
   "url": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/tree/main/foundry-v14/modules/swade-autogame-plus",
   "manifest": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/swade-autogame-plus/module.json",
-  "download": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/releases/download/swade-autogame-v0.1.0-beta/swade-autogame-plus.zip",
+  "download": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/releases/download/swade-autogame-v1.0.0-beta.1/swade-autogame-plus.zip",
   "readme": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/swade-autogame-plus/README.md",
   "changelog": "https://raw.githubusercontent.com/CharlesCorreaDev/fvtt-modules-plus/main/foundry-v14/modules/swade-autogame-plus/CHANGELOG.md",
   "bugs": "https://github.com/CharlesCorreaDev/fvtt-modules-plus/issues",

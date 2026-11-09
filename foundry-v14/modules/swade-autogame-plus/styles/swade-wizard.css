@@ -1,0 +1,575 @@
+/* [PT-BR] SOBRESCREVER FONTES DE TEXTO DO SWADE PRESERVANDO ÍCONES FONTAWESOME */
+#swag-settings-wizard,
+#swag-settings-wizard :not(i):not(.fas):not(.far):not(.fal):not(.fad):not(.fab):not([class*="fa-"]),
+.SWAG-PLUS-wizard-window,
+.SWAG-PLUS-wizard-window
+  :not(i):not(.fas):not(.far):not(.fal):not(.fad):not(.fab):not([class*="fa-"]) {
+  font-family: var(--swag-font-body) !important;
+}
+
+#swag-settings-wizard i,
+#swag-settings-wizard [class*="fa-"],
+.SWAG-PLUS-wizard-window i,
+.SWAG-PLUS-wizard-window [class*="fa-"] {
+  font-family: var(
+    --font-awesome,
+    "Font Awesome 6 Free",
+    "Font Awesome 5 Free",
+    "FontAwesome"
+  ) !important;
+  font-style: normal !important;
+}
+#swag-settings-wizard h1,
+#swag-settings-wizard h2,
+#swag-settings-wizard h3,
+#swag-settings-wizard h4,
+#swag-settings-wizard h5,
+#swag-settings-wizard h6,
+.SWAG-PLUS-wizard-window h1,
+.SWAG-PLUS-wizard-window h2,
+.SWAG-PLUS-wizard-window h3,
+.SWAG-PLUS-wizard-window h4,
+.SWAG-PLUS-wizard-window h5,
+.SWAG-PLUS-wizard-window h6,
+#swag-settings-wizard .pane-title,
+#swag-settings-wizard .wizard-title-area h2,
+#swag-settings-wizard .step-label {
+  font-family: var(--swag-font-title) !important;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;600&family=Google+Sans+Flex:wght@400;600;700;800&family=Google+Sans:wght@400;500;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;600&family=Google+Sans+Flex:wght@400;600;700;800&family=Google+Sans:wght@400;500;700&display=swap");
+
+/* [PT-BR] ESTILOS DO BOOTSTRAP SETTINGS WIZARD (SWAG+)
+   [EN] BOOTSTRAP SETTINGS WIZARD STYLES (SWAG+)
+   PALETA OFICIAL SWAG+:
+   - Preto Arcano:    #160D22 (Fundo principal)
+   - Roxo Profundo:   #4B087D (Secundária)
+   - Roxo Arcano:     #8A16D8 (Destaques e interações)
+   - Lilás Energético:#C45BFF (Hover, foco e iluminação)
+   - Ouro Envelhecido:#D6A343 (Detalhes especiais)
+   - Bronze Western:  #8B572B (Bordas e detalhes metálicos)
+   - Pergaminho:      #E8D8BC (Textos e painéis claros)
+   - Prata Envelhecida:#BFC0C4 (Ícones e metálicos)
+   - Carvão Metálico: #242128 (Cards, campos e painéis)
+*/
+
+/* Estilos específicos para ApplicationV2 e ID do modal */
+#swag-settings-wizard,
+.SWAG-PLUS-wizard-window {
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.8),
+    0 0 25px rgba(138, 22, 216, 0.35) !important;
+  border: 1px solid #8b572b !important;
+}
+
+#swag-settings-wizard .window-content,
+.SWAG-PLUS-wizard-window .window-content {
+  padding: 0 !important;
+  background: radial-gradient(circle at top left, #201332, #160d22) !important;
+  color: #e8d8bc !important;
+  overflow: hidden !important;
+  font-family: var(--swag-font-body) !important;
+  font-size: 1.05rem !important;
+}
+
+.SWAG-PLUS-wizard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.SWAG-PLUS-wizard-header {
+  background: linear-gradient(135deg, rgba(75, 8, 125, 0.95), rgba(22, 13, 34, 0.98));
+  padding: 16px 28px 12px;
+  border-bottom: 2px solid #8b572b;
+}
+
+.wizard-title-area {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+img.wizard-logo-img,
+.wizard-title-area img,
+.wizard-logo-img {
+  width: 58px !important;
+  height: 58px !important;
+  max-width: 58px !important;
+  max-height: 58px !important;
+  min-width: 58px !important;
+  min-height: 58px !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 2px 8px rgba(196, 91, 255, 0.4)) !important;
+  border: none !important;
+  flex-shrink: 0 !important;
+}
+
+.wizard-title-area h2 {
+  margin: 0;
+  font-family: var(--swag-font-title) !important;
+  font-size: 1.85rem !important;
+  font-weight: 800 !important;
+  color: #e8d8bc !important;
+  letter-spacing: 0.5px;
+}
+
+.wizard-subtitle {
+  margin: 2px 0 0;
+  font-size: 1rem;
+  color: #bfc0c4;
+}
+
+/* Stepper Bar */
+.SWAG-PLUS-wizard-nav {
+  position: relative;
+  margin-top: 10px;
+}
+
+.wizard-progress-bar {
+  position: absolute;
+  top: 22px;
+  left: 50px;
+  right: 50px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.wizard-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #8a16d8, #d6a343);
+  transition: width 0.35s ease-in-out;
+  border-radius: 4px;
+}
+
+.wizard-steps-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.wizard-step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  width: 170px;
+  text-align: center !important;
+}
+
+.step-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #242128;
+  border: 2px solid #8b572b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bfc0c4;
+  font-size: 1.25rem;
+  transition: all 0.25s ease-in-out;
+}
+
+.step-label {
+  font-family: var(--swag-font-title) !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: #bfc0c4;
+  text-align: center !important;
+  display: block;
+  width: 100%;
+  line-height: 1.25;
+}
+
+.wizard-step-item.active .step-circle {
+  background: #4b087d;
+  border-color: #d6a343;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(196, 91, 255, 0.6);
+  transform: scale(1.15);
+}
+
+.wizard-step-item.active .step-label {
+  color: #d6a343;
+}
+
+.wizard-step-item.completed .step-circle {
+  background: #8a16d8;
+  border-color: #c45bff;
+  color: #ffffff;
+}
+
+/* Form Panes */
+.SWAG-PLUS-wizard-form {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 36px;
+}
+
+.wizard-tab-pane {
+  display: none;
+}
+
+.wizard-tab-pane.active {
+  display: block;
+}
+
+.pane-title {
+  font-family: var(--swag-font-title) !important;
+  font-size: 1.5rem !important;
+  font-weight: 800 !important;
+  margin: 0 0 16px !important;
+  color: #f8fafc !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding-bottom: 8px !important;
+}
+
+.pane-title-spacing {
+  margin-top: 32px !important;
+}
+
+.wizard-setting-row-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+  align-items: end;
+}
+
+.wizard-setting-row-group .wizard-setting-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wizard-setting-row-group .wizard-setting-field label {
+  font-family: var(--swag-font-title) !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  color: #facc15 !important;
+  margin: 0 !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wizard-setting-row-group .SWAG-PLUS-input {
+  height: 42px !important;
+  box-sizing: border-box !important;
+}
+
+.wizard-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.wizard-setting-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: rgba(36, 33, 40, 0.85);
+  border: 1px solid #8b572b;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.wizard-setting-card:hover {
+  background: rgba(75, 8, 125, 0.4);
+  border-color: #d6a343;
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.5),
+    0 0 10px rgba(196, 91, 255, 0.2);
+}
+
+.wizard-setting-card .card-icon {
+  font-size: 1.8rem;
+  color: #c45bff;
+  min-width: 36px;
+  text-align: center;
+}
+
+.wizard-setting-card .card-content {
+  flex: 1;
+}
+
+.wizard-setting-card h4 {
+  margin: 0 0 2px;
+  font-family: var(--swag-font-title) !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+}
+
+.wizard-setting-card p {
+  margin: 0;
+  font-family: var(--swag-font-body) !important;
+  font-size: 1em !important;
+  color: #94a3b8 !important;
+  line-height: 1.4 !important;
+}
+
+.wizard-setting-card input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  accent-color: #8a16d8;
+  cursor: pointer;
+}
+
+/* Model Cards Selection */
+.model-cards-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.model-card {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.model-card input {
+  display: none;
+}
+
+.model-preview {
+  padding: 26px;
+  background: rgba(36, 33, 40, 0.85);
+  border: 2px solid #8b572b;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  transition: all 0.25s ease-in-out;
+  position: relative;
+  flex: 1;
+}
+
+.model-preview i {
+  font-size: 3.2rem;
+  color: #c45bff;
+}
+
+.model-preview strong {
+  font-size: 1.35rem;
+  color: #ffffff;
+}
+
+.model-preview span {
+  font-size: 0.95rem;
+  color: #e8d8bc;
+  line-height: 1.4;
+}
+
+.badge-active {
+  display: none;
+  background: linear-gradient(135deg, #8a16d8, #4b087d);
+  border: 1px solid #d6a343;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-top: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.model-card.selected .model-preview {
+  border-color: #d6a343 !important;
+  background: rgba(75, 8, 125, 0.5) !important;
+  box-shadow:
+    0 0 22px rgba(196, 91, 255, 0.5),
+    inset 0 0 15px rgba(214, 163, 67, 0.25) !important;
+  transform: translateY(-3px);
+}
+
+.model-card.selected .badge-active {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Combobox / Select Dropdown Escuro e Estilizado na Paleta */
+.swag-theme-dropdown,
+select.SWAG-PLUS-input {
+  background-color: #242128 !important;
+  color: #ffffff !important;
+  border: 2px solid #8b572b !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  width: 100% !important;
+  height: 42px !important;
+  cursor: pointer !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  -webkit-appearance: menulist !important;
+  -moz-appearance: menulist !important;
+  appearance: menulist !important;
+}
+
+select.SWAG-PLUS-input:focus {
+  border-color: #d6a343 !important;
+  box-shadow: 0 0 10px rgba(214, 163, 67, 0.4) !important;
+  outline: none !important;
+}
+
+select.SWAG-PLUS-input option {
+  background-color: #160d22 !important;
+  color: #ffffff !important;
+  padding: 8px 12px !important;
+  font-size: 1rem !important;
+}
+
+/* Color Pickers Grid */
+.color-picker-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.color-field-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(36, 33, 40, 0.85);
+  border: 1px solid #8b572b;
+  padding: 14px 20px;
+  border-radius: 8px;
+}
+
+.color-field-row strong {
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.color-inputs {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.color-inputs input[type="color"] {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 2px solid #8b572b;
+  border-radius: 6px;
+  cursor: pointer;
+  background: none;
+}
+
+.color-inputs input[type="text"] {
+  width: 150px;
+  font-size: 1.05rem;
+  font-family: var(--swag-font-code);
+  font-weight: 700;
+  text-align: center;
+  background: #160d22 !important;
+  color: #e8d8bc !important;
+  border: 1px solid #8b572b !important;
+}
+
+/* Footer Navigation */
+.SWAG-PLUS-wizard-footer {
+  display: flex;
+  align-items: center;
+  padding: 18px 32px;
+  background: rgba(22, 13, 34, 0.98);
+  border-top: 2px solid #8b572b;
+}
+
+.footer-spacer {
+  flex: 1;
+}
+
+.btn-wizard-prev,
+.btn-wizard-next {
+  font-size: 1.05rem !important;
+  padding: 10px 28px !important;
+  font-weight: 700 !important;
+  background: #4b087d !important;
+  color: #ffffff !important;
+  border: 1px solid #8a16d8 !important;
+  border-radius: 6px !important;
+}
+
+.btn-wizard-prev:hover,
+.btn-wizard-next:hover {
+  background: #8a16d8 !important;
+  border-color: #c45bff !important;
+  box-shadow: 0 0 10px rgba(196, 91, 255, 0.4) !important;
+}
+
+.btn-wizard-save {
+  background: linear-gradient(135deg, #d6a343, #8b572b) !important;
+  color: #160d22 !important;
+  border: none !important;
+  font-size: 1.15rem !important;
+  padding: 10px 32px !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 16px rgba(214, 163, 67, 0.4) !important;
+  border-radius: 6px !important;
+}
+
+.btn-wizard-save:hover {
+  background: linear-gradient(135deg, #f59e0b, #d6a343) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+/* Custom Scrollbar na Paleta SWAG+ */
+#swag-settings-wizard ::-webkit-scrollbar,
+.SWAG-PLUS-wizard-window ::-webkit-scrollbar,
+.SWAG-PLUS-wizard-form::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+#swag-settings-wizard ::-webkit-scrollbar-track,
+.SWAG-PLUS-wizard-window ::-webkit-scrollbar-track,
+.SWAG-PLUS-wizard-form::-webkit-scrollbar-track {
+  background: #160d22 !important;
+  border-radius: 4px;
+}
+#swag-settings-wizard ::-webkit-scrollbar-thumb,
+.SWAG-PLUS-wizard-window ::-webkit-scrollbar-thumb,
+.SWAG-PLUS-wizard-form::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8a16d8, #4b087d) !important;
+  border: 1px solid #d6a343 !important;
+  border-radius: 4px;
+}
+#swag-settings-wizard ::-webkit-scrollbar-thumb:hover,
+.SWAG-PLUS-wizard-window ::-webkit-scrollbar-thumb:hover,
+.SWAG-PLUS-wizard-form::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #c45bff, #8a16d8) !important;
+  box-shadow: 0 0 8px rgba(196, 91, 255, 0.6) !important;
+}
+#swag-settings-wizard,
+.SWAG-PLUS-wizard-form {
+  scrollbar-color: #8a16d8 #160d22 !important;
+  scrollbar-width: thin !important;
+}

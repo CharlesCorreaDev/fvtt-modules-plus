@@ -1,0 +1,273 @@
+<!-- [PT-BR] Modelo 2: Ficha Tática Clean (Inspirada no estilo Barak o Bárbaro da imagem de referência 2)
+     [EN] Model 2: Tactical Clean Sheet (Inspired by Barak the Barbarian reference image 2)
+-->
+<form
+  class="SWAG-PLUS-panel SWAG-PLUS-modern-full-sheet SWAG-PLUS-model-tactical {{cssClass}}"
+  autocomplete="off"
+>
+  <!-- CABEÇALHO HORIZONTAL LIMPO -->
+  <header
+    class="SWAG-PLUS-sheet-header"
+    style="display: flex; align-items: center; justify-content: space-between; gap: 12px"
+  >
+    <!-- Avatar / Retrato Quadrado -->
+    <div class="SWAG-PLUS-avatar-frame" style="width: 80px; height: 80px; flex-shrink: 0">
+      <img
+        src="{{actor.img}}"
+        data-edit="img"
+        title="{{actor.name}}"
+        class="SWAG-PLUS-avatar-img"
+      />
+    </div>
+
+    <!-- Título Principal & Info Rápida -->
+    <div style="flex-grow: 1">
+      <div style="display: flex; align-items: baseline; gap: 10px">
+        <h1
+          style="
+            margin: 0;
+            font-family: var(--swag-font-title);
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            color: #ffffff;
+          "
+        >
+          {{actor.name}}
+        </h1>
+        {{#if campaignLogo}}
+        <img
+          src="{{campaignLogo}}"
+          alt="Campaign Logo"
+          style="max-height: 32px; object-fit: contain"
+        />
+        {{/if}}
+      </div>
+      <div
+        style="
+          display: flex;
+          gap: 16px;
+          font-size: 0.85rem;
+          color: var(--swag-color-light);
+          margin-top: 4px;
+        "
+      >
+        <span><strong>Raça:</strong> {{actor.system.details.species.name}}</span>
+        <span><strong>Conceito:</strong> {{actor.system.details.archetype}}</span>
+        <span><strong>XP:</strong> {{actor.system.advances.experience}}</span>
+        <span><strong>Estágio:</strong> {{actor.system.advances.rank}}</span>
+      </div>
+    </div>
+
+    <!-- Navegação Superior Compacta -->
+    <nav class="SWAG-PLUS-tabs tabs" data-group="primary" style="margin: 0; border: 0">
+      <a class="item active" data-tab="main">Geral</a>
+      <a class="item" data-tab="skills">Habilidades</a>
+      <a class="item" data-tab="gear">Inventário</a>
+      <a class="item" data-tab="notes">Anotações</a>
+    </nav>
+  </header>
+
+  <!-- GRID TÁTICO DE 3 COLUNAS (Atributos | Perícias & Armas | Vantagens & Status) -->
+  <section
+    class="SWAG-PLUS-sheet-body"
+    style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 12px; margin-top: 10px"
+  >
+    <!-- COLUNA 1: ATRIBUTOS & CARACTERÍSTICAS DERIVADAS -->
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <!-- Atributos em Linhas com Botões Azuis de Rolagem -->
+      <div class="SWAG-PLUS-bento-card">
+        <div class="SWAG-PLUS-title" style="display: flex; justify-content: space-between">
+          <span>Atributos</span>
+          <span class="SWAG-PLUS-badge">Básico</span>
+        </div>
+        {{#each actor.system.attributes as |attr id|}}
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 5px 8px;
+            border-radius: 6px;
+            margin-bottom: 4px;
+          "
+        >
+          <span
+            ><i class="fas fa-dice-d6"></i> {{localize (concat "SWADE.Attr" (capitalize id))}}</span
+          >
+          <div style="display: flex; gap: 4px; align-items: center">
+            <span class="SWAG-PLUS-badge success">d{{attr.die.sides}}</span>
+            <button
+              type="button"
+              class="SWAG-PLUS-btn"
+              data-action="rollAttribute"
+              data-attribute="{{id}}"
+              style="padding: 2px 8px; font-size: 0.75rem"
+            >
+              <i class="fas fa-dice"></i> Rolar
+            </button>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+
+      <!-- Características Derivadas (Movimento, Aparar, Resistência, Carisma) -->
+      <div class="SWAG-PLUS-bento-card">
+        <div class="SWAG-PLUS-title">Características Derivadas</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px">
+          <div class="SWAG-PLUS-status-box">
+            <span class="label"><i class="fas fa-running"></i> Movimentação</span>
+            <span class="value">{{actor.system.stats.speed.value}}"</span>
+          </div>
+          <div class="SWAG-PLUS-status-box">
+            <span class="label"><i class="fas fa-shield"></i> Aparar</span>
+            <span class="value">{{actor.system.stats.parry.value}}</span>
+          </div>
+          <div class="SWAG-PLUS-status-box">
+            <span class="label"><i class="fas fa-shield-alt"></i> Resistência</span>
+            <span class="value">{{actor.system.stats.toughness.value}}</span>
+          </div>
+          <div class="SWAG-PLUS-status-box">
+            <span class="label"><i class="fas fa-heart"></i> Benes</span>
+            <span class="value">{{actor.system.bennies.value}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUNA 2: PERÍCIAS & EQUIPAMENTO / ARMAS -->
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <!-- Perícias Rápidas -->
+      <div class="SWAG-PLUS-bento-card">
+        <div class="SWAG-PLUS-title" style="display: flex; justify-content: space-between">
+          <span>Perícias</span>
+          <span class="SWAG-PLUS-badge">Rolagem rápida</span>
+        </div>
+        <div style="max-height: 180px; overflow-y: auto">
+          {{#each skills}}
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 4px 6px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            "
+          >
+            <span>{{this.name}}</span>
+            <div style="display: flex; gap: 4px; align-items: center">
+              <span class="SWAG-PLUS-badge">d{{this.system.die.sides}}</span>
+              <button
+                type="button"
+                class="SWAG-PLUS-btn-sm"
+                data-action="rollItem"
+                data-item-id="{{this.id}}"
+              >
+                <i class="fas fa-arrow-down"></i>
+              </button>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+
+      <!-- Armas & Ataques -->
+      <div class="SWAG-PLUS-bento-card">
+        <div class="SWAG-PLUS-title">Equipamento & Armas</div>
+        <table style="width: 100%; font-size: 0.8rem; border-collapse: collapse">
+          <thead>
+            <tr
+              style="
+                color: var(--swag-color-light);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+              "
+            >
+              <th style="text-align: left">Arma</th>
+              <th>Dano</th>
+              <th>Alcance</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each weapons}}
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05)">
+              <td>{{this.name}}</td>
+              <td style="text-align: center">{{this.system.damage}}</td>
+              <td style="text-align: center">{{this.system.range}}</td>
+              <td style="text-align: right">
+                <button
+                  type="button"
+                  class="SWAG-PLUS-btn-sm"
+                  data-action="rollItem"
+                  data-item-id="{{this.id}}"
+                >
+                  Rolar
+                </button>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- COLUNA 3: VANTAGENS, DESVANTAGENS & FERIMENTOS -->
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <!-- Vantagens -->
+      <div class="SWAG-PLUS-bento-card">
+        <div class="SWAG-PLUS-title" style="display: flex; justify-content: space-between">
+          <span>Vantagens</span>
+          <span class="SWAG-PLUS-badge raise">Rápido</span>
+        </div>
+        {{#each edges}}
+        <div
+          style="
+            background: rgba(0, 0, 0, 0.2);
+            padding: 4px 6px;
+            border-radius: 4px;
+            margin-bottom: 4px;
+            font-size: 0.85rem;
+          "
+        >
+          <strong>{{this.name}}</strong>
+        </div>
+        {{/each}}
+      </div>
+
+      <!-- Desvantagens -->
+      <div class="SWAG-PLUS-bento-card">
+        <div class="SWAG-PLUS-title" style="display: flex; justify-content: space-between">
+          <span>Desvantagens</span>
+          <span class="SWAG-PLUS-badge critfail">Obrigatório</span>
+        </div>
+        {{#each hindrances}}
+        <div
+          style="
+            background: rgba(0, 0, 0, 0.2);
+            padding: 4px 6px;
+            border-radius: 4px;
+            margin-bottom: 4px;
+            font-size: 0.85rem;
+          "
+        >
+          <strong>{{this.name}}</strong> ({{this.system.severity}})
+        </div>
+        {{/each}}
+      </div>
+
+      <!-- Ferimentos & Fadiga -->
+      <div class="SWAG-PLUS-bento-card">
+        <div style="display: flex; justify-content: space-between; font-size: 0.9rem">
+          <span
+            ><strong>Ferimentos:</strong> {{actor.system.wounds.value}} /
+            {{actor.system.wounds.max}}</span
+          >
+          <span
+            ><strong>Fadiga:</strong> {{actor.system.fatigue.value}} /
+            {{actor.system.fatigue.max}}</span
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</form>

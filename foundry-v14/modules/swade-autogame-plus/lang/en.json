@@ -1,4 +1,214 @@
 {
-  "SWADE_AUTOGAME.Title": "SWADE AutoGame Plus (Beta)",
-  "SWADE_AUTOGAME.Description": "Smart automations and quality of life enhancements for Savage Worlds Adventure Edition."
+  "SWAG": {
+    "Title": "SWADE AutoGame Plus (SWAG+)",
+    "Settings": {
+      "CategoryAutomation": "Combat Automations",
+      "CategoryInterface": "Interface & HUD",
+      "CategoryVisuals": "Visuals & Celebrations",
+      "EnableRaiseCalculatorName": "Enable Raise Calculator",
+      "EnableRaiseCalculatorHint": "Automatically calculates success margin and number of raises against Parry or Target Number (TN).",
+      "EnableTargetedDamageName": "Enable Targeted Damage Automation",
+      "EnableTargetedDamageHint": "Directly applies damage to selected target tokens considering Armor, AP, and Toughness, inflicting Shaken and Wounds.",
+      "FastCombatRollsName": "Fast One-Click Combat Roll",
+      "EnableQuickHUDName": "Enable Quick Actions HUD",
+      "EnableTurnTimerName": "Enable Combat Turn Timer",
+      "EnableCelebrateAcesName": "Celebrate Aces & Jokers",
+      "TurnTimerDurationName": "Turn Duration (Seconds)",
+      "OpenConfig": "Open SWAG+ Control Panel",
+      "WizardLabel": "Configuration Wizard",
+      "WizardName": "SWAG+ Quick Setup Wizard",
+      "WizardHint": "Opens the step-by-step wizard to configure combat rules, automations, and the 5 Official SWADE Companions."
+    },
+    "Combat": {
+      "Target": "Target",
+      "Toughness": "Toughness",
+      "Armor": "Armor",
+      "AP": "AP",
+      "Shaken": "Shaken",
+      "Wounds": "Wound(s)",
+      "Incapacitated": "Incapacitated",
+      "SoakPrompt": "Would you like to spend 1 Benny to attempt a Soak roll?",
+      "SoakSuccess": "Wounds successfully soaked!",
+      "NoTargetsSelected": "No target selected to apply damage.",
+      "NoDamageEffect": "No Effect",
+      "ConditionApplied": "Condition Applied: {name}",
+      "ConditionDescriptionHeader": "Condition Rules (SWADE)",
+      "Conditions": {
+        "shaken": {
+          "name": "Shaken",
+          "desc": "Shaken characters may only take free actions (such as moving up to their Pace). At the beginning of each turn, they must make a Spirit roll to recover. On a success, they are no longer Shaken and may act normally; on a failure, they remain Shaken. Spending 1 Benny immediately removes Shaken at any time."
+        },
+        "distracted": {
+          "name": "Distracted",
+          "desc": "The character suffers a -2 penalty to all Trait rolls (attributes and skills) until the end of their next turn."
+        },
+        "vulnerable": {
+          "name": "Vulnerable",
+          "desc": "Actions and attacks targeting the character receive a +2 bonus to their rolls until the end of the target's next turn. Does not directly affect Toughness."
+        },
+        "entangled": {
+          "name": "Entangled",
+          "desc": "The character cannot move and is Distracted while Entangled. They may attempt to break free with a Strength or Athletics roll as an action."
+        },
+        "bound": {
+          "name": "Bound",
+          "desc": "The character cannot move, is both Distracted and Vulnerable, and may only attempt to break free via an opposed Strength or Athletics roll at -2."
+        },
+        "stunned": {
+          "name": "Stunned",
+          "desc": "The character falls prone, is Distracted and Vulnerable, cannot move or take actions, and attackers gain The Drop if they cannot defend. Must make a Vigor roll at the start of their turn to recover."
+        },
+        "incapacitated": {
+          "name": "Incapacitated",
+          "desc": "The character has suffered Wounds beyond their maximum limit and is out of combat, unconscious, dying, or severely incapacitated. Must immediately make a Vigor roll to avoid Bleeding Out."
+        },
+        "blind": {
+          "name": "Blind",
+          "desc": "Suffers a -6 penalty to all tasks relying on vision and cannot perform direct visual actions."
+        },
+        "prone": {
+          "name": "Prone",
+          "desc": "Ranged attacks against the character suffer a -2 penalty. Melee attacks against them gain a +2 bonus. Standing up costs 2 inches/grid units of Pace."
+        }
+      }
+    },
+    "Roll": {
+      "Success": "Success",
+      "SimpleSuccess": "Simple Success",
+      "Raise": "Raise",
+      "Raises": "Raises",
+      "SuccessWithRaise": "Success w/ {raises} Raise(s)",
+      "Failure": "Failure",
+      "CriticalFailure": "Critical Failure!",
+      "RollDamage": "Roll Damage",
+      "ApplyDamage": "Apply Damage to Targets",
+      "SpendBenny": "Spend Benny"
+    },
+    "Card": {
+      "TargetNumberAbbr": "TN",
+      "TargetNumberFull": "Target Number (TN {tn})",
+      "AttributeRoll": "Attribute Roll",
+      "SkillRoll": "Skill Roll",
+      "AttackRoll": "Attack",
+      "ArcaneRoll": "Arcane Casting",
+      "DamagePrefix": "Damage",
+      "ByActor": "By",
+      "Formula": "Formula",
+      "BestDie": "Best Die: {total}",
+      "BaseTotal": "Base Total: {total}",
+      "WildDie": "Wild d{faces}",
+      "WildDieFull": "Wild Die d{faces}",
+      "RuleModifiersLabel": "Rule Modifiers:",
+      "TacticalOptionsLabel": "SWADE Tactical Options:",
+      "PowerModifiersLabel": "Power Modifiers:",
+      "DamageModifiersLabel": "Additional Damage Bonuses:",
+      "AddModifiersBtn": "Modifiers",
+      "AddModifiersTooltip": "Open full SWADE rule modifiers catalog",
+      "RollOutcomeHeader": "ROLL OUTCOME:",
+      "DamageEffectHeader": "DAMAGE EFFECT:",
+      "AceBreakdownHeader": "DICE EXPLOSION (ACE!):",
+      "AceCountFormat": "{count}x Ace ({rolls} rolls)",
+      "FinalResultHeader": "FINAL RESULT",
+      "VictoryMarginHeader": "VICTORY MARGIN",
+      "DamageCalcHeader": "DAMAGE CALCULATION",
+      "SuccessDesc": "Beat the Target Number (TN {tn}). Action succeeded!",
+      "RaiseDesc": "Beat Target TN {tn} with <span class=\"text-success fw-bold\">{raises} Raise(s)</span>!",
+      "FailureDesc": "Did not reach the Target Number (TN {tn}).",
+      "CritFailureDesc": "Critical Failure! The action automatically failed.",
+      "DamageDesc": "Total damage <strong>{total}</strong> dealt to target!",
+      "ShakenPlusWounds": "Shaken + {wounds} Wound(s)",
+      "BennyBtn": "Benny",
+      "GrantBennyBtn": "+1 Benny",
+      "RerollBtn": "Reroll",
+      "MacroBtn": "Macro",
+      "ApplyWoundsBtn": "Apply {wounds} Wound(s)",
+      "EdgePrefix": "Edge",
+      "HindrancePrefix": "Hindrance",
+      "AbilityPrefix": "Ability",
+      "Requirements": "Requirements",
+      "BelongsTo": "Belongs to",
+      "Carrier": "Owner",
+      "Weight": "Weight",
+      "Value": "Cost",
+      "Range": "Range",
+      "Duration": "Duration",
+      "Cost": "Cost",
+      "RoF": "RoF",
+      "WeaponBadge": "WEAPON",
+      "ArmorBadge": "ARMOR",
+      "ShieldBadge": "SHIELD",
+      "GearBadge": "GEAR",
+      "PowerBadge": "ARCANE",
+      "TooltipDamage": "Weapon / Power Damage",
+      "TooltipAP": "AP (Armor Piercing)",
+      "TooltipRange": "Range (Short / Medium / Long)",
+      "TooltipRoF": "RoF (Rate of Fire — Shots per Action)",
+      "TooltipParry": "Parry Bonus",
+      "TooltipMinStr": "Minimum Strength Required",
+      "TooltipShots": "Ammo / Shots",
+      "TooltipNotes": "Item Properties & Notes",
+      "TooltipCostPP": "Power Points Cost (PP)",
+      "TooltipDuration": "Effect Duration",
+      "TooltipRequirements": "Rank / Attribute Requirements",
+      "Equipped": "Equipped",
+      "Active": "Active",
+      "Innate": "Innate",
+      "Roleplay": "Roleplay",
+      "Major": "MAJOR",
+      "Minor": "MINOR",
+      "BennyTriggerTitle": "Benny Trigger:",
+      "BennyTriggerDesc": "When this Hindrance causes real trouble for the group in play, the GM awards +1 Benny."
+    },
+    "Modal": {
+      "WindowTitle": "SWAG+ | SWADE Rule Modifiers",
+      "BannerTitle": "SWADE Rule Modifiers Catalog",
+      "BannerSubtitle": "Check or uncheck the options below to immediately apply them to the chat card result.",
+      "CustomTitle": "Add Custom Modifier",
+      "CustomNamePlaceholder": "E.g., High Ground, Blessing, Heavy Rain...",
+      "CustomValuePlaceholder": "+2 or -2",
+      "CancelBtn": "Cancel",
+      "ApplyBtn": "Apply to Card",
+      "CatGeneral": "General, Support & Actions",
+      "CatConditions": "Conditions, Wounds & Illumination",
+      "CatCombat": "Combat, Aim, Cover & Range",
+      "CatArcane": "Arcane Powers & Companions"
+    },
+    "HUD": {
+      "QuickActionsTitle": "SWAG+ | Quick Actions",
+      "VisualEffectsTitle": "SWAG+ | Active Effects & Conditions",
+      "DossierTitle": "SWAG+ | Complete Actor Dossier"
+    },
+    "Timer": {
+      "YourTurn": "YOUR TURN!",
+      "TimeRemaining": "Time Remaining",
+      "Timeout": "Time Expired!"
+    }
+  },
+  "SPC": {
+    "SuperPower": {
+      "Level.label": "Level",
+      "plural": "Super Powers"
+    },
+    "Builder": {
+      "SuperHero": "Super Hero",
+      "PowerLevel": "Power Level",
+      "PowerLimit": "Power Limit",
+      "ConfigureModifiers": "Configure Modifiers",
+      "CostHint": "Cost {cost}",
+      "Levels": "Levels"
+    },
+    "PowerStunt": {
+      "Label": "Power Stunt",
+      "NoBenny": "Power Stunts require spending bennies"
+    },
+    "TotalCost": {
+      "Label": "Total Points (SPP)"
+    }
+  },
+  "TYPES": {
+    "Item": {
+      "swade-autogame-plus.superPower": "Super Power (SWAG+)",
+      "swade-supers-companion.superPower": "Super Power (SPC)"
+    }
+  }
 }

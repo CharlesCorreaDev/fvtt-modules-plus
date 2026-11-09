@@ -1,0 +1,2176 @@
+/* [PT-BR] SWADE AutoGame Plus (SWAG+) - Design System Isolado
+   [EN] SWADE AutoGame Plus (SWAG+) - Isolated Design System
+   Paleta Oficial SWAG+:
+   - Preto Arcano:    #160D22 (Fundo principal)
+   - Roxo Profundo:   #4B087D (Secundária)
+   - Roxo Arcano:     #8A16D8 (Destaques e interações)
+   - Lilás Energético:#C45BFF (Hover, foco e iluminação)
+   - Ouro Envelhecido:#D6A343 (Detalhes especiais)
+   - Bronze Western:  #8B572B (Bordas e detalhes metálicos)
+   - Pergaminho:      #E8D8BC (Textos e painéis claros)
+   - Prata Envelhecida:#BFC0C4 (Ícones e metálicos)
+   - Carvão Metálico: #242128 (Cards, campos e painéis)
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;600&family=Google+Sans+Flex:wght@400;600;700&family=Google+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap");
+
+:root {
+  --swag-color-bg-arcane: #160d22;
+  --swag-color-deep-purple: #4b087d;
+  --swag-color-arcane-purple: #8a16d8;
+  --swag-color-lilas-energy: #c45bff;
+  --swag-color-gold: #d6a343;
+  --swag-color-bronze: #8b572b;
+  --swag-color-parchment: #e8d8bc;
+  --swag-color-silver: #bfc0c4;
+  --swag-color-coal: #242128;
+
+  /* Aliases compatíveis com todo o módulo */
+  --swag-color-light: #c45bff;
+  --swag-color-medium: #8a16d8;
+  --swag-color-primary: #8a16d8;
+  --swag-color-deep: #4b087d;
+  --swag-color-dark: #160d22;
+  --swag-font-title: "Google Sans Flex", -apple-system, BlinkMacSystemFont, sans-serif;
+  --swag-font-body: "Google Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --swag-font-code: "Google Sans Code", monospace;
+}
+
+/* [PT-BR] Classes com Prefixo Estrito SWAG-PLUS- para evitar colisões
+   [EN] Strict SWAG-PLUS- prefixed classes to prevent collisions */
+
+.SWAG-PLUS-panel,
+.SWAG-PLUS-card {
+  font-family: var(--swag-font-body);
+  background: #000000;
+  color: #f1f5f9;
+  border: none;
+  border-radius: 3px;
+  padding: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.SWAG-PLUS-title {
+  font-family: var(--swag-font-title);
+  font-weight: 700;
+  color: var(--swag-color-light);
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--swag-color-deep);
+  padding-bottom: 4px;
+}
+
+.SWAG-PLUS-btn {
+  font-family: var(--swag-font-body);
+  background: var(--swag-color-primary);
+  color: #ffffff;
+  border: 1px solid var(--swag-color-light);
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.SWAG-PLUS-btn:hover {
+  background: var(--swag-color-deep);
+  border-color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.SWAG-PLUS-btn-sm {
+  background: var(--swag-color-deep);
+  color: #ffffff;
+  border: 1px solid var(--swag-color-medium);
+  border-radius: 3px;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.SWAG-PLUS-btn-sm:hover {
+  background: var(--swag-color-primary);
+}
+
+.SWAG-PLUS-badge {
+  font-family: var(--swag-font-code);
+  font-size: 0.85rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--swag-color-medium);
+  color: #ffffff;
+}
+
+.SWAG-PLUS-badge.success {
+  background: #10b981;
+}
+.SWAG-PLUS-badge.raise {
+  background: #f59e0b;
+  font-weight: 700;
+}
+.SWAG-PLUS-badge.critfail {
+  background: #ef4444;
+  font-weight: 700;
+}
+
+/* ========================================================
+   [PT-BR] FICHA MODERNA DE PERSONAGEM (BENTO GRID - ESTILO CYBER/RETRO)
+   [EN] MODERN CHARACTER SHEET (BENTO GRID - CYBER/RETRO STYLE)
+======================================================== */
+
+.SWAG-PLUS-modern-full-sheet {
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at top left, #14306b, #091326) !important;
+  border: 2px solid var(--swag-color-medium) !important;
+  border-radius: 14px !important;
+  padding: 14px !important;
+  color: #f8fafc !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.75) !important;
+}
+
+.SWAG-PLUS-sheet-header {
+  border-bottom: 2px solid var(--swag-color-deep);
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+.SWAG-PLUS-input-group label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--swag-color-light);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.SWAG-PLUS-input {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid var(--swag-color-medium) !important;
+  border-radius: 4px !important;
+  color: #ffffff !important;
+  padding: 4px 8px !important;
+  font-size: 0.9rem !important;
+  width: 100%;
+}
+
+.SWAG-PLUS-avatar-frame {
+  width: 95px;
+  height: 95px;
+  border-radius: 12px;
+  border: 2px solid var(--swag-color-light);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.SWAG-PLUS-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Tabs */
+.SWAG-PLUS-tabs {
+  display: flex;
+  gap: 6px;
+  border-bottom: 2px solid var(--swag-color-deep);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+.SWAG-PLUS-tabs .item {
+  background: rgba(34, 67, 137, 0.4);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--swag-color-light);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.SWAG-PLUS-tabs .item.active {
+  background: var(--swag-color-primary);
+  color: #ffffff;
+  border-bottom: 2px solid #facc15;
+}
+
+/* Bento Grid */
+.SWAG-PLUS-bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  gap: 12px;
+}
+
+.SWAG-PLUS-bento-card {
+  background: rgba(14, 32, 73, 0.75);
+  border: 1px solid rgba(134, 157, 204, 0.3);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Attributes */
+.SWAG-PLUS-attr-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+.SWAG-PLUS-die-value {
+  font-family: var(--swag-font-code);
+  font-size: 1rem;
+  font-weight: 700;
+  background: var(--swag-color-deep);
+  border: 1px solid var(--swag-color-light);
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.SWAG-PLUS-die-value:hover {
+  transform: scale(1.05);
+  background: var(--swag-color-primary);
+}
+
+/* Status Grid */
+.SWAG-PLUS-status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.SWAG-PLUS-status-box {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--swag-color-medium);
+  border-radius: 6px;
+  padding: 8px 4px;
+  text-align: center;
+}
+
+.SWAG-PLUS-status-box .label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--swag-color-light);
+}
+
+.SWAG-PLUS-status-box .value {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 800;
+  font-family: var(--swag-font-code);
+  color: #ffffff;
+}
+
+.SWAG-PLUS-status-box .subtext {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.SWAG-PLUS-status-box.has-wounds {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.2);
+}
+
+/* Combat Stats & Resources */
+.SWAG-PLUS-combat-stats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+.SWAG-PLUS-combat-stats-grid .stat-item {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.SWAG-PLUS-resources-row {
+  display: flex;
+  gap: 8px;
+}
+
+.SWAG-PLUS-resources-row .resource-pill {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--swag-color-deep);
+  border-radius: 6px;
+  padding: 6px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.SWAG-PLUS-sheet-footer {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--swag-color-light);
+  border-top: 1px solid var(--swag-color-deep);
+  padding-top: 8px;
+}
+
+/* ========================================================
+   SAVAGE DICE TRAY (CLONE FIEL DE FVTT-DICE-TRAY)
+   [EN] SAVAGE DICE TRAY (FAITHFUL FVTT-DICE-TRAY CLONE)
+======================================================== */
+.dice-tray input[type=text],
+.dice-tray button {
+  background: rgba(30, 34, 42, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  color: #e2e8f0;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all .2s ease-in-out;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dice-tray input[type=text]:hover,
+.dice-tray button:hover {
+  background: rgba(45, 52, 64, 0.95);
+  border-color: #f59e0b;
+}
+
+.dice-tray {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 4px 0 2px 0;
+  box-sizing: border-box;
+}
+
+.dice-tray .flexrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 2px;
+  width: 100%;
+}
+
+.dice-tray .dice-tray__buttons,
+.dice-tray .dice-tray__math,
+.dice-tray .dice-tray__input {
+  height: 30px;
+}
+
+.dice-tray .dice-tray__buttons > .dice-tray__button {
+  flex: 1 1 0;
+  min-width: 0;
+  border-radius: 0;
+}
+
+.dice-tray .dice-tray__buttons > .dice-tray__button:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.dice-tray .dice-tray__buttons > .dice-tray__button:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+.dice-tray .dice-tray__math__buttons {
+  margin-top: 2px;
+}
+
+.dice-tray .dice-tray__math #dice-tray-math {
+  margin: 0 2px;
+  display: flex;
+  flex: 1 1 0;
+}
+
+.dice-tray .dice-tray__stacked {
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dice-tray .dice-tray__stacked button {
+  min-height: initial;
+  height: 15px;
+  flex: 1;
+  font-size: 9px;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 0 4px;
+}
+
+.dice-tray .dice-tray__stacked button:first-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.dice-tray .dice-tray__stacked button:last-child {
+  border-radius: 0 0 4px 4px;
+}
+
+.dice-tray .dice-tray__input {
+  width: 36px;
+  flex: 0 0 36px;
+  border-radius: 0;
+  text-align: center;
+  color: #fff;
+  background: rgba(15, 17, 21, 0.8);
+}
+
+.dice-tray button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: inherit;
+  min-height: 1rem;
+  cursor: pointer;
+}
+
+.dice-tray button:focus {
+  outline: none;
+}
+
+.dice-tray button:hover {
+  color: #f59e0b;
+}
+
+.dice-tray button div.dice {
+  height: 22px;
+  width: 22px;
+  aspect-ratio: 1/1;
+  background-color: #cbd5e1;
+  display: inline-block;
+}
+
+.dice-tray button .dice-tray__flag {
+  position: absolute;
+  bottom: calc(100% - 2px);
+  left: 0;
+  right: 0;
+  font-size: 11px;
+  height: 16px;
+  line-height: 16px;
+  background-color: #f59e0b;
+  color: #000;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px 4px 0 0;
+  max-height: 16px;
+  transition: all ease-in-out .15s;
+  z-index: 5;
+}
+
+.dice-tray button .dice-tray__flag.hide {
+  max-height: 0;
+  display: none;
+}
+
+.dice-tray button.dice-tray__math--sub {
+  width: 28px;
+  flex: 0 0 28px;
+  border-radius: 4px 0 0 4px;
+}
+
+.dice-tray button.dice-tray__math--sub:hover {
+  background: #dc2626;
+  color: #fff;
+}
+
+.dice-tray button.dice-tray__math--add {
+  width: 28px;
+  flex: 0 0 28px;
+  border-radius: 0 4px 4px 0;
+}
+
+.dice-tray button.dice-tray__math--add:hover {
+  background: #10b981;
+  color: #fff;
+}
+
+.dice-tray button.dice-tray__advantage:hover,
+.dice-tray button.dice-tray__advantage.active {
+  background: #eab308;
+  color: #000;
+  border-color: #eab308;
+}
+
+.dice-tray button.dice-tray__disadvantage:hover,
+.dice-tray button.dice-tray__disadvantage.active {
+  background: #10b981;
+  color: #000;
+  border-color: #10b981;
+}
+
+.dice-tray button.dice-tray__roll {
+  flex: 1.5 1 0;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #10b981, #047857);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  gap: 4px;
+}
+
+.dice-tray button.dice-tray__roll:hover {
+  filter: brightness(1.15);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+/* ========================================================
+   BOOTSTRAP WIZARD DE CONFIGURAÇÕES (SWAG+)
+   [EN] BOOTSTRAP SETTINGS WIZARD (SWAG+)
+======================================================== */
+.SWAG-PLUS-wizard-window .window-content {
+  padding: 0 !important;
+  background: var(--swag-color-deep) !important;
+  color: #f8fafc !important;
+  overflow: hidden !important;
+}
+
+.SWAG-PLUS-wizard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.SWAG-PLUS-wizard-header {
+  background: linear-gradient(135deg, var(--swag-color-dark), var(--swag-color-deep));
+  padding: 16px 20px 10px;
+  border-bottom: 2px solid var(--swag-color-medium);
+}
+
+.wizard-title-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.wizard-logo-icon {
+  font-size: 2rem;
+  color: #facc15;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.wizard-title-area h2 {
+  margin: 0;
+  font-family: var(--swag-font-heading);
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+
+.wizard-subtitle {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--swag-color-light);
+}
+
+/* Stepper Bar */
+.SWAG-PLUS-wizard-nav {
+  position: relative;
+  margin-top: 10px;
+}
+
+.wizard-progress-bar {
+  position: absolute;
+  top: 16px;
+  left: 30px;
+  right: 30px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.wizard-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--swag-color-light), #facc15);
+  transition: width 0.3s ease-in-out;
+}
+
+.wizard-steps-list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.wizard-step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  width: 90px;
+}
+
+.step-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #1e293b;
+  border: 2px solid var(--swag-color-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--swag-color-light);
+  font-size: 0.85rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.step-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--swag-color-light);
+}
+
+.wizard-step-item.active .step-circle {
+  background: var(--swag-color-medium);
+  border-color: #facc15;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+  transform: scale(1.1);
+}
+
+.wizard-step-item.active .step-label {
+  color: #facc15;
+}
+
+.wizard-step-item.completed .step-circle {
+  background: #10b981;
+  border-color: #10b981;
+  color: #ffffff;
+}
+
+/* Form Panes */
+.SWAG-PLUS-wizard-form {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 24px;
+}
+
+.wizard-tab-pane {
+  display: none;
+}
+
+.wizard-tab-pane.active {
+  display: block;
+}
+
+.pane-title {
+  font-size: 1.1rem;
+  margin: 0 0 12px;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 6px;
+}
+
+.wizard-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.wizard-setting-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--swag-color-deep);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.wizard-setting-card:hover {
+  background: rgba(59, 89, 152, 0.2);
+  border-color: var(--swag-color-medium);
+}
+
+.wizard-setting-card .card-icon {
+  font-size: 1.3rem;
+  color: var(--swag-color-light);
+}
+
+.wizard-setting-card .card-content {
+  flex: 1;
+}
+
+.wizard-setting-card h4 {
+  margin: 0 0 2px;
+  font-family: var(--swag-font-title) !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+}
+
+.wizard-setting-card p {
+  margin: 0;
+  font-family: var(--swag-font-body) !important;
+  font-size: 1em !important;
+  color: #94a3b8 !important;
+  line-height: 1.4 !important;
+}
+
+.model-cards-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.model-card {
+  cursor: pointer;
+}
+
+.model-card input {
+  display: none;
+}
+
+.model-preview {
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--swag-color-deep);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.model-preview i {
+  font-size: 2rem;
+  color: var(--swag-color-light);
+}
+
+.model-card.selected .model-preview,
+.model-card:hover .model-preview {
+  border-color: #facc15;
+  background: rgba(59, 89, 152, 0.3);
+}
+
+/* Color Pickers */
+.color-picker-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.color-field-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.color-inputs {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.color-inputs input[type="color"] {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--swag-color-medium);
+  border-radius: 4px;
+  cursor: pointer;
+  background: none;
+}
+
+.color-inputs input[type="text"] {
+  width: 120px;
+}
+
+/* Footer Buttons */
+.SWAG-PLUS-wizard-footer {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  background: rgba(14, 20, 32, 0.95);
+  border-top: 1px solid var(--swag-color-deep);
+}
+
+.footer-spacer {
+  flex: 1;
+}
+
+.btn-wizard-save {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-weight: 700;
+}
+
+/* [PT-BR] Posicionamento CSS para VisualActiveEffectsHUD
+   [EN] CSS Positioning for VisualActiveEffectsHUD */
+.swag-vae-hud {
+  position: fixed !important;
+  top: 15px !important;
+  right: 370px !important;
+  left: auto !important;
+  z-index: 60;
+  pointer-events: auto;
+}
+
+.swag-vae-hud:empty,
+.swag-vae-hud .SWAG-PLUS-panel:empty {
+  display: none !important;
+}
+
+/* ========================================================
+   [PT-BR] OVERLAY DE CELEBRAÇÃO DE ÁS (SELVAGEM!)
+   [EN] ACE CELEBRATION OVERLAY (SELVAGEM!)
+======================================================== */
+.swag-ace-splash-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2px);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  animation: swagAceFade 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.swag-ace-splash-text {
+  font-family: var(--swag-font-title, "Google Sans Flex", sans-serif);
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: #facc15;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 10px rgba(250, 204, 21, 0.8),
+    0 0 25px rgba(250, 204, 21, 0.6),
+    0 0 50px rgba(234, 179, 8, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.9);
+  animation: swagAcePulse 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.swag-ace-splash-subtext {
+  font-family: var(--swag-font-code, monospace);
+  font-size: clamp(1rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 2px 6px #000;
+  margin-top: -10px;
+}
+
+@keyframes swagAceFade {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes swagAcePulse {
+  0% {
+    transform: scale(0.65);
+    opacity: 0;
+  }
+  20% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  85% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+}
+   [EN] SHOWCASE STYLES FOR CHAT CARDS AND BETTER ROLLS (100% BOOTSTRAP 5.3 SELF-CONTAINED)
+======================================================== */
+:root {
+  --foundry-bg: #0f1115;
+  --foundry-panel: #16191f;
+  --card-bg: #1e222a;
+  --card-header-bg: #15181e;
+  --card-footer-bg: rgba(15, 17, 21, 0.7);
+
+  /* Cores Semânticas de SWADE */
+  --color-raise: #10b981;
+  --color-success: #3b82f6;
+  --color-damage: #f59e0b;
+  --color-critical: #ef4444;
+  --color-arcane: #a855f7;
+  --color-item: #06b6d4;
+  --color-edge: #f97316;
+  --color-hindrance: #dc2626;
+  --color-lore: #818cf8;
+  --color-wild: #eab308;
+}
+
+/* [PT-BR] Limpeza total do wrapper <li class="chat-message"> do Foundry quando contém um card SWAG+
+   [EN] Full reset of Foundry's <li class="chat-message"> wrapper when containing a SWAG+ card */
+.chat-message.swag-message-wrapper,
+.chat-message:has(.swag-card) {
+  background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 2px 0 !important;
+  margin: 4px 2px !important;
+  color: #e2e8f0 !important;
+}
+
+.chat-message.swag-message-wrapper > .message-header,
+.chat-message:has(.swag-card) > .message-header,
+.chat-message.swag-message-wrapper > header.message-header,
+.chat-message:has(.swag-card) > header.message-header {
+  display: none !important;
+}
+
+.chat-message.swag-message-wrapper > .message-content,
+.chat-message:has(.swag-card) > .message-content {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* [PT-BR] Estrutura Principal do Card SWAG+ (Idêntico ao swag_chat_roll_cards_showcase.html)
+   [EN] Main SWAG+ Card Structure (Identical to swag_chat_roll_cards_showcase.html) */
+.swag-card {
+  background-color: var(--card-bg, #1e222a) !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45) !important;
+  position: relative !important;
+  height: auto !important;
+  min-height: min-content !important;
+  max-height: none !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: #e2e8f0 !important;
+  font-family: "Inter", var(--swag-font-body), sans-serif !important;
+  font-size: 0.85rem !important;
+  line-height: 1.4 !important;
+  box-sizing: border-box !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.2s ease !important;
+}
+
+.swag-card *,
+.swag-card *::before,
+.swag-card *::after {
+  box-sizing: border-box !important;
+}
+
+.swag-card:hover {
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.65) !important;
+}
+
+.swag-card-header {
+  background: var(--card-header-bg, #15181e) !important;
+  border-top-left-radius: 6px !important;
+  border-top-right-radius: 6px !important;
+  padding: 12px 14px 10px 14px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+.swag-card-body {
+  padding: 10px 14px 12px 14px !important;
+}
+
+/* [PT-BR] Títulos e Subtítulos com reset contra CSS global do Foundry
+   [EN] Titles & Subtitles with reset against Foundry global CSS */
+.swag-card h1,
+.swag-card h2,
+.swag-card h3,
+.swag-card h4,
+.swag-card h5,
+.swag-card h6,
+.swag-card .font-heading,
+.swag-card .swag-card-title {
+  font-family: "Rajdhani", var(--swag-font-title), sans-serif !important;
+  letter-spacing: 0.4px !important;
+  color: #f8fafc !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-shadow: none !important;
+  font-size: 1.08rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+
+.swag-card .swag-card-subtitle {
+  font-size: 0.78rem !important;
+  color: #94a3b8 !important;
+  margin-top: 2px !important;
+  line-height: 1.3 !important;
+}
+
+.swag-card .swag-card-subtitle strong {
+  color: #e2e8f0 !important;
+  font-weight: 600 !important;
+}
+
+.swag-card .swag-icon-box {
+  width: 42px !important;
+  height: 42px !important;
+  flex-shrink: 0 !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.15rem !important;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* [PT-BR] Utilitários Flexbox e Grid do Bootstrap 5.3 escopados em .swag-card
+   [EN] Bootstrap 5.3 Flexbox & Grid utilities scoped to .swag-card */
+.swag-card .d-flex {
+  display: flex !important;
+}
+.swag-card .d-inline-flex {
+  display: inline-flex !important;
+}
+.swag-card .d-block {
+  display: block !important;
+}
+.swag-card .flex-column {
+  flex-direction: column !important;
+}
+.swag-card .flex-wrap {
+  flex-wrap: wrap !important;
+}
+.swag-card .flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+.swag-card .flex-grow-1 {
+  flex-grow: 1 !important;
+}
+.swag-card .flex-shrink-0 {
+  flex-shrink: 0 !important;
+}
+.swag-card .min-w-0 {
+  min-width: 0 !important;
+}
+.swag-card .justify-content-between {
+  justify-content: space-between !important;
+}
+.swag-card .justify-content-center {
+  justify-content: center !important;
+}
+.swag-card .align-items-start {
+  align-items: flex-start !important;
+}
+.swag-card .align-items-center {
+  align-items: center !important;
+}
+.swag-card .text-end {
+  text-align: right !important;
+}
+.swag-card .text-center {
+  text-align: center !important;
+}
+.swag-card .text-truncate {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.swag-card .gap-1 {
+  gap: 0.3rem !important;
+}
+.swag-card .gap-2 {
+  gap: 0.5rem !important;
+}
+.swag-card .gap-3 {
+  gap: 0.75rem !important;
+}
+
+.swag-card .m-0 {
+  margin: 0 !important;
+}
+.swag-card .mb-0 {
+  margin-bottom: 0 !important;
+}
+.swag-card .mb-1 {
+  margin-bottom: 0.3rem !important;
+}
+.swag-card .mb-2 {
+  margin-bottom: 0.55rem !important;
+}
+.swag-card .mt-1 {
+  margin-top: 0.25rem !important;
+}
+.swag-card .mt-2 {
+  margin-top: 0.5rem !important;
+}
+.swag-card .me-1 {
+  margin-right: 0.28rem !important;
+}
+.swag-card .me-2 {
+  margin-right: 0.5rem !important;
+}
+.swag-card .ms-1 {
+  margin-left: 0.28rem !important;
+}
+
+.swag-card .p-1 {
+  padding: 0.25rem !important;
+}
+.swag-card .p-2 {
+  padding: 0.5rem !important;
+}
+.swag-card .p-3 {
+  padding: 0.85rem !important;
+}
+.swag-card .pt-2 {
+  padding-top: 0.55rem !important;
+}
+.swag-card .pb-2 {
+  padding-bottom: 0.55rem !important;
+}
+.swag-card .px-2 {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+.swag-card .py-0 {
+  padding-top: 0.15rem !important;
+  padding-bottom: 0.15rem !important;
+}
+.swag-card .py-1 {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+.swag-card .rounded {
+  border-radius: 6px !important;
+}
+.swag-card .small {
+  font-size: 0.78rem !important;
+}
+.swag-card .fw-bold {
+  font-weight: 700 !important;
+}
+.swag-card .fw-semibold {
+  font-weight: 600 !important;
+}
+
+/* [PT-BR] Lista de Metadados (1 por linha ocupando toda a largura do box)
+   [EN] Metadata List (1 per row occupying full box width) */
+.swag-card .swag-meta-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+  background: rgba(0, 0, 0, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 6px !important;
+  padding: 8px 10px !important;
+  margin-bottom: 8px !important;
+}
+
+.swag-card .swag-meta-cell {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 10px !important;
+  width: 100% !important;
+  padding: 4px 6px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-radius: 4px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+  cursor: help !important;
+}
+
+.swag-card .swag-meta-cell:last-child {
+  border-bottom: none !important;
+}
+
+.swag-card .swag-meta-cell .stat-label {
+  margin: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.swag-card .swag-meta-cell .stat-value {
+  text-align: right !important;
+  word-break: break-word !important;
+}
+
+/* [PT-BR] Cores de Texto e Fundos Semânticos do Bootstrap 5.3
+   [EN] Semantic Text & Background Colors from Bootstrap 5.3 */
+.swag-card .text-light {
+  color: #f1f5f9 !important;
+}
+.swag-card .text-secondary {
+  color: #94a3b8 !important;
+}
+.swag-card .text-muted {
+  color: #64748b !important;
+}
+.swag-card .text-primary {
+  color: #60a5fa !important;
+}
+.swag-card .text-success {
+  color: #34d399 !important;
+}
+.swag-card .text-warning {
+  color: #fbbf24 !important;
+}
+.swag-card .text-danger {
+  color: #f87171 !important;
+}
+.swag-card .text-info {
+  color: #38bdf8 !important;
+}
+.swag-card .text-dark {
+  color: #0f172a !important;
+}
+.swag-card .text-purple,
+.text-purple {
+  color: #c084fc !important;
+}
+.swag-card .text-orange,
+.text-orange {
+  color: #fb923c !important;
+}
+.swag-card .text-indigo {
+  color: #818cf8 !important;
+}
+
+.swag-card .bg-black.bg-opacity-30 {
+  background-color: rgba(0, 0, 0, 0.32) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+.swag-card .bg-dark {
+  background-color: #11141a !important;
+}
+.swag-card .bg-primary {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+.swag-card .bg-success {
+  background-color: #10b981 !important;
+  color: #052e16 !important;
+}
+.swag-card .bg-warning {
+  background-color: #f59e0b !important;
+  color: #0f172a !important;
+}
+.swag-card .bg-danger {
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
+}
+.swag-card .bg-info {
+  background-color: #06b6d4 !important;
+  color: #083344 !important;
+}
+.swag-card .bg-secondary {
+  background-color: #334155 !important;
+  color: #e2e8f0 !important;
+}
+.swag-card .bg-purple,
+.bg-purple {
+  background-color: #8b5cf6 !important;
+  color: #ffffff !important;
+}
+
+/* Badges sutis com borda do Bootstrap 5.3 */
+.swag-card .badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 3px !important;
+  padding: 3px 7px !important;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+  border-radius: 5px !important;
+  white-space: nowrap !important;
+  letter-spacing: 0.3px !important;
+}
+
+.swag-card .bg-primary-subtle {
+  background-color: rgba(59, 130, 246, 0.16) !important;
+  color: #60a5fa !important;
+  border: 1px solid rgba(59, 130, 246, 0.35) !important;
+}
+
+/* Badges de Re-rolagem e Gasto de Bene */
+.swag-card .swag-benny-reroll-badge {
+  background-color: rgba(59, 130, 246, 0.16) !important;
+  color: #60a5fa !important;
+  border: 1px solid rgba(59, 130, 246, 0.35) !important;
+  font-weight: 700 !important;
+  font-size: 0.65rem !important;
+  padding: 3px 7px !important;
+  border-radius: 5px !important;
+  box-shadow: 0 1px 4px rgba(59, 130, 246, 0.25) !important;
+}
+
+.swag-card .swag-reroll-badge {
+  background-color: #facc15 !important;
+  color: #000000 !important;
+  font-weight: 800 !important;
+  font-size: 0.65rem !important;
+  padding: 3px 7px !important;
+  border-radius: 5px !important;
+  border: 1px solid #000000 !important;
+  box-shadow: 0 0 6px rgba(250, 204, 21, 0.6) !important;
+}
+.swag-card .bg-success-subtle {
+  background-color: rgba(16, 185, 129, 0.16) !important;
+  color: #34d399 !important;
+  border: 1px solid rgba(16, 185, 129, 0.35) !important;
+}
+.swag-card .bg-warning-subtle {
+  background-color: rgba(245, 158, 11, 0.16) !important;
+  color: #fbbf24 !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+}
+.swag-card .bg-danger-subtle {
+  background-color: rgba(239, 68, 68, 0.16) !important;
+  color: #f87171 !important;
+  border: 1px solid rgba(239, 68, 68, 0.35) !important;
+}
+.swag-card .bg-info-subtle {
+  background-color: rgba(6, 182, 212, 0.16) !important;
+  color: #22d3ee !important;
+  border: 1px solid rgba(6, 182, 212, 0.35) !important;
+}
+.swag-card .bg-purple-subtle {
+  background-color: rgba(168, 85, 247, 0.18) !important;
+  color: #d8b4fe !important;
+  border: 1px solid rgba(168, 85, 247, 0.38) !important;
+}
+
+/* Bordas Grossas à Esquerda (6px) Semânticas */
+.swag-card.border-swag-raise,
+.border-swag-raise {
+  border-left: 6px solid var(--color-raise, #10b981) !important;
+}
+.swag-card.border-swag-success,
+.border-swag-success {
+  border-left: 6px solid var(--color-success, #3b82f6) !important;
+}
+.swag-card.border-swag-damage,
+.border-swag-damage {
+  border-left: 6px solid var(--color-damage, #f59e0b) !important;
+}
+.swag-card.border-swag-critical,
+.border-swag-critical {
+  border-left: 6px solid var(--color-critical, #ef4444) !important;
+}
+.swag-card.border-swag-arcane,
+.border-swag-arcane {
+  border-left: 6px solid var(--color-arcane, #a855f7) !important;
+}
+.swag-card.border-swag-item,
+.border-swag-item {
+  border-left: 6px solid var(--color-item, #06b6d4) !important;
+}
+.swag-card.border-swag-edge,
+.border-swag-edge {
+  border-left: 6px solid var(--color-edge, #f97316) !important;
+}
+.swag-card.border-swag-hindrance,
+.border-swag-hindrance {
+  border-left: 6px solid #dc2626 !important;
+}
+.swag-card.border-swag-lore,
+.border-swag-lore {
+  border-left: 6px solid #818cf8 !important;
+}
+
+/* Caixa de resultado de alto impacto (Score Box) */
+.swag-card .result-score-box,
+.result-score-box {
+  background: linear-gradient(135deg, #13161d 0%, #0d0f14 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+.swag-card .result-score-number,
+.result-score-number {
+  font-size: 2.1rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  font-family: "Rajdhani", var(--swag-font-title), sans-serif !important;
+}
+
+.swag-card .actor-avatar,
+.actor-avatar {
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 8px !important;
+  object-fit: cover !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+}
+
+/* [PT-BR] Reset de Botões dentro de .swag-card (impede width: 100% e texto preto do Foundry)
+   [EN] Button reset inside .swag-card (prevents Foundry's width: 100% and dark text) */
+.swag-card button {
+  width: auto !important;
+  min-height: 0 !important;
+  height: auto !important;
+  line-height: 1.25 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  font-family: "Inter", var(--swag-font-body), sans-serif !important;
+}
+
+/* Modificadores rápidos em pílulas */
+.swag-card button.mod-pill-btn,
+.mod-pill-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  flex: 0 0 auto !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  padding: 3px 9px !important;
+  border-radius: 12px !important;
+  border: 1px solid #334155 !important;
+  background: #151921 !important;
+  color: #cbd5e1 !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  transition: all 0.15s ease !important;
+}
+
+.swag-card button.mod-pill-btn:hover,
+.mod-pill-btn:hover {
+  background: #242c38 !important;
+  color: #ffffff !important;
+  border-color: #475569 !important;
+}
+
+.swag-card button.mod-pill-btn.active,
+.swag-card button.mod-pill-btn.active-positive,
+.mod-pill-btn.active-positive {
+  background: rgba(16, 185, 129, 0.25) !important;
+  border-color: #10b981 !important;
+  color: #6ee7b7 !important;
+}
+
+.swag-card button.mod-pill-btn.active-negative,
+.mod-pill-btn.active-negative {
+  background: rgba(239, 68, 68, 0.25) !important;
+  border-color: #ef4444 !important;
+  color: #fca5a5 !important;
+}
+
+/* Botões de Ação (.btn, .btn-sm, .btn-outline-*, .btn-warning, .btn-danger) */
+.swag-card .btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  width: auto !important;
+  flex: 0 0 auto !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  padding: 4px 10px !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+.swag-card .btn-outline-secondary {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border: 1px solid #475569 !important;
+  color: #e2e8f0 !important;
+}
+.swag-card .btn-outline-secondary:hover {
+  background: #334155 !important;
+  color: #ffffff !important;
+  border-color: #64748b !important;
+}
+
+.swag-card .btn-outline-info {
+  background: rgba(6, 182, 212, 0.1) !important;
+  border: 1px solid rgba(6, 182, 212, 0.45) !important;
+  color: #38bdf8 !important;
+}
+.swag-card .btn-outline-info:hover {
+  background: #06b6d4 !important;
+  color: #083344 !important;
+}
+
+.swag-card .btn-outline-warning {
+  background: rgba(245, 158, 11, 0.1) !important;
+  border: 1px solid rgba(245, 158, 11, 0.5) !important;
+  color: #fbbf24 !important;
+}
+.swag-card .btn-outline-warning:hover {
+  background: #f59e0b !important;
+  color: #0f172a !important;
+}
+
+.swag-card .btn-outline-danger {
+  background: rgba(239, 68, 68, 0.12) !important;
+  border: 1px solid rgba(239, 68, 68, 0.5) !important;
+  color: #f87171 !important;
+}
+.swag-card .btn-outline-danger:hover {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+}
+
+.swag-card .btn-outline-primary {
+  background: rgba(59, 130, 246, 0.12) !important;
+  border: 1px solid rgba(59, 130, 246, 0.5) !important;
+  color: #60a5fa !important;
+}
+.swag-card .btn-outline-primary:hover {
+  background: #3b82f6 !important;
+  color: #ffffff !important;
+}
+
+.swag-card .btn-outline-light {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #e2e8f0 !important;
+}
+.swag-card .btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
+.swag-card .btn-warning {
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%) !important;
+  border: 1px solid #d97706 !important;
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+.swag-card .btn-warning:hover {
+  filter: brightness(1.1) !important;
+  transform: translateY(-1px) !important;
+}
+
+.swag-card .btn-danger {
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%) !important;
+  border: 1px solid #b91c1c !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+.swag-card .btn-danger:hover {
+  filter: brightness(1.1) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Rodapé dos Cards */
+.swag-card .swag-card-footer,
+.swag-card-footer {
+  background-color: var(--card-footer-bg, rgba(15, 17, 21, 0.75)) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+  padding: 8px 12px !important;
+  border-bottom-left-radius: 6px !important;
+  border-bottom-right-radius: 6px !important;
+}
+
+/* Bene button dourado vibrante */
+.swag-card .btn-bennie,
+.btn-bennie {
+  background: linear-gradient(135deg, #b45309 0%, #f59e0b 60%, #fde68a 100%) !important;
+  border: none !important;
+  color: #1e1b4b !important;
+  font-weight: 700 !important;
+  font-size: 0.75rem !important;
+  padding: 4px 10px !important;
+  border-radius: 5px !important;
+  transition: all 0.15s ease !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+.swag-card .btn-bennie:hover,
+.btn-bennie:hover {
+  filter: brightness(1.15) !important;
+  color: #000 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Descrição rica em cards de Vantagem, Poder, Item e Habilidade Racial */
+.swag-card .swag-card-description {
+  color: #cbd5e1 !important;
+  font-size: 0.8rem !important;
+  line-height: 1.45 !important;
+}
+.swag-card .swag-card-description p {
+  margin: 0 0 4px 0 !important;
+}
+.swag-card .swag-card-description p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Alert de Complicação */
+.swag-card .alert-danger {
+  background: rgba(239, 68, 68, 0.12) !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+  color: #fca5a5 !important;
+  border-radius: 6px !important;
+}
+
+/* Labels e Tags de Lore */
+.swag-card .stat-label,
+.stat-label {
+  font-size: 0.68rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: #94a3b8 !important;
+  font-weight: 700 !important;
+}
+.swag-card .stat-value,
+.stat-value {
+  font-size: 0.82rem !important;
+  color: #e2e8f0 !important;
+  font-weight: 600 !important;
+}
+.swag-card .lore-tag,
+.lore-tag {
+  font-size: 0.7rem !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding: 2px 7px !important;
+  border-radius: 4px !important;
+  color: #cbd5e1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/* Pílulas de dados (Dice Tray) */
+.swag-card .dice-pill,
+.dice-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  padding: 4px 9px !important;
+  background: #11141a !important;
+  border: 1px solid #334155 !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  font-size: 0.82rem !important;
+  white-space: nowrap !important;
+  color: #e2e8f0 !important;
+}
+.swag-card .dice-pill.wild-die,
+.dice-pill.wild-die {
+  border-color: var(--color-wild, #eab308) !important;
+  color: #fde047 !important;
+  background: rgba(234, 179, 8, 0.1) !important;
+}
+.swag-card .dice-pill.trait-die,
+.dice-pill.trait-die {
+  border-color: #38bdf8 !important;
+  color: #7dd3fc !important;
+  background: rgba(56, 189, 248, 0.1) !important;
+}
+.swag-card .dice-pill.arcane-die,
+.dice-pill.arcane-die {
+  border-color: #c084fc !important;
+  color: #e9d5ff !important;
+  background: rgba(168, 85, 247, 0.12) !important;
+}
+.swag-card .dice-pill.ace,
+.dice-pill.ace {
+  border-color: var(--color-raise, #10b981) !important;
+  color: #34d399 !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.35) !important;
+  animation: acePulse 2s infinite ease-in-out;
+}
+@keyframes acePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(16, 185, 129, 0.7);
+  }
+}
+.swag-card .ace-badge,
+.ace-badge {
+  font-size: 0.62rem !important;
+  background: var(--color-raise, #10b981) !important;
+  color: #064e3b !important;
+  border-radius: 3px !important;
+  padding: 1px 4px !important;
+  font-weight: 800 !important;
+  margin-left: 2px !important;
+}
+
+/* ========================================================
+   ESTILIZAÇÃO DE CARDS DO BETTER ROLLS SWADE (BRSW)
+   [EN] BETTER ROLLS SWADE CARD RESKIN
+======================================================== */
+.chat-message.brsw-chat-message,
+.chat-message .brsw-card-header-row {
+  font-family: var(--swag-font-body, "Inter", sans-serif);
+}
+
+.chat-message.brsw-chat-message {
+  border-radius: 8px !important;
+  border-left: 6px solid #3b82f6 !important;
+  background-color: #1e222a !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+  padding: 8px !important;
+}
+
+.chat-message.brsw-chat-message .brsw-actor-img img {
+  border-radius: 8px !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.chat-message.brsw-chat-message .brsw-header-title {
+  font-family: var(--swag-font-title, "Rajdhani", sans-serif) !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+}
+
+.chat-message.brsw-chat-message .brsw-roll-button {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+  transition: all 0.2s ease !important;
+}
+
+.chat-message.brsw-chat-message .brsw-roll-button:hover {
+  filter: brightness(1.15) !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.4) !important;
+}
+
+/* [PT-BR] Painéis internos escuros e padronizados no visual SWAG+ */
+.chat-message.brsw-chat-message .message-header {
+  color: #94a3b8 !important;
+  font-size: 0.75rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  padding-bottom: 4px !important;
+  margin-bottom: 6px !important;
+}
+
+.chat-message.brsw-chat-message .message-sender {
+  color: #ffffff !important;
+  font-family: var(--swag-font-title, 'Rajdhani', sans-serif) !important;
+  font-weight: 700 !important;
+}
+
+.chat-message.brsw-chat-message .brsw-card-header-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 6px 8px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  background: rgba(21, 24, 30, 0.7) !important;
+  border-radius: 6px !important;
+}
+
+.chat-message.brsw-chat-message .brsw-actor-img {
+  width: 36px !important;
+  height: 36px !important;
+  flex-shrink: 0 !important;
+}
+
+.chat-message.brsw-chat-message .brsw-actor-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 6px !important;
+}
+
+.chat-message.brsw-chat-message .brsw-selected-actions {
+  background-color: rgba(15, 17, 21, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #94a3b8 !important;
+  border-radius: 6px !important;
+  padding: 5px 8px !important;
+  font-size: 0.8rem !important;
+}
+
+.chat-message.brsw-chat-message .brsw-roll-results-wrapper {
+  background: rgba(15, 17, 21, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  margin-top: 6px !important;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+}
+
+.chat-message.brsw-chat-message .brsw-roll-values {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.chat-message.brsw-chat-message .brsw-roll-value {
+  color: #ffffff !important;
+  font-family: var(--swag-font-title, 'Rajdhani', sans-serif) !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+.chat-message.brsw-chat-message .brsw-discarded-roll {
+  color: #64748b !important;
+  font-size: 1.2rem !important;
+  opacity: 0.6 !important;
+}
+
+.chat-message.brsw-chat-message .brsw-roll-detail {
+  background: rgba(15, 17, 21, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-radius: 6px !important;
+  padding: 6px 10px !important;
+  color: #cbd5e1 !important;
+}
+
+.chat-message.brsw-chat-message .brsw-roll-detail-row {
+  color: #cbd5e1 !important;
+}
+
+.chat-message.brsw-chat-message .brsw-lime-text {
+  color: #10b981 !important;
+}
+
+/* ========================================================
+   BANNER DE RESULTADO & EXPLOSÃO DE DADOS (EMPILHADOS 100%)
+   [EN] OUTCOME & ACE BANNERS (STACKED 100% FULL WIDTH)
+======================================================== */
+.swag-card .swag-stacked-box,
+.swag-card .swag-outcome-banner,
+.swag-card .swag-ace-banner {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  gap: 5px !important;
+  width: 100% !important;
+  background: rgba(15, 17, 21, 0.78) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 6px !important;
+  padding: 8px 10px !important;
+}
+
+.swag-card .swag-stacked-box .stat-label {
+  white-space: nowrap !important;
+  display: block !important;
+  width: 100% !important;
+  margin-bottom: 2px !important;
+}
+
+.swag-card .swag-fullwidth-badge,
+.swag-card .swag-outcome-badge,
+.swag-card .swag-ace-detail-badge {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  font-size: 0.78rem !important;
+  padding: 6px 10px !important;
+  border-radius: 5px !important;
+  font-weight: 700 !important;
+  gap: 6px !important;
+  text-align: center !important;
+  white-space: normal !important;
+  line-height: 1.3 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.swag-card .swag-ace-detail-badge code {
+  background: rgba(0, 0, 0, 0.35) !important;
+  color: #fde047 !important;
+  padding: 1px 5px !important;
+  border-radius: 4px !important;
+  font-size: 0.74rem !important;
+  font-weight: 700 !important;
+}
+
+/* Botão + Modificadores ao lado das pílulas */
+.swag-card .mod-pill-add-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  width: auto !important;
+  margin: 0 !important;
+  font-size: 0.72rem !important;
+  padding: 3px 10px !important;
+  border-radius: 20px !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+  border: 1px dashed rgba(56, 189, 248, 0.65) !important;
+  color: #38bdf8 !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  box-shadow: none !important;
+}
+
+.swag-card .mod-pill-add-btn:hover {
+  background: rgba(56, 189, 248, 0.25) !important;
+  border-style: solid !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Modal ApplicationV2 de Modificadores de Regra */
+.SWAG-PLUS-modifiers-modal .window-content {
+  background: #14171d !important;
+  color: #f8fafc !important;
+  padding: 10px 14px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.swag-modifiers-modal-root {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--swag-font-body, "Inter", sans-serif);
+  color: #e2e8f0;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.swag-modal-banner {
+  background: rgba(30, 34, 42, 0.95);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-left: 4px solid #38bdf8;
+  border-radius: 6px;
+  padding: 8px 12px;
+  flex-shrink: 0;
+}
+
+.swag-modal-banner-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.swag-modal-scroll-area {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  flex: 1 1 auto;
+  max-height: 370px;
+  padding-right: 4px;
+}
+
+.swag-modal-category {
+  background: #1e222a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.swag-modal-category-title {
+  font-family: var(--swag-font-title, "Rajdhani", sans-serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #38bdf8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding-bottom: 5px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.swag-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.swag-modal-mod-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 8px !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 6px 10px !important;
+  background: #14171d !important;
+  border: 1px solid #334155 !important;
+  border-radius: 6px !important;
+  color: #cbd5e1 !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  box-shadow: none !important;
+}
+
+.swag-modal-mod-item input.swag-mod-checkbox {
+  margin: 0 !important;
+  width: 15px !important;
+  height: 15px !important;
+  accent-color: #38bdf8 !important;
+  flex-shrink: 0 !important;
+  cursor: pointer !important;
+}
+
+.swag-modal-mod-item:hover {
+  border-color: #64748b !important;
+  background: #252a34 !important;
+  color: #ffffff !important;
+}
+
+.swag-modal-mod-item.selected {
+  border-color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.14) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.2) !important;
+}
+
+.swag-modal-mod-badge {
+  font-family: var(--swag-font-title, "Rajdhani", sans-serif);
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 4px;
+  min-width: 30px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.swag-modal-mod-badge.pos {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  color: #34d399;
+}
+
+.swag-modal-mod-badge.neg {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  color: #f87171;
+}
+
+.swag-modal-mod-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.swag-modal-mod-text .mod-name {
+  font-weight: 700;
+  color: #f8fafc;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.swag-modal-mod-text .mod-desc {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.swag-custom-mod-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swag-modal-input {
+  flex: 1;
+  background: #0f1115 !important;
+  border: 1px solid #334155 !important;
+  border-radius: 5px !important;
+  color: #ffffff !important;
+  padding: 6px 10px !important;
+  font-size: 0.8rem !important;
+}
+
+.swag-modal-input-num {
+  width: 90px !important;
+  flex: 0 0 90px !important;
+  text-align: center !important;
+}
+
+.swag-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+  background: #14171d;
+}
+
+.swag-modal-banner .btn,
+.swag-custom-mod-row .btn,
+.swag-modal-footer .btn {
+  width: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 6px 14px !important;
+  border-radius: 6px !important;
+  font-size: 0.8rem !important;
+  cursor: pointer !important;
+}
+
