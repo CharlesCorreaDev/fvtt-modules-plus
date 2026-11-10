@@ -30,9 +30,9 @@ The flagship use case is **RPG books** (especially old materials from the **Worl
 
 | Format | Extensions | Primary Engine | Fallback Engine | Dependencies / Binaries |
 |---|---|---|---|---|
-| **PDF (Digital)** | `.pdf` | `docling` / `markitdown` | `marker-pdf`, `pdfminer.six`, `pdfplumber` | `docling`, `marker-pdf`, `markitdown`, `pdfminer.six`, `pdfplumber`, `pypdf`, `pypdfium2` |
-| **PDF (Scanned / Complex Layout)** | `.pdf` | `docling` / `nougat` | `marker-pdf`, `markitdown_ocr` | `docling`, `nougat-ocr`, `marker-pdf`, `unstructured`, `tesseract-ocr`, `Pillow`, `pypdfium2` |
-| **PDF (Manipulation & Sanitization)** | `.pdf` | `stirling-pdf` / `pypdf` | `pdfcpu` / `pdftoppm` | `stirling-pdf`, `pypdf`, `pdfplumber`, `poppler-utils` |
+| **PDF (Digital)** | `.pdf` | **`pdf_oxide`** (`pdf-oxide`) | `docling`, `marker-pdf`, `markitdown`, `pdfminer.six` | `pdf-oxide` (pip/npm), `docling`, `marker-pdf`, `markitdown`, `pypdf`, `pypdfium2` |
+| **PDF (Scanned / Complex Layout)** | `.pdf` | **`pdf_oxide`** / `docling` | `nougat`, `marker-pdf`, `markitdown_ocr` | `pdf-oxide`, `docling`, `nougat-ocr`, `marker-pdf`, `tesseract-ocr`, `Pillow` |
+| **PDF (Manipulation & Sanitization)** | `.pdf` | **`pdf_oxide`** / `stirling-pdf` | `pypdf`, `pdfcpu`, `pdftoppm` | `pdf-oxide`, `stirling-pdf`, `pypdf`, `pdfplumber`, `poppler-utils` |
 | **Plain Text** | `.txt` | built-in / `markitdown` | - | - |
 | **Markdown** | `.md` | `marker-pdf` / `docling` | `markitdown` | `marker-pdf`, `docling`, `markitdown` |
 | **CSV / TSV** | `.csv`, `.tsv` | `markitdown` / `pandas` | - | `markitdown`, `pandas` |
@@ -48,6 +48,17 @@ The flagship use case is **RPG books** (especially old materials from the **Worl
 ### 🧠 SOTA AI Engines & PDF Utilities Matrix
 
 For high-complexity RPG book layouts (multi-column text flow, medieval borders, statblocks, spell tables, background watermarks), the skill supports and orchestrates specialized state-of-the-art tools:
+
+- **Impeccable Design Standard (Paul Bakaus):** Strict anti-slop visual guidelines for book diagramming, eliminating clashing fonts, bad margins, unnatural line breaks, or cluttered ornament stacking.
+- **Systematic Debugging Protocol:** Scientific isolation of PDF extraction exceptions, font encoding errors, and OCR failures via minimal reproducible test cases without random parameter guessing.
+- **Trail of Bits Security Standards:** Sanitization of uploaded PDFs, external assets, and automated script pipelines against malicious payload injection.
+- Detailed reference in [impeccable-debugging-security-trinity.md](../docs-for-skill/impeccable-debugging-security-trinity.md).
+
+0. **[PDF Oxide](https://github.com/yfedoseev/pdf_oxide) (`pdf_oxide` / `pdf-oxide`) ⭐ (MANDATÓRIO EM 1º LUGAR):**
+   - *Core specialty:* Motor ultrarrápido em Rust com bindings nativos para Python, Node.js e Rust. Extração de texto em ~0.8ms, conversão para Markdown, extração de metadados, caixas delimitadoras (bounding boxes) e licença permissiva MIT/Apache-2.0. **Sempre utilizado como primeira opção antes de qualquer outra ferramenta.**
+   - *Docs:* [Python](https://pdf.oxide.fyi/pt/python/docs/getting-started) • [Node.js](https://pdf.oxide.fyi/pt/javascript-node/docs/getting-started) • [Rust](https://pdf.oxide.fyi/pt/rust/docs/getting-started) • [NPM](https://www.npmjs.com/package/pdf-oxide)
+   - *Install:* `pip install pdf-oxide` ou `npm install pdf-oxide`
+   - *Guia:* [pdf-oxide-guide.md](pdf-oxide-guide.md)
 
 1. **[Docling](https://github.com/docling-project/docling) (DS4SD / IBM):**
    - *Core specialty:* SOTA multimodal layout analysis and table reconstruction via `TableFormer`. Parses multi-column RPG text flow without mixing column lines.
@@ -645,3 +656,16 @@ A skill conta com monitoramento ativo entre a versão local instalada ([`VERSION
 ```bash
 gh issue create --repo CharlesCorreaDev/skills-ai --title "[book-formatter] <Issue Title>" --body "<Bilingual text in English and Portuguese>"
 ```
+
+
+### 🛡️ Auditoria de Segurança Obrigatória (Cloudflare Security Audit) & Anti-Alucinação (NVIDIA Auto-Ontology)
+> [!IMPORTANT]
+> **Toda criação de código, arquitetura, automação, configuração ou resposta DEVE seguir as seguintes diretrizes:**
+> 1. **Cloudflare Security Audit (`cloudflare/security-audit-skill`):**
+>    - Instalação: `npx skills@latest add cloudflare/security-audit-skill`
+>    - Sempre que algo for desenvolvido, execute uma auditoria adversarial em 6 fases (Mapeamento de superfícies, Caça por cobertura, Validação cética de falso-positivo, Saída estruturada, Verificação de sinks e Relatório com correção imediata).
+>    - Se forem detectadas vulnerabilidades, falhas de autorização, injeções ou vazamentos de dados, **o agente DEVE realizar as correções imediatamente**.
+> 2. **NVIDIA Auto-Ontology (`NVIDIA/auto-ontology`):**
+>    - Instalação: `npx skills@latest add NVIDIA/auto-ontology` (ou `pip install auto-ontology`)
+>    - **PROIBIDO INVENTAR NÚMEROS INEXISTENTES:** O agente JAMAIS deve alucinar estatísticas, portas arbitrárias, contagens fictícias, colunas inexistentes ou esquemas falsos. Se um número ou parâmetro não for conhecido com certeza matemática ou documental, declare incerteza e consulte as fontes reais.
+> - Consulte o guia canônico completo em [`docs-for-skill/security-audit-and-auto-ontology.md`](../docs-for-skill/security-audit-and-auto-ontology.md).

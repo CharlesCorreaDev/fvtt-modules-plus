@@ -7,6 +7,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ---
 
+## [0.16.0-beta] - 2026-11-09
+
+### Added / Adicionado
+- **Auditoria Adversarial Cloudflare & Anti-Alucinação NVIDIA:** Diretrizes obrigatórias de segurança via cloudflare/security-audit-skill e blindagem contra números inexistentes com NVIDIA/auto-ontology.
+
+---
+
+## [0.15.0-beta] - 2026-11-09
+
+### Added / Adicionado
+- **Prioridade Absoluta do PDF Oxide (`pdf-oxide-guide.md`):**
+  - Definição do `PDF Oxide` (`pdf_oxide` / `pdf-oxide`) como motor primário mandatório em **1º Lugar** para leitura e diagramação de PDFs, extração de texto em ~0.8ms, preservação de bounding boxes e conversão direta para Markdown sem amarras da licença AGPL. Demais motores (`docling`, `marker`, `pdfminer`, `pdfplumber`) mantidos estritamente como fallback.
+- **Tríade Canônica: Impeccable Design, Systematic Debugging & Trail of Bits Security:**
+  - Adoção das diretrizes de Paul Bakaus (`Impeccable`) contra anti-patterns visuais e AI slop em diagramações de livros de RPG.
+  - Depuração Sistemática em 4 etapas contra falhas de fontes, encoding e extração de PDFs.
+  - Padrões de segurança Trail of Bits para sanitização de PDFs e assets externos.
+
+---
+
 ## [0.14.0-beta] - 2026-11-03
 
 ### Added / Adicionado

@@ -35,6 +35,7 @@ This suite encapsulates official documentation, knowledge base articles, policie
 | **Combat Tracker & Automation** | [`guides/combat.md`](guides/combat.md) | `Combat`, `Combatant`, and `CombatTracker` mechanics |
 | **AI & LLM Integration** | [`guides/ai-and-llm-integration.md`](guides/ai-and-llm-integration.md) | Integrate AI, Phil's Assistant, and AI Actors workflows |
 | **Development Skills Matrix** | [`guides/development-skills-matrix.md`](guides/development-skills-matrix.md) | 14 Engineering Domains & professional developer standards |
+| **Reverse Engineering & Spec Discovery** | [`guides/reverse-engineering.md`](guides/reverse-engineering.md) | REA (`rea-agents`) byte-by-byte AST & Reversa framework ([sandeco.github.io/reversa/pt/](https://sandeco.github.io/reversa/pt/)) for SDD spec extraction |
 | **Famous Systems Knowledge Base** | [`systems/README.md`](systems/README.md) | Architecture for 60+ systems (D&D 5e, PF2e, WoD, SWADE, Tormenta20, YZE, GURPS) |
 | **Official Systems Directory** | [foundryvtt.com/packages/systems](https://foundryvtt.com/packages/systems?page=1) | Official paginated package catalog |
 | **Official Modules Directory** | [foundryvtt.com/packages/modules](https://foundryvtt.com/packages/modules?page=1) | Official paginated module catalog |
@@ -46,8 +47,10 @@ This suite encapsulates official documentation, knowledge base articles, policie
 
 ---
 
-### 🔍 Repository Inspection & Analysis Web Tools
-For studying third-party systems and modules directly in the browser or via automated ingestion:
+### 🔍 Repository Inspection, Diagramming & Analysis Web Tools
+For studying third-party systems and modules directly in the browser, via automated ingestion, or through GitLab & GitHub diagramming:
+
+#### 1. Cloud & Browser Ingestion Tools (GitHub)
 
 | Tool | URL Template | Example (Foundry D&D 5e / SWADE Tools) |
 |---|---|---|
@@ -57,6 +60,36 @@ For studying third-party systems and modules directly in the browser or via auto
 | **Uithub** | `https://uithub.com/{{owner}}/{{repo}}?maxTokens=500000` | `https://uithub.com/lipefl/swade-tools?maxTokens=500000` |
 | **DeepWiki** | `https://deepwiki.com/{{owner}}/{{repo}}` | `https://deepwiki.com/lipefl/swade-tools` |
 | **Star History** | `https://www.star-history.com/?type=date&repos={{owner}}/{{repo}}` | `https://www.star-history.com/?type=date&repos=foundryvtt/dnd5e` |
+
+#### 2. Native GitLab & Multi-Platform Diagrammer (`scripts/generate_repo_diagram.mjs`)
+For systems hosted on **GitLab** (such as the official **Savage Worlds Adventure Edition** at [`gitlab.com/peginc/swade`](https://gitlab.com/peginc/swade)), this skill includes a dedicated architectural diagrammer engine. It queries the GitLab REST API (v4) with automatic fallback to shallow git clone, producing instant Mermaid.js diagrams, layer breakdowns, and Markdown reports:
+
+```bash
+# Generate architecture diagram for a GitLab repository (e.g. SWADE):
+node master-of-foundryvtt/scripts/generate_repo_diagram.mjs https://gitlab.com/peginc/swade
+
+# Save output to Markdown artifact or file:
+node master-of-foundryvtt/scripts/generate_repo_diagram.mjs https://gitlab.com/peginc/swade --output swade-architecture.md
+```
+
+#### 3. GitLab Model Context Protocol (MCP) Server Integration
+For deeper real-time workspace queries, file reading, pipeline checks, and issue management directly on GitLab instances via AI agents:
+- **Official GitLab MCP Server Docs:** [https://docs.gitlab.com/user/model_context_protocol/mcp_server/](https://docs.gitlab.com/user/model_context_protocol/mcp_server/)
+- **Configuration (JSON):**
+  ```json
+  {
+    "mcpServers": {
+      "gitlab": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-gitlab"],
+        "env": {
+          "GITLAB_PERSONAL_ACCESS_TOKEN": "<GLPAT_TOKEN>",
+          "GITLAB_API_URL": "https://gitlab.com/api/v4"
+        }
+      }
+    }
+  }
+  ```
 
 ---
 
@@ -133,6 +166,8 @@ Ela consolida a base de conhecimento oficial, artigos, termos de licença, gover
 - **Protocolo de Wiki Técnica Minuciosa** ([`guides/wiki-and-release-lifecycle.md`](guides/wiki-and-release-lifecycle.md)): Geração obrigatória de documentação profunda para Mestres, Jogadores, referência de APIs, hooks e esquemas DataModel.
 - **Templates de CI/CD, Dependabot & Issues** ([`templates/github/`](templates/github/)): Workflows prontos de validação contínua (`checks.yml`), publicação (`release.yml`), Dependabot e issue templates.
 - **Servidor MCP Nativo Oficial** ([`mcp/README.md`](mcp/README.md)): Controle unificado de atores, itens, cenas, macros, playlists, compêndios e engenharia reversa estática/remota.
+- **Engenharia Reversa & Descoberta de Especificações (SDD)** ([`guides/reverse-engineering.md`](guides/reverse-engineering.md)): Dissecação estrutural com REA (`rea-agents`) e framework Reversa de Sandeco ([sandeco.github.io/reversa/pt/](https://sandeco.github.io/reversa/pt/)) para transformar sistemas legados em contratos de desenvolvimento orientado a especificações.
+- **Visualizador e Gerador de Diagramas GitLab / Git** ([`scripts/generate_repo_diagram.mjs`](scripts/generate_repo_diagram.mjs)): Mapeador arquitetural para repositórios do GitLab (como Savage Worlds - SWADE) e GitHub, gerando diagramas Mermaid.js e relatórios de camadas.
 - **Design de Interface Responsiva com Bootstrap Prefixado** ([`guides/bootstrap-prefixed-ui.md`](guides/bootstrap-prefixed-ui.md)): Classes prefixadas obrigatórias, paleta de 9 tons frios e ícones RPG homologados.
 - **Modelagem Estatística com AnyDice** ([`guides/anydice-dice-mechanics.md`](guides/anydice-dice-mechanics.md)): Validação matemática de dados antes da conversão para fórmulas do Foundry.
 - **Humanização & Código Limpo** ([`guides/humanization-and-clean-code.md`](guides/humanization-and-clean-code.md)): Protocolo zero emojis por padrão e comentários estritamente bilíngues (Português/Inglês).
@@ -193,6 +228,8 @@ Com a skill ativa, seu agente reconhece automaticamente as diretrizes do `SKILL.
   > *"Concluímos o desenvolvimento do módulo de combate tático. Gere a Wiki explicativa completa (WIKI.md), incremente a versão e execute o pipeline de publicação."*
 - **Inspeção de Mundo em Tempo Real via MCP:**
   > *"Conecte ao meu servidor Foundry local usando o MCP nativo do master-of-foundryvtt e inspecione o status e atores ativos."*
+- **Diagrama de Arquitetura de Repositório do GitLab (ex: SWADE):**
+  > *"Gere o diagrama de arquitetura Mermaid e o relatório completo de camadas do repositório GitLab https://gitlab.com/peginc/swade."*
 - **Modelagem de Dados e Probabilidades:**
   > *"Modele uma mecânica de dados explosivos no AnyDice e converta em um avaliador customizado de DiceTerm para o meu sistema."*
 
