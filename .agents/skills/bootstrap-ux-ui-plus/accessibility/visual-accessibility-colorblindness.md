@@ -71,20 +71,61 @@ Quando o usuário **não informar** uma paleta de cores ou tipografia específic
 }
 ```
 
-### 2. Tipografia Oficial Obrigatória
+### 2. Tipografia Oficial & Fontes Especializadas para Acessibilidade Cognitiva e Visual
+
+> [!IMPORTANT]
+> **Em interfaces com foco prioritário em Acessibilidade (Baixa Visão, Dislexia, TDAH ou Idosos):**  
+> Enquanto a tipografia padrão da skill para ambientes corporativos convencionais é a família `Google Sans`, em **interfaces dedicadas ou modos de acessibilidade ativados**, a skill **DEVE fornecer ou alternar a tipografia para fontes clinicamente desenhadas para legibilidade extrema e dislexia**.
+
+#### 🔤 Fontes Recomendadas para Acessibilidade Extrema:
+1. **Atkinson Hyperlegible (Braille Institute):**
+   - Criada pelo *Braille Institute of America*. Foi desenhada especificamente para diferenciar caracteres facilmente confundíveis (como `I` maiúsculo, `l` minúsculo e o número `1`, ou `O` maiúsculo e o número `0`). É a **fonte recomendada nº 1** para baixa visão e WCAG.
+   - Disponível gratuitamente no Google Fonts.
+2. **OpenDyslexic:**
+   - Desenhada com bases pesadas (gravidade visual na parte inferior das letras) para evitar que o cérebro de pessoas com dislexia inverta ou gire mentalmente os caracteres (`b` vs `d`, `p` vs `q`).
+3. **Lexend:**
+   - Desenvolvida por especialistas educacionais para reduzir o estresse visual e acelerar a velocidade de leitura em pessoas com TDAH, dificuldades de foco e dislexia.
+4. **Verdana / Tahoma:**
+   - As fontes de sistema clássicas com grande abertura de glifos (*x-height* generoso) e espaçamento entre letras natural que previne aglomeração visual.
+
 ```html
-<!-- Importação das Fontes Google no <head> -->
+<!-- Importação das Fontes de Acessibilidade no <head> -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;600&family=Google+Sans+Flex:opsz,wght@9..144,400;500;600;700;800&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Lexend:wght@400;500;600;700&family=Google+Sans+Code:wght@400;600&family=Google+Sans+Flex:opsz,wght@9..144,400;500;600;700;800&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 ```
 
 ```css
-/* Regras Tipográficas da Skill */
+/* Classes Alternáveis de Tipografia Acessível no Bootstrap */
 :root {
+  /* Padrão Corporativo Geral */
   --ux-font-headings: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --ux-font-body: 'Google Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --ux-font-mono: 'Google Sans Code', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Modos Especializados de Acessibilidade */
+  --font-atkinson: 'Atkinson Hyperlegible', sans-serif;
+  --font-lexend: 'Lexend', sans-serif;
+  --font-opendyslexic: 'OpenDyslexic', 'Atkinson Hyperlegible', sans-serif;
+}
+
+/* Modo Acessibilidade Ativado: Aplicação Automática */
+body.font-accessible, [data-accessibility-font="atkinson"] {
+  font-family: var(--font-atkinson) !important;
+  letter-spacing: 0.02em !important;
+  word-spacing: 0.05em !important;
+  line-height: 1.7 !important;
+}
+
+body.font-dyslexic, [data-accessibility-font="dyslexic"] {
+  font-family: var(--font-opendyslexic) !important;
+  letter-spacing: 0.05em !important;
+  line-height: 1.8 !important;
+}
+
+body.font-focus-adhd, [data-accessibility-font="lexend"] {
+  font-family: var(--font-lexend) !important;
+  line-height: 1.65 !important;
 }
 
 body {
@@ -98,6 +139,15 @@ h1, h2, h3, h4, h5, h6, .navbar-brand, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 700;
   letter-spacing: -0.02em;
 }
+
+/* Em modo acessibilidade, títulos adotam a mesma fonte clara sem distorções */
+body.font-accessible h1, 
+body.font-accessible h2, 
+body.font-accessible h3 {
+  font-family: var(--font-atkinson) !important;
+  letter-spacing: 0.01em !important;
+}
+```
 
 code, kbd, pre, samp, .font-monospace {
   font-family: var(--ux-font-mono);

@@ -7,6 +7,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ---
 
+## [0.17.0-beta] - 2026-11-12
+
+### Added / Adicionado
+- **Guia Editorial de Diagramação para TDAH e Neurodiversidade (
+eurodiversity/adhd-editorial-layout-guide.md):**
+  - Implementação de leitura biônica (*Bionic Reading*) e limite ergonômico de 45 a 65 caracteres por linha (*Revista Projética / UEL*).
+  - Chunking atômico com caixas de destaque (*callout boxes*), listas com marcadores visuais e tipografia clinicamente desenhada (Atkinson Hyperlegible, Lexend).
+- **Teoria das Cores e Paletas Cromáticas para Livros de RPG (design-systems/color-theory-and-rpg-layouts.md):**
+  - Paletas temáticas por gênero literário/RPG (Horror Pessoal / WoD, Alta Fantasia / D&D, Cyberpunk, Investigação Cósmica / CoC).
+  - Prevenção de halação visual (*halation*), uso de off-white e fundos ardósia para leitura prolongada.
+
+---
+
 ## [0.16.0-beta] - 2026-11-09
 
 ### Added / Adicionado

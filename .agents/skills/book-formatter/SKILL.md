@@ -644,6 +644,8 @@ A skill conta com monitoramento ativo entre a versão local instalada ([`VERSION
 
 ### 🛡️ Protocolos Obrigatórios
 
+- **Diagramação Acessível & Neurodiversidade:** Consultar [dhd-editorial-layout-guide.md](neurodiversity/adhd-editorial-layout-guide.md) para regras de Bionic Reading, coluna dupla balanceada e caixas de respiro cognitivo.
+- **Teoria das Cores & Layouts de RPG:** Consultar [color-theory-and-rpg-layouts.md](design-systems/color-theory-and-rpg-layouts.md) para indexação cromática, contraste seguro e paletas temáticas.
 - **Versionamento Semântico:** consultar [`VERSION`](VERSION); incrementar conforme [SemVer](https://semver.org/spec/v2.0.0.html); registrar em [`CHANGELOG.md`](CHANGELOG.md); tag `book-formatter-v<versao>`.
 - **Auto-Correção e Recuperação de Erros:** diagnosticar causa raiz e tentar auto-correção; portão de permissão para instalações extras; relatório de configuração e validação após aprovação.
 

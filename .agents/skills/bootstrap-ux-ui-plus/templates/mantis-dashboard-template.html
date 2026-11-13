@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mantis Default Dashboard &mdash; Bootstrap UX/UI Plus Canonical Clone</title>
+  
+  <!-- Fontes Oficiais: Google Sans Flex (Títulos), Google Sans (Texto), Google Sans Code (Mono) & Atkinson Hyperlegible (Modo A11y) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Google+Sans+Code:wght@400;600&family=Google+Sans+Flex:opsz,wght@9..144,400;500;600;700;800&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- ApexCharts CDN para réplica fidedigna dos gráficos Mantis -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+  <style>
+    /* ==========================================================================
+       PALETA OFICIAL CALIBRADA DA SKILL BOOTSTRAP UX/UI PLUS (#90271)
+       #869dcc, #5772ac, #3b5998, #224389, #14306b
+       ========================================================================== */
+    :root {
+      --ux-c-50:  #869dcc; /* RGB(134, 157, 204) - Acentos suaves e bordas */
+      --ux-c-100: #5772ac; /* RGB(87, 114, 172)  - Tons médios e foco */
+      --ux-c-200: #3b5998; /* RGB(59, 89, 152)   - Azul intermediário */
+      --ux-c-300: #224389; /* RGB(34, 67, 137)   - Primária Base (Brand) */
+      --ux-c-400: #14306b; /* RGB(20, 48, 107)   - Contraste Máximo / Deep */
+
+      /* Mapeamento Semântico Bootstrap */
+      --bs-primary: #224389;
+      --bs-primary-rgb: 34, 67, 137;
+      --bs-link-color: #224389;
+      --bs-link-hover-color: #14306b;
+
+      --ux-border: #dae1ef;
+      --ux-border-subtle: #f0f4fa;
+      --ux-bg: #f4f7fc;
+      --ux-text: #1e293b;
+      --ux-muted: #64748b;
+
+      --pc-sidebar-width: 260px;
+      --pc-header-height: 64px;
+      --app-font: 'Google Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--ux-bg);
+      font-family: var(--app-font);
+      color: var(--ux-text);
+      line-height: 1.5715;
+      font-size: 0.875rem;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.2s ease, font-family 0.2s ease;
+    }
+
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+      font-family: 'Google Sans Flex', var(--app-font);
+      font-weight: 600;
+      color: var(--ux-c-400);
+      letter-spacing: -0.01em;
+    }
+
+    code, kbd, pre, samp {
+      font-family: 'Google Sans Code', monospace;
+    }
+
+    /* ==========================================================================
+       MODO DE ACESSIBILIDADE TOTAL (ATIVADO PELO BOTÃO NO TOPO)
+       Aplica regras de accessibility/: WCAG 2.2 AA, Daltonismo e Fontes Clínicas
+       ========================================================================== */
+    body.a11y-active {
+      --app-font: 'Atkinson Hyperlegible', sans-serif !important;
+      font-family: 'Atkinson Hyperlegible', sans-serif !important;
+      font-size: 1rem !important;
+      line-height: 1.7 !important;
+      background-color: #f8fafc !important;
+    }
+
+    body.a11y-active h1, 
+    body.a11y-active h2, 
+    body.a11y-active h3, 
+    body.a11y-active h4, 
+    body.a11y-active h5, 
+    body.a11y-active h6 {
+      font-family: 'Atkinson Hyperlegible', sans-serif !important;
+      font-weight: 700 !important;
+      color: #0f172a !important;
+    }
+
+    body.a11y-active :focus-visible {
+      outline: 3px solid #f5a623 !important;
+      outline-offset: 3px !important;
+      box-shadow: 0 0 0 4px var(--ux-c-400) !important;
+    }
+
+    body.a11y-active .btn,
+    body.a11y-active .nav-link,
+    body.a11y-active .dropdown-item {
+      min-height: 44px !important; /* Lei de Fitts & WCAG 2.5.8 */
+      display: inline-flex;
+      align-items: center;
+    }
+
+    body.a11y-active .card {
+      border: 2px solid #869dcc !important;
+      box-shadow: 0 4px 12px rgba(20, 48, 107, 0.08) !important;
+    }
+
+    /* 1. MANTIS PC-SIDEBAR STRUCTURE */
+    .pc-sidebar {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: var(--pc-sidebar-width);
+      background-color: #ffffff;
+      border-right: 1px solid var(--ux-border);
+      z-index: 1030;
+      transition: all 0.25s ease-in-out;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar-wrapper {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .m-header {
+      height: var(--pc-header-height);
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 1px solid var(--ux-border);
+    }
+
+    .b-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--ux-c-300);
+    }
+
+    .navbar-content {
+      flex: 1;
+      padding: 1rem 0.875rem;
+      overflow-y: auto;
+    }
+
+    .pc-navbar {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .pc-caption {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--ux-c-100);
+      padding: 0.85rem 0.75rem 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .pc-item {
+      margin-bottom: 0.15rem;
+    }
+
+    .pc-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #475569;
+      text-decoration: none;
+      border-radius: 0.375rem;
+      transition: all 0.15s ease;
+    }
+
+    .pc-micon {
+      font-size: 1.15rem;
+      color: var(--ux-c-100);
+      width: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pc-link:hover {
+      color: var(--ux-c-400);
+      background-color: rgba(134, 157, 204, 0.15);
+    }
+    .pc-link:hover .pc-micon {
+      color: var(--ux-c-400);
+    }
+
+    .pc-item.active > .pc-link {
+      color: var(--ux-c-300);
+      background-color: rgba(134, 157, 204, 0.22);
+      font-weight: 700;
+    }
+    .pc-item.active > .pc-link .pc-micon {
+      color: var(--ux-c-300);
+    }
+
+    .pc-submenu {
+      list-style: none;
+      padding-left: 2rem;
+      margin-top: 0.2rem;
+      display: none;
+    }
+    .pc-item.pc-hasmenu.open > .pc-submenu {
+      display: block;
+    }
+
+    /* 2. MANTIS PC-HEADER (TOPBAR) */
+    .pc-header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: var(--pc-sidebar-width);
+      height: var(--pc-header-height);
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--ux-border);
+      z-index: 1020;
+      display: flex;
+      align-items: center;
+      padding: 0 1.5rem;
+      transition: all 0.25s ease-in-out;
+    }
+
+    .header-wrapper {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* 3. MANTIS PC-CONTAINER */
+    .pc-container {
+      margin-left: var(--pc-sidebar-width);
+      padding-top: var(--pc-header-height);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease-in-out;
+    }
+
+    .pc-content {
+      padding: 1.75rem;
+      flex-grow: 1;
+    }
+
+    @media (max-width: 1024px) {
+      .pc-sidebar {
+        left: calc(var(--pc-sidebar-width) * -1);
+      }
+      .pc-sidebar.mob-open {
+        left: 0;
+        box-shadow: 0 0 35px rgba(20, 48, 107, 0.15);
+      }
+      .pc-header {
+        left: 0;
+      }
+      .pc-container {
+        margin-left: 0;
+      }
+    }
+
+    /* Cards Mantis Style com Bordas Sutis da Paleta */
+    .card {
+      border: 1px solid var(--ux-border);
+      border-radius: 0.5rem;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(20, 48, 107, 0.03);
+      margin-bottom: 1.5rem;
+    }
+    .card-header {
+      background-color: transparent;
+      border-bottom: 1px solid var(--ux-border);
+      padding: 1rem 1.25rem;
+      font-weight: 600;
+      color: var(--ux-c-400);
+    }
+    .card-body {
+      padding: 1.25rem;
+    }
+
+    /* Botão de Ativação A11y Especial */
+    .btn-a11y-toggle {
+      border: 2px solid var(--ux-c-300);
+      color: var(--ux-c-300);
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+    .btn-a11y-toggle.active {
+      background-color: var(--ux-c-300);
+      color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(34, 67, 137, 0.25);
+    }
+  </style>
+</head>
+<body>
+
+<!-- 1. MANTIS CANONICAL SIDEBAR -->
+<nav class="pc-sidebar" id="pcSidebar" aria-label="Menu Lateral Mantis">
+  <div class="navbar-wrapper">
+    <div class="m-header">
+      <a href="#" class="b-brand">
+        <div class="bg-primary text-white p-2 rounded-2 d-flex align-items-center justify-content-center" style="width: 34px; height: 34px; background-color: var(--ux-c-300) !important;">
+          <i class="bi bi-flower1 fs-5"></i>
+        </div>
+        <span>Mantis</span>
+      </a>
+      <button type="button" class="btn btn-sm btn-light d-lg-none ms-auto" id="pcSidebarClose" aria-label="Fechar Menu">
+        <i class="bi bi-x fs-4"></i>
+      </button>
+    </div>
+
+    <div class="navbar-content">
+      <ul class="pc-navbar">
+        <li class="pc-caption">Dashboard</li>
+        <li class="pc-item active">
+          <a href="#overview" class="pc-link">
+            <span class="pc-micon"><i class="bi bi-speedometer2"></i></span>
+            <span class="pc-mtext">Default Analytics</span>
+          </a>
+        </li>
+
+        <li class="pc-caption">Documentação Viva Bootstrap 5.3</li>
+        <li class="pc-item pc-hasmenu open">
+          <a href="#" class="pc-link">
+            <span class="pc-micon"><i class="bi bi-bell"></i></span>
+            <span class="pc-mtext">Alertas & Feedback</span>
+            <i class="bi bi-chevron-down ms-auto small"></i>
+          </a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="#sec-alerts-basic">bc_alert: Alertas Contextuais</a></li>
+            <li class="pc-item"><a class="pc-link" href="#sec-alerts-icons">Alertas com Ícones & Descarte</a></li>
+            <li class="pc-item"><a class="pc-link" href="#sec-alerts-content">Alertas com Conteúdo Rico</a></li>
+          </ul>
+        </li>
+
+        <li class="pc-item pc-hasmenu open">
+          <a href="#" class="pc-link">
+            <span class="pc-micon"><i class="bi bi-ui-checks-grid"></i></span>
+            <span class="pc-mtext">Componentes de Sistema</span>
+            <i class="bi bi-chevron-down ms-auto small"></i>
+          </a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="#sec-buttons">Buttons & Touch Targets</a></li>
+            <li class="pc-item"><a class="pc-link" href="#sec-forms">Formulários & Floating Labels</a></li>
+            <li class="pc-item"><a class="pc-link" href="#sec-tables">Data Tables Responsivas</a></li>
+            <li class="pc-item"><a class="pc-link" href="#sec-modals">Modais, Toasts & Offcanvas</a></li>
+          </ul>
+        </li>
+
+        <li class="pc-caption">Acessibilidade & A11y Rules</li>
+        <li class="pc-item">
+          <a href="#sec-a11y-showcase" class="pc-link">
+            <span class="pc-micon"><i class="bi bi-universal-access"></i></span>
+            <span class="pc-mtext">WCAG 2.2 & Daltonismo</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- 2. MANTIS TOPBAR COM BOTÃO DE ACESSIBILIDADE WCAG -->
+<header class="pc-header">
+  <div class="header-wrapper">
+    <div class="d-flex align-items-center gap-3">
+      <button class="btn btn-light d-lg-none border" id="pcSidebarToggle" aria-label="Abrir Menu">
+        <i class="bi bi-list fs-4"></i>
+      </button>
+
+      <div class="input-group d-none d-md-flex" style="max-width: 320px;">
+        <span class="input-group-text bg-light border-0"><i class="bi bi-search text-muted"></i></span>
+        <input type="search" class="form-control bg-light border-0" placeholder="Buscar Ctrl+K..." aria-label="Buscar">
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center gap-3">
+      <!-- 🌟 BOTÃO MESTRE NO TOPO: ATIVADOR DAS REGRAS DE ACESSIBILIDADE (accessibility/) -->
+      <button class="btn btn-a11y-toggle btn-sm rounded-pill px-3 d-flex align-items-center gap-2" id="a11yMasterToggle" aria-pressed="false" title="Ativar Padrões A11y (Atkinson Hyperlegible, foco WCAG 2.2 e toques 44px)">
+        <i class="bi bi-universal-access fs-6"></i>
+        <span>Ativar Acessibilidade (A11y)</span>
+      </button>
+
+      <!-- Notificações -->
+      <div class="dropdown">
+        <button class="btn btn-light rounded-circle p-2 border position-relative" type="button" data-bs-toggle="dropdown" aria-label="Notificações">
+          <i class="bi bi-bell"></i>
+          <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow-sm" style="width: 280px;">
+          <li class="dropdown-header fw-bold small">Notificações Mantis</li>
+          <li><a class="dropdown-item small py-2" href="#"><i class="bi bi-check-circle text-success me-2"></i> Padrões de acessibilidade prontos</a></li>
+          <li><a class="dropdown-item small py-2" href="#"><i class="bi bi-info-circle text-primary me-2"></i> Mantis v5.3.3 carregado</a></li>
+        </ul>
+      </div>
+
+      <!-- Profile Dropdown (Clone Mantis) -->
+      <div class="dropdown">
+        <button class="btn btn-light border rounded-pill py-1 px-3 d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 30px; height: 30px; font-size: 0.8rem; background-color: var(--ux-c-300) !important;">
+            GM
+          </div>
+          <div class="text-start d-none d-md-block" style="line-height: 1.2;">
+            <div class="fw-bold small">GM Charles</div>
+            <div class="text-muted" style="font-size: 0.72rem;">Administrator</div>
+          </div>
+          <i class="bi bi-chevron-down small text-muted"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow-sm" style="min-width: 200px;">
+          <li class="p-3 border-bottom text-center">
+            <h6 class="mb-0 fw-bold">Charles Corrêa</h6>
+            <small class="text-muted">charles@rpg.charlescorrea.com.br</small>
+          </li>
+          <li><a class="dropdown-item py-2" href="#"><i class="bi bi-person me-2"></i> Ver Perfil</a></li>
+          <li><a class="dropdown-item py-2" href="#"><i class="bi bi-sliders me-2"></i> Preferências</a></li>
+          <li><hr class="dropdown-divider my-1"></li>
+          <li><a class="dropdown-item py-2 text-danger" href="#"><i class="bi bi-power me-2"></i> Sair</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- 3. MANTIS CONTENT CONTAINER -->
+<div class="pc-container">
+  <main class="pc-content" id="overview">
+    <!-- Breadcrumbs -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-2">
+      <div>
+        <h2 class="mb-0 fw-bold fs-4">Mantis Analytics Dashboard</h2>
+        <small class="text-muted">Clone de alta fidelidade do Mantis Bootstrap com paleta corporativa #90271, documentação viva e ativação de acessibilidade.</small>
+      </div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 bg-white p-2 px-3 rounded border small">
+          <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Home</a></li>
+          <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Mantis</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- MANTIS METRICS CARDS (LEI DE MILLER & ANÁLISE QUANTITATIVA) -->
+    <div class="row g-3 mb-4">
+      <div class="col-sm-6 col-xl-3">
+        <div class="card h-100 mb-0">
+          <div class="card-body">
+            <span class="text-muted small fw-semibold">Visualizações Totais</span>
+            <div class="d-flex align-items-center justify-content-between mt-1">
+              <h3 class="mb-0 fw-bold" style="color: var(--ux-c-400);">4.42.236</h3>
+              <span class="badge border small" style="background-color: rgba(134, 157, 204, 0.2); color: var(--ux-c-300);">+59.3%</span>
+            </div>
+            <small class="text-muted">Você obteve 2.400 novos acessos</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-xl-3">
+        <div class="card h-100 mb-0">
+          <div class="card-body">
+            <span class="text-muted small fw-semibold">Usuários Cadastrados</span>
+            <div class="d-flex align-items-center justify-content-between mt-1">
+              <h3 class="mb-0 fw-bold" style="color: var(--ux-c-400);">78.250</h3>
+              <span class="badge bg-success-subtle text-success border small">+70.5%</span>
+            </div>
+            <small class="text-muted">Meta trimestral superada</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-xl-3">
+        <div class="card h-100 mb-0">
+          <div class="card-body">
+            <span class="text-muted small fw-semibold">Conformidade A11y</span>
+            <div class="d-flex align-items-center justify-content-between mt-1">
+              <h3 class="mb-0 fw-bold" style="color: var(--ux-c-400);">100%</h3>
+              <span class="badge bg-success-subtle text-success border small">WCAG 2.2</span>
+            </div>
+            <small class="text-muted">Homologado Nível AA</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-xl-3">
+        <div class="card h-100 mb-0">
+          <div class="card-body">
+            <span class="text-muted small fw-semibold">Latência Operacional</span>
+            <div class="d-flex align-items-center justify-content-between mt-1">
+              <h3 class="mb-0 fw-bold" style="color: var(--ux-c-400);">128 ms</h3>
+              <span class="badge border small" style="background-color: rgba(87, 114, 172, 0.2); color: var(--ux-c-400);">Doherty</span>
+            </div>
+            <small class="text-muted">Resposta instantânea (&lt;400ms)</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO VIVA DE APEXCHARTS (MANTIS ANALYTICS CLONE COM PALETA #90271) -->
+    <div class="row g-3 mb-4">
+      <div class="col-lg-8">
+        <div class="card mb-0">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <span>Gráfico de Tráfego Semanal (ApexCharts Mantis &bull; Paleta #90271)</span>
+            <div class="btn-group btn-group-sm" role="group">
+              <button type="button" class="btn btn-outline-secondary active">Mês</button>
+              <button type="button" class="btn btn-outline-secondary">Semana</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div id="mantisGrowthChart" style="min-height: 280px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card mb-0">
+          <div class="card-header">
+            <span>Visão Geral da Receita</span>
+          </div>
+          <div class="card-body text-center">
+            <div id="mantisDonutChart" style="min-height: 230px;"></div>
+            <div class="d-flex justify-content-around mt-3 small">
+              <div><span class="badge me-1" style="background-color: #224389;">&bull;</span> Direto (#224389)</div>
+              <div><span class="badge me-1" style="background-color: #5772ac;">&bull;</span> Orgânico (#5772ac)</div>
+              <div><span class="badge me-1" style="background-color: #869dcc;">&bull;</span> Referência (#869dcc)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         DOCUMENTAÇÃO VIVA 1: ESPECIFICAÇÃO COMPLETA DO bc_alert.html
+         ==================================================================== -->
+    <section id="sec-alerts-basic" class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <span><i class="bi bi-bell-fill text-primary me-2"></i> Especificação Canônica de Alertas (bc_alert.html)</span>
+        <span class="badge border" style="background-color: rgba(134, 157, 204, 0.2); color: var(--ux-c-300);">Mantis Elements</span>
+      </div>
+      <div class="card-body">
+        <p class="text-muted small">Alertas são mensagens contextuais de feedback para ações de usuários. De acordo com as diretrizes do Mantis e a especificação de <code>bc_alert.html</code>, todo alerta deve oferecer contraste suave, bordas arredondadas e ícones representativos:</p>
+
+        <!-- 1. Alertas Contextuais com Ícones e Descarte -->
+        <h6 class="fw-bold text-uppercase small text-muted mb-2">Alertas com Ícone Vetorial e Botão Descartável</h6>
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="alert d-flex align-items-center justify-content-between alert-dismissible fade show mb-0 border" style="background-color: rgba(134, 157, 204, 0.15); color: var(--ux-c-400); border-color: var(--ux-border) !important;" role="alert">
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-info-circle-fill fs-5" style="color: var(--ux-c-300);"></i>
+                <div><strong>Aviso Primário:</strong> Novo componente do sistema foi catalogado.</div>
+              </div>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar Alerta"></button>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="alert alert-success d-flex align-items-center justify-content-between alert-dismissible fade show mb-0" role="alert">
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill fs-5"></i>
+                <div><strong>Sucesso:</strong> Banco de dados sincronizado com sucesso.</div>
+              </div>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar Alerta"></button>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="alert alert-warning d-flex align-items-center justify-content-between alert-dismissible fade show mb-0" role="alert">
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-exclamation-triangle-fill fs-5"></i>
+                <div><strong>Atenção:</strong> Limite de memória atingiu 82%. Considere otimizar.</div>
+              </div>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar Alerta"></button>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="alert alert-danger d-flex align-items-center justify-content-between alert-dismissible fade show mb-0" role="alert">
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-x-octagon-fill fs-5"></i>
+                <div><strong>Erro Crítico:</strong> Falha ao autenticar token JWT na rota de API.</div>
+              </div>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar Alerta"></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Alerta com Conteúdo Rico Adicional -->
+        <h6 class="fw-bold text-uppercase small text-muted mb-2">Alerta Expandido com Conteúdo Adicional (Heading + Divisor)</h6>
+        <div class="alert border mb-0" style="background-color: rgba(87, 114, 172, 0.1); color: var(--ux-c-400); border-color: var(--ux-c-50) !important;" role="alert">
+          <h5 class="alert-heading fw-bold d-flex align-items-center gap-2">
+            <i class="bi bi-shield-check" style="color: var(--ux-c-300);"></i> Conformidade WCAG 2.2 AA (Diretriz 3.3.1)
+          </h5>
+          <p class="mb-1">A cor nunca deve ser a única condutora de informação em um alerta de sistema. A presença do ícone e do texto instrucional explícito garante a interpretação imediata por pessoas com daltonismo (Deuteranopia e Protanopia).</p>
+          <hr class="my-2" style="border-color: var(--ux-c-100);">
+          <p class="mb-0 small text-muted">A classe <code>.alert-dismissible</code> adiciona o espaçamento à direita para o botão <code>.btn-close</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         DOCUMENTAÇÃO VIVA 2: GRID, BUTTONS, FORMS & TABLES
+         ==================================================================== -->
+    <div class="row g-3">
+      <!-- Botões & Badges -->
+      <div class="col-lg-6" id="sec-buttons">
+        <div class="card h-100 mb-0">
+          <div class="card-header">
+            <span>Botões Semânticos & Badges de Status</span>
+          </div>
+          <div class="card-body">
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <button class="btn btn-primary" style="background-color: var(--ux-c-300); border-color: var(--ux-c-300);"><i class="bi bi-check2 me-1"></i> Primário (#224389)</button>
+              <button class="btn btn-secondary">Secundário</button>
+              <button class="btn btn-success">Sucesso</button>
+              <button class="btn btn-danger">Excluir</button>
+              <button class="btn btn-outline-primary" style="color: var(--ux-c-300); border-color: var(--ux-c-300);">Outline</button>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge border" style="background-color: rgba(134, 157, 204, 0.25); color: var(--ux-c-400);">Ativo</span>
+              <span class="badge bg-success-subtle text-success border">Concluído</span>
+              <span class="badge bg-warning-subtle text-warning-emphasis border">Pendente</span>
+              <span class="badge bg-danger-subtle text-danger border">Erro</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulários & Floating Labels -->
+      <div class="col-lg-6" id="sec-forms">
+        <div class="card h-100 mb-0">
+          <div class="card-header">
+            <span>Formulários & Floating Labels</span>
+          </div>
+          <div class="card-body">
+            <form class="row g-2">
+              <div class="col-12">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="mUser" placeholder="Nome" value="Charles Corrêa">
+                  <label for="mUser">Nome Completo</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-floating">
+                  <input type="email" class="form-control" id="mEmail" placeholder="E-mail" value="charles@rpg.charlescorrea.com.br">
+                  <label for="mEmail">E-mail Corporativo</label>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabela Responsiva de Sistemas -->
+      <div class="col-12" id="sec-tables">
+        <div class="card mb-0">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <span>Tabela Responsiva de Módulos Mantis</span>
+            <span class="badge bg-light text-dark border">Data Grid</span>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th>Módulo</th>
+                  <th>Tecnologia</th>
+                  <th>Versão</th>
+                  <th>Acessibilidade</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fw-bold" style="color: var(--ux-c-300);"><i class="bi bi-box me-2"></i> master-of-foundryvtt</td>
+                  <td>Node.js / ESM</td>
+                  <td><code>v0.20.0-beta</code></td>
+                  <td><span class="text-success fw-bold">100%</span></td>
+                  <td><span class="badge bg-success-subtle text-success border">Homologado</span></td>
+                </tr>
+                <tr>
+                  <td class="fw-bold" style="color: var(--ux-c-300);"><i class="bi bi-palette me-2"></i> bootstrap-ux-ui-plus</td>
+                  <td>Bootstrap 5.3</td>
+                  <td><code>v0.5.0-beta</code></td>
+                  <td><span class="text-success fw-bold">99.8%</span></td>
+                  <td><span class="badge bg-success-subtle text-success border">Homologado</span></td>
+                </tr>
+                <tr>
+                  <td class="fw-bold" style="color: var(--ux-c-300);"><i class="bi bi-book me-2"></i> book-formatter</td>
+                  <td>Python / Oxide</td>
+                  <td><code>v0.17.0-beta</code></td>
+                  <td><span class="text-success fw-bold">99.5%</span></td>
+                  <td><span class="badge bg-success-subtle text-success border">Homologado</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rodapé Mantis -->
+  <footer class="bg-white border-top py-3 px-4 text-center text-muted small mt-auto">
+    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+      <span>Mantis Dashboard Bootstrap 5.3 &bull; GM Charles Corrêa &bull; <a href="https://github.com/CharlesCorreaDev/skills-ai" class="text-decoration-none">skills-ai</a></span>
+      <span>Paleta Corporativa #90271 &bull; Ant Design Inspired &bull; WCAG 2.2 AA Compliant</span>
+    </div>
+  </footer>
+</div>
+
+<!-- Bootstrap 5.3 Bundle JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Controle da Sidebar do Mantis
+  const pcSidebar = document.getElementById('pcSidebar');
+  const pcToggle = document.getElementById('pcSidebarToggle');
+  const pcClose = document.getElementById('pcSidebarClose');
+
+  if (pcToggle && pcSidebar) {
+    pcToggle.addEventListener('click', () => pcSidebar.classList.toggle('mob-open'));
+  }
+  if (pcClose && pcSidebar) {
+    pcClose.addEventListener('click', () => pcSidebar.classList.remove('mob-open'));
+  }
+
+  // Submenus sanfonados (.pc-hasmenu)
+  document.querySelectorAll('.pc-item.pc-hasmenu > .pc-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      link.parentElement.classList.toggle('open');
+    });
+  });
+
+  // ==========================================================================
+  // ATIVAÇÃO DAS REGRAS DE ACESSIBILIDADE (accessibility/) PELO BOTÃO DO TOPO
+  // Alterna fonte Atkinson Hyperlegible, foco de 3px WCAG 2.2 e toques 44px
+  // ==========================================================================
+  const a11yBtn = document.getElementById('a11yMasterToggle');
+  let a11yActive = false;
+
+  if (a11yBtn) {
+    a11yBtn.addEventListener('click', () => {
+      a11yActive = !a11yActive;
+      document.body.classList.toggle('a11y-active', a11yActive);
+      a11yBtn.classList.toggle('active', a11yActive);
+      a11yBtn.setAttribute('aria-pressed', a11yActive ? 'true' : 'false');
+
+      if (a11yActive) {
+        a11yBtn.innerHTML = '<i class="bi bi-check-circle-fill fs-6 text-warning"></i> <span>Acessibilidade Ativa (WCAG 2.2)</span>';
+      } else {
+        a11yBtn.innerHTML = '<i class="bi bi-universal-access fs-6"></i> <span>Ativar Acessibilidade (A11y)</span>';
+      }
+    });
+  }
+
+  // ==========================================================================
+  // APEXCHARTS GRÁFICOS MANTIS CLONE (CALIBRADOS COM A PALETA #90271)
+  // ==========================================================================
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Gráfico de Área / Spline Mantis com a escala #90271 (#224389 e #5772ac)
+    const growthOptions = {
+      series: [{
+        name: 'Sessões',
+        data: [31, 40, 28, 51, 42, 109, 100]
+      }, {
+        name: 'Novos Usuários',
+        data: [11, 32, 45, 32, 34, 52, 41]
+      }],
+      chart: {
+        height: 280,
+        type: 'area',
+        toolbar: { show: false }
+      },
+      colors: ['#224389', '#5772ac'], // Cores oficiais da skill
+      dataLabels: { enabled: false },
+      stroke: { curve: 'smooth', width: 2 },
+      xaxis: {
+        categories: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+        labels: { style: { colors: '#64748b' } }
+      },
+      tooltip: { theme: 'light' }
+    };
+    const growthChart = new ApexCharts(document.querySelector("#mantisGrowthChart"), growthOptions);
+    growthChart.render();
+
+    // 2. Gráfico de Rosca / Donut Mantis com a escala #90271 (#224389, #5772ac, #869dcc)
+    const donutOptions = {
+      series: [44, 55, 13],
+      chart: {
+        type: 'donut',
+        height: 230
+      },
+      labels: ['Direto', 'Orgânico', 'Referência'],
+      colors: ['#224389', '#5772ac', '#869dcc'], // Cores oficiais da skill
+      legend: { show: false },
+      dataLabels: { enabled: false }
+    };
+    const donutChart = new ApexCharts(document.querySelector("#mantisDonutChart"), donutOptions);
+    donutChart.render();
+  });
+</script>
+
+</body>
+</html>

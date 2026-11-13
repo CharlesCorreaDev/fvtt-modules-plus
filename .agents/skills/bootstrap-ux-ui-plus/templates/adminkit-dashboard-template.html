@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminKit Enterprise &mdash; Bootstrap UX/UI Plus Architecture</title>
+  
+  <!-- Google Fonts: Google Sans Flex, Google Sans, Google Sans Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Google+Sans+Code:wght@400;600&family=Google+Sans+Flex:opsz,wght@9..144,400;500;600;700;800&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    /* ==========================================================================
+       AdminKit Clean Architecture (.wrapper > nav.sidebar + div.main)
+       Paleta Oficial Calibrada (#90271) & Tipografia Google Sans
+       ========================================================================== */
+    :root {
+      --ux-primary: #224389;
+      --ux-primary-hover: #14306b;
+      --ux-sidebar-bg: #1c273c;
+      --ux-sidebar-link: #a3b1cc;
+      --ux-sidebar-hover: #ffffff;
+      --ux-sidebar-active-bg: rgba(255, 255, 255, 0.08);
+
+      --adminkit-sidebar-width: 260px;
+    }
+
+    body {
+      background-color: #f4f7fc;
+      font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #334155;
+      overflow-x: hidden;
+      margin: 0;
+    }
+
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+      font-family: 'Google Sans Flex', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    /* Layout Wrapper do AdminKit */
+    .wrapper {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+      align-items: stretch;
+    }
+
+    /* Sidebar do AdminKit */
+    .sidebar {
+      min-width: var(--adminkit-sidebar-width);
+      max-width: var(--adminkit-sidebar-width);
+      background-color: var(--ux-sidebar-bg);
+      color: #fff;
+      transition: margin-left 0.35s ease-in-out, left 0.35s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      z-index: 1030;
+    }
+
+    .sidebar-brand {
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .sidebar-header {
+      padding: 1.25rem 1.5rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+    }
+
+    .sidebar-nav {
+      list-style: none;
+      padding: 0.5rem 0.75rem;
+      margin: 0;
+      flex-grow: 1;
+    }
+
+    .sidebar-item {
+      margin-bottom: 0.25rem;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.7rem 1rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--ux-sidebar-link);
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .sidebar-link i {
+      font-size: 1.2rem;
+      color: #64748b;
+      transition: color 0.2s ease;
+    }
+
+    .sidebar-link:hover {
+      color: var(--ux-sidebar-hover);
+      background-color: var(--ux-sidebar-active-bg);
+    }
+    .sidebar-link:hover i {
+      color: #ffffff;
+    }
+
+    .sidebar-item.active > .sidebar-link {
+      color: #ffffff;
+      background-color: var(--ux-primary);
+      box-shadow: 0 4px 12px rgba(34, 67, 137, 0.4);
+    }
+    .sidebar-item.active > .sidebar-link i {
+      color: #ffffff;
+    }
+
+    /* Submenu dropdown */
+    .sidebar-dropdown {
+      list-style: none;
+      padding: 0.25rem 0 0.5rem 2rem;
+      margin: 0;
+    }
+    .sidebar-dropdown .sidebar-link {
+      padding: 0.4rem 0.75rem;
+      font-size: 0.875rem;
+    }
+
+    /* Área Principal (.main) */
+    .main {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      min-height: 100vh;
+      width: 100%;
+      flex-grow: 1;
+      background-color: #f4f7fc;
+      transition: all 0.35s ease-in-out;
+    }
+
+    /* Topbar Navbar */
+    .navbar-adminkit {
+      padding: 0.85rem 1.75rem;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .content {
+      padding: 2rem;
+      flex: 1;
+    }
+
+    /* Cards AdminKit */
+    .card {
+      border: 1px solid #e2e8f0;
+      border-radius: 0.75rem;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      margin-bottom: 1.5rem;
+    }
+    .card-header {
+      background-color: transparent;
+      border-bottom: 1px solid #f1f5f9;
+      padding: 1.25rem 1.5rem;
+      font-weight: 700;
+    }
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    /* Focus ring acessível (WCAG 2.2 AA) */
+    :focus-visible {
+      outline: 3px solid #f5a623 !important;
+      outline-offset: 2px !important;
+      box-shadow: 0 0 0 2px #14306b !important;
+    }
+
+    /* Mobile toggle */
+    @media (max-width: 991.98px) {
+      .sidebar {
+        margin-left: calc(var(--adminkit-sidebar-width) * -1);
+        position: fixed;
+        height: 100%;
+      }
+      .sidebar.collapsed {
+        margin-left: 0;
+      }
+    }
+
+    /* ==========================================================================
+       PALETA OFICIAL CALIBRADA DA SKILL BOOTSTRAP UX/UI PLUS (#90271)
+       ========================================================================== */
+    :root {
+      --ux-c-50:  #869dcc;
+      --ux-c-100: #5772ac;
+      --ux-c-200: #3b5998;
+      --ux-c-300: #224389;
+      --ux-c-400: #14306b;
+
+      --bs-primary: #224389;
+      --bs-primary-rgb: 34, 67, 137;
+      --bs-link-color: #224389;
+      --bs-link-hover-color: #14306b;
+    }
+
+    /* ==========================================================================
+       MODO DE ACESSIBILIDADE TOTAL (ATIVADO PELO BOTÃO NO TOPO)
+       Aplica regras de accessibility/: WCAG 2.2 AA, Daltonismo e Fontes Clínicas
+       ========================================================================== */
+    body.a11y-active {
+      font-family: 'Atkinson Hyperlegible', sans-serif !important;
+      font-size: 1rem !important;
+      line-height: 1.7 !important;
+      background-color: #f8fafc !important;
+    }
+
+    body.a11y-active h1, 
+    body.a11y-active h2, 
+    body.a11y-active h3, 
+    body.a11y-active h4, 
+    body.a11y-active h5, 
+    body.a11y-active h6 {
+      font-family: 'Atkinson Hyperlegible', sans-serif !important;
+      font-weight: 700 !important;
+      color: #0f172a !important;
+    }
+
+    body.a11y-active :focus-visible {
+      outline: 3px solid #f5a623 !important;
+      outline-offset: 3px !important;
+      box-shadow: 0 0 0 4px #14306b !important;
+    }
+
+    body.a11y-active .btn,
+    body.a11y-active .sidebar-link,
+    body.a11y-active .dropdown-item {
+      min-height: 44px !important; /* Lei de Fitts & WCAG 2.5.8 */
+      display: inline-flex;
+      align-items: center;
+    }
+
+    body.a11y-active .card {
+      border: 2px solid #869dcc !important;
+      box-shadow: 0 4px 12px rgba(20, 48, 107, 0.08) !important;
+    }
+
+    .btn-a11y-toggle {
+      background-color: #ffffff;
+      border: 1px solid var(--ux-c-50);
+      color: var(--ux-c-300);
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .btn-a11y-toggle:hover {
+      background-color: var(--ux-c-50);
+      color: var(--ux-c-400);
+    }
+    .btn-a11y-toggle.active {
+      background-color: var(--ux-c-400) !important;
+      border-color: var(--ux-c-400) !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 0 3px rgba(34, 67, 137, 0.35) !important;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <!-- 1. SIDEBAR CANÔNICA DO ADMINKIT -->
+  <nav id="sidebar" class="sidebar js-sidebar" aria-label="Menu Lateral de Navegação">
+    <a class="sidebar-brand" href="#">
+      <i class="bi bi-box-fill text-primary fs-4"></i>
+      <span>AdminKit Pro</span>
+    </a>
+
+    <div class="sidebar-header">Visão Geral</div>
+    <ul class="sidebar-nav">
+      <li class="sidebar-item active">
+        <a class="sidebar-link" href="#dashboard">
+          <i class="bi bi-sliders"></i>
+          <span>Painel de Controle</span>
+        </a>
+      </li>
+
+      <li class="sidebar-header">Documentação & Telas</li>
+      <li class="sidebar-item">
+        <a class="sidebar-link" data-bs-toggle="collapse" href="#authCollapse" role="button" aria-expanded="false" aria-controls="authCollapse">
+          <i class="bi bi-shield-lock"></i>
+          <span>Autenticação</span>
+          <i class="bi bi-chevron-down ms-auto small"></i>
+        </a>
+        <div class="collapse" id="authCollapse">
+          <ul class="sidebar-dropdown">
+            <li><a class="sidebar-link" href="#">Entrar (Login)</a></li>
+            <li><a class="sidebar-link" href="#">Criar Conta</a></li>
+            <li><a class="sidebar-link" href="#">Recuperar Senha</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="sidebar-item">
+        <a class="sidebar-link" data-bs-toggle="collapse" href="#componentsCollapse" role="button" aria-expanded="false" aria-controls="componentsCollapse">
+          <i class="bi bi-grid-1x2"></i>
+          <span>UI Components</span>
+          <i class="bi bi-chevron-down ms-auto small"></i>
+        </a>
+        <div class="collapse" id="componentsCollapse">
+          <ul class="sidebar-dropdown">
+            <li><a class="sidebar-link" href="#buttons">Botões & Badges</a></li>
+            <li><a class="sidebar-link" href="#cards">Cards & Painéis</a></li>
+            <li><a class="sidebar-link" href="#forms">Formulários Acessíveis</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="sidebar-header">Inclusão & Acessibilidade</li>
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="#neuro">
+          <i class="bi bi-universal-access"></i>
+          <span>Acessibilidade (TEA/TDAH)</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Footer da Sidebar -->
+    <div class="p-3 mt-auto border-top border-secondary-subtle">
+      <div class="p-3 rounded-3" style="background: rgba(255,255,255,0.04);">
+        <small class="text-white-50 d-block mb-1">Status da Sessão</small>
+        <span class="badge bg-success-subtle text-success border">100% WCAG 2.2 AA</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 2. ÁREA DE CONTEÚDO PRINCIPAL (.main) -->
+  <div class="main">
+    <!-- Navbar Topbar -->
+    <nav class="navbar navbar-expand navbar-adminkit">
+      <button class="btn btn-light d-lg-none border me-2" id="sidebarToggle" aria-label="Abrir Menu">
+        <i class="bi bi-list fs-4"></i>
+      </button>
+
+      <form class="d-none d-sm-inline-block">
+        <div class="input-group">
+          <input type="text" class="form-control bg-light border-0" placeholder="Buscar no sistema..." aria-label="Buscar">
+          <button class="btn btn-primary" type="button" aria-label="Pesquisar"><i class="bi bi-search"></i></button>
+        </div>
+      </form>
+
+      <div class="navbar-nav ms-auto d-flex align-items-center gap-3">
+        <!-- 🌟 BOTÃO MESTRE NO TOPO: ATIVADOR DAS REGRAS DE ACESSIBILIDADE (accessibility/) -->
+        <button class="btn btn-a11y-toggle btn-sm rounded-pill px-3 d-flex align-items-center gap-2" id="a11yMasterToggle" aria-pressed="false" title="Ativar Padrões A11y (Atkinson Hyperlegible, foco WCAG 2.2 e toques 44px)">
+          <i class="bi bi-universal-access fs-6"></i>
+          <span>Ativar Acessibilidade (A11y)</span>
+        </button>
+        <!-- Notificações -->
+        <div class="dropdown">
+          <button class="btn btn-light rounded-circle p-2 border position-relative" type="button" data-bs-toggle="dropdown" aria-label="Notificações">
+            <i class="bi bi-bell"></i>
+            <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+            <li class="dropdown-header fw-bold">Alertas Operacionais</li>
+            <li><a class="dropdown-item small" href="#">Servidor atualizado para v14.369</a></li>
+            <li><a class="dropdown-item small" href="#">Relatório semanal gerado</a></li>
+          </ul>
+        </div>
+
+        <!-- Usuário -->
+        <div class="dropdown">
+          <button class="btn btn-light border rounded-pill py-1 px-3 d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown">
+            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 32px; height: 32px;">CC</div>
+            <span class="fw-semibold small d-none d-md-inline">Charles Corrêa</span>
+            <i class="bi bi-chevron-down small text-muted"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+            <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i> Perfil</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i> Ajustes</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-box-arrow-right me-2"></i> Sair</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Conteúdo da Página -->
+    <main class="content" id="dashboard">
+      <div class="container-fluid p-0">
+        <div class="row mb-3">
+          <div class="col-12">
+            <h1 class="h3 mb-1">Painel Executivo &bull; Padrão AdminKit</h1>
+            <p class="text-muted">Arquitetura modular de dashboard corporativo baseada em <code>.wrapper &gt; #sidebar + .main</code>.</p>
+          </div>
+        </div>
+
+        <!-- Metric Cards -->
+        <div class="row g-3 mb-4">
+          <div class="col-sm-6 col-xl-3">
+            <div class="card h-100 mb-0">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="text-muted small text-uppercase fw-bold">Módulos Instalados</span>
+                  <div class="bg-primary-subtle text-primary p-2 rounded-3"><i class="bi bi-box-seam"></i></div>
+                </div>
+                <h2 class="mb-1 fw-bold">17</h2>
+                <small class="text-success"><i class="bi bi-check-circle-fill me-1"></i> Todos homologados</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-xl-3">
+            <div class="card h-100 mb-0">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="text-muted small text-uppercase fw-bold">Latência Média</span>
+                  <div class="bg-success-subtle text-success p-2 rounded-3"><i class="bi bi-speedometer2"></i></div>
+                </div>
+                <h2 class="mb-1 fw-bold">120 ms</h2>
+                <small class="text-success"><i class="bi bi-arrow-down-short"></i> Excelente (Doherty)</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-xl-3">
+            <div class="card h-100 mb-0">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="text-muted small text-uppercase fw-bold">Acessibilidade</span>
+                  <div class="bg-warning-subtle text-warning-emphasis p-2 rounded-3"><i class="bi bi-eye"></i></div>
+                </div>
+                <h2 class="mb-1 fw-bold">100%</h2>
+                <small class="text-muted">Conforme WCAG 2.2 AA</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-xl-3">
+            <div class="card h-100 mb-0">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="text-muted small text-uppercase fw-bold">Tema Inicial</span>
+                  <div class="bg-info-subtle text-info-emphasis p-2 rounded-3"><i class="bi bi-sun-fill"></i></div>
+                </div>
+                <h2 class="mb-1 fw-bold">Claro</h2>
+                <small class="text-muted">Light Theme Mandatório</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid de Demonstração de Componentes -->
+        <div class="row">
+          <div class="col-12 col-lg-8">
+            <div class="card">
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <span>Últimas Operações Registradas</span>
+                <span class="badge bg-primary">Ao Vivo</span>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Operação</th>
+                      <th>Repositório</th>
+                      <th>Data</th>
+                      <th>Resultado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="fw-bold"><i class="bi bi-arrow-repeat text-primary me-2"></i> Sincronização Global</td>
+                      <td><code>CharlesCorreaDev/skills-ai</code></td>
+                      <td>12 Nov 2026</td>
+                      <td><span class="badge bg-success-subtle text-success border">Sucesso</span></td>
+                    </tr>
+                    <tr>
+                      <td class="fw-bold"><i class="bi bi-shield-check text-success me-2"></i> Auditoria de Acessibilidade</td>
+                      <td><code>bootstrap-ux-ui-plus</code></td>
+                      <td>12 Nov 2026</td>
+                      <td><span class="badge bg-success-subtle text-success border">Aprovado</span></td>
+                    </tr>
+                    <tr>
+                      <td class="fw-bold"><i class="bi bi-box text-warning me-2"></i> Release v0.20.0-beta</td>
+                      <td><code>master-of-foundryvtt</code></td>
+                      <td>12 Nov 2026</td>
+                      <td><span class="badge bg-info-subtle text-info-emphasis border">Publicado</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-4">
+            <div class="card">
+              <div class="card-header">
+                <span>Atalhos Rápidos de UX</span>
+              </div>
+              <div class="card-body">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-primary text-start d-flex align-items-center gap-2">
+                    <i class="bi bi-file-earmark-code"></i>
+                    <span>Inspecionar Código HTML</span>
+                  </button>
+                  <button class="btn btn-outline-primary text-start d-flex align-items-center gap-2">
+                    <i class="bi bi-universal-access"></i>
+                    <span>Auditar Daltonismo (WCAG)</span>
+                  </button>
+                  <button class="btn btn-primary text-start d-flex align-items-center gap-2">
+                    <i class="bi bi-save2"></i>
+                    <span>Exportar Relatório PDF</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-top py-3 px-4 text-center text-muted small mt-auto">
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+        <span>AdminKit Standard Architecture &bull; GM Charles Corrêa</span>
+        <span>Bootstrap UX/UI Plus &bull; <a href="https://github.com/CharlesCorreaDev/skills-ai" class="text-decoration-none">skills-ai</a></span>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- Bootstrap 5.3 Bundle JS com Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+  // ==========================================================================
+  // ATIVAÇÃO DAS REGRAS DE ACESSIBILIDADE (accessibility/) PELO BOTÃO DO TOPO
+  // Alterna fonte Atkinson Hyperlegible, foco de 3px WCAG 2.2 e toques 44px
+  // ==========================================================================
+  const a11yBtn = document.getElementById('a11yMasterToggle');
+  let a11yActive = false;
+
+  if (a11yBtn) {
+    a11yBtn.addEventListener('click', () => {
+      a11yActive = !a11yActive;
+      document.body.classList.toggle('a11y-active', a11yActive);
+      a11yBtn.classList.toggle('active', a11yActive);
+      a11yBtn.setAttribute('aria-pressed', a11yActive ? 'true' : 'false');
+
+      if (a11yActive) {
+        a11yBtn.innerHTML = '<i class="bi bi-check-circle-fill fs-6 text-warning"></i> <span>Acessibilidade Ativa (WCAG 2.2)</span>';
+      } else {
+        a11yBtn.innerHTML = '<i class="bi bi-universal-access fs-6"></i> <span>Ativar Acessibilidade (A11y)</span>';
+      }
+    });
+  }
+</script>
+
+<script>
+  // Mobile sidebar toggle para padrão AdminKit
+  const sidebar = document.getElementById('sidebar');
+  const toggleBtn = document.getElementById('sidebarToggle');
+  if (toggleBtn && sidebar) {
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('collapsed');
+    });
+  }
+</script>
+
+</body>
+</html>
+
