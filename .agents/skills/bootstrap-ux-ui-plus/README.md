@@ -2,7 +2,7 @@
 
 > **Cognitive UX Laws, Nielsen Usability Heuristics, WCAG 2.2 AA & Neurodiversity for Bootstrap (v5.3 & v6.0)**  
 > *Engenharia Cognitiva de Usabilidade, Leis de UX, Acessibilidade e Neurodiversidade para Bootstrap por GM Charles Corrêa*  
-> **Status: Beta (v0.5.0-beta)**
+> **Status: Beta (v0.7.0-beta)**
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: humanizer-plus
-description: Comprehensive, universal AI content humanization, provenance scrubbing, and code de-watermarking suite. Cleans any text, source code, documentation, article, script, or payload across all languages (PT-BR, EN, ES, FR, DE). Strips invisible zero-width tracking codepoints (Layer A), removes AI-generated code comments and robotic coding quirks (Layer B), purges watermarks/metadata containers (C2PA, EXIF, AI tags), and eliminates all 26 statistical AI-isms and tells from the latest Wikipedia AI Cleanup / blader/humanizer v3.1.0 specification. Continuously monitors blader/humanizer releases and updates itself with developer authorization while perpetually preserving local humanizer_data.
+description: Comprehensive, universal AI content humanization, provenance scrubbing, and code de-watermarking suite. Cleans any text, source code, documentation, article, script, or payload across all languages (PT-BR, EN, ES, FR, DE). Strips invisible zero-width tracking codepoints, removes AI-generated code comments, purges watermarks/metadata containers (C2PA, EXIF, AI tags), and eliminates all 26 statistical AI-isms from blader/humanizer v3.1.0. Use when humanizing text, refactoring AI-generated code to idiomatic clean code, purging watermarks, removing emojis, or reviewing PRs for synthetic tells.
 ---
 
 # Humanizer Plus 🧠🛡️✨

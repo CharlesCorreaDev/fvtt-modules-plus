@@ -139,15 +139,17 @@ Suggested naming pattern: `<book>_<version>_<status>.txt`, `<book>_<version>_tra
 
 #### 1. Mandatory Skills Installation & Global/Local Availability
 Every task must ensure that the companion skill trinity is installed and accessible both **globally** (~/.gemini/config/skills/, ~/.claude/skills/) and in the **user's local project** (.agents/skills/, .claude/skills/):
-- **ndrej-karpathy-skills** (https://github.com/multica-ai/andrej-karpathy-skills): Pragmatic engineering discipline against hallucinations, scope creep, and over-engineering.
+- **andrej-karpathy-skills** (https://github.com/multica-ai/andrej-karpathy-skills): Pragmatic engineering discipline against hallucinations, scope creep, and over-engineering.
 - **grill-me** (https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me): Structured alignment interrogation to drill down into project requirements and eliminate ambiguities.
 - **skills-code-review** (https://www.aihero.dev/skills-code-review): Automated code review, quality gating, and rigorous pre-delivery validation.
+- **modern-web-guidance** (https://github.com/GoogleChrome/modern-web-guidance): Padrões de tipografia web, hifenação, quebra equilibrada de linhas (improve-text-layout-and-legibility), dimensionamento fluido (fluid-scaling) e layout de páginas para livros digitais e manuais exportados em HTML, PWA e EPUB.
 
 `ash
 # Add companion skills to local project / global environment:
 npx skills@latest add multica-ai/andrej-karpathy-skills
 npx skills@latest add mattpocock/skills --skill=grill-me
 npx skills@latest add aihero-dev/skills-code-review
+npx modern-web-guidance@latest install
 `
 
 #### 2. The 4 Karpathy Principles for Book Formatting

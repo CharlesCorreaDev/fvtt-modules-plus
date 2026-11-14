@@ -315,6 +315,119 @@
       color: #ffffff !important;
       box-shadow: 0 0 0 3px rgba(34, 67, 137, 0.35) !important;
     }
+
+    /* ==========================================================================
+       EFEITOS DE TRANSIÇÃO, HOVER, ACTIVE E MICROINTERAÇÕES (W3C / MOTION STANDARDS)
+       ========================================================================== */
+    .btn, button, .btn-interactive {
+      transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), 
+                  box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1), 
+                  background-color 0.15s ease, 
+                  color 0.15s ease !important;
+      will-change: transform;
+    }
+
+    .btn:active, button:active, .btn-interactive:active {
+      transform: scale(0.97) !important;
+    }
+
+    .card {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                  box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                  border-color 0.25s ease !important;
+      will-change: transform, box-shadow;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(34, 67, 137, 0.08) !important;
+    }
+
+    .btn-glow {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-glow::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: skewX(-20deg);
+      transition: none;
+    }
+
+    .btn-glow:hover::before {
+      left: 200%;
+      transition: left 0.75s ease-in-out;
+    }
+
+    /* Underline Sweep em Links */
+    .nav-link-sweep {
+      position: relative;
+      text-decoration: none !important;
+      display: inline-block;
+      padding-bottom: 2px;
+      color: var(--ux-c-300);
+      font-weight: 600;
+    }
+    .nav-link-sweep::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--ux-c-300), var(--ux-c-100));
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-link-sweep:hover::after, .nav-link-sweep:focus-visible::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* Card 3D Tilt com Elevação Suave */
+    .card-tilt-hover {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                  box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                  border-color 0.25s ease !important;
+      will-change: transform, box-shadow;
+      cursor: pointer;
+    }
+    .card-tilt-hover:hover {
+      transform: translateY(-5px) scale(1.01) !important;
+      box-shadow: 0 12px 28px rgba(34, 67, 137, 0.12) !important;
+      border-color: var(--ux-c-100) !important;
+    }
+
+    /* Skeleton Shimmer Loading Placeholder */
+    @keyframes shimmerWave {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .skeleton-shimmer {
+      background: linear-gradient(90deg, 
+        rgba(230, 235, 245, 0.5) 25%, 
+        rgba(255, 255, 255, 0.85) 50%, 
+        rgba(230, 235, 245, 0.5) 75%);
+      background-size: 200% 100%;
+      animation: shimmerWave 1.6s infinite linear;
+      border-radius: 0.375rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -571,6 +684,62 @@
             <div class="form-check form-switch">
               <input class="form-check-input" type="checkbox" role="switch" id="swZen">
               <label class="form-check-label fw-bold" for="swZen">Modo Zen (TDAH)</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Painel de Microinterações, Hover Effects & Motion Lab -->
+    <div class="row g-3 mb-4">
+      <div class="col-12">
+        <div class="card border-primary-subtle">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <span class="fw-bold text-primary"><i class="bi bi-stars me-2"></i> Laboratório de Microinterações & Hover Effects (W3C & CodePen Standards)</span>
+            <span class="badge bg-primary">W3Schools & Motion Standards</span>
+          </div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <div class="p-3 border rounded-3 bg-white h-100 card-tilt-hover">
+                  <span class="badge bg-primary-subtle text-primary mb-2">Botão Glow Shimmer</span>
+                  <p class="small text-muted mb-3">Reflexo de luz dinâmico no hover com feedback tátil de escala.</p>
+                  <button class="btn btn-primary w-100 btn-interactive btn-glow">
+                    <i class="bi bi-lightning-charge-fill me-1"></i> Botão Interativo Glow
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 border rounded-3 bg-white h-100 card-tilt-hover">
+                  <span class="badge bg-success-subtle text-success mb-2">Underline Sweep</span>
+                  <p class="small text-muted mb-3">Expansão de sublinhado direcional suave da esquerda para a direita.</p>
+                  <div class="pt-2">
+                    <a href="#overview" class="nav-link-sweep fs-6">
+                      Explorar Able Pro Showcase &rarr;
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 border rounded-3 bg-white h-100 card-tilt-hover">
+                  <span class="badge bg-secondary-subtle text-secondary mb-2">Skeleton Shimmer</span>
+                  <p class="small text-muted mb-3">Placeholder animado por GPU para estados de espera sem reflow.</p>
+                  <div class="d-flex flex-column gap-2">
+                    <div class="skeleton-shimmer" style="height: 14px; width: 85%;"></div>
+                    <div class="skeleton-shimmer" style="height: 14px; width: 60%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 pt-3 mt-3 border-top">
+              <span class="small fw-bold text-muted align-self-center me-1">Referências Canônicas:</span>
+              <a href="https://animejs.com/" target="_blank" rel="noopener noreferrer" class="badge bg-light text-dark border text-decoration-none p-2"><i class="bi bi-box-arrow-up-right me-1"></i> Anime.js</a>
+              <a href="https://motion.dev/examples?platform=js" target="_blank" rel="noopener noreferrer" class="badge bg-light text-dark border text-decoration-none p-2"><i class="bi bi-box-arrow-up-right me-1"></i> Motion.dev</a>
+              <a href="https://github.com/sera619/PureCSS-Animations" target="_blank" rel="noopener noreferrer" class="badge bg-light text-dark border text-decoration-none p-2"><i class="bi bi-github me-1"></i> PureCSS-Animations</a>
+              <a href="https://codepen.io/tag/hover-animation" target="_blank" rel="noopener noreferrer" class="badge bg-light text-dark border text-decoration-none p-2"><i class="bi bi-code-slash me-1"></i> CodePen Hover Collections</a>
+              <a href="https://github.com/yurimutti/recursos-frontend" target="_blank" rel="noopener noreferrer" class="badge bg-light text-dark border text-decoration-none p-2"><i class="bi bi-star-fill text-warning me-1"></i> Recursos Frontend (Yuri Mutti)</a>
+              <a href="https://github.com/Guia-Dev-Brasil/guiadofrontend" target="_blank" rel="noopener noreferrer" class="badge bg-light text-dark border text-decoration-none p-2"><i class="bi bi-flag-fill text-success me-1"></i> Guia do Frontend Brasil</a>
             </div>
           </div>
         </div>

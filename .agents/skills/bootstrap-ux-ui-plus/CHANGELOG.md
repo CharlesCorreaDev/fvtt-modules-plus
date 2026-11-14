@@ -7,6 +7,36 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ---
 
+## [0.7.0-beta] - 2026-11-13
+
+### Added / Adicionado
+- **Integração Mandatória com GoogleChrome/modern-web-guidance e WebMCP:**
+  - Auditoria automatizada de templates e componentes com modern-web-guidance legacy-scan <path> para erradicar práticas obsoletas de HTML/CSS.
+  - Adoção de padrões WebMCP (gentic-forms e gentic-javascript-tools) para permitir que agentes de IA interajam com formulários e interfaces ricas.
+
+---
+
+## [0.6.0-beta] - 2026-11-13
+
+### Added / Adicionado
+- **Manual Mestre Canônico de HTML5 & CSS3 Moderno (`standards/html5-css3-master-manual.md`):**
+  - Síntese profunda baseada nos padrões W3C/WHATWG e na documentação clássica do **W3Schools HTML & CSS**.
+  - Especificação completa de HTML5 Semântico, árvore AOM para leitores de tela e meta tags vitais (SEO, Open Graph, Favicon, PWA).
+  - Guia mestre de formulários acessíveis (W3Schools Form Master): 14 tipos de inputs, `<fieldset>`, `<legend>`, `<datalist>`, `<optgroup>`, feedback visual de validação e restrições nativas.
+  - Tabelas de dados de alta densidade com acessibilidade total (`<caption>`, `scope="col"`, cards responsivos).
+  - CSS3 avançado: Cascade Layers (`@layer`), seletores `:is()`, `:where()`, `:has()`, Container Queries (`@container`), Design Tokens base 8px e paleta oficial `#90271`.
+- **Efeitos Visuais Mandatórios, Transições, Hover, Active e Microinterações nos Templates:**
+  - Diretriz obrigatória para que nenhum componente em templates gerados pela skill pareça estático ou sem vida.
+  - Implementação de efeitos de hover de ponta: *Underline Sweep* em menus, *Botão Glow/Shimmer* com reflexo dinâmico de luz, *Card 3D Tilt* com elevação orgânica e *Image Zoom Reveal*.
+  - Feedback tátil no clique (`:active { transform: scale(0.97); }`) e anel de foco acessível duplo (`:focus-visible`).
+  - Benchmarks de bibliotecas de animação: **Anime.js** (timelines e SVG morphing), **Motion.dev** (spring physics e layout transitions), **PureCSS-Animations** (keyframes leves sem JS), **CodePen Hover Collections** (pens de Morgan Carbon Fourteen `mOxYjY` e Nathan Long `MwOpxj`) e **Prismic CSS Hover Effects**.
+- **Acervos Canônicos e Comunidades do Frontend Brasileiro (`references/ui-inspiration-and-pattern-libraries.md`):**
+  - Inclusão formal de **Recursos Frontend por Yuri Mutti** (`github.com/yurimutti/recursos-frontend`) e **Guia do Frontend Brasil** (`github.com/Guia-Dev-Brasil/guiadofrontend`).
+- **Templates Atualizados com Microinterações e Transições GPU:**
+  - `templates/admin-dashboard-template.html` e `templates/adminkit-dashboard-template.html` equipados com classes de interação, hover com elevação orgânica, efeito glow e respeito mandatório a `prefers-reduced-motion`.
+
+---
+
 ## [0.5.0-beta] - 2026-11-12
 
 ### Added / Adicionado

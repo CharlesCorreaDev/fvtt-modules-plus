@@ -5,7 +5,7 @@ description: Gerador, blindador de segurança e configurador universal de servid
 
 # MCP Builder — Arquiteto e Blindador de Servidores MCP 🛠️🛡️
 > *Por Charles Corrêa — Ecossistema AI Skills*  
-> **Versão: v0.1.0-beta**
+> **Versão: v0.3.0-beta**
 
 ---
 
@@ -51,7 +51,19 @@ A skill **`mcp-builder`** transforma o agente de IA em um especialista em protoc
      python <CAMINHO_PARA_SKILL>/mcp-builder/scripts/issue_reporter.py "<Titulo_do_Erro>" "<Detalhes_Sanitizados>" "<linguagem>" "<Sugestao>"
      ```
 
-### 4. Requisitos Mínimos por Linguagem
+### 4. Padrão de Erros de Ferramentas (isError: true) e Prevenção de Tool Poisoning (OWASP MCP Top 10)
+- **Erros de Ferramenta vs Protocolo JSON-RPC:** Falhas de execução de ferramentas (ex: arquivo não encontrado, input inválido, target indisponível) DEVEM ser retornadas com `"isError": true` dentro do bloco `result`. Nunca envie erro de protocolo (`code: -32000`) para falhas operacionais, permitindo que o modelo leia o diagnóstico e se recupere.
+- **Prevenção de Tool Poisoning & Confused Deputy:**
+  - Descrições de ferramentas e parâmetros devem ser puramente declarativas, sem instruções reflexivas ou comandos imperativos embutidos.
+  - Toda entrada de caminho de arquivo DEVE ser sanitizada com resolução segura contra Path Traversal (`../`).
+
+### 5. Suporte a Code Mode (Programmatic Tool Calling)
+- Ao projetar servidores MCP para APIs extensas (com mais de 10 a 20 ferramentas), ofereça a arquitetura **Code Mode**:
+  - Em vez de registrar dezenas de ferramentas atômicas, exponha um Gateway com 2 a 3 ferramentas primárias: search (para descobrir métodos) e execute (para rodar scripts que orquestram os métodos em lote).
+  - Economiza de 80% a 95% dos tokens de contexto e permite agregação de dados na memória do sandbox.
+  - Para documentação e padrões de implementação completos, consulte a skill companion code-mode-builder.
+
+### 6. Requisitos Mínimos por Linguagem
 - **PHP**: Mínimo PHP 8.4. Exigir tipagem estrita (`declare(strict_types=1);`).
 - **Python**: Mínimo Python 3.12. Async-first.
 - **Node.js**: Mínimo Node.js 22. Padrão ESM puro (`node:readline`, `process.stdout`).
@@ -97,4 +109,7 @@ A skill **`mcp-builder`** transforma o agente de IA em um especialista em protoc
 > 2. **NVIDIA Auto-Ontology (`NVIDIA/auto-ontology`):**
 >    - Instalação: `npx skills@latest add NVIDIA/auto-ontology` (ou `pip install auto-ontology`)
 >    - **PROIBIDO INVENTAR NÚMEROS INEXISTENTES:** O agente JAMAIS deve alucinar estatísticas, portas arbitrárias, contagens fictícias, colunas inexistentes ou esquemas falsos. Se um número ou parâmetro não for conhecido com certeza matemática ou documental, declare incerteza e consulte as fontes reais.
+> 3. **Google Chrome Modern Web Guidance & WebMCP (`GoogleChrome/modern-web-guidance`):**
+>    - Instalação: `npx modern-web-guidance@latest install` ou globalmente `npm install -g modern-web-guidance`.
+>    - Suporte nativo ao padrão **WebMCP** para geração de pontes entre servidores MCP convencionais e ferramentas web client-side (`agentic-forms` declarativos e `agentic-javascript-tools` imperativos).
 > - Consulte o guia canônico completo em [`docs-for-skill/security-audit-and-auto-ontology.md`](../docs-for-skill/security-audit-and-auto-ontology.md).

@@ -28,6 +28,19 @@
 - **[Blush Design](https://blush.design/blog/post/guide-ui-design):** Modular, customizable vector illustrations with accessible image descriptions.
 - **[Maze](https://maze.co/collections/ux-ui-design/ui-design/):** Remote user testing, heatmaps, and quantitative usability metrics.
 
+### 🎬 4. Animation, Transitions & Microinteractions Repositories
+- **[Anime.js](https://animejs.com/):** High-performance JavaScript animation engine for staggered grids, complex timelines, and SVG transforms.
+- **[Motion (Framer Motion / Motion.dev)](https://motion.dev/examples?platform=js):** Motion library for fluid spring physics, gesture handling, and shared layout animations.
+- **[PureCSS-Animations](https://github.com/sera619/PureCSS-Animations):** Zero-JS pure CSS keyframes library for lightweight, performant UI transitions.
+- **[CodePen Hover Animation Tag](https://codepen.io/tag/hover-animation):** Endless paginated stream of creative button, card, and navigation hover states.
+- **[Morgan Carbon Fourteen Hover Pen](https://codepen.io/morgancarbonfourteen/pen/mOxYjY):** Modern border-glow and fluid magnetic hover effects.
+- **[Nathan Long Button Hover Pen](https://codepen.io/nathanlong/pen/MwOpxj):** Elegant button sweep and ripple hover animations.
+- **[Prismic CSS Hover Effects Guide](https://prismic.io/blog/css-hover-effects):** UX design principles and CSS implementations for purposeful microinteractions.
+
+### 🇧🇷 5. Brazilian Frontend Knowledge Hubs & Ecosystem Repositories
+- **[Recursos Frontend by Yuri Mutti](https://github.com/yurimutti/recursos-frontend):** Curated Brazilian directory of frontend tools, SVG icons, color generators, and accessibility validators.
+- **[Guia do Frontend Brasil](https://github.com/Guia-Dev-Brasil/guiadofrontend):** Complete community roadmap, architectural guides, and frontend standards in Brazil.
+
 ---
 
 ## 🇧🇷 Português (Brasil)
@@ -64,3 +77,26 @@
 | **[Canva Whiteboard](https://www.canva.com/online-whiteboard/ui-design-tool/)** | Brainstorming visual de layouts, fluxos de usuário e wireframes conceituais. | Análise de fluxogramas iniciais para definição dos componentes de navegação. |
 | **[Blush Design](https://blush.design/blog/post/guide-ui-design)** | Ilustrações vetoriais modulares criadas por artistas globais. | Diretrizes para incorporar ilustrações acessíveis com `alt` descritivo sem poluir a interface. |
 | **[Maze](https://maze.co/collections/ux-ui-design/ui-design/)** | Testes remotos com usuários, mapas de calor e testes de usabilidade quantitativos. | Critérios para validação de fluxos e taxas de sucesso de tarefas (*Task Success Rate*). |
+
+---
+
+## 🎬 4. Bibliotecas de Animação, Efeitos de Transição e Hover (UI Motion & Delights)
+
+| Biblioteca / Recurso | Tipo / Foco | Aplicação nos Templates Bootstrap |
+| :--- | :--- | :--- |
+| **[PureCSS-Animations](https://github.com/sera619/PureCSS-Animations)** | Animações puras em CSS3 sem JS. | Keyframes leves para loading states, entradas de cards, pulso de notificações e modais. |
+| **[Anime.js](https://animejs.com/)** | Motor JavaScript de animação flexível e leve. | Timelines sincronizadas, animação escalonada em grids (staggering) e morphing de SVGs. |
+| **[Motion (Framer Motion / Motion.dev)](https://motion.dev/examples?platform=js)** | Biblioteca de ponta para JavaScript/React/Web. | Gestos de arrastar, física de molas (springs), layout transitions compartilhadas e scroll animations. |
+| **[CodePen Tag Hover Animation](https://codepen.io/tag/hover-animation)** | Catálogo infinito e paginado de animações de hover. | Experimentação contínua de novos estados de foco, hover e microinterações de cards e botões. |
+| **[Morgan Carbon Fourteen (Hover Pen)](https://codepen.io/morgancarbonfourteen/pen/mOxYjY)** | Efeitos de borda e brilho dinâmico em cards e botões. | Implementação de bordas luminosas e efeito halo em hover. |
+| **[Nathan Long (Button Hover Pen)](https://codepen.io/nathanlong/pen/MwOpxj)** | Preenchimento fluido deslizante em botões. | Botões com transições direcionais elegantes no hover e foco ativo. |
+| **[Prismic CSS Hover Effects Guide](https://prismic.io/blog/css-hover-effects)** | Guia canônico de boas práticas em hover UX. | Princípios de microcópia e motion intencional para links, imagens, botões e grids. |
+
+---
+
+## 🇧🇷 5. Comunidades & Acervos Canônicos do Frontend Brasileiro
+
+| Repositório / Guia | Autor / Mantenedor | Conteúdo & Como Consultar |
+| :--- | :--- | :--- |
+| **[Recursos Frontend](https://github.com/yurimutti/recursos-frontend)** | Yuri Mutti | O maior diretório curado em português com links para ícones, fontes, geradores de CSS, gradientes, ilustrações vetoriais, acessibilidade e ferramentas. Consulta mandatória para enriquecer layouts. |
+| **[Guia do Frontend Brasil](https://github.com/Guia-Dev-Brasil/guiadofrontend)** | Comunidade Guia Dev Brasil | Roteiro de aprendizado, arquitetura de software para web, padrões de Clean Code para CSS/JS, boas práticas de performance e fóruns da comunidade brasileira. |

@@ -7,6 +7,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ---
 
+## [0.22.0-beta] - 2026-11-13
+
+### Added / Adicionado
+- **Integração Mandatória com `GoogleChrome/modern-web-guidance` e WebMCP:**
+  - Auditoria automatizada de código web em módulos e sistemas Foundry via `modern-web-guidance legacy-scan <path>`.
+  - Erradicação de práticas web obsoletas e adoção de padrões de acessibilidade e WebMCP (`agentic-forms` e `agentic-javascript-tools`) para interação de agentes em interfaces Canvas e `ApplicationV2`.
+
+---
+
+## [0.21.0-beta] - 2026-11-13
+
+### Added / Adicionado
+- **Suporte Nativo a Code Mode no Servidor MCP (`foundry_mcp_server.js`):**
+  - Implementada a ferramenta `code_mode` que permite execução programática de scripts em lote dentro de um isolate V8 seguro (`vm.createContext`).
+  - Namespace global assíncrono `foundry.*` expondo todas as 18 ferramentas de criação de atores, itens, cenas, compêndios, tabelas, macros e inspeção em 1 único turno.
+  - Redução de até 90% no overhead de tokens de contexto em tarefas multi-step de criação de campanhas.
+
+---
+
 ## [0.20.0-beta] - 2026-11-12
 
 ### Added / Adicionado

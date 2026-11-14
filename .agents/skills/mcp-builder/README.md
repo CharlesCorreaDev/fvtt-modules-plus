@@ -2,7 +2,7 @@
 
 > **Universal MCP Server Generator, Security Hardener, and Orchestrator**  
 > *Gerador, Blindador de Segurança e Configurador Universal de Servidores Model Context Protocol*  
-> **Versão / Version: v0.1.0-beta**
+> **Versão / Version: v0.4.0-beta**
 
 ---
 

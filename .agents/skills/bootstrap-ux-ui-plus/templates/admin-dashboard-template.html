@@ -281,6 +281,136 @@
       color: #ffffff !important;
       box-shadow: 0 0 0 3px rgba(34, 67, 137, 0.35) !important;
     }
+
+    /* ==========================================================================
+       EFEITOS DE TRANSIÇÃO, HOVER, ACTIVE E MICROINTERAÇÕES (W3C / MOTION STANDARDS)
+       ========================================================================== */
+    .btn, button, .btn-interactive {
+      transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), 
+                  box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1), 
+                  background-color 0.15s ease, 
+                  color 0.15s ease !important;
+      will-change: transform;
+    }
+
+    .btn:active, button:active, .btn-interactive:active {
+      transform: scale(0.97) !important;
+    }
+
+    .card {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                  box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                  border-color 0.25s ease !important;
+      will-change: transform, box-shadow;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(34, 67, 137, 0.08) !important;
+    }
+
+    .btn-glow {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-glow::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: skewX(-20deg);
+      transition: none;
+    }
+
+    .btn-glow:hover::before {
+      left: 200%;
+      transition: left 0.75s ease-in-out;
+    }
+
+    /* Underline Sweep em Links de Navegação e Textos */
+    .nav-link-sweep {
+      position: relative;
+      text-decoration: none !important;
+      display: inline-block;
+      padding-bottom: 2px;
+      color: var(--ux-c-300);
+      font-weight: 600;
+    }
+    .nav-link-sweep::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--ux-c-300), var(--ux-c-100));
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-link-sweep:hover::after, .nav-link-sweep:focus-visible::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* Card 3D Tilt com Elevação Suave */
+    .card-tilt-hover {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                  box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                  border-color 0.25s ease !important;
+      will-change: transform, box-shadow;
+      cursor: pointer;
+    }
+    .card-tilt-hover:hover {
+      transform: translateY(-5px) scale(1.01) !important;
+      box-shadow: 0 12px 28px rgba(34, 67, 137, 0.12) !important;
+      border-color: var(--ux-c-100) !important;
+    }
+
+    /* Skeleton Shimmer Loading Placeholder */
+    @keyframes shimmerWave {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .skeleton-shimmer {
+      background: linear-gradient(90deg, 
+        rgba(230, 235, 245, 0.5) 25%, 
+        rgba(255, 255, 255, 0.85) 50%, 
+        rgba(230, 235, 245, 0.5) 75%);
+      background-size: 200% 100%;
+      animation: shimmerWave 1.6s infinite linear;
+      border-radius: 0.375rem;
+    }
+
+    /* Image Zoom Reveal Container */
+    .img-zoom-container {
+      overflow: hidden;
+      border-radius: 0.5rem;
+      position: relative;
+    }
+    .img-zoom-container img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+      will-change: transform;
+    }
+    .img-zoom-container:hover img {
+      transform: scale(1.06);
+      filter: brightness(1.03);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -498,13 +628,90 @@
         <p class="text-muted">A Regra 60-30-10: <strong>60% Cor Dominante Neutra</strong> (fundo claro), <strong>30% Estrutura</strong> (cards e menus) e <strong>10% Destaque</strong> (botão de conversão com Efeito Von Restorff). Modelos RGB, CMYK, HSL e LAB.</p>
       </section>
 
-      <!-- 8. STANDARDS -->
+      <!-- 8. STANDARDS: HIG & HTML5/CSS3 W3SCHOOLS -->
       <section id="doc-standards" class="card p-4">
         <div class="d-flex justify-content-between align-items-center mb-3">
-          <h4 class="fw-bold mb-0"><i class="bi bi-apple text-primary me-2"></i> 8. Standards: Human Interface Guidelines (Apple HIG & Fluent)</h4>
+          <h4 class="fw-bold mb-0"><i class="bi bi-apple text-primary me-2"></i> 8. Standards: HIG, HTML5 Semântico & CSS3 W3Schools</h4>
           <span class="badge bg-light text-dark border">standards/</span>
         </div>
-        <p class="text-muted">Apple HIG: Deferência ao conteúdo, clareza, cantos arredondados orgânicos (*squircle*), e vidro fosco (*frosted glass* / <code>backdrop-filter</code>). Microsoft Fluent UI: 5 níveis de elevação e luz Mica.</p>
+        <p class="text-muted">Apple HIG: Deferência ao conteúdo, clareza, cantos orgânicos (*squircle*), e vidro fosco (*frosted glass* / <code>backdrop-filter</code>). Microsoft Fluent UI: 5 níveis de elevação e luz Mica. <strong>W3Schools Standards:</strong> HTML5 semântico rigoroso (apenas 1 <code>&lt;main&gt;</code>, formulários com restrições e AOM acessível) e CSS3 com Cascade Layers (<code>@layer</code>) e Container Queries.</p>
+        
+        <!-- Formulário Semântico Demonstrativo com Validação -->
+        <div class="bg-light p-3 rounded-3 border mb-3">
+          <h6 class="fw-bold text-primary mb-2"><i class="bi bi-ui-checks me-1"></i> Formulário Acessível & Floating Labels (W3Schools Form Master)</h6>
+          <div class="row g-2">
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="demoNome" placeholder="Seu Nome" required>
+                <label for="demoNome">Nome Completo (com Label explícita)</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="email" class="form-control" id="demoEmail" placeholder="nome@empresa.com" required>
+                <label for="demoEmail">E-mail Corporativo</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8.1 MOTION LAB & MICROINTERAÇÕES (W3C / ANIMATION STANDARDS) -->
+      <section id="doc-motion" class="card p-4 border-primary-subtle">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="fw-bold mb-0 text-primary"><i class="bi bi-stars me-2"></i> Laboratório de Microinterações, Hover Effects & Motion</h4>
+          <span class="badge bg-primary text-white">Novo &bull; W3C & CodePen</span>
+        </div>
+        <p class="text-muted">Diretriz mandatória: templates vivos com aceleração GPU (apenas <code>transform</code> e <code>opacity</code>) e respeito inegociável a <code>prefers-reduced-motion</code>. Exemplos práticos integrados:</p>
+
+        <div class="row g-3 mb-3">
+          <!-- Demo 1: Botão Glow / Shimmer -->
+          <div class="col-md-4">
+            <div class="p-3 border rounded-3 bg-white h-100 card-tilt-hover">
+              <span class="badge bg-primary-subtle text-primary mb-2">Botão Glow Shimmer</span>
+              <p class="small text-muted mb-3">Passe o mouse para ver o feixe de luz reflexivo e clique para sentir o feedback tátil de <code>scale(0.97)</code>.</p>
+              <button class="btn btn-primary w-100 btn-interactive btn-glow">
+                <i class="bi bi-lightning-charge-fill me-1"></i> Ação Interativa Glow
+              </button>
+            </div>
+          </div>
+
+          <!-- Demo 2: Underline Sweep Link -->
+          <div class="col-md-4">
+            <div class="p-3 border rounded-3 bg-white h-100 card-tilt-hover">
+              <span class="badge bg-success-subtle text-success mb-2">Underline Sweep</span>
+              <p class="small text-muted mb-3">Transição suave de sublinhado direcional da esquerda para a direita (Prismic & CodePen Pattern).</p>
+              <div class="pt-2">
+                <a href="#doc-motion" class="nav-link-sweep fs-6">
+                  Explorar Documentação Interativa &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Demo 3: Skeleton Shimmer Loading -->
+          <div class="col-md-4">
+            <div class="p-3 border rounded-3 bg-white h-100 card-tilt-hover">
+              <span class="badge bg-secondary-subtle text-secondary mb-2">Skeleton Shimmer</span>
+              <p class="small text-muted mb-3">Placeholder animado por GPU para estados de carregamento antes da renderização dos dados.</p>
+              <div class="d-flex flex-column gap-2">
+                <div class="skeleton-shimmer" style="height: 14px; width: 85%;"></div>
+                <div class="skeleton-shimmer" style="height: 14px; width: 60%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badges de Bibliotecas de Animação e Acervos -->
+        <div class="d-flex flex-wrap gap-2 pt-2 border-top">
+          <span class="small fw-bold text-muted align-self-center me-1">Acervos & Engines:</span>
+          <a href="https://animejs.com/" target="_blank" rel="noopener noreferrer" class="badge bg-light text-dark border text-decoration-none p-2"><i class="bi bi-box-arrow-up-right me-1"></i> Anime.js</a>
+          <a href="https://motion.dev/examples?platform=js" target="_blank" rel="noopener noreferrer" class="badge bg-light text-dark border text-decoration-none p-2"><i class="bi bi-box-arrow-up-right me-1"></i> Motion.dev</a>
+          <a href="https://github.com/sera619/PureCSS-Animations" target="_blank" rel="noopener noreferrer" class="badge bg-light text-dark border text-decoration-none p-2"><i class="bi bi-github me-1"></i> PureCSS-Animations</a>
+          <a href="https://codepen.io/tag/hover-animation" target="_blank" rel="noopener noreferrer" class="badge bg-light text-dark border text-decoration-none p-2"><i class="bi bi-code-slash me-1"></i> CodePen Hover Collections</a>
+          <a href="https://github.com/yurimutti/recursos-frontend" target="_blank" rel="noopener noreferrer" class="badge bg-light text-dark border text-decoration-none p-2"><i class="bi bi-star-fill text-warning me-1"></i> Recursos Frontend (Yuri Mutti)</a>
+          <a href="https://github.com/Guia-Dev-Brasil/guiadofrontend" target="_blank" rel="noopener noreferrer" class="badge bg-light text-dark border text-decoration-none p-2"><i class="bi bi-flag-fill text-success me-1"></i> Guia do Frontend Brasil</a>
+        </div>
       </section>
 
       <!-- 9. PATTERNS -->
@@ -519,10 +726,10 @@
       <!-- 10. REFERENCES -->
       <section id="doc-references" class="card p-4 mb-0">
         <div class="d-flex justify-content-between align-items-center mb-3">
-          <h4 class="fw-bold mb-0"><i class="bi bi-link-45deg text-primary me-2"></i> 10. References: 30+ Hubs Globais Ingeridos</h4>
+          <h4 class="fw-bold mb-0"><i class="bi bi-link-45deg text-primary me-2"></i> 10. References: 30+ Hubs Globais & Comunidade Nacional</h4>
           <span class="badge bg-light text-dark border">references/</span>
         </div>
-        <p class="text-muted mb-0">Figma, IxDF, RD Station, Alura, EBAC, Awwwards, Dribbble, UI Patterns, UI Design Daily, UI Skills, Uizard, Pixso, Canva, Blush, Maze, Salesforce e referências acadêmicas catalogadas em <code>references/ux-sources-and-inspirations.md</code>.</p>
+        <p class="text-muted mb-0">Figma, IxDF, RD Station, Alura, EBAC, Awwwards, Dribbble, UI Patterns, UI Design Daily, UI Skills, Uizard, Pixso, Canva, Blush, Maze, Salesforce, <strong>Recursos Frontend (Yuri Mutti)</strong> e <strong>Guia do Frontend Brasil</strong> catalogados em <code>references/ui-inspiration-and-pattern-libraries.md</code> e <code>references/ux-sources-and-inspirations.md</code>.</p>
       </section>
     </main>
 

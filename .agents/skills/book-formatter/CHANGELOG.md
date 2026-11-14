@@ -7,6 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ---
 
+## [0.18.0-beta] - 2026-11-13
+
+### Added / Adicionado
+- **Integração com GoogleChrome/modern-web-guidance e WebMCP:**
+  - Padrões modernos de tipografia web, escala fluida (clamp()) e acessibilidade para exportação de livros digitais e documentações em HTML.
+  - Varredura de layouts exportados via modern-web-guidance legacy-scan <path> para prevenir tags e estilizações obsoletas.
+
+---
+
 ## [0.17.0-beta] - 2026-11-12
 
 ### Added / Adicionado

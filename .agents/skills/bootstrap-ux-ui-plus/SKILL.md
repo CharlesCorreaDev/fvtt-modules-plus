@@ -1,11 +1,11 @@
 ---
 name: bootstrap-ux-ui-plus
-description: Master UX/UI design, usability engineering, responsive interface architecture, cognitive ergonomics, and neurodiversity (ADHD & Autism Spectrum) using Bootstrap (v5.3 & v6.0) across HTML, PHP, Node.js, React, Python, Django, Java, and modern web frameworks. Ingests Laws of UX (Hick, Fitts, Jakob, Zeigarnik, Miller), Jakob Nielsen's 10 Usability Heuristics, WCAG 2.2 AA accessibility, Peter Morville's UX Honeycomb, Eva Heller's Color Psychology, and corporate dashboard patterns by GM Charles Corrêa.
+description: Master UX/UI design, usability engineering, responsive interface architecture, cognitive ergonomics, and neurodiversity (ADHD & Autism Spectrum) using Bootstrap (v5.3 & v6.0) across HTML, PHP, Node.js, React, Python, Django, Java, and modern web frameworks. Ingests Laws of UX, Jakob Nielsen's 10 Usability Heuristics, WCAG 2.2 AA accessibility, Peter Morville's UX Honeycomb, and Eva Heller's Color Psychology. Use when designing user interfaces, reviewing usability, creating admin dashboards, building accessible forms, or preventing cognitive overload.
 ---
 
 # Bootstrap UX/UI Plus 🎨⚡
 > *by GM Charles Corrêa*  
-> **Status: Beta (v0.5.0-beta)**  
+> **Status: Beta (v0.6.0-beta)**  
 > **Target: Bootstrap v5.3.3 & v6.0 Alpha/Preview**
 
 ---
@@ -50,6 +50,10 @@ description: Master UX/UI design, usability engineering, responsive interface ar
     - Strictly follow [claude-motion](https://github.com/whaleyxbt/claude-motion) guidelines (GPU acceleration via `transform`/`opacity`, physics-based easing, and `prefers-reduced-motion` compliance).
 12. **Continuous Bootstrap & Skill Update Protocol:**
     - Checks upstream NPM for newer Bootstrap versions and compares local vs remote skill releases with mandatory user confirmation gate.
+13. **Google Chrome Modern Web Guidance & WebMCP Integration:**
+    - Mandatory adoption of [GoogleChrome/modern-web-guidance](https://github.com/GoogleChrome/modern-web-guidance) standards: Container Queries, Subgrid, Anchor Positioning, native `:user-invalid`, dynamic contrast, and WebMCP.
+    - Run `modern-web-guidance legacy-scan <path>` alongside `scripts/audit_ux_bootstrap.mjs` to eliminate deprecated CSS/DOM patterns.
+    - Install globally: `npm install -g modern-web-guidance` and `npx modern-web-guidance@latest install`.
 
 ---
 
@@ -130,4 +134,7 @@ A skill **Bootstrap UX/UI Plus** é uma suíte completa de engenharia de usabili
 > 2. **NVIDIA Auto-Ontology (`NVIDIA/auto-ontology`):**
 >    - Instalação: `npx skills@latest add NVIDIA/auto-ontology` (ou `pip install auto-ontology`)
 >    - **PROIBIDO INVENTAR NÚMEROS INEXISTENTES:** O agente JAMAIS deve alucinar estatísticas, portas arbitrárias, contagens fictícias, colunas inexistentes ou esquemas falsos. Se um número ou parâmetro não for conhecido com certeza matemática ou documental, declare incerteza e consulte as fontes reais.
+> 3. **Google Chrome Modern Web Guidance (`GoogleChrome/modern-web-guidance`):**
+>    - Instalação: `npx modern-web-guidance@latest install` ou globalmente `npm install -g modern-web-guidance`.
+>    - O agente DEVE executar `modern-web-guidance legacy-scan <caminho>` para auditar templates HTML/CSS contra APIs e polyfills obsoletos, e consultar padrões modernos com `modern-web-guidance search <tema>`.
 > - Consulte o guia canônico completo em [`docs-for-skill/security-audit-and-auto-ontology.md`](../docs-for-skill/security-audit-and-auto-ontology.md).
