@@ -30,6 +30,7 @@ All tasks must strictly follow the core engineering protocol before making any m
    npx skills@latest add mattpocock/skills --skill=grill-me
    npx skills@latest add multica-ai/andrej-karpathy-skills
    npx skills@latest add aihero-dev/skills-code-review
+npx skills@latest add noobygains/godmode
    ```
 2. **Author Alignment via `grill-me`:** Interrogate the author regarding the exact RPG system, sample batch (5–10 pages), established terms, and original fonts.
 3. **Andrej Karpathy Discipline:** Don't assume, don't hide confusion, make surgical modifications, keep code minimal and verify goals.
@@ -141,6 +142,7 @@ Antes de qualquer alteração, extração ou diagramação:
    npx skills@latest add mattpocock/skills --skill=grill-me
    npx skills@latest add multica-ai/andrej-karpathy-skills
    npx skills@latest add aihero-dev/skills-code-review
+npx skills@latest add noobygains/godmode
    ```
 2. **Entrevista Obrigatória com Grill-Me:** Interrogar o autor sobre sistema de RPG, lote inicial de teste (5-10 páginas), termos consagrados e fontes.
 3. **Protocolo Andrej Karpathy:** Não assumir nada, mudanças cirúrgicas, manter o código mínimo e simples, definir metas e verificar.

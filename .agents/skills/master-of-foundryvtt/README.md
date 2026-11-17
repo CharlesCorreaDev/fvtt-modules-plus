@@ -6,6 +6,157 @@
 
 ---
 
+## 🏛️ Topologia dos 12 Sub-agentes Especializados / 12-Subagent Architecture
+
+Para erradicar alucinações de API entre versões do Foundry, evitar bugs silenciosos e garantir código limpo, testado e documentado, o desenvolvimento é executado por uma **linha de montagem de 12 agentes especializados com Quality Gates**:
+
+```mermaid
+flowchart TD
+    User([Usuário / Desenvolvedor]) --> Showrunner[1. Showrunner & Orquestrador Mestre]
+    
+    Showrunner --> SpecHandoff[2. Engenheiro de Specs, PRs & Handoff]
+    
+    SpecHandoff -->|Arquitetura de Pacote| Scaffolder[3. Arquiteto de Software & Scaffolding FNF]
+    SpecHandoff -->|Matemática & Regras| RuleEngineer[4. Engenheiro de Regras & Analista RPG]
+    
+    RuleEngineer --> BackendDev[5. Engenheiro de Backend & TypeDataModel]
+    RuleEngineer --> FrontendDev[6. Engenheiro de Frontend & ApplicationV2]
+    
+    BackendDev --> CanvasDev[7. Especialista em Canvas, Macros & Sockets]
+    FrontendDev --> CanvasDev
+    
+    BackendDev & FrontendDev --> ApiIntegrator[8. Engenheiro de Integração & APIs de Módulos]
+    
+    CanvasDev & ApiIntegrator --> QAEvaluator[9. Engenheiro de QA & Testes Automatizados]
+    
+    QAEvaluator --> CodeReviewer[10. Auditor Geral de Código & Qualidade]
+    
+    CodeReviewer --> VersionGatekeeper[11. Guardião de Versões & Compatibilidade v8-v14]
+    
+    VersionGatekeeper --> TechnicalWriter[12. Redator Técnico & Documentador Bilíngue EN/PT-BR]
+    
+    TechnicalWriter --> SpecHandoff
+    SpecHandoff --> OutputFinal([Pacote Validado, Testado, Documentado e Pronto para Release])
+```
+
+| # | Especialista | Papel Principal | Entregáveis & Foco |
+|---|---|---|---|
+| **1** | **Showrunner & Orquestrador** | Triagem, entrevista inicial (`grill-me`) e roteamento | Exigência da versão-alvo do Foundry e sistema de RPG |
+| **2** | **Specs, PRs & Handoff** | Gestão do ciclo de vida e engenharia de release | RFCs técnicas, Pull Requests padronizadas e guias de handoff |
+| **3** | **Arquiteto & Scaffolding FNF** | Estruturação de projetos modernos | [Foundry Next Factory (FNF)](https://github.com/CharlesCorreaDev/fvtt-modules-plus/tree/main/foundry-next-factory) (`vite-ts-appv2` / `vanilla-esm`) |
+| **4** | **Engenheiro de Regras / Analista RPG** | Decodificação matemática de sistemas de RPG | Modelos AnyDice, atributos, progressão e condições de combate |
+| **5** | **Backend & TypeDataModel** | Modelagem de dados em classes puras sem HTML | `foundry.abstract.TypeDataModel`, campos estritos e migrações |
+| **6** | **Frontend & UI (ApplicationV2)** | Interface visual reativa e moderna | `ApplicationV2`, `HandlebarsApplicationMixin` e CSS isolado |
+| **7** | **Canvas, Macros & Sockets** | Interatividade visual e client-server RPC | PixiJS (`PrimaryCanvasGroup`), sockets seguros e Active Effects |
+| **8** | **Integração & APIs de Módulos** | Interoperabilidade com o ecossistema | Midi-QOL, Sequencer, Item Piles, Token Action HUD e exportação de API |
+| **9** | **QA & Testes Automatizados** | Confiabilidade em tempo de execução | Testes unitários com Vitest/Jest, validação de Hooks e fixtures |
+| **10** | **Auditor Geral de Código** | **REVISÃO SUPREMA DE TODOS OS AGENTES** | SAST, caça a memory leaks, anti-slop e Quality Gate Approval |
+| **11** | **Guardião de Versões & Compatibilidade** | Prevenção de quebra de contrato de API | Bloqueio de APIs obsoletas (v8 a v14+) e conformidade com políticas |
+| **12** | **Redator Técnico Bilíngue** | **Documentação estrita em EN e PT-BR** | READMEs, manuais, guias rápidos, JSDoc e i18n (`languages/*.json`) |
+
+Consulte os manuais detalhados em [`references/`](references/).
+
+---
+
+## 📖 Manual de Uso da Skill & Exemplos Práticos / Skill Usage Manual & Examples
+
+A skill opera de forma reativa através de linguagem natural ou comandos especializados. Ela é bilíngue por padrão (respondendo e documentando em **Português Brasileiro e Inglês**).
+
+### 1. Comandos Principais & Modos de Trabalho / Core Commands & Modes
+
+| Comando / Flag | Especialista Acionado | O Que Faz / What it Does |
+|---|---|---|
+| `/releases` ou `--check-releases` | **Guardião de Versões** | Consulta o portal oficial de releases, traduz o changelog e compara com sua versão instalada. |
+| `/novo-modulo` ou `/novo-sistema` | **Arquiteto & Scaffolding FNF** | Executa o Foundry Next Factory para criar projetos em `vite-ts-appv2` ou `vanilla-esm`. |
+| `/datamodel` | **Backend Dev** | Gera classes `foundry.abstract.TypeDataModel` com validação de campos tipados. |
+| `/sheet-v2` | **Frontend Dev** | Gera fichas reativas com `ApplicationV2`, `HandlebarsApplicationMixin` e CSS namespaced. |
+| `/macro` ou `/socket` | **Canvas & Sockets Dev** | Gera macros assíncronas seguras, RPC cliente-servidor e integração com PixiJS. |
+| `/integrar-api` | **Integração de APIs** | Configura integração defensiva com Midi-QOL, Sequencer, Item Piles ou exporta API própria. |
+| `/testar` ou `/qa` | **QA & Testes Automatizados** | Gera suites de testes unitários com Vitest para modelos de dados e Hooks. |
+| `/revisar-codigo` | **Auditor Geral de Código** | Executa SAST estático contra memory leaks (`Hooks.off`), anti-slop e emite parecer de aprovação. |
+| `/spec` ou `/pr` | **Specs, PRs & Handoff** | Cria RFC técnica, Pull Request padronizada e guia de handoff sob **SemVer 2.0.0 PT-BR**. |
+| `/documentar` | **Redator Técnico Bilíngue** | Gera documentação espelhada obrigatória em Inglês e Português (`README`, JSDoc, i18n). |
+
+---
+
+### 2. Exemplos Práticos Canônicos / Practical Examples
+
+#### Exemplo 1: Verificação de Novas Releases do Foundry VTT (`/releases`)
+
+**Entrada do Desenvolvedor:**
+> `/releases Tenho o Foundry v14.369 instalado. Tem alguma atualização nova?`
+
+**Ação & Resposta da Skill:**
+> Executa `python scripts/check_releases.py --installed 14.369` e responde de forma bilíngue:
+> 
+> 🚨 **ATENÇÃO: Nova Release Oficial Disponível no Foundry VTT!**  
+> **Versão Detectada:** Version 14 Stable (Release 14.370) — Lançada em 02/11/2026  
+> **Link Oficial:** [foundryvtt.com/article/v14-release-14-370/](https://foundryvtt.com/article/v14-release-14-370/)  
+> 
+> **Resumo Traduzido (PT-BR):**
+> 1. **Segurança Crítica:** Atualizações urgentes no Node.js upstream para mitigar vulnerabilidades remotas.
+> 2. **Autonomia de Senhas:** Jogadores agora podem definir e alterar suas próprias senhas diretamente na janela de Configurações de Usuário.
+> 3. **Ferramenta Grid Space:** Controle cirúrgico para incluir ou excluir quadrados/hexágonos individuais da grade em Scene Regions e Measured Templates.
+> 
+> **Comparativo:** Sua versão instalada é a `v14.369`. A versão oficial atual é a `v14.370`.  
+> 👉 **Recomendação:** Faça backup da pasta `UserData` e atualize sua instância para aplicar os patches de segurança.
+
+---
+
+#### Exemplo 2: Criar um TypeDataModel v14 Seguro sem template.json (`/datamodel`)
+
+**Entrada do Desenvolvedor:**
+> `/datamodel Crie o modelo de dados de Personagem para um RPG de horror cósmico no Foundry v14.`
+
+**Saída Canônica do Backend Dev:**
+```javascript
+/**
+ * Character DataModel for Cosmic Horror System (Foundry v14+).
+ * Modelo de Dados de Personagem para Sistema de Horror Cósmico (Foundry v14+).
+ */
+export class PersonagemDataModel extends foundry.abstract.TypeDataModel {
+  static defineSchema() {
+    const fields = foundry.data.fields;
+    return {
+      atributos: new fields.SchemaField({
+        vigor: new fields.NumberField({ required: true, integer: true, min: 1, max: 20, initial: 10 }),
+        intelecto: new fields.NumberField({ required: true, integer: true, min: 1, max: 20, initial: 10 })
+      }),
+      sanidade: new fields.SchemaField({
+        valor: new fields.NumberField({ required: true, integer: true, min: 0, initial: 50 }),
+        maximo: new fields.NumberField({ required: true, integer: true, min: 1, initial: 100 })
+      }),
+      traumas: new fields.ArrayField(new fields.StringField())
+    };
+  }
+
+  prepareDerivedData() {
+    // Cálculo seguro sem risco de NaN
+    this.sanidade.maximo = Math.max(10, this.atributos.intelecto * 5);
+    this.sanidade.valor = Math.min(this.sanidade.valor, this.sanidade.maximo);
+  }
+}
+```
+
+---
+
+#### Exemplo 3: Auditoria Geral de Código e Caça a Memory Leaks (`/revisar-codigo`)
+
+**Entrada do Desenvolvedor:**
+> `/revisar-codigo Revise este trecho de código de um HUD customizado.`
+
+**Parecer do Revisor Supremo (Auditor Geral de Código):**
+> 🚨 **PARECER DE QUALIDADE: REJEITADO COM APONTAMENTOS**
+> 
+> 1. **Vazamento de Memória Detectado (`Hooks.on` sem `Hooks.off`):**  
+>    O código registra `Hooks.on("controlToken", ...)` dentro do método `render()` da janela. Como o método `render()` é executado múltiplas vezes a cada atualização de estado, centenas de listeners duplicados são acumulados no garbage collector do navegador.  
+>    *Correção:* Registre o hook uma única vez no `Hooks.once("ready")` ou limpe o listener no método `_onClose()`.
+> 2. **Violação de CSS Namespacing:**  
+>    A folha de estilo altera a classe global `.window-content`. Isso corrompe as fichas de todos os outros módulos instalados no mundo.  
+>    *Correção:* Encapsule o CSS sob `.meu-hud-customizado .window-content`.
+
+---
+
 ## 🇺🇸 English
 
 ### 📌 Overview & Practical Authority

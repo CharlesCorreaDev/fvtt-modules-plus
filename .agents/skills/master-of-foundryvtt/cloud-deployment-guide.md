@@ -12,6 +12,7 @@ Este guia fornece o passo a passo completo, scripts de automação, firewall e c
 ## 🛠️ Skills Oficiais Recomendadas para Operações Cloud
 Para automatizar o provisionamento de infraestrutura, IAM, redes e segurança em nuvem:
 - **Google Cloud:** `npx skills@latest add github.com/google/skills` (oficial do Google para GCE, Cloud Run, IAM e Well-Architected).
+npx skills@latest add noobygains/godmode
 - **Amazon Web Services (AWS):** `aws-skills` / AWS CLI oficial para EC2 e VPC.
 - **Oracle Cloud (OCI):** OCI CLI oficial / Terraform OCI Provider.
 - **Microsoft Azure:** Azure CLI (`az vm create`) e Azure MCP.

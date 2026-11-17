@@ -7,6 +7,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ---
 
+## [0.23.0-beta] - 2026-11-16
+
+### Added / Adicionado
+- **Reformulação Arquitetural em 12 Sub-agentes Federados com Quality Gates**:
+  - `Showrunner & Orquestrador Mestre`: Triagem e entrevista inicial (`grill-me`).
+  - `Engenheiro de Specs, PRs & Handoff`: Especificações técnicas (RFCs), versionamento estrito via [SemVer 2.0.0 PT-BR](https://semver.org/lang/pt-BR/) (MAJOR.MINOR.PATCH com regras claras para quebra de esquemas de dados, novas funcionalidades e correções de bugs), templates de PR padronizadas e guias de handoff ([`references/specs-prs-e-handoff.md`](references/specs-prs-e-handoff.md)).
+  - `Arquiteto de Software & Scaffolding FNF`: Inicialização moderna via Foundry Next Factory.
+  - `Engenheiro de Regras & Analista RPG`: Decodificação matemática e AnyDice de 60+ sistemas.
+  - `Engenheiro de Backend & TypeDataModel`: Modelagem estrita de dados em classes puras.
+  - `Engenheiro de Frontend & UI (ApplicationV2)`: Interfaces reativas com CSS isolado.
+  - `Especialista em Canvas, Macros & Sockets`: PixiJS (`PrimaryCanvasGroup`), RPC e Active Effects.
+  - `Engenheiro de Integração & APIs de Módulos`: Interoperabilidade com Midi-QOL, Sequencer, Item Piles e exportação de APIs ([`references/integracao-apis-modulos.md`](references/integracao-apis-modulos.md)).
+  - `Engenheiro de QA & Testes Automatizados`: Vitest/Jest, testes unitários de derivação e hooks ([`references/qa-e-testes-automatizados.md`](references/qa-e-testes-automatizados.md)).
+  - `Auditor Geral de Código & Qualidade`: **Revisão suprema do trabalho de todos os agentes** contra vazamentos de memória e anti-slop.
+  - `Guardião de Versões & Compatibilidade`: Filtro temporal estrito de APIs v8-v14 e conformidade com políticas oficiais.
+  - `Redator Técnico & Documentador Bilíngue (EN/PT-BR)`: Documentação técnica com paridade estrita em inglês e português ([`references/padrao-documentacao-bilingue.md`](references/padrao-documentacao-bilingue.md)).
+- **Manual Mestre de Sub-agentes**: Criação de [`references/arquitetura-subagentes-foundry.md`](references/arquitetura-subagentes-foundry.md).
+
+---
+
 ## [0.22.0-beta] - 2026-11-13
 
 ### Added / Adicionado
