@@ -1,11 +1,11 @@
-# Arquitetura dos 12 Sub-agentes Especializados — Master of Foundry VTT
+# Arquitetura dos 14 Sub-agentes Especializados — Master of Foundry VTT
 ## Parte Integrante da Skill Master of Foundry VTT — by GM Charles Corrêa
 
-A suíte **Master of Foundry VTT** opera sob o padrão de **Engenharia Federada em Linha de Montagem com Quality Gates**. Em vez de sobrecarregar um único agente que tenta simultaneamente decodificar livros de RPG, escrever esquemas de banco de dados, renderizar interfaces, criar testes e traduzir documentação, o desenvolvimento é distribuído entre **12 Especialistas Virtuais**.
+A suíte **Master of Foundry VTT** opera sob o padrão de **Engenharia Federada em Linha de Montagem com Quality Gates**. Em vez de sobrecarregar um único agente que tenta simultaneamente decodificar livros de RPG, escrever esquemas de banco de dados, renderizar interfaces, criar testes e traduzir documentação, o desenvolvimento é distribuído entre **14 Especialistas Virtuais**.
 
 ---
 
-## 🏛️ Topologia dos 12 Sub-agentes
+## 🏛️ Topologia dos 14 Sub-agentes
 
 ```mermaid
 flowchart TD
@@ -30,10 +30,12 @@ flowchart TD
     
     CodeReviewer --> VersionGatekeeper[11. Guardião de Versões & Compatibilidade v8-v14]
     
-    VersionGatekeeper --> TechnicalWriter[12. Redator Técnico & Documentador Bilíngue EN/PT-BR]
+    VersionGatekeeper --> CloudDevOps[12. Engenheiro Cloud & Deploy Free Tier]
+    CloudDevOps --> SecOpsKernel[13. Guardião de Segurança, Kernel & Runtimes]
+    SecOpsKernel --> TechnicalWriter[14. Redator Técnico & Documentador Bilíngue EN/PT-BR]
     
     TechnicalWriter --> SpecHandoff
-    SpecHandoff --> OutputFinal([Pacote Validado, Testado, Documentado e Pronto para Release])
+    SpecHandoff --> OutputFinal([Pacote Validado, Blindado, Testado, Documentado e Pronto para Release])
 ```
 
 ---

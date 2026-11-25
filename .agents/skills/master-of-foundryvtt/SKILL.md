@@ -1,14 +1,14 @@
 ---
 name: master-of-foundryvtt
-description: Master development, administration, and automation suite for Foundry Virtual Tabletop (v8 to v14.370 Stable) by GM Charles Corrêa. Orquestra 12 subagentes especializados cobrindo especificações técnicas (Specs/PRs/Handoff), scaffolding moderno via Foundry Next Factory (FNF), engenharia de regras de RPG (60+ sistemas), backend com TypeDataModel, frontend reativo com ApplicationV2, Canvas/PixiJS, integração de APIs de módulos (Midi-QOL, Sequencer, Item Piles), QA com Vitest/Jest, auditoria de código com SAST, verificação de releases e documentação técnica bilíngue (EN/PT-BR). Ingests KB, Release Notes, Policies, API docs across all versions e servidor MCP nativo oficial.
+description: Master development, administration, and automation suite for Foundry Virtual Tabletop (v8 to v14.370 Stable) by GM Charles Corrêa. Orquestra 14 subagentes especializados cobrindo especificações técnicas (Specs/PRs/Handoff), scaffolding moderno via Foundry Next Factory (FNF), engenharia de regras de RPG (60+ sistemas), backend com TypeDataModel, frontend reativo com ApplicationV2, Canvas/PixiJS, integração de APIs de módulos (Midi-QOL, Sequencer, Item Piles), QA com Vitest/Jest, auditoria de código com SAST, verificação de releases e documentação técnica bilíngue (EN/PT-BR). Ingests KB, Release Notes, Policies, API docs across all versions e servidor MCP nativo oficial.
 ---
 
 # Master of Foundry VTT 🎲⚡
-> *by GM Charles Corrêa* • **Suíte Multiagente para Foundry VTT (v8 até v14.370 Stable)**
+> *by GM Charles Corrêa* • **Suíte Multiagente com 14 Especialistas para Foundry VTT (v8 até v14.370 Stable)**
 
 ---
 
-## 🏛️ Topologia dos 12 Subagentes Federados
+## 🏛️ Topologia dos 14 Subagentes Federados
 
 Para erradicar alucinações de API entre versões do Foundry e garantir código limpo e testado, a suíte opera em pipeline modular:
 
@@ -79,7 +79,10 @@ npx skills@latest add NVIDIA/auto-ontology
 - [Cheatsheet do Desenvolvedor](cheatsheet.md): Hooks essenciais, CRUD de documentos e canvas.
 - [Glossário Canônico](glossary.md): Definições técnicas (Document, DataModel, ApplicationV2).
 - [Padrões de Arquitetura](patterns.md): Exemplos canônicos de TypeDataModel e ApplicationV2.
-- [Deployment e Cloud](cloud-deployment-guide.md): Guia de deploy em Docker, SSL e servidores cloud.
+- [Deployment e Cloud](cloud-deployment-guide.md): Guia de deploy nas 4 nuvens (Oracle, AWS, GCP, Azure, Hostinger), Docker e SSL.
+- [Diretriz de Segurança do Kernel Linux & Runtimes](guides/security-kernel-runtimes.md) · [English](guides/security-kernel-runtimes-en.md): Mitigação de NoisyTCP, Vghost, Fragnesia, Copyfail, DirtyClone/COW e hardening de Node.js/Caddy.
+- [Catálogo de Subdomínios & DDNS Gratuitos](guides/free-subdomains-ddns.md) · [English](guides/free-subdomains-ddns-en.md): 13 serviços gratuitos (DuckDNS, Dynu, FreeDNS, dynv6, DDNS Grátis, YDNS, ClouDNS, deSEC, etc.) e redes Mesh (Tailscale/ZeroTier).
+- [Scripts de Automação Remota SSH](scripts/install_remote_foundry.py): Instalador interativo (`install_remote_foundry.py`) e gerenciador remoto (`manage_remote_foundry.py`).
 
 ### 📖 Guias Temáticos de Desenvolvimento (guides/)
 - [Criação de Módulos](guides/creating-modules.md) • [Criação de Sistemas](guides/creating-systems.md) • [Publicação de Pacotes](guides/publishing-packages.md)

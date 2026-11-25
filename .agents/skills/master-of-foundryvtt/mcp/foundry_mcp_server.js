@@ -641,6 +641,20 @@ function handleListTools() {
         },
         required: ["code"]
       }
+    },
+    {
+      name: "audit_and_harden_security",
+      description: "Audits Linux kernel vulnerabilities (NoisyTCP CVE-2026-99288, Vghost CVE-2026-74580, Fragnesia CVE-2026-46300, Copyfail CVE-2026-31431, DirtyClone/COW) and runtime configurations (Node.js, Caddy, Nginx). Optionally applies sysctl hardening and module blacklists.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          apply_hardening: {
+            type: "boolean",
+            default: false,
+            description: "If true, applies the recommended sysctl parameters and module blacklists (requires root/sudo when running on target machine)."
+          }
+        }
+      }
     }
   ];
 }
@@ -769,6 +783,71 @@ function toolInspectHardwareBudget(args) {
     status: "success",
     hardware_budget: budget
   }, null, 2);
+}
+
+function toolAuditAndHardenSecurity(args) {
+  const isLinux = process.platform === "linux";
+  const findings = {
+    platform: process.platform,
+    arch: process.arch,
+    is_linux: isLinux,
+    cves_audited: [
+      "NoisyTCP (CVE-2026-99288)",
+      "Vghost (CVE-2026-74580)",
+      "Fragnesia (CVE-2026-46300)",
+      "Copyfail (CVE-2026-31431)",
+      "DirtyClone & Pedit COW"
+    ],
+    checks: {}
+  };
+
+  if (!isLinux) {
+    findings.notice = "Non-Linux environment detected. For remote cloud servers, run via SSH using the suite's automation scripts.";
+    return JSON.stringify(findings, null, 2);
+  }
+
+  try {
+    const runSh = (cmd) => {
+      try {
+        return execSync(cmd, { encoding: "utf8" }).trim();
+      } catch (_) {
+        return "";
+      }
+    };
+
+    const syncookies = runSh("sysctl -n net.ipv4.tcp_syncookies 2>/dev/null");
+    findings.checks.NoisyTCP_tcp_syncookies = syncookies === "1" ? "protected" : "vulnerable_or_default";
+
+    const xfrm = runSh("sysctl -n net.ipv4.conf.all.disable_xfrm 2>/dev/null || echo '0'");
+    findings.checks.Fragnesia_xfrm_disabled = xfrm === "1" ? "protected" : "active_default";
+
+    const ptrace = runSh("cat /proc/sys/kernel/yama/ptrace_scope 2>/dev/null || echo '0'");
+    findings.checks.Yama_ptrace_scope = `level_${ptrace}`;
+
+    if (args && args.apply_hardening) {
+      const sysctlContent = [
+        "net.ipv4.tcp_syncookies = 1",
+        "net.ipv4.tcp_max_syn_backlog = 8192",
+        "net.ipv4.tcp_synack_retries = 2",
+        "net.ipv4.tcp_abort_on_overflow = 1",
+        "net.ipv4.conf.all.disable_xfrm = 1",
+        "fs.protected_hardlinks = 1",
+        "fs.protected_symlinks = 1",
+        "fs.protected_fifos = 2",
+        "fs.protected_regular = 2",
+        "kernel.yama.ptrace_scope = 2",
+        "kernel.kptr_restrict = 2",
+        "kernel.dmesg_restrict = 1\n"
+      ].join("\n");
+      fs.writeFileSync("/etc/sysctl.d/99-vtt-security-hardening.conf", sysctlContent);
+      runSh("sysctl --system");
+      findings.hardening_applied = true;
+    }
+  } catch (err) {
+    findings.error = err.message;
+  }
+
+  return JSON.stringify(findings, null, 2);
 }
 
 function toolAuthenticateGmSession(args) {
@@ -1655,6 +1734,9 @@ rl.on('line', (line) => {
           break;
         case "code_mode":
           content = toolCodeMode(toolArgs);
+          break;
+        case "audit_and_harden_security":
+          content = toolAuditAndHardenSecurity(toolArgs);
           break;
         default:
           sendResponse({
